@@ -1,0 +1,16 @@
+{
+  "name": "sergey-dev-web",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
+  "dependencies": {
+    "sergey": "0.0.13"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "sergey",
+    "dev": "sergey --watch"
+  },
+  "author": "Mauricio Jourdán",
+  "license": "MIT"
+}

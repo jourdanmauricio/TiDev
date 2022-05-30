@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modelo de caja en CSS</title>
+  <meta name="description"
+    content="Esta página contiene los fundamentos básicos de CSS, utilízala como guía de referencia">
+  <link rel="stylesheet" href="/css/menu.css">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/css/positions.css">
+  <!-- CDN Material+Icons -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+</head>
+
+<body>
+
+  <!-- https://www.youtube.com/watch?v=K3xmRF8ab1o&list=PLvq-jIkSeTUZYcX9SYwVe7f66afwd9qk_&index=2 -->
+  <header>
+    <nav class="menu-nav">
+      <a href="/index.html" class="enlace">
+        <label class="logo">Aprende</label>
+      </a>
+      <input type="checkbox" id="check">
+      <label for="check" class="checkbtn">
+        <i class="material-icons">menu</i>
+      </label>
+      <ul class="menu">
+        <li><a href="/index.html">Inicio</a></li>
+        <li><a href="/pages/html/html.html">HTML</a></li>
+        <li><a class="active" href="/pages/css/css.html">CSS</a></li>
+        <li><a href="/pages/js/javascript.html">JavaScript</a></li>
+        <li><a href="/pages/contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+  <div class="sticky">Caja sticky en body</div>
+  <main class="container">
+    <section>
+      <h1>Posicionamiento en CSS</h1>
+
+      <article>
+        <p>Las propiedades FLOAT y POSITION nos permiten modificar la posición natural de cualquier elemento del
+          documento
+          HTML.</p>
+        <p>El navegador coloca cada elemento teniendo en cuenta el orden en el que aparece en el documento y su tipo de
+          visualización dependiendo si es un elemento de línea o de bloque.</p>
+        <p>Con FLOAT y POSITION podemos modificar este comportamiento.</p>
+        <p><u>Elementos Flotantes</u></p>
+        <ul>
+          <li>float: Convierte un elemento en flotante desplazándolo hasta la zona más a la izquierda o más a la derecha
+            de la posición en la que originalmente se encontraba</li>
+          <li>clear: Limpia la flotación (left, right, both)</li>
+        </ul>
+        <p><u>Tipos de Posicionamiento</u></p>
+
+        <ul>
+          <li>static (default)</li>
+          <li>relative</li>
+          <li>absolute</li>
+          <li>fixed</li>
+          <li>sticky</li>
+        </ul>
+
+        <p>Para mover los elementos posicionados se activan las propiedades:</p>
+
+        <ul>
+          <li>top (vertical - eje Y)</li>
+          <li>bottom (vertical - eje Y)</li>
+          <li>left (horizontal - eje X)</li>
+          <li>right (horizontal - eje X)</li>
+          <li>z-index (profundidad - eje Z)</li>
+        </ul>
+
+        <p>Las propiedades top y left van a tener preferencia por sobre bottom y right respectivamente.
+          Estás 5 propiedades no funcionan con el valor de static.</p>
+
+      </article>
+      <hr>
+      <article>
+        <h2>Posicionamiento static</h2>
+        <p>static: Es el valor por defecto, significa que el elemento respeta el flujo del documento HTML, por lo que no
+          se puede mover ni posicionar.</p>
+
+        <pre>
+&lt;div class="static"&gt;Caja Estática&lt;/div&gt;
+/* CSS */
+.static {
+  background-color: yellow;
+  position: static;
+  top: 10px;
+  left: 10px;
+}
+</pre>
+
+        <div class="static">Caja Estática</div>
+
+        <p><mark> A pesar de asignar las propiedades top: 10px y left: 10px; la caja no se mueve porque es una caja
+            estática. No incluimos la propiedad position: static porque el valor por default de las cajas.</mark></p>
+      </article>
+
+      <hr>
+      <article>
+        <h2>Posicionamiento relative</h2>
+        <p>relative: El elemento conserva sus dimensiones y posición original en el flujo del documento. Si se mueve
+          toma como referencia su posición original.</p>
+
+        <mark>Un error común al asignar la propiedad top: 50px; es pensar que se moverá 50px hacia arriba. El
+          valor top no indica hacia donde debe desplazarse sino que margen tomará como referencia para el despazamiento.
+          En este caso, se moverá 50px desde el margen top hacia abajo. Con left: 50px; la caja se despazará a la
+          derecha. Con right la caja se moverá a la izquierda. Y con bottom subirá. </mark>
+
+        <p>También se debe considerar que el elemento se desplaza pero "conserva" su espacio original en el documento.
+        </p>
+
+        <pre>
+&lt;div class="relative"&gt;Caja Relativa&lt;/div&gt;
+
+/* CSS */
+.relative {
+  background-color: turquoise;
+  position: relative;
+  width: 300px;
+  height: 50px;
+  top: -50px;
+  left: 200px;
+  bottom: 50px;
+  right: 50px; 
+
+}
+</pre>
+
+        <div class="relative">Caja Relativa</div>
+
+        <p>Si utilizamos la propiedad bottom y top, bottom será ignorada. Lo mismo ocurre con left y right. Right será
+          ignorada.</p>
+      </article>
+
+      <hr>
+      <article>
+        <h2>Posicionamiento absolute</h2>
+        <p>absolute: El elemento pierde sus dimensiones y posición original en el flujo del documento. Si se mueve puede
+          tomar como referencia 2 elementos:</p>
+        <ul>
+          <li>El primer ancestro con posicionamiento relativo</li>
+          <li>Si no encuentra un ancestro relativo, se mueve respecto del documento HTML</li>
+        </ul>
+
+        <pre>
+&lt;div class="absolute"&gt;Caja Absoluta&lt;/div&gt;
+&lt;section class="relative-parent"&gt;
+  &lt;div class="absolute-child"&gt;
+    Caja Absoluta con Ancestro Relativo
+  &lt;/div&gt;
+&lt;/section&gt;
+
+/* CSS */
+.absolute {
+  background-color: tomato;
+  position: absolute;
+  width: 200px;
+  height: 50px;
+  /* top: 0;
+  left: 0; */
+  /* top: 100px;
+  left: 100px; */
+  right: 0;
+  bottom: 0;
+}
+
+.relative-parent {
+  background-color: khaki;
+  position: relative;
+  width: 600px;
+  height: 50px;
+  top: 50px;
+  left: 50px;
+}
+
+</pre>
+        <div class="absolute">Caja Absoluta</div>
+
+        <section class="relative-parent">
+          <div class="absolute-child">
+            Caja Absoluta con Ancestro Relativo
+          </div>
+        </section>
+
+        <p>Cuando movemos un elemento que posee la propiedad absolute, el navegador lo posicionará en relación al
+          ancestro que posea la propiedad relative. En caso de no encontrar ninguno lo posicionará según el elemento
+          html. Por otro lado, el elemento perderá su posición original en el documento y su tamaño. Por eso es
+          importante asignarle width y height.</p>
+      </article>
+      <hr>
+      <article>
+        <h2>Posicionamiento fixed</h2>
+        <p>El elemento pierde sus dimensiones y posición original en el flujo del documento. Si se mueve toma como
+          referencia el docuemento HTML y queda fijo en la posición, cuando el scroll se mueva, el elemento no lo hará,
+          queda fijo.</p>
+
+        <pre>
+&lt;div class="fixed">Caja fija&lt;/div&gt;
+
+/* CSS */
+.fixed {
+  background-color: lightgreen;
+  position: fixed;
+  width: 300px;
+  height: 50px;
+  /* right: 20px;
+  bottom: 10px; */
+  top: 30px;
+  left: 450px;
+}
+</pre>
+        <div class="fixed">Caja fija en section</div>
+
+        <p>Como el elemento queda fijo en la pantalla es utilizado para posicionar menus en la parte superior de la
+          pantalla.</p>
+      </article>
+      <hr>
+      <article class="sticky-parent">
+        <h2>Posicionamiento sticky</h2>
+        <div class="sticky-child">Caja sticky</div>
+        <p>Sticky: es una combinación entre posicionamiento relative y fixed, en este posicionamiento las propiedades
+          top, right, bottom y left no mueven el elemento.</p>
+        <p>Sirve como punto de referencia, mientras el scroll no llegue a ese valor, el elemento se comporta como
+          relative cuando llega al elemento se comporta como fixed.</p>
+        <p><mark>Para que este compartamiento funcione el elemento sticky debe ser hijo directo del body o su elemento
+            contenedor debe tener dimensiones definidas y sólo será sticky dentro de las dimensiones de su contenedor
+            padre.</mark></p>
+
+        <pre>
+&lt;div class="sticky-child"&gt;Caja sticky&lt;/div&gt;
+
+/* CSS */
+.sticky {
+  background-color: lightskyblue;
+  position: sticky;
+  top: 0px;
+}
+
+.sticky-parent {
+  border: thin solid black;
+  width: 100%;
+  height: 600px;
+}
+
+.sticky-child {
+  background-color: lightpink;
+  position: sticky;
+  top: 20px;
+}
+</pre>
+        <p>Para demostrar el comporamiento de sticky dentro de un padre article asignamos dimensiones al article y
+          border (para visiualizarlo) y definimos que el elemento sticky se fije en 20px;. En cuanto el scroll llega al
+          final del padre, el elemento deja de ser fixed y pasa a relative.</p>
+      </article>
+      <hr>
+      <article>
+        <h2>z-index</h2>
+        <p>Nos permite controlar la profundidad de los elementos posicionados, su valor por defecto es auto, acepta
+          números positivos, negativos y cero.</p>
+
+        <p>A mayor valor, el elemento estará mas al frente, a menor valor, más al fondo. Conceptualmente podemos
+          asociarlo a números de capas en diseño.</p>
+
+        <p><mark>Un elemento padre nunca podrá estar sobre sus elementos hijos, sin embargo los elementos hijos si
+            pueden asignándoles un z-index negativo, pero el elemento padre no debe tener asigano un z-index.</mark></p>
+
+        <pre>
+&lt;div class="z-index1"&gt;Probando z-index caja 1&lt;/div&gt;
+&lt;div class="z-index2"&gt;Probando z-index caja 2&lt;/div&gt;
+
+/* CSS */
+.z-index1,
+.z-index2 {
+  background-color: mediumaquamarine;
+  border: thin solid black;
+  width: 200px;
+  height: 200px;
+}
+.z-index1 {
+  position: relative;
+  z-index: 5;
+}
+.z-index2 {
+  position: relative;
+  top: -100px;
+  left: 100px;
+  z-index: 5;
+}
+</pre>
+        <div class="z-index1">Probando z-index caja 1</div>
+        <div class="z-index2">Probando z-index caja 2</div>
+
+        <p>La propiedad z-index funciona sobre elementos que posean posicionamiento diferente a static.</p>
+        <p>Cuando el z-index de los elementos es auto la preferencia se define según el flujo html.</p>
+        <p>Cuando utilizamos la propiedad z-index es recomendable no trabajar con valores consecutivos por si luego
+          tenemos que insertar elementos intermedios.</p>
+      </article>
+    </section>
+    <hr>
+    <a href="/pages/css/css.html#indice">👆</a>
+  </main>
+</body>
+
+</html>

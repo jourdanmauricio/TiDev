@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tablas en CSS</title>
+  <meta name="description"
+    content="Esta página contiene los fundamentos básicos de CSS, utilízala como guía de referencia">
+  <link rel="stylesheet" href="/css/menu.css">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/css/tables.css">
+  <!-- CDN Material+Icons -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+</head>
+
+<body>
+  <!-- https://www.youtube.com/watch?v=K3xmRF8ab1o&list=PLvq-jIkSeTUZYcX9SYwVe7f66afwd9qk_&index=2 -->
+  <header>
+    <nav class="menu-nav">
+      <a href="/index.html" class="enlace">
+        <label class="logo">Aprende</label>
+      </a>
+      <input type="checkbox" id="check">
+      <label for="check" class="checkbtn">
+        <i class="material-icons">menu</i>
+      </label>
+      <ul class="menu">
+        <li><a href="/index.html">Inicio</a></li>
+        <li><a href="/pages/html/html.html">HTML</a></li>
+        <li><a class="active" href="/pages/css/css.html">CSS</a></li>
+        <li><a href="/pages/js/javascript.html">JavaScript</a></li>
+        <li><a href="/pages/contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main class="container">
+    <h1>Tablas en CSS</h1>
+
+    <section>
+
+      <p>Veremos algunas propiedades relacionadas con las tablas.</p>
+
+      <h3>border-collapse;</h3>
+      <p>Define si los bordes de la tabla se deben separar o colapsar.</p>
+      <ul>
+        <li>border-collapse: separate; Cada celda de la tabla mostrará sus propios bordes. En este ejemplo, cada celda
+          tiene un ancho de borde de 4px. Como resultado, el borde entre dos celdas será de 8 px.</li>
+        <li>border-collapse: collapse; Las celdas de tabla adyacentes fusionarán sus bordes. La celda que aparece
+          primero en el código "ganará": sus bordes enmascararán los de las siguientes celdas.</li>
+      </ul>
+
+      <h3>empty-cells</h3>
+
+      <p>La propiedad empty-cells selecciona celdas de tabla vacías con el fin de especificar si mostrar o
+        no bordes y fondos en ellas. En otras palabras, le dice al navegador si debe o no dibujar bordes alrededor de
+        una celda de la tabla o rellenar el fondo cuando esa celda no tiene contenido.</p>
+
+      <p>Esta es una propiedad interesante porque le da a CSS la capacidad de verificar el marcado HTML en busca de
+        contenido dentro de una tabla y responder en consecuencia. Normalmente no pensamos en CSS como un lenguaje
+        dinámico, pero esta es una instancia en la que se acerca bastante. Un buen caso de uso para celdas vacías podría
+        ser una situación en la que no sepa si una tabla contendrá o no puntos de datos vacíos y decida ocultarlos.</p>
+
+      <ul>
+        <li>empty-cells: show; mostrar un borde y un fondo en una celda vacía</li>
+        <li>empty-cells: hide; no muestra un borde o fondo en una celda vacía</li>
+        <li>empty-cells: inherit; hereda el valor de la propiedad del elemento padre</li>
+        <li>empty-cells: initial; usar el valor predeterminado definido para la propiedad</li>
+        <li>empty-cells: unset; resetea la propiedad a su valor heredado</li>
+      </ul>
+
+      <h3>border-spacing</h3>
+
+      <p>Es la distancia entre los bordes de celdas adyacentes (sólo para el modelo de separación de borde). Ésta
+        propiedad sólo se aplica cuando border-collapse es especificado en separate.</p>
+
+      <p>El espaciado de borde también se utiliza en los bordes exteriores de las tablas donde la distancia entre los
+        bordes de tabla y las celdas en la primera/última columna o fila es la suma de los espaciados (horizontales o
+        verticales) y de los espaciados (arriba, derecho, abajo o izquierdo) en una tabla.</p>
+
+      <pre>
+border-collapse: separate;
+border-spacing: 10px 5px;
+</pre>
+
+      <pre>
+&lt;table class="table"&gt;
+  &lt;tr&gt;
+    &lt;th&gt;A&lt;/th&gt;
+    &lt;th&gt;B&lt;/th&gt;
+    &lt;th&gt;C&lt;/th&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;1&lt;/td&gt;
+    &lt;td&gt;2&lt;/td&gt;
+    &lt;td&gt;3&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;4&lt;/td&gt;
+    &lt;td&gt;5&lt;/td&gt;
+    &lt;td&gt;6&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;7&lt;/td&gt;
+    &lt;td&gt;&lt;/td&gt;
+    &lt;td&gt;9&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;  
+
+/* CSS */
+.table {
+  font-size: 2rem;
+  border-collapse: collapse;
+  border-collapse: separate; /* Default */
+  empty-cells: show; /* Default */
+  empty-cells: hide;
+}
+
+.table,
+th,
+td {
+  border: medium solid teal;
+  border-spacing: 1rem;
+}
+</pre>
+      <table class="table">
+        <tr>
+          <th>A</th>
+          <th>B</th>
+          <th>C</th>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>2</td>
+          <td>3</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>5</td>
+          <td>6</td>
+        </tr>
+        <tr>
+          <td>7</td>
+          <td></td>
+          <td>9</td>
+        </tr>
+      </table>
+    </section>
+    <hr>
+    <a href="/pages/css/css.html#indice">👆</a>
+
+  </main>
+</body>
+
+</html>

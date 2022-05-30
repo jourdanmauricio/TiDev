@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Estilos de Fuentes y Textos</title>
+  <meta name="description"
+    content="Esta página contiene los fundamentos básicos de CSS, utilízala como guía de referencia">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet"
+    href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+  <link rel="stylesheet" href="/css/menu.css">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/css/fonts-texts.css">
+  <!-- CDN Material+Icons -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+</head>
+
+<body>
+
+  <!-- https://www.youtube.com/watch?v=K3xmRF8ab1o&list=PLvq-jIkSeTUZYcX9SYwVe7f66afwd9qk_&index=2 -->
+  <header>
+    <nav class="menu-nav">
+      <a href="/index.html" class="enlace">
+        <label class="logo">Aprende</label>
+      </a>
+      <input type="checkbox" id="check">
+      <label for="check" class="checkbtn">
+        <i class="material-icons">menu</i>
+      </label>
+      <ul class="menu">
+        <li><a href="/index.html">Inicio</a></li>
+        <li><a href="/pages/html/html.html">HTML</a></li>
+        <li><a class="active" href="/pages/css/css.html">CSS</a></li>
+        <li><a href="/pages/js/javascript.html">JavaScript</a></li>
+        <li><a href="/pages/contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main class="container">
+    <section>
+      <h1>Estilos de Fuentes y Textos</h1>
+      <h2>Estilos de la fuente</h2>
+      <p>Propiedades tipográficas</p>
+      <ul>
+        <li>font-family</li>
+        <li>font-size</li>
+        <li>font-weight</li>
+        <li>font-style</li>
+        <li>font-variant</li>
+        <li>line-height</li>
+        <li>font</li>
+      </ul>
+
+      <h3>font-family</h3>
+      <p>Existen varias familias de fuentes tipográficas que podemos aplicar. El navegador por default carga Georgia,
+        "Times New Roman", Times, serif.</p>
+
+      <p>Cada sistema operativo tiene sus fuentes seguras instaladas en el sistema, que son las que salen por defecto en
+        los procesadores de texto.</p>
+
+      <p>En este ejemplo, el navegador intentará usar Gerogia si está disponible. Si no puede encontrarlo,
+        intentará usar Times New Roman. Si tampoco está disponible, utilizará la fuente Times y sino serif.</p>
+      </p>
+
+      <p>Cuando queremos utilizar una fuente externa tiene que tener un nombre de faimlia tipográfica.</p>
+
+      <pre>font-family: "Source Sans Pro", "Arial", sans-serif;</pre>
+
+      <p style="font-family: 'Source Sans Pro', 'Arial', sans-serif;">En este ejemplo, el navegador intentará usar
+        Source Sans Pro si está disponible. Si no puede encontrarlo, intentará usar Arial. Si tampoco está disponible,
+        utilizará la fuente sans-serif del navegador.</p>
+
+      <pre>font-family: serif;</pre>
+
+      <p style="font-family: serif;">El navegador utilizará una familia de fuentes serif: todos los caracteres tienen
+        terminaciones de trazo.</p>
+
+      <pre>font-family: sans-serif;</pre>
+
+      <p style="font-family: sans-serif;">El navegador utilizará una familia de fuentes sans-serif: ningún carácter
+        tiene terminaciones de trazo.</p>
+
+      <pre>font-family: monospace;</pre>
+
+      <p style="font-family: monospace;">El navegador utilizará una familia de fuentes monoespaciada: todos los
+        caracteres tienen el mismo ancho.</p>
+
+      <pre>font-family: cursive;</pre>
+
+      <p style="font-family: cursive;">El navegador utilizará una familia de fuentes cursiva.</p>
+
+      <pre>font-family: fantasy;</pre>
+
+      <p style="font-family: fantasy;">El navegador utilizará una familia de fuentes de fantasía.</p>
+
+      <h3>font-size</h3>
+      <p>Define el tamaño del texto.</p>
+
+      <p>El tamaño del texto también se puede definir en pixeles, ems, rems y porcetajes. También podemos utilizar
+        palabras clave absolutas. El valor es relativo al elemento raíz html. Las siguientes están disponibles:
+      </p>
+
+      <ul>
+        <li>xx-small</li>
+        <li>x-small</li>
+        <li>small</li>
+        <li>medium</li>
+        <li>large</li>
+        <li>x-large</li>
+        <li>xx-large</li>
+      </ul>
+
+      <h3>font-weight</h3>
+      <p>Define el peso (grosor) del texto.</p>
+
+      <pre>font-weight: normal;</pre>
+      <p>El texto está en peso normal.</p>
+
+      <pre>font-weight: 600;</pre>
+      <p>Podemos utilizar valores numéricos. Todos ellos corresponden a un peso con nombre particular:</p>
+
+      <ul>
+        <li>100 Thin</li>
+        <li>200 Extra Light</li>
+        <li>300 Light</li>
+        <li>400 Normal</li>
+        <li>500 Medium</li>
+        <li>600 Semi Bold</li>
+        <li>700 Bold</li>
+        <li>800 Extra Bold</li>
+        <li>900 Ultra Bold</li>
+      </ul>
+
+      <p>Si la familia de fuentes no proporciona el peso solicitado, utilizará el más cercano disponible.</p>
+
+      <pre>font-weight: lighter;</pre>
+      <p>Podemos utilizar palabras clave relativas: lighter or bolder. El navegador utilizará el siguiente peso
+        disponible.</p>
+
+      <h3>font-style</h3>
+      <p>Define cuánto se inclina el texto. Define el estilo de la letra.</p>
+
+      <ul>
+        <li>font-style: normal; El texto no está sesgado.</li>
+        <li>font-style: italic; Indica utilizar la versión en cursiva de la fuente: las letras están ligeramente
+          inclinadas.</li>
+        <li>font-style: oblique; Indica utilizar la versión oblicua de la fuente: las letras están más inclinadas que en
+          cursiva.
+        </li>
+      </ul>
+
+      <h3>font-variant</h3>
+      <p>Define qué glifo usar para cada letra.</p>
+
+      <ul>
+        <li>font-variant: normal; Cada letra usa su glifo normal.</li>
+        <li>font-variant: small-caps; Cada letra utiliza su versión en minúsculas.</li>
+      </ul>
+
+      <h3>line-height</h3>
+      <p>Define la altura de una sola línea (interlineado) de texto.</p>
+
+      <ul>
+        <li>line-height: normal; Vuelve al valor predeterminado del navegador.</li>
+        <li>line-height: 1.6; Podemos usar valores sin unidades: la altura de la línea será relativa al tamaño de la
+          fuente.</li>
+        <li>line-height: 30px; Podemos utilizar valores de píxeles.</li>
+        <li>line-height: 0.8em; Popdemos usar valores em: al igual que con los valores sin unidades, la altura de la
+          línea será relativa al tamaño de la fuente.</li>
+      </ul>
+
+      <h3>font</h3>
+      <p>font es una propiedad de tipo shorthand con los parámetros font-style, font-variant, font-weight, font-size,
+        line-height y font-family.</p>
+      <p>El shorthand no es muy utilizado porque son demasiados valores para ingresar en orden.</p>
+
+      <article>
+        <h2>Fuentes externas (@font-face & font-display)</h2>
+        <p>Si queremos utilizar una fuente que no se encuentra entre la de los sistemas operativos, tenemos que utilizar
+          una externa. Se utiliza una regla llamada fonta-face.</p>
+
+        <p>Tenemos que tener los archivos físicos de la tipografía. Para instalar una tipografía en el sistema solo hay
+          que descargar el archivo .tiff en el directorio de fuentes. Pero para utilizarlas en el navegador nesetamos un
+          formato llamado woff o woff2 (web open font format).</p>
+
+        <p>Utilizaremos las fuentes chalet y pecita. Descargamos los archivos .woff en el recurso assets/fonts</p>
+
+        <p>Dentro de la regla tendremos que darle un nombre a la fuente para poder utilizarla e indicar el source.</p>
+
+        <p>Cuando utilizamos la fuente a través de la propiedad font-family tenemos que indicar una segunda fuente
+          segura por si existe algún inconveniente en la carga de la externa.</p>
+
+        <p>Al estar en un entorno de desarrollo local, la fuente carga muy rápido pero en producción puede ser más
+          lento. Entonces podemos agregar la propiedad font-display.</p>
+
+        <p>A través de la propiedad font-display le indicamos al navegador cómo queremos cargar la fuente personalizada
+          y puede tomar los siguientes valores.</p>
+
+        <ul>
+          <li>auto: permite que el navegador utilice el método predeterminado que suele ser block</li>
+          <li>block: oculta brevemente el texto hasta que la fuente haya sido descargada por completo</li>
+          <li>swap: indica al navegador que utilice la fuente alternativa para mostrar el texto hasta que la fuente
+            personalizada se haya cargado por completo. Este es el valor ideal. Es la que sugiere google fonts</li>
+          <li>fallback: es una mezcla de auto y swap</li>
+          <li>optional: ocultará el texto, luego lo cargará con la fuente alternativa y finalmente aplicará la fuente
+            personalizada</li>
+        </ul>
+
+        <pre>
+&lt;p class="chalet"&gt;Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae veritatis mollitia sapiente modi
+    et fuga commodi eveniet quia. Quod consequuntur earum nobis, tempore nemo dignissimos! Exercitationem sapiente
+    ratione praesentium est.&lt;/p&gt;
+
+&lt;p class="pecita"&gt;Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae veritatis mollitia sapiente modi
+      et fuga commodi eveniet quia. Quod consequuntur earum nobis, tempore nemo dignissimos! Exercitationem sapiente
+      ratione praesentium est.&lt;/p&gt;
+
+/* CSS */
+@font-face {
+  font-family: "Chalet";
+  src: url("/assets/fonts/Chalet.ttf") format("woff");
+  font-display: swap; 
+}
+@font-face {
+  font-family: "Pecita";
+  src: url("/assets/fonts/Pecita.woff");
+  font-display: swap;
+}
+.chalet {
+  font-family: "Chalet", sans-serif;
+  font-size: 1.5rem;
+}
+.pecita {
+  font-family: "Pecita", cursiva;
+  font-size: 1.5rem;
+}
+
+</pre>
+        <p class="chalet">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae veritatis mollitia sapiente modi
+          et fuga commodi eveniet quia. Quod consequuntur earum nobis, tempore nemo dignissimos! Exercitationem sapiente
+          ratione praesentium est.</p>
+        <p class="pecita">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae veritatis mollitia sapiente modi
+          et fuga commodi eveniet quia. Quod consequuntur earum nobis, tempore nemo dignissimos! Exercitationem sapiente
+          ratione praesentium est.</p>
+
+      </article>
+      <hr>
+      <article>
+        <h2>Google Fonts</h2>
+        <p><a href="https://fonts.google.com/" rel="nofollow" target="_blank">Google Fonts</a></p>
+        <p>Cuando seleccionamos una tipografía veremos los distintos pesos, si tiene variantes en itálica y los glifos.
+          Generalmete, no utilizaremos todos los pesos de la fuente. Solemos utilizar los pesos 400 (normal), y 700
+          (bold). Tenemos que considerar que con cada tipo que incorporemos afectaremos el rendimiento.</p>
+
+        <p>Una vez seleccionada la fuente con sus tipos y pesos, google nos dá una directriz para utilizarla a través de
+          la sentencia @import o para llamarla desde html con la etiqueta link.</p>
+
+        <p>Por rendiemiento no es recomendable utilizar más de dos tipografías. Muchos sitios utilizan una fuente para
+          los títulos y otra para el contenido. Utilizar más de dos tipografías también puede ser confuso para el
+          usuario.</p>
+
+        <p>Google también nos permite descargar la tipografía.</p>
+
+        <p><mark>Lo ideal es agregar los links al documento html, y antes de nuestros estilos.</mark></p>
+
+        <pre>
+&lt;link rel="preconnect" href="https://fonts.googleapis.com"&gt;
+&lt;link rel="preconnect" href="https://fonts.gstatic.com" crossorigin&gt;
+&lt;link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet"&gt;
+
+&lt;p class="raleway"&gt;Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad ea odit aspernatur aliquam alias quas. Nisi
+  molestiae quod repudiandae, voluptates possimus quam nemo iste doloribus dolor ab ut, iusto libero.&lt;/p&gt;
+
+/* CSS */
+.raleway {
+  font-family: "Raleway", sans-serif;
+  font-size: 20px;
+}
+</pre>
+
+        <p class="raleway">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad ea odit aspernatur aliquam alias
+          quas. Nisi molestiae quod repudiandae, voluptates possimus quam nemo iste doloribus dolor ab ut, iusto libero.
+        </p>
+
+        <p>En la solapa source de las herramientas de desarrollo del navegador podemos ver que se descargan las
+          tipografías desde goolge.</p>
+      </article>
+      <hr>
+      <article>
+        <h2>Estilos de Texto</h2>
+        <p>Veremos las siguientes propiedades que podemos aplicar a los textos.</p>
+        <ul>
+          <li>text-align</li>
+          <li>text-decoration</li>
+          <li>text-indent</li>
+          <li>text-overflow</li>
+          <ul>
+            <li>overflow: hidden;</li>
+            <li>white-space: nowrap;</li>
+          </ul>
+          <li>text-transform</li>
+          <li>letter-spacing</li>
+          <li>white-space</li>
+          <li>word-break</li>
+          <li>word-spacing</li>
+          <li>writing-mode</li>
+        </ul>
+
+        <h3>text-aling</h3>
+        <p>Define cómo se alinea horizontalmente el contenido de texto del elemento. Los valores que puede tomar la
+          propiedad son</p>
+
+        <ul>
+          <li>text-align: left;</li>
+          <li>text-align: right;</li>
+          <li>text-align: center;</li>
+          <li>text-align: justify;</li>
+        </ul>
+
+        <h3>text-decoration</h3>
+
+        <p>Define cómo se decora el contenido de texto del elemento.</p>
+
+        <ul>
+          <li>text-decoration: none;</li>
+          <li>text-decoration: underline;</li>
+        </ul>
+
+        <h3>text-indent</h3>
+
+        <p>Define la sangría de la primera línea de texto del elemento.</p>
+
+        <ul>
+          <li>text-indent: 0;</li>
+          <li>text-indent: 40px;</li>
+          <li>text-indent: -2em;</li>
+        </ul>
+
+        <h3>text-overflow</h3>
+
+        <p>Define cómo se comporta el contenido de texto oculto si se desborda. Para que la propiedad funcione, el
+          elemento debe tener la propiedad overflow: hidden; y white-space: nowrap;</p>
+
+        <ul>
+          <li>text-overflow: clip; El contenido del texto está recortado y no es accesible.</li>
+          <li>text-overflow: ellipsis; El contenido desbordante se sustituye por puntos suspensivos: ...</li>
+        </ul>
+
+        <h3>text-transform</h3>
+
+        <p>Define cómo se debe transformar el contenido del texto.</p>
+
+        <ul>
+          <li>text-transform: none; Elimina cualquier transformación de texto: el texto aparecerá igual que en el código
+            HTML.</li>
+          <li>text-transform: capitalize; Convierte la primera letra de cada palabra en mayúscula.</li>
+          <li>text-transform: uppercase; Convierte todas las letras en mayúsculas.</li>
+          <li>text-transform: lowercase; Convierte todas las letras en minúsculas.</li>
+        </ul>
+
+        <h3>letter-spacing</h3>
+
+        <p>Define el espaciado entre los caracteres de un bloque de texto.</p>
+
+        <ul>
+          <li>letter-spacing: normal; El espacio entre los caracteres es normal.</li>
+          <li>letter-spacing: 2px; Puede utilizar valores de píxeles.</li>
+          <li>letter-spacing: 0.1em; Puede usar valores em: esto permite que el espacio permanezca en relación con el
+            tamaño de fuente.</li>
+        </ul>
+
+        <h3>white-space</h3>
+        <p>Define cómo se maneja el espacio en blanco del elemento.</p>
+
+        <ul>
+          <li>white-space: normal; Las secuencias de espacios se combinan en uno. Los saltos de línea se ignoran. El
+            contenido del texto está ajustado.</li>
+          <li>white-space: nowrap; Las secuencias de espacios se combinan en uno. Los saltos de línea se ignoran. El
+            contenido del texto no se ajusta y permanece en una sola línea.</li>
+          <li>white-space: pre; El espacio en blanco se conserva exactamente. Se conservan secuencias de espacios. Las
+            líneas se rompen solo en líneas nuevas y br.</li>
+          <li>white-space: pre-wrap; El espacio en blanco se conserva en su mayor parte. Se conservan secuencias de
+            espacios. Las líneas se rompen en líneas nuevas, br, pero también al llegar al final del elemento.</li>
+          <li>white-space: pre-line; Solo se conservan las líneas nuevas. Las secuencias de espacios se combinan en uno
+            Las líneas se rompen en líneas nuevas, br, pero también al llegar al final del elemento.</li>
+        </ul>
+
+
+        <h3>word-break</h3>
+        <p>Define cómo deben dividirse las palabras al llegar al final de una línea.</p>
+
+        <ul>
+          <li>word-break: normal; Las palabras sin espacio no se romperán. Las secuencias de caracteres ininterrumpidos
+            se mostrarán en una sola línea.</li>
+          <li>word-break: break-all; Las palabras sin espacio se romperán tan pronto como lleguen al final de una línea.
+          </li>
+        </ul>
+
+        <h3>word-spacing</h3>
+        <p>Define el espaciado entre palabras de un bloque de texto.</p>
+
+        <ul>
+          <li>word-spacing: normal; El espacio entre los caracteres es normal.</li>
+          <li>word-spacing: 5px; Puede utilizar valores de píxeles.</li>
+          <li>word-spacing: 2em; Puede usar valores em: esto permite que el espacio permanezca en relación con el tamaño
+            de fuente.
+          </li>
+        </ul>
+
+
+        <h3>writing-mode</h3>
+
+        <p>Define si los renglones de texto se disponen horizontal o verticalmente y la dirección en que avanzan los
+          bloques</p>
+
+        <ul>
+          <li>writing-mode: horizontal-tb; El contenido fluye horizontalmente de izquierda a derecha y verticalmente de
+            arriba hacia abajo. El próximo renglón horizontal se posiciona debajo del renglón anterior.</li>
+          <li>writing-mode: vertical-rl; El contenido fluye verticalmente de arriba hacia abajo y horizontalmente de
+            derecha a izquierda. El próximo renglón vertical se posiciona a la izquierda del renglón anterior.</li>
+          <li>writing-mode: vertical-lr; El contenido fluye verticalmente de arriba hacia abajo y horizontalmente de
+            izquierda a derecha. El próximo renglón vertical se posiciona a la derecha del renglón anterior.</li>
+          <li>writing-mode: sideways-rl; Experimental. El contenido fluye verticalmente de arriba hacia abajo y todos
+            los glifos, incluidos aquellos de los sistemas de escritura verticales, se colocan de lado hacia la derecha.
+          </li>
+          <li>writing-mode: sideways-lr; Experimental. El contenido fluye verticalmente de arriba hacia abajo y todos
+            los glifos, incluidos aquellos de los sistemas de escritura verticales, se colocan de lado hacia la
+            izquierda.
+          </li>
+        </ul>
+
+        <pre>
+&lt;p class="text"&gt;Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestiae inventore laboriosam in aliquid placeat voluptas suscipit possimus perspiciatis recusandae quas atque, harum tempora expedita magni officiis quod culpa voluptatum vitae?&lt;/p&gt;
+
+&lt;p class="text-overflow"&gt;Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui debitis necessitatibus perspiciatis laboriosam atque possimus incidunt tempore accusamus harum aspernatur similique cum dicta fugit doloribus libero, accusantium voluptatum cupiditate molestiae?&lt;/p&gt;
+
+/* CSS */
+.text {
+  font-size: 1.2rem;
+  /* text-align: center; */
+  text-align: left;
+  /* text-decoration: overline; */
+  text-decoration: none;
+  text-indent: 3rem;
+  text-transform: capitalize;
+  /* text-transform: lowercase; */
+  /* text-transform: uppercase; */
+  /* text-transform: none; */
+  letter-spacing: 0.1rem;
+  word-break: break-all;
+  writing-mode: vertical-rl;
+  writing-mode: vertical-lr;
+  writing-mode: horizontal-tb;
+}
+.text-overflow {
+  background-color: blanchedalmond;
+  border: thin solid black;
+  padding: 1rem;
+  width: 50%;
+  font-size: 1.2rem;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+</pre>
+        <p class="text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestiae inventore laboriosam in
+          aliquid placeat voluptas suscipit possimus perspiciatis recusandae quas atque, harum tempora expedita magni
+          officiis quod culpa voluptatum vitae?</p>
+
+        <p class="text-overflow">Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui debitis necessitatibus
+          perspiciatis laboriosam atque possimus incidunt tempore accusamus harum aspernatur similique cum dicta fugit
+          doloribus libero, accusantium voluptatum cupiditate molestiae?</p>
+      </article>
+      <hr>
+      <article>
+        <h2>Iconos Tipográficos Vectoriales</h2>
+        <p>Vamos a ver 3 tipografías</p>
+        <ul>
+          <li><a href="https://fonts.google.com/icons" rel="nofollow" target="_blank">https://fonts.google.com/icons</a>
+
+            <p>Forman parte de Material Design (Guias de estilos de google). Tenemos que linkear la hoja de iconos y los
+              podemos utilizar.</p>
+
+            <pre>
+&lt;link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"&gt;
+https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100,0 (thin, outlined)
+https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100,1 (thin, filled)
+https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@400,0 (regular, outlined)
+https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@400,1 (regular, filled)
+https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@700,0 (bold, outlined)
+https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@700,1 (bold, filled)
+
+&lt;span class="material-icons"&gt;face&lt;/span&gt;
+</pre>
+            <span class="material-icons">face</span>
+            <span class="material-symbols-outlined">favorite</span>
+            <span class="material-symbols-outlined">home</span>
+          </li>
+          <li><a href="https://icons.getbootstrap.com/" rel="nofollow"
+              target="_blank">https://icons.getbootstrap.com/</a>
+            <p>Bootstrap también posee íconos que podemos utilizar.</p>
+
+            <pre>
+&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css"&gt;
+
+&lt;i class="bi-alarm"&gt;&lt;/i&gt;
+&lt;i class="bi-alarm" style="font-size: 2rem; color: cornflowerblue;"&gt;&lt;/i&gt;
+
+</pre>
+            <i class="bi-alarm"></i>
+            <i class="bi-alarm" style="font-size: 2rem; color: cornflowerblue;"></i>
+          </li>
+        </ul>
+      </article>
+    </section>
+    <hr>
+    <a href="/pages/css/css.html#indice">👆</a>
+  </main>
+</body>
+
+</html>

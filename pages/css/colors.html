@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modelo de caja en CSS</title>
+  <meta name="description"
+    content="Esta página contiene los fundamentos básicos de CSS, utilízala como guía de referencia">
+  <link rel="stylesheet" href="/css/menu.css">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/css/colors.css">
+  <!-- CDN Material+Icons -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+</head>
+
+<body>
+
+  <!-- https://www.youtube.com/watch?v=K3xmRF8ab1o&list=PLvq-jIkSeTUZYcX9SYwVe7f66afwd9qk_&index=2 -->
+  <header>
+    <nav class="menu-nav">
+      <a href="/index.html" class="enlace">
+        <label class="logo">Aprende</label>
+      </a>
+      <input type="checkbox" id="check">
+      <label for="check" class="checkbtn">
+        <i class="material-icons">menu</i>
+      </label>
+      <ul class="menu">
+        <li><a href="/index.html">Inicio</a></li>
+        <li><a href="/pages/html/html.html">HTML</a></li>
+        <li><a class="active" href="/pages/css/css.html">CSS</a></li>
+        <li><a href="/pages/js/javascript.html">JavaScript</a></li>
+        <li><a href="/pages/contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main class="container">
+    <section>
+      <h1>Colores en CSS</h1>
+      <p>Existen 4 formas de aplicar colores en CSS.</p>
+      <ul>
+        <li>Colores por nombre</li>
+        <li>Sistema hexadecimal</li>
+        <li>Sistema RGB</li>
+        <li>Sistema HSL</li>
+      </ul>
+
+      <article id="color-by-name">
+        <h2>Colores por Nombres</h2>
+        <p> <a href="https://htmlcolorcodes.com/es/" rel="nofollow" target="_blank">htmlcolorcodes</a> Es una página
+          donde se encuentran los colores por nombre. Ingresando al menú nombres / HTML nombres de colores veremos la
+          lista de posibles colores por nombre, código hexadecimal y código RGB.</p>
+
+        <pre>
+&lt;div class="color-by-name"&gt;
+  &lt;p&gt;Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime quo vero ipsa harum sit fugiat molestias nam, possimus dignissimos. Ab necessitatibus quas dolorum. Voluptate aliquid quasi velit quae ipsum odit.&lt;/p&gt;
+&lt;/div&gt;
+
+/* CSS */
+.color-by-name {
+  background-color: coral;
+  color: rebeccapurple;
+  border: thick solid greenyellow;
+}
+</pre>
+        <div class="color-by-name">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime quo vero ipsa harum sit fugiat molestias
+            nam, possimus dignissimos. Ab necessitatibus quas dolorum. Voluptate aliquid quasi velit quae ipsum odit.
+          </p>
+        </div>
+      </article>
+      <article id="color-hexadecimal">
+        <h2>Sistema de color hexadecimal</h2>
+        <blockquote>Si en google buscamos RGB to Hex nos aparece una paleta con convertidor de colores.</blockquote>
+        <p>El sistema decimal posee 10 dígitos, en el sistema hexadecimal tenemos 16 dígitos compuestos desde el 0 al 9
+          y de la a hasta f (0123456789abcdef). La letra a en hexadecimal es 10,miestras que la f es 16.</p>
+
+        <p>Los medios digitales utilizan el sistema RGB (Red Green Blue), miestras que las imprentas utilizan el sistema
+          CMYK (Cyan Magenta yellow Key).</p>
+
+        <p>Los colores hexadecimales están conformados por 6 dígitos y están basados en el sistema RGB. Los primeros dos
+          representan el canal rojo del RGB, los siguientes dos reprentan el canal verde y los últimos dos al canal
+          azul. Si los dos dígitos dentro de cada par son iguales los podemos smplificar en uno, siempre que podamos
+          aplicar la simplificación a los tre pares. Ej: #ff6600 = #f60. Todo código hexadecimal comienza por un
+          hashtag, numeral o gatito #.</p>
+
+        <ul>
+          <li>#ff0000: rojo al 100%</li>
+          <li>#f00: rojo al 100%</li>
+          <li>#00ff00: verde al 100%</li>
+          <li>#0000ff: azul al 100%</li>
+          <li>#ffffff: blanco al 100%. El color blanco es la ausencia de color</li>
+          <li>#000000: negro al 100%. El negro es la sturación de todos los colores</li>
+        </ul>
+
+        <p>En el sistem hexadecimal también podemos controlar la opacidad utilizando el canal alpha, donde podemos
+          regular la transparencia del elemento. La opacidad varía desde 0% (totalmente transparente) hasta 100% (sin
+          transparencia).</p>
+        <p>La opacidad se incorpora agregando dos dígitos más a los seis. El código #0000050, es negro con opacidad al
+          50%. La forma de abreviar la opacidad es dejando un solo dígto, pero con este atajo perdemos exactitud porque
+          no podremos representar opacidades del 43% o del 55%. En la opacidad iremos de 10% en 10%.Continuando el
+          ejemplo: #0005.</p>
+
+        <pre>
+&lt;div class="color-hex"&gt;
+  &lt;p&gt;Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime quo vero ipsa harum sit fugiat molestias nam, possimus dignissimos. Ab necessitatibus quas dolorum. Voluptate aliquid quasi velit quae ipsum odit.&lt;/p&gt;
+&lt;/div&gt;
+
+/* CSS */
+.color-hex {
+  /* background-color: #ff6600; */
+  background-color: #0005;
+  color: #fff;
+  border: thick solid #000;
+}
+</pre>
+        <div class="color-hex">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime quo vero ipsa harum sit fugiat molestias
+            nam, possimus dignissimos. Ab necessitatibus quas dolorum. Voluptate aliquid quasi velit quae ipsum odit.
+          </p>
+        </div>
+
+      </article>
+      <hr>
+      <article>
+        <h2>Sistema RGB</h2>
+        <p>Para utilizar el sistema RGB tenemos que utilizar la función rgb() y el valor de los canales va de 0 a 255,
+          siendo 0 el color negro y 255 blanco.</p>
+        <p>Los valores llegan a 255 porque cada canal meneja 8 bits que pueden tomar valores 0 o 1. 2<sup>8</sup> =
+          2*2*2*2*2*2*2*2 = 256. El número máximo es 255 porque van de 0 a 255.</p>
+        <p>Para aplicar opacidad utilizamos la función rgba(). Se agrega el canal alpha en el cuarto parámetro. Ejemplo:
+          rgba(0, 0, 0, 0.5)</p>
+
+        <ul>
+          <li>rgb(255, 0, 0): rojo al 100%</li>
+          <li>rgb(0, 255, 0): verde al 100%</li>
+          <li>rgb(0, 0, 255): azul al 100%</li>
+          <li>rgb(255, 255, 255): blanco al 100%. El color blanco es la ausencia de color</li>
+          <li>rgb(0, 0, 0): negro al 100%. El negro es la sturación de todos los colores</li>
+        </ul>
+
+        <pre>
+&lt;div class="color-rgb"&gt;
+  &lt;p&gt;Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime quo vero ipsa harum sit fugiat molestias nam, possimus dignissimos. Ab necessitatibus quas dolorum. Voluptate aliquid quasi velit quae ipsum odit.&lt;/p&gt;
+&lt;/div&gt;
+
+/* CSS */
+.color-rgb {
+    background-color: rgb(255, 127, 80);
+    color: rgb(102, 51, 153);
+    border: thick solid rgb(173, 255, 47);
+}
+</pre>
+        <div class="color-rgb">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime quo vero ipsa harum sit fugiat molestias
+            nam, possimus dignissimos. Ab necessitatibus quas dolorum. Voluptate aliquid quasi velit quae ipsum odit.
+          </p>
+        </div>
+      </article>
+
+      <hr>
+      <article>
+        <h2>Sistema HSL</h2>
+        <p>HSL es el acrónimo de Hue Saturation Lightness (Tono Saturación Luminosidad). La función para utilizar este
+          sistema se llama hsl(). El primer valor representa un
+          ángulo donde: </p>
+        <ul>
+          <li> 0° es el color rojo</li>
+          <li>60° es amarillo</li>
+          <li>120° es verde</li>
+          <li>180° es cyan</li>
+          <li>240° es azul</li>
+          <li>300° es magenta</li>
+        </ul>
+
+        <p>Como vemos el sistema HSL contempla los colores para medios impresos (yellow, cyan y magenta) y para medios
+          digitales (rojo, verde y azul).</p>
+        <img src="/assets/images/HSL-wheel.jpg" alt="Circulo cromático">
+
+        <p>El segundo valor de la función hsl es la saturación (intensidad del color). Siendo 0% la escala de grises y
+          100% el color puro.</p>
+
+        <p>El tercer valor es la luminosidad del color, si queremos que tienda hacia blanco o hacia negro, con 0% color
+          negro y 100% color blanco.</p>
+
+        <p>Para agregar transparencia se utiliza la función hsla con un cuarto paámetro que va de 0 a 100%.</p>
+
+        <pre>
+&lt;div class="color-hsl"&gt;
+  &lt;p&gt;Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime quo vero ipsa harum sit fugiat molestias nam, possimus dignissimos. Ab necessitatibus quas dolorum. Voluptate aliquid quasi velit quae ipsum odit.&lt;/p&gt;
+&lt;/div&gt;
+
+/* CSS */
+.color-hsl {
+    background-color: hsl(255, 127, 80);
+    color: hsl(102, 51, 153);
+    border: thick solid hsl(173, 255, 47);
+}
+</pre>
+
+        <div class="color-hsl">
+          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quae eaque magnam, atque esse excepturi dolore.
+            Ut quam illo ea officia praesentium voluptates odit modi atque architecto ex, magnam rerum? Illo?</p>
+        </div>
+      </article>
+      <hr>
+      <article>
+        <h2>¿Qué sistema de colores uso?</h2>
+        <p> Podemos utiliza cualquiera de los sistemas de colores pero el navegador realiza un computo a rgb para
+          representarlos. También depende de las guias de estilos que utilice el proyecto, o de tus preferencias, o de
+          tu conocimiento conmayor profundidad sobre alguno de ellos. Entonces podemos utilizar cualquiera de los
+          sistemas.</p>
+        <p>No es una buena práctica utilizar distintos sistemas de colores en el mismo proyecto. Utilizamos uno u otro.
+        </p>
+      </article>
+      <hr>
+      <article>
+        <h2>Valores transparent & currentColor</h2>
+        <p>Supongamos que en la versión movil de nuestra web queremos un elemento tenga el color magenta pero no lo
+          queremos en la versión tablet o desktop. Una forma de quitar el color es a través del valor transparent.</p>
+
+        <p>El valor currentColor hereda el valor por defecto del body o el que asignamos en la propiedad color (color de
+          texto) del ancestro más cercano que tenga definida esta propiedad. Si no se encuentra definida la propiedad
+          color en ningún ancestro, el navegador tomará el del body, que por defecto por fondo blanco y color de texto
+          negro. Por ello aplicará color negro.
+        </p>
+
+      </article>
+      <hr>
+      <article>
+        <h2>Propiedad opacity</h2>
+        <p>El valor de opacidad no aplica solo en la defición de colores, también existe una propiedad que podemos
+          aplicar a los distintos elementos. Veamos un ejemplo donde aplicamos la propiedad a una caja y no solo
+          aplicará al fondo, también aplicará sobre el texto, el borde, etc.</p>
+
+        <pre>
+&lt;div class="opacity"&gt;
+  &lt;p&gt;Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime quo vero ipsa harum sit fugiat molestias nam, possimus dignissimos. Ab necessitatibus quas dolorum. Voluptate aliquid quasi velit quae ipsum odit.&lt;/p&gt;
+&lt;/div&gt;
+
+/* CSS */
+.opacity {
+  background-color: orchid;
+  color: navy;
+  border: thick solid black;
+  opacity: 0.5;
+}
+            </pre>
+
+        <div class="opacity">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime quo vero ipsa harum sit fugiat molestias
+            nam, possimus dignissimos. Ab necessitatibus quas dolorum. Voluptate aliquid quasi velit quae ipsum odit.
+          </p>
+        </div>
+        <p>La opacidad no solo aplica a textos o cajas, lo pdemos aplicar a imágines, etc.</p>
+      </article>
+
+    </section>
+    <hr>
+    <a href="/pages/css/css.html#indice">👆</a>
+  </main>
+
+</body>
+
+</html>

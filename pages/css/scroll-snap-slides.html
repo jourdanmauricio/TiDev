@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ajustes del Scroll (Slides)</title>
+  <meta name="description"
+    content="Esta página contiene los fundamentos básicos de CSS, utilízala como guía de referencia">
+  <link rel="stylesheet" href="/css/menu.css">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/css/scroll-snap-slides.css">
+  <!-- CDN Material+Icons -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+</head>
+
+<body>
+  <!-- https://www.youtube.com/watch?v=K3xmRF8ab1o&list=PLvq-jIkSeTUZYcX9SYwVe7f66afwd9qk_&index=2 -->
+  <header>
+    <nav class="menu-nav">
+      <a href="/index.html" class="enlace">
+        <label class="logo">Aprende</label>
+      </a>
+      <input type="checkbox" id="check">
+      <label for="check" class="checkbtn">
+        <i class="material-icons">menu</i>
+      </label>
+      <ul class="menu">
+        <li><a href="/index.html">Inicio</a></li>
+        <li><a href="/pages/html/html.html">HTML</a></li>
+        <li><a class="active" href="/pages/css/css.html">CSS</a></li>
+        <li><a href="/pages/js/javascript.html">JavaScript</a></li>
+        <li><a href="/pages/contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main class="slides">
+
+    <section class="slide">
+      <article class="slide-container">
+        <h1 class="gradient-text">Ajuste del Scroll (<small>Slides</small>)</h1>
+        <section class="carousel">
+          <div class="carousel-container">
+            <article class="carousel-slide">
+              <div class="carousel-slide-content">
+                <h3>Slide 1</h3>
+              </div>
+            </article>
+            <article class="carousel-slide">
+              <div class="carousel-slide-content">
+                <h3>Slide 2</h3>
+              </div>
+            </article>
+            <article class="carousel-slide">
+              <div class="carousel-slide-content">
+                <h3>Slide 3</h3>
+              </div>
+            </article>
+            <article class="carousel-slide">
+              <div class="carousel-slide-content">
+                <h3>Slide 4</h3>
+              </div>
+            </article>
+            <article class="carousel-slide">
+              <div class="carousel-slide-content">
+                <h3>Slide 5</h3>
+              </div>
+            </article>
+
+          </div>
+
+        </section>
+
+        <a href="/pages/css/css.html#indice">👆</a>
+      </article>
+    </section>
+    <section class="slide">
+      <article class="slide-container">
+        <h2>Slide 2</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit voluptatem consequatur exercitationem
+          voluptate laboriosam explicabo, soluta ipsum ea odio consectetur commodi dicta excepturi ullam molestias
+          placeat assumenda mollitia nam eos!</p>
+      </article>
+    </section>
+    <section class="slide">
+      <article class="slide-container">
+        <h2>Slide 3</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit voluptatem consequatur exercitationem
+          voluptate laboriosam explicabo, soluta ipsum ea odio consectetur commodi dicta excepturi ullam molestias
+          placeat assumenda mollitia nam eos!</p>
+      </article>
+    </section>
+    <section class="slide">
+      <article class="slide-container">
+        <h2>Slide 4</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit voluptatem consequatur exercitationem
+          voluptate laboriosam explicabo, soluta ipsum ea odio consectetur commodi dicta excepturi ullam molestias
+          placeat assumenda mollitia nam eos!</p>
+      </article>
+    </section>
+    <section class="slide">
+      <article class="slide-container">
+        <h2>Slide 5</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit voluptatem consequatur exercitationem
+          voluptate laboriosam explicabo, soluta ipsum ea odio consectetur commodi dicta excepturi ullam molestias
+          placeat assumenda mollitia nam eos!</p>
+      </article>
+    </section>
+  </main>
+  <section>
+    <article class="slide-codigo">
+      <h2>Código</h2>
+      <pre>
+&gt;section class="slide"&gt;
+  &gt;article class="slide-container"&gt;
+    &gt;h1 class="gradient-text"&gt;Ajuste del Scroll (&gt;small&gt;Slides&gt;/small&gt;)&gt;/h1&gt;
+    &gt;section class="carousel"&gt;
+      &gt;div class="carousel-container"&gt;
+        &gt;article class="carousel-slide"&gt;
+          &gt;div class="carousel-slide-content"&gt;
+            &gt;h3&gt;Slide 1&gt;/h3&gt;
+          &gt;/div&gt;
+        &gt;/article&gt;
+        &gt;article class="carousel-slide"&gt;
+          &gt;div class="carousel-slide-content"&gt;
+            &gt;h3&gt;Slide 2&gt;/h3&gt;
+          &gt;/div&gt;
+        &gt;/article&gt;
+        &gt;article class="carousel-slide"&gt;
+          &gt;div class="carousel-slide-content"&gt;
+            &gt;h3&gt;Slide 3&gt;/h3&gt;
+          &gt;/div&gt;
+        &gt;/article&gt;
+        &gt;article class="carousel-slide"&gt;
+          &gt;div class="carousel-slide-content"&gt;
+            &gt;h3&gt;Slide 4&gt;/h3&gt;
+          &gt;/div&gt;
+        &gt;/article&gt;
+        &gt;article class="carousel-slide"&gt;
+          &gt;div class="carousel-slide-content"&gt;
+            &gt;h3&gt;Slide 5&gt;/h3&gt;
+          &gt;/div&gt;
+        &gt;/article&gt;
+      &gt;/div&gt;
+    &gt;/section&gt;
+    &gt;a href="/pages/css/css.html#indice"&gt;👆&gt;/a&gt;
+  &gt;/article&gt;
+&gt;/section&gt;
+
+/* CSS */
+.slides {
+  width: 100%;
+  height: 100vh;
+  overflow-y: scroll;
+  /* scroll-snap-type: [x | y | inline | block | both][ mandatory | proximity ]; */
+  scroll-snap-type: block mandatory;
+}
+.slide {
+  width: 100%;
+  height: inherit;
+  background-color: #1e2345;
+  /* scroll-snap-align: none | start | end | center; */
+  scroll-snap-align: center;
+}
+.slide-codigo {
+  width: 100%;
+  height: inherit;
+  background-color: #1e2345;
+  /* scroll-snap-align: none | start | end | center; */
+  scroll-snap-align: end;
+}
+.slide:nth-child(even) {
+  background-color: #108eb4;
+}
+.slide-container {
+  width: 80%;
+  height: inherit;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 3vw;
+  color: #d9e8f0;
+}
+.carousel {
+  border: thick solid #d938f0;
+  width: 50%;
+  display: flex;
+  height: 50vh;
+  overflow-x: hidden;
+}
+.carousel-container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(5, 100%);
+  overflow-x: scroll;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+}
+.carousel-slide {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #108eb4;
+  scroll-snap-align: start;
+}
+.carousel-slide:nth-child(even) {
+  background-color: #1e2345;
+}
+.gradient-text {
+  background-image: linear-gradient(45deg, magenta, yellow);
+  -ms-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -ms-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+  -webkit-text-fill-color: transparent;
+  text-fill-color: transparent;
+}
+</pre>
+
+      <hr>
+      <a href="/pages/css/css.html#indice">👆</a>
+
+    </article>
+  </section>
+</body>
+
+</html>

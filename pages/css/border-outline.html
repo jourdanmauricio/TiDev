@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bordes y outlines</title>
+  <meta name="description"
+    content="Esta página contiene los fundamentos básicos de CSS, utilízala como guía de referencia">
+  <link rel="stylesheet" href="/css/menu.css">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/css/border-outline.css">
+  <!-- CDN Material+Icons -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+</head>
+
+<body>
+  <!-- https://www.youtube.com/watch?v=K3xmRF8ab1o&list=PLvq-jIkSeTUZYcX9SYwVe7f66afwd9qk_&index=2 -->
+  <header>
+    <nav class="menu-nav">
+      <a href="/index.html" class="enlace">
+        <label class="logo">Aprende</label>
+      </a>
+      <input type="checkbox" id="check">
+      <label for="check" class="checkbtn">
+        <i class="material-icons">menu</i>
+      </label>
+      <ul class="menu">
+        <li><a href="/index.html">Inicio</a></li>
+        <li><a href="/pages/html/html.html">HTML</a></li>
+        <li><a class="active" href="/pages/css/css.html">CSS</a></li>
+        <li><a href="/pages/js/javascript.html">JavaScript</a></li>
+        <li><a href="/pages/contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main class="container">
+
+    <section>
+      <h1>Bordes y outlines</h1>
+
+      <article>
+        <h2>Redondeo de bordes</h2>
+
+        <p>La propiedad border-radius nos permite redondear los bordes de una caja. Define el radio del elemento.
+          Border-radius también es un shorthand.</p>
+
+        <pre>
+&lt;div class="box border-radius-1"&gt;&lt;/div&gt;
+
+/* CSS */
+.box {
+  background-color: black;
+  width: 400px;
+  height: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  border: thick solid red;
+}
+.border-radius-1 {
+  /* Apicando 4 valores */
+  border-top-left-radius: 4rem;
+  border-top-right-radius: 4rem;
+  border-bottom-right-radius: 4rem;
+  border-bottom-right-radius: 4rem;
+  /* Aplicando 2 valores */
+  border-radius: 2rem 4rem; /* (sup izq - inf der / sup der - inf izq) */
+  /* Aplicando 3 valores */
+  border-radius: 2rem 4rem 0rem; /* (sup izq / sup der - inf izq / inf der) */
+  /* Aplicando 4 valores */
+  border-radius: 4rem 3rem 2rem 1rem; /* Empieza sup izq y sigue las agujas del reloj */
+  border-radius: 2rem; /* Shorthand */
+}
+</pre>
+
+        <div class="box border-radius-1"></div>
+
+        <p>También podemos aplicar <b>bordes elípticos</b> dividiendo cada valor en dos valores, uno para el radio en el
+          eje x
+          y otro para el eje y. Si detallamos por esquina, se utiliza el separador / colocando a la izquierda los
+          valores para x y a la derecha de la / los valores para y.</p>
+
+        <pre>
+&lt;div class="box border-radius-2"&gt;&lt;/div&gt;
+
+/* CSS */
+.border-radius-2 {
+  border-radius: 2rem / 4rem;
+  border-radius: 2rem 4rem 0 / 4rem 8rem 0;
+}
+</pre>
+
+        <div class="box border-radius-2"></div>
+
+        <p>A través de la propiedad border-radius también podemos redondear tanto los border hasta llegar a un
+          <b>círculo</b>. Se utiliza mucho para las fotos de perfil en cards. Si la caja a redondear no es un cuadrado
+          exacto se formará una elipsis.
+        </p>
+
+        <pre>
+&lt;div class="box border-radius-3"&gt;&lt;/div&gt;
+
+/* CSS */
+.border-radius-3 {
+  border-radius: 50%;
+}
+</pre>
+        <div class="box border-radius-3"></div>
+
+      </article>
+      <hr>
+      <article>
+        <h2>Outlines</h2>
+        <p>Outline es un borde exterior. No existe dentro del modelo de caja. Sus propiedades son outline-width,
+          outline-style, outline-color y outline-offset.</p>
+
+        <p>No forma parte de la caja. En cambio, el borde si forma parte de la caja. El outline es un borde externo que
+          no forma parte dela caja.</p>
+
+        <p>La propiedad outline-offset lo separa de la caja y acepta valores positivos o negativos.</p>
+
+        <p>La porpiedad outline es utilizada por los elementos html de los formularios trabajando sobre el evento focus.
+        </p>
+
+        <pre>
+&lt;div class="box outline"&gt;&lt;/div&gt;
+
+/* CSS */
+.outline {
+  outline-width: 5px;
+  outline-style: dotted;
+  outline-color: aquamarine;
+  outline: thick solid yellowgreen;
+  color: white;
+  text-align: center;
+  outline-offset: -2rem;
+}
+</pre>
+
+        <div class="box outline">Outline</div>
+      </article>
+
+    </section>
+    <hr>
+    <a href="/pages/css/css.html#indice">👆</a>
+
+  </main>
+
+</body>
+
+</html>

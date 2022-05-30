@@ -1,0 +1,1659 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <sergey-import src="metas/statics" />
+  <sergey-import src="metas/titles">TiDev HTML</sergey-import>
+  <link rel="stylesheet" href="/assets/css/prism.css" />
+  <link rel="stylesheet" href="/assets/css/menu.css">
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <link rel="stylesheet" href="/assets/css/html/html.css">
+</head>
+
+<body>
+  <sergey-import src="header" />
+
+  <main class="container">
+    <h1>Fundamentos de HTML</h1>
+    <section id="indice">
+      <h2>Tabla de contenidos</h2>
+      <ol>
+        <li><a href="/pages/html/introduction.html">HTML</a></li>
+        <ul>
+          <li><a href="/pages/html/introduction.html#estructura-html">Estructura básica para páginas HTML</a></li>
+        </ul>
+        <li><a href="/pages/html/elementos-cabecera.html">Elementos de la cabecera HEAD</a>
+          <ul>
+            <li><a href="/pages/html/elementos-cabecera.html#metadatos">Metadatos (charset, title, description)</a></li>
+          </ul>
+        </li>
+        <li><a href="#elementos-body">Elementos del cuerpo Body</a>
+          <ul>
+            <li><a href="#text-tags">Etiquetas de texto (p, h1, h2, h3, h4, h5, h6)</a></li>
+            <li><a href="#break-tags">Etiquetas de agrupación de contenido (br, hr, pre, ol, ul,
+                li)</a>
+            </li>
+            <li><a href="#semantic-tags">Etiquetas semánticas estructurales</a></li>
+            <li><a href="#inline-block-tags">Etiquetas de bloque vs etiquetas de línea</a></li>
+          </ul>
+        </li>
+        <li><a href="#rel-html">Relacionando otras tecnologías</a>
+          <ul>
+            <li><a href="#styles-html">Estilos CSS en Htlm</a></li>
+            <li><a href="#scripts-tags">Scripts en html</a></li>
+          </ul>
+        <li><a href="#img-html">Agregando imágenes</a></li>
+        <ul>
+          <li><a href="#img-formatos">Imágenes: jpg, png, gif, svg</a></li>
+          <li><a href="#img-svg">Vectores</a></li>
+          <li><a href="#figure-tag">Etiqueta figure</a></li>
+        </ul>
+        <li><a href="#listas-html">Listas</a></li>
+        <ul>
+          <li><a href="#listas-ordenadas">Listas ordenadas</a></li>
+          <li><a href="#listas-desordenadas">Listas desordenadas</a></li>
+          <li><a href="#listas-definicion">Listas de definición</a></li>
+        </ul>
+        <li><a href="#tablas-html">Tablas</a></li>
+        <li><a href="#enlaces-html">Enlaces</a></li>
+        <ul>
+          <li><a href="#enlaces-externos">Enlaces a otro documento de nuestra web y externos</a>
+          </li>
+          <li><a href="#enlaces-internos">Enlaces internos</a></li>
+          <li><a href="#enlaces-protocolos">Enlaces y Protocolos especiales</a></li>
+        </ul>
+        <li><a href="#interactive-tags">Elementos interactivos</a></li>
+        <ul>
+          <li><a href="#button-tag">Botones</a></li>
+          <li><a href="#details-tag">Acordeon (Details)</a></li>
+          <li><a href="#dialog-tag">Ventanas modales (experimental)</a></li>
+        </ul>
+        <li><a href="#audio-video">Audio y Video</a></li>
+        <li><a href="#iframes">Iframes</a></li>
+        <li><a href="#formularios">Elementos de formulario</a></li>
+        <li><a href="#formulario">El formulario</a></li>
+        <li><a href="#select-radio-check">Selects, Radios y Checkboxs</a></li>
+        <li><a href="#contact-form">Formulario de contacto</a></li>
+        <li><a href="#data-atributtes">Data Atributtes</a></li>
+        <li><a href="#metas-seo">Metaetiquetas para SEO y Móviles</a></li>
+        <li><a href="#metas-redes">Meta etiquetas para Redes Sociales</a></li>
+        <li><a href="#accesibilidad-web">Accesibilidad Web</a></li>
+      </ol>
+    </section>
+    <hr>
+    <!-- <section>
+      <h2 id="introduction">HTML</h2>
+      <p>
+        <strong>HTML</strong> (Lenguaje de Marcas de Hipertexto, del inglés HyperText Markup Language) es el componente
+        más básico de la
+        Web. Define el significado y la estructura del contenido web. Además de HTML, generalmente se utilizan otras
+        tecnologías para describir la apariencia/presentación de una página web (CSS) o la funcionalidad/comportamiento
+        (JavaScript).
+        <a href="https://developer.mozilla.org/es/docs/Web/HTML" target="_blank" rel="nofollow">Manual de referencia</a>
+      </p>
+
+      <p>HTML no es un lenguaje de programación. Es un lenguaje de marcado que se utiliza para establecer la
+        estructura y elementos de un sitio web como textos, hipervínculos, objetos, imágenes, etc. Los archivos
+        HTML utilizan la extensión .htm o .html.</p>
+
+      <p>El archivo index.html es la página principal del dominio al cual se accede desde Internet, es el primero que
+        vemos cuando acceder a un dominio en internet. Por ejemplo al acceder a www.dominio.com lo primero que intentará
+        mostrar nuestro navegador es el archivo index</p>
+
+      <p>La tabla periodica de los elementos html creada por Josh Duck es una metáfora de la tabla periodica de
+        elementos químicos y agrupa los elementos html existentes por colores.</p>
+      <figure>
+        <img class="image" src="/assets/images/table_elements_tags.png" alt="Tabla de elementos HTML">
+        <figcaption>Tabla de elementos HTML</figcaption>
+      </figure>
+
+      <a href="#indice">Tabla de contenido 🔝</a>
+      <hr>
+
+      <article>
+        <h3 id="estructura-html">Estructura básica pra páginas HTML</h3>
+
+        <p>La forma más fácil de iniciar un documento HTML es utilizando el atajo '!' en Visual Studio Code, que
+          incorpora
+          por defecto el plugin <a href="https://emmet.io/" target="_blank" rel="nofollow">emmet</a>.</p>
+
+        <pre>
+      &lt;!DOCTYPE html&gt;
+        &lt;html lang="en"&gt;
+        &lt;head&gt;
+          &lt;meta charset="UTF-8"&gt;
+          &lt;meta http-equiv="X-UA-Compatible" content="IE=edge"&gt;
+          &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+          &lt;title&gt;Document&lt;/title&gt;
+        &lt;/head&gt;
+        &lt;body&gt;
+        &lt;/body&gt;
+      &lt;/html&gt;
+</pre>
+
+        <p>La etiqueta &lt;!DOCTYPE html&gt; indica que utilizaremos HTML5 y &lt;html lang="es"&gt; indica el idioma que
+          se utilizará en el contenido del documento. En este caso estamos especificando español. Es importante para
+          posicionamiento de contenido.</p>
+        </p>
+      </article>
+    </section>
+    <a href="#indice">Tabla de contenido 🔝</a>
+    <hr> -->
+    <!-- <section>
+      <h2 id="elementos-cabecera">Elementos de la cabecera HEAD</h2>
+      <p>El elemento head de un documento HTML es la parte que no se muestra en el navegador cuando se carga la página.
+        La función de la cabecera es contener los metadatos del documento.</p>
+
+      <article>
+        <h3 id="metadatos">Metadatos (charset, title, description)</h3>
+        <p>Los metadatos son parámetros que describen datos. Existen muchos tipos de elementos <code>&lt;meta&gt;</code>
+          que se pueden incluir en el <code>&lt;head&gt;</code>. Veremos algunos de ellos.</p>
+
+        <pre>&lt;meta charset="utf-8"&gt;</pre>
+
+        <p>Especifica la codificación de caracteres del documento (conjunto de caracteres que el documento
+          puede utilizar). utf-8 es un conjunto de caracteres universal que incluye todos los caracteres de cualquier
+          idioma humano. Es una buena práctica incorporarlo en nuestras páginas.
+        </p>
+
+        <pre>&lt;meta http-equiv="X-UA-Compatible" content="IE=edge"&gt;</pre>
+
+        <p>Le indica al navegador que iguale la información del documento de IE a edge. Podemos eliminar esta etiqueta,
+          no
+          es un estandar y incluye en el documento porque fué creado con VSCode (que pretenece a Microsoft).</p>
+
+        <pre>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</pre>
+        <p>Es la zona visible del navegador donde se renderiza el contenido HTML. Esta etiqueta es muy importante para
+          el
+          responsibe disign, todos los domentos html de nuestro sitio deben incluir esta etiqueta porque le indica a los
+          dispositivos cómo se va a adaptar el contenido.</p>
+        <p>width=device-width, initial-scale=1. Indica que el ancho del documento se adapte al ancho del dispositivo con
+          una escala inicial de 1 a 1, osea el 100%.</p>
+
+        <pre>&lt;title&gt;</pre>
+
+        <p>Debemos definir un título para cada página web de nuestro sitio. No solo se mostrará en la pestaná de nuestro
+          navegador, sino que además será utilizado por los buscadores para mostrar nuestro sitio y por ello debe
+          contener
+          entre 55 y 65 caracteres de longitud.</p>
+
+        <pre>&lt;meta name="description" content="Descripión de la página"&gt;</pre>
+
+        <p>Los buscadores utilizan este texto para mostrar un párrafo sobre el contenido de la página (no debe superar
+          los
+          165 caracteres).
+        </p>
+        <blockquote>
+          <p>
+            SEO: Es importante definir en cada página un título y descripción diferente para el posicionamiento y los
+            buscadores generan un sublistado con las páginas más visitadas del sitio. Si utilizamos solo un title y
+            un description no obtendremos el sublistado. Ej:
+          </p>
+        </blockquote>
+
+        <figure>
+          <img class="image" src="/assets/images/title_description.png"
+            alt="Imagen de gogle mostrando la búsqueda de la Univesidad Católica de La Plata">
+          <figcaption>Búsqueda en Google de la Universidad Católica de La Plata</figcaption>
+        </figure>
+      </article>
+    </section> -->
+    <a href="#indice">Tabla de contenido 🔝</a>
+    <hr>
+    <section id="elementos-body">
+      <h2>Elementos del cuerpo Body</h2>
+
+      <p>El cuerpo es la segunda sección de la estructura del documento HTML y se delimita por las etiquetas
+        &lt;BODY&gt;...&lt;/BODY&gt;. Dentro de estas etiquetas se encuentra toda la información que se renderizará en
+        el navegador. Contiene elementos como: encabezados, textos, tablas, imágenes, animaciones, etc; que contienen
+        sus propios atributos.</p>
+
+      <p>El elemento head de un documento HTML es la parte que no se muestra en el navegador cuando se carga la página.
+        La función de la cabecera es contener los metadatos del documento.</p>
+
+      <article>
+        <h3 id="text-tags">Etiquetas de texto (p, h1, h2, h3, h4, h5, h6)</h3>
+
+        <pre>&lt;p&gt;</pre>
+        <p>Formatea un texto en forma de párrafo, posee márgenes arriba, abajo y a los lados. No es lo
+          mismo que colocar texto solo en el body. Siempre debemos envolver los textos en alguna etiqueta.</p>
+
+        <pre>&lt;h1&gt; &lt;h2&gt; &lt;h3&gt; &lt;h4&gt; &lt;h5&gt; &lt;h6&gt;</pre>
+        <p>Definen encabezados que nos permiten titularizar nuestra página</p>
+
+        <pre>
+          <!-- line-numbers language-markup -->
+          <code class="language-html">
+            &lt;h1&gt;Encabezado de nivel 1&lt;/h1&gt;
+            &lt;h2&gt;Encabezado de nivel 2&lt;/h2&gt;
+            &lt;h3&gt;Encabezado de nivel 3&lt;/h3&gt;
+            &lt;h4&gt;Encabezado de nivel 4&lt;/h4&gt;
+            &lt;h5&gt;Encabezado de nivel 5&lt;/h5&gt;
+            &lt;h6&gt;Encabezado de nivel 6&lt;/h6&gt;
+          </code>
+        </pre>
+
+        <h1 class="without-styles">Encabezado de nivel 1</h1>
+        <h2 class="without-styles">Encabezado de nivel 2</h2>
+        <h3 class="without-styles">Encabezado de nivel 3</h3>
+        <h4 class="without-styles">Encabezado de nivel 4</h4>
+        <h5 class="without-styles">Encabezado de nivel 5</h5>
+        <h6 class="without-styles">Encabezado de nivel 6</h6>
+
+        <blockquote>
+          <p>SEO: Solo se debe definir un elemento h1 por página. Los robots de los buscadores buscan un título
+            principal
+            por cada página. Podemos incluir tantos h2, h3, h4, h5 o h6 como deseemos pero debemos respetar el orden.
+            Para definir correctamente la titulación considiremos la redacción de un artículo o de un capítulo de un
+            libro.</p>
+        </blockquote>
+
+        <table class="tabla">
+          <caption>Etiquetas comunes</caption>
+          <thead>
+            <th>Etiqueta</th>
+            <th>Sintaxis</th>
+            <th>Acción</th>
+            <th>Resultado</th>
+          </thead>
+          <tbody>
+            <tr>
+              <td>&lt;u&gt;</td>
+              <td>Este es un &lt;u&gt;ejemplo&lt;/u&gt;</td>
+              <td>Subrayado</td>
+              <td>Este es un <u class="without-styles">ejemplo</u></td>
+            </tr>
+            <tr>
+              <td>&lt;i&gt;</td>
+              <td>Este es un &lt;i&gt;ejemplo&lt;/i&gt;</td>
+              <td>Itálica / cursiva</td>
+              <td>Este es un <i>ejemplo</i></td>
+            </tr>
+            <tr>
+              <td>&lt;b&gt;</td>
+              <td>Este es un &lt;b&gt;ejemplo&lt;/b&gt;</td>
+              <td>Negrita</td>
+              <td>Este es un <b>ejemplo</b></td>
+            </tr>
+            <tr>
+              <td>&lt;sup&gt;</td>
+              <td>e = mc&lt;sup&gt;2&lt;/sup&gt;</td>
+              <td>Texto más arriba</td>
+              <td>e = mc<sup>2</sup></td>
+            </tr>
+            <tr>
+              <td>&lt;sub&gt;</td>
+              <td>H&lt;sub&gt;2&lt;/sub&gt;O</td>
+              <td>Texto más abajo</td>
+              <td>H<sub>2</sub>O</td>
+            </tr>
+            <tr>
+              <td>&lt;mark&gt;</td>
+              <td>Este es un &lt;mark&gt;ejemplo&lt;/mark&gt;</td>
+              <td>Texto resaltado</td>
+              <td>Este es un <mark>ejemplo</mark></td>
+            </tr>
+            <tr>
+              <td>&lt;small&gt;</td>
+              <td>Este es un &lt;small&gt;ejemplo&lt;/small&gt;</td>
+              <td>Letras pequeñas</td>
+              <td>Este es un <small>ejemplo</small></td>
+            </tr>
+            <tr>
+              <td>&lt;del&gt;</td>
+              <td>Este es un &lt;del&gt;ejemplo&lt;/del&gt;</td>
+              <td>Texto tachado</td>
+              <td>Este es un <del>ejemplo</del></td>
+            </tr>
+            <tr>
+              <td>&lt;abbr&gt;</td>
+              <td>Este es un ejemplo &lt;abbr&gt; title="Cascading Style Sheets"&gt;CSS&lt;/abbr&gt;</td>
+              <td>Abreviación o acrónimo</td>
+              <td>Este es un ejemplo <abbr title="Cascading Style Sheets">CSS</abbr></td>
+            </tr>
+            <tr>
+              <td>&lt;strong&gt;</td>
+              <td>Este es un &lt;strong&gt;ejemplo&lt;/strong&gt;</td>
+              <td>Texto importante</td>
+              <td>Este es un <strong>ejemplo</strong></td>
+            </tr>
+            <tr>
+              <td>&lt;em&gt;</td>
+              <td>Este es un &lt;em&gt;ejemplo&lt;/em&gt;</td>
+              <td>Texto con énfasis</td>
+              <td>Este es un <em>ejemplo</em></td>
+            </tr>
+            <tr>
+              <td>&lt;blockquote&gt; &lt;cite&gt;</td>
+              <td>&lt;blockquote&gt;Solo se que no se nada&lt;/blockquote&gt;&lt;cite&gt;Socrates&lt;/cite&gt;</td>
+              <td>Cita larga</td>
+              <td>
+                <blockquote>Solo se que no se nada</blockquote>
+                <cite>Socrates</cite>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p>Existen muchas etiquetas, podemos verla en <a href="https://htmlreference.io/" rel="nofollow"
+            target="_blank">htmlreference.io</a></p>
+
+      </article>
+      <article>
+        <h3 id="break-tags">Etiquetas de agrupación de contenido (br, hr, pre, ol, ul, li)</h3>
+
+        <pre>&lt;br&gt;</pre>
+        <p>Define un salto de línea dentro de un texto.</p>
+
+        <pre>Lorem ipsum dolor sit&lt;br&gt;amet, consectetur adipiscing elit.</pre>
+        <p>Lorem ipsum dolor sit<br>amet, consectetur adipiscing elit.</p>
+
+        <pre>&lt;hr&gt;</pre>
+        <p>Define una ruptura semántica entre bloques de texto. Se representa como una regla horizontal.</p>
+
+        <pre>Lorem ipsum dolor sit&lt;hr&gt;amet, consectetur adipiscing elit.</pre>
+        <p>Lorem ipsum dolor sit
+          <hr>amet, consectetur adipiscing elit.
+        </p>
+
+        <pre>&lt;pre&gt;</pre>
+        <p>Define texto preformateado.</p>
+
+        <pre>Lista de tareas:
+
+- Definir secciones de contenido
+  - Establecer orden
+  - Tipo de encabezados
+  - Incluir la referencia en Indice
+</pre>
+
+        <pre>&lt;code&gt;</pre>
+        <p>Define un fragmento de código dentro de un bloque de texto.</p>
+
+        <pre>&lt;code&gt;Este es un bloque de código en etiqueta code&lt;/code&gt;</pre>
+        <code>Este es un bloque de código en etiqueta code</code>
+
+      </article>
+      <article>
+        <h3 id="semantic-tags">Etiquetas semánticas estructurales</h3>
+
+        <p>Una de las ventajas de HTML5 son las etiquetas semánticos, que nos permiten definir las distintas divisiones
+          de una página web.</p>
+
+        <p>En las versiones anteriores se utilizaba la etiqueta &lt;div&gt; para realizar las divisiones de las
+          distintas secciones de una página web, pero se recomienda utilizar los elementos semánticos ya que describen
+          su propósito. Siempre que podamos debemos intentar utilizar las etiquetas smanicas en lugar de DIV.
+        </p>
+
+        <figure>
+          <img class="image" src="/assets/images/estructura-semantica-html5.jpg"
+            alt="Etiquetas semánticas estructurales">
+          <figcaption>Etiquetas semánticas estructurales</figcaption>
+        </figure>
+
+        <pre>&lt;header&gt;</pre>
+        <p>Define el encabezado de una página web o sección.</p>
+
+        <pre>&lt;nav&gt;</pre>
+        <p>Define una sección con enlaces de navegación.</p>
+
+        <pre>
+&lt;header&gt;
+&lt;h1&gt;HTML Reference&lt;/h1&gt;
+&lt;nav&gt;
+    &lt;a&gt;Home&lt;/a&gt;
+    &lt;a&gt;About&lt;/a&gt;
+    &lt;a&gt;Contact&lt;/a&gt;
+  &lt;/nav&gt;
+&lt;/header&gt;
+</pre>
+
+        <pre>&lt;section&gt;</pre>
+        <p>Define una sección dentro de una página web.</p>
+
+        <pre>
+&lt;section&gt;
+  &lt;h2&gt;Section title&lt;/h2&gt;
+  &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec viverra nec nulla vitae mollis.&lt;/p&gt;
+&lt;/section&gt;
+</pre>
+
+        <pre>&lt;aside&gt;</pre>
+        <p>Define un bloque de contenido relacionado con el contenido principal. Generalmente se muestra como una barra
+          lateral.</p>
+
+        <pre>&lt;footer&gt;</pre>
+        <p>Define el pie de página de una página web o sección.</p>
+      </article>
+      <article>
+        <h3 id="inline-block-tags">Etiquetas de bloque vs etiquetas de línea</h3>
+
+        <p>En Html existen eqtiquetas que de acuerdo a su comportamiento son de bloque o de línea. La etiqueta de bloque
+          más respresentativa es la etiqueta DIV y la etiqueta de línea mas utilizada es la etiqueta SPAN. </p>
+
+        <pre>&lt;DIV&gt;</pre>
+        <p>Define un <mark>bloque genérico de contenido</mark>, que no tiene ningún valor semántico. Se utiliza para
+          elementos de
+          diseño como contenedores.</p>
+
+        <pre>&lt;SPAN&gt;</pre>
+        <p>Define un <mark>genérico de contenido en línea</mark>, que no tiene ningún valor semántico.</p>
+
+        <p>Una etiqueta de bloque genera un salto de línea con sus etiquetas hermanas, tanto arriba como abajo. Es
+          decir, ocupa todo el ancho disponible.</p>
+
+        <pre>&lt;div style="background-color:pink;"&gt; 
+  Este es un bloque DIV. Pintamos el fondo de amarillo para que se vea su magnitud real. Vemos como ocupa el 100% del ancho aunque no lo necesite. 
+&lt;/div&gt;
+</pre>
+
+        <div style="background-color:pink;">
+          Este es un bloque DIV. Pintamos el fondo de amarillo para que se vea su magnitud real. Vemos como ocupa el
+          100% del ancho aunque no lo necesite.
+        </div>
+
+        <pre>&lt;span style="background-color:cyan;"&gt;
+  Este es un bloque SPAN. Pintamos el fondo de amarillo para que se vea su magnitud real. Vemos que solo ocupa su contenido.
+&lt;/span&gt;
+&lt;span&gt;
+  Soy otro span y comparto línea.
+&lt;/span&gt;</pre>
+
+        <span style="background-color:cyan;">
+          Este es un bloque SPAN. Pintamos el fondo de amarillo para que se vea su magnitud real. Vemos que solo ocupa
+          su contenido.
+        </span>
+        <span>
+          Soy otro span y comparto línea.
+        </span>
+
+        <p>Son etiquetas de bloque: los encabezados, los párrafos, div, header, main, footer, etc. Son etiquetas de
+          línea: em, etrong, i, mark, b, blockout, las que aplican a texto, a, etc</p>
+      </article>
+    </section>
+
+    <a href="#indice">Tabla de contenido 🔝</a>
+    <hr>
+
+    <section>
+      <h2 id="styles-html">Relacionando otras tecnologías</h2>
+      <article>
+        <h3 id="styles-html">Estilos CSS en Html</h3>
+
+        <p>Existen tres formas de aplicar estilos CSS:</p>
+        <ul>
+          <li>Etiqueta style dentro del elemento HTML. En elsiguiente ejemplo se aplica un fondo amarillo y color de
+            letra
+            roja:
+            <pre>&lt;div style="background-color:pink; color:red"&gt; 
+  Este es un bloque DIV. Pintamos el fondo de amarillo para que se vea su magnitud real. Vemos como ocupa el 100% del ancho aunque no lo necesite. 
+&lt;/div&gt;
+          </pre>
+          </li>
+          <li>Etiqueta style dentro de la cabecera HEAD del documento HTML. El siguiente ejemplo pintará todos los
+            títulos
+            de tipo h2 de color azul:
+            <pre>
+&lt;!DOCTYPE html&gt;
+  &lt;html lang="en"&gt;
+  &lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta http-equiv="X-UA-Compatible" content="IE=edge"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+    &lt;style&gt;
+      h1 {
+        color: blue;
+      }
+    &lt;/style&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</pre>
+          </li>
+          <li>Utilizando una hoja de estilos. Es la forma correcta de incluir los estilos. En el HEAD linkeamos el
+            archivo
+            con extensión .css que contiene los estilos, y ya estarán disponibles para utilizarlos. Utilizamos la
+            etiqueta
+            link. De esta manera separamos el html de CSS
+
+            <pre>
+&lt;!DOCTYPE html&gt;
+  &lt;html lang="en"&gt;
+  &lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta http-equiv="X-UA-Compatible" content="IE=edge"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+    &lt;link rel="stylesheet" href="style.css"&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</pre>
+            Y el archivo style.css:
+
+            <pre>
+  h1 {
+    color: red;
+  }            
+</pre>
+          </li>
+        </ul>
+      </article>
+      <article>
+        <h3 id="scripts-tags">Scritps en html</h3>
+        <p>Existen dos formas de incluir scripts en nuestra página web.</p>
+        <ul>
+          <li>Mediante la etiqueta script: se ubica al final del documento antes de cerrar la etiqueta BODY. El
+            siguiente ejemplo muestra un mensaje a través de la consola para desarrollo. Lo importante es ver cómo
+            incluir los scripts, el contenido lo veremos en la <a href="/pages/js/javascript.html"
+              target="_blank">sección
+              JavaScript</a>.
+            <pre>
+    &lt;body&gt;
+      ...
+      &lt;script&gt;concole.log("Hola, inprimimos en la consola!")&lt;/script&gt;
+    &lt;/body&gt;
+  &lt;/html&gt;
+</pre>
+          </li>
+          <li>Lo ideal es que la programación javascript se encuentre en archivos separados. Podemos vincularlos
+            utilizando el atributo src de la etiqueta SCRIPT:
+            <pre>
+    &lt;body&gt;
+      ...
+      &lt;script src="codigo.js"&gt;&lt;/script&gt;
+    &lt;/body&gt;
+  &lt;/html&gt;
+</pre>
+          </li>
+        </ul>
+      </article>
+    </section>
+
+    <a href="#indice">Tabla de contenido 🔝</a>
+    <hr>
+
+    <section>
+      <h2 id="img-html">Agregando imágenes</h2>
+      <p>La etiqueta para agregar una imagen es IMG</p>
+      <article>
+        <h3 id="img-formatos">Imágenes: jpg, png, gif, svg</h3>
+        <pre>
+  &lt;img src="" alt=""&gt;
+</pre>
+
+        <p>El atributo source (scr) contiene la ruta (path) y el nombre de archivo de la imágen. El contenido del
+          atributo
+          alt es texto que se mostrará en el caso que el navegador tenga algún problema al intentar renderizar la
+          imágen.
+          Es importante incluir un texto en el atributo alt para los screen readers (software para personas con
+          discapacidad visual). Por otro lado, los robots también utilizan esta información para el SEO.
+        </p>
+
+        <p>Los formatos más populares soportados por los navegadores web son: .jpg, .png, .gif animado, y el .svg.
+          Incluiremos una imágen de cada uno de los tipos</p>
+
+        <pre>
+  &lt;img src="/assets/images/imagen-jpg.jpg" height="200"  width="200" alt="Imágen de pinguino en formato jpg"&gt;
+  &lt;img src="/assets/images/imagen-png.png" height="200"  width="200" alt="Imágen de pinguino en formato png"&gt;
+  &lt;img src="/assets/images/imagen-gif.gif" height="200"  width="200" alt="Imágen de pinguino en formato gif"&gt;
+  &lt;img src="/assets/images/imagen-svg.svg" height="200"  width="200" alt="Imágen de pinguino en formato svg"&gt;
+</pre>
+
+        <img class="redu" src="/assets/images/imagen-jpg.jpg" height="200" width="200"
+          alt="Imágen de pinguino en formato jpg">
+        <img class="redu" src="/assets/images/imagen-png.png" height="200" width="200"
+          alt="Imágen de pinguino en formato png">
+        <img class="redu" src="/assets/images/imagen-gif.gif" height="200" width="200"
+          alt="Imágen de pinguino en formato gif">
+        <img class="redu" src="/assets/images/imagen-svg.svg" height="200" width="200"
+          alt="Imágen de pinguino en formato svg">
+
+        <p>La etiqueta img admite los atributos height y width para indicar alto y ancho de la imágen en pixeles. No es
+          recomendable definir los tamaños con estos atributos. Lo ideal es realizarlo a través de css</p>
+
+        <p>Podemos agregar una regla css que indique:</p>
+
+        <pre>
+  img {
+    max-width: 100%; /*aunque la imagen sea más grande se reducirá al ancho de pantalla*/
+    height: auto: /*de esta manra no se deformará. Mantiene la relación alto-ancho*/
+  }
+</pre>
+
+      </article>
+      <article>
+        <h3 id="img-svg">Vectores</h3>
+        <p>Como vimos, podemos agregar los vectores svg a etiquetas img, pero son código xml. Quiere decir que podemos
+          incluir el código directamente en el html. Una característica de los svg es que podemos redimensionarlos sin
+          perder calidad. Se utiliza mucho en logos</p>
+        <p>Existen muchas páginas para descargar íconos vectioriales, como: <a href="https://css.gg/" rel="nofollow"
+            target="_blank">https://css.gg</a> o <a href="https://www.svgrepo.com/" rel="nofollow"
+            target="_blank">https://www.svgrepo.com</a></p>
+        <img class="redu" src="/assets/images/facebook-svgrepo-com.svg" alt="Logo facebook">
+      </article>
+      <article>
+        <h2 id="figure-tag">Etiqueta figure</h3>
+          <p>Es una etqueta semántica. Nos permite agregar imágenes, videos, etc con una nota al pie (es opcional)</p>
+
+          <pre>
+  &lt;figure&gt;
+    &lt;img src="/assets/images/table_elements_tags.png" alt="Tabla de elementos html"&gt;
+    &lt;figcaption&gt;Tabla de elementos html&lt;/figcaption&gt;
+  &lt;/figure&gt;
+</pre>
+
+          <figure>
+            <img class="image" src="/assets/images/table_elements_tags.png" alt="Tabla de elementos html">
+            <figcaption>Tabla de elementos html</figcaption>
+          </figure>
+
+      </article>
+    </section>
+
+    <a href="#indice">Tabla de contenido 🔝</a>
+    <hr>
+
+    <section>
+      <h2 id="listas-html">Listas</h2>
+      <p>Existen 3 tipos de listas, aunque generalmente utilizamos las ordenadas y las desordenadas.</p>
+      <article>
+        <h3 id="listas-ordenadas">Listas ordenadas</h3>
+        <p>Es una lista numerada y se representa con la etiqueta OL (order list). Cada elemento se debe incorporar con
+          una etiqueta li (list item)</p>
+
+        <pre>
+  &lt;h4&gt;Ejemplo: Estaciones del año&lt;/h4&gt;
+  &lt;ol&gt;
+    &lt;li&gt;Primavera&lt;/li&gt;
+    &lt;li&gt;Verano&lt;/li&gt;
+    &lt;li&gt;Otoño&lt;/li&gt;
+    &lt;li&gt;Invierno&lt;/li&gt;
+  &lt;/ol&gt;
+</pre>
+
+        <h4>Ejemplo: Estaciones del año</h4>
+        <ol>
+          <li>Primavera</li>
+          <li>Verano</li>
+          <li>Otoño</li>
+          <li>Invierno</li>
+        </ol>
+
+        <p>Si queremos comenzar con una numeración diferente podemos agregar el atributo start="3". También podemos
+          invertir la lista con el atributo booleano reversed. Finalmente, el atributo type nos permite seleccionar el
+          tipo de mumeración:
+        </p>
+        <ul>
+          <li>Números (type="1")</li>
+          <li>Letras mayúsculas (type="A")</li>
+          <li>Letras minúsculas (type="a")</li>
+          <li>Números romanos en mayúsculas (type="I")</li>
+          <li>Números romanos en minúsculas (type="i")</li>
+        </ul>
+        <pre>
+  &lt;h4&gt;Ejemplo: Estaciones del año&lt;/h4&gt;
+  &lt;ol start="4" type="A" reversed&gt;
+    &lt;li&gt;Primavera&lt;/li&gt;
+    &lt;li&gt;Verano&lt;/li&gt;
+    &lt;li&gt;Otoño&lt;/li&gt;
+    &lt;li&gt;Invierno&lt;/li&gt;
+  &lt;/ol&gt;
+</pre>
+
+        <h4>Ejemplo: Estaciones del año</h4>
+        <ol start="4" type="A" reversed>
+          <li>Primavera</li>
+          <li>Verano</li>
+          <li>Otoño</li>
+          <li>Invierno</li>
+        </ol>
+
+      </article>
+      <article>
+        <h3 id="listas-desordenadas">Listas desordenadas</h3>
+        <p>Son las viñetas. Se representan a través de la etiqueta ul (unorder list)</p>
+
+        <p>Podemos utilizar el atributo type con los valores disc (predeterminado), circle, square</p>
+
+
+        <pre>
+  &lt;h4&gt;Cosas para hacer&lt;/h4&gt;
+  &lt;ul&gt;
+    &lt;li&gt;Estudiar inglés&lt;/li&gt;
+    &lt;li&gt;Preparar presentación del proyecto&lt;/li&gt;
+    &lt;li&gt;Compartir la presentación&lt;/li&gt;
+  &lt;/ul&gt;
+  &lt;ul type="circle"&gt;
+    &lt;li&gt;Estudiar inglés&lt;/li&gt;
+    &lt;li&gt;Preparar presentación del proyecto&lt;/li&gt;
+    &lt;li&gt;Compartir la presentación&lt;li&gt;
+  &lt;/ul&gt;
+  &lt;ul type="square"&gt;
+    &lt;li&gt;Estudiar inglés&lt;/li&gt;
+    &lt;li&gt;Preparar presentación del proyecto&lt;/li&gt;
+    &lt;li&gt;Compartir la presentación&lt;/li&gt;
+  &lt;/ul&gt;
+</pre>
+
+        <h4>Cosas para hacer</h4>
+        <ul>
+          <li>Estudiar inglés</li>
+          <li>Preparar presentación del proyecto</li>
+          <li>Compartir la presentación</li>
+        </ul>
+        <ul type="circle">
+          <li>Estudiar inglés</li>
+          <li>Preparar presentación del proyecto</li>
+          <li>Compartir la presentación</li>
+        </ul>
+        <ul type="square">
+          <li>Estudiar inglés</li>
+          <li>Preparar presentación del proyecto</li>
+          <li>Compartir la presentación</li>
+        </ul>
+
+      </article>
+      <article>
+        <h3 id="listas-definicion">Listas de definición</h3>
+        <p>Se utiliza para glosario de términos. Se representan con la etiqueta dl (definition list), la etiqueta dt
+          (definition term) para el término que queremos explicar y para la definicion utilizamos dd (definiton data)
+        </p>
+
+        <pre>
+  &lt;dl&gt;
+    &lt;dt&gt;HTML&lt;/dt&gt;
+    &lt;dd&gt;Es un lenguaje de marcado para definir el contenido de nuetsra web&lt;/dd&gt;
+    &lt;dt&gt;CSS&lt;/dt&gt;
+    &lt;dd&gt;Es un lenguaje de definición que da estilos al código html&lt;/dd&gt;
+    &lt;dt&gt;JavaScript&lt;/dt&gt;
+    &lt;dd&gt;Es un lenguaje de la Web&lt;/dd&gt;
+  &lt;/dl&gt;
+</pre>
+
+        <dl>
+          <dt>HTML</dt>
+          <dd>Es un lenguaje de marcado para definir el contenido de nuetsra web</dd>
+          <dt>CSS</dt>
+          <dd>Es un lenguaje de definición que da estilos al código html</dd>
+          <dt>JavaScript</dt>
+          <dd>Es un lenguaje de la Web</dd>
+        </dl>
+      </article>
+    </section>
+
+    <a href="#indice">Tabla de contenido 🔝</a>
+    <hr>
+
+    <section>
+      <h2 id="tablas-html">Tablas</h2>
+      <p>A finales de los 90 las tablas se utilizaban para maquetar. No existían sistemas como grid o flexbox (los
+        veremos en la <a href="/pages/css/css.html">sección CSS</a>). Se representa a con la etiqueta table. Las tablas
+        contienen filas y columnas. Las filas se definen con la etiqueta tr (table row) y las celdas que contiene la
+        fila se define con td (table data)</p>
+
+      <pre>
+&lt;table&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Banda&lt;/td&gt;
+    &lt;td&gt;Tipo&lt;/td&gt;
+    &lt;td&gt;Año de formación&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Queen&lt;/td&gt;
+    &lt;td&gt;Rock / Pop&lt;/td&gt;
+    &lt;td&gt;1970&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Metallica&lt;/td&gt;
+    &lt;td&gt;Thrash metal&lt;/td&gt;
+    &lt;td&gt;1983&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;AC/DC&lt;/td&gt;
+    &lt;td&gt;Rock&lt;/td&gt;
+    &lt;td&gt;1973&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+</pre>
+
+
+      <table class="tabla">
+        <tr>
+          <td>Banda</td>
+          <td>Tipo</td>
+          <td>Año de formación</td>
+        </tr>
+        <tr>
+          <td>Queen</td>
+          <td>Rock / Pop</td>
+          <td>1970</td>
+        </tr>
+        <tr>
+          <td>Metallica</td>
+          <td>Thrash metal</td>
+          <td>1983</td>
+        </tr>
+        <tr>
+          <td>AC/DC</td>
+          <td>Rock</td>
+          <td>1973</td>
+        </tr>
+      </table>
+
+      <p>Podemos agrupar las filas a través de 3 eqtiquetas: thead, tbody y tfoot. En caso de utilizar thead, la
+        etiqueta tr se reemplaza por th. También podemos combinar filas y columnas con las etiquetas colspan y rwospan
+      </p>
+
+      <pre>
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th colspan="3">Tabla de bandas históricas&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th>Banda&lt;/th&gt;
+      &lt;th>Tipo&lt;/th&gt;
+      &lt;th>Año de formación&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Queen&lt;/td&gt;
+      &lt;td&gt;Rock / Pop&lt;/td&gt;
+      &lt;td&gt;1970&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Metallica&lt;/td&gt;
+      &lt;td&gt;Thrash metal&lt;/td&gt;
+      &lt;td&gt;1983&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;AC/DC&lt;/td&gt;
+      &lt;td rowspan="2"&gt;Rock&lt;/td&gt;
+      &lt;td&gt;1973&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Led Zeppelin&lt;/td&gt;
+      &lt;td&gt;1968&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+  &lt;tfoot&gt;
+    &lt;tr&gt;
+      &lt;th colspan="3"&gt;&lt;small&gt;La historia del Rock&lt;/small&gt;&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/tfoot&gt;
+&lt;/table&gt;  
+</pre>
+
+      <table class="tabla">
+        <thead>
+          <tr>
+            <th colspan="3">Tabla de bandas históricas</th>
+          </tr>
+          <tr>
+            <th>Banda</th>
+            <th>Tipo</th>
+            <th>Año de formación</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Queen</td>
+            <td>Rock / Pop</td>
+            <td>1970</td>
+          </tr>
+          <tr>
+            <td>Metallica</td>
+            <td>Thrash metal</td>
+            <td>1983</td>
+          </tr>
+          <tr>
+            <td>AC/DC</td>
+            <td rowspan="2">Rock</td>
+            <td>1973</td>
+          </tr>
+          <tr>
+            <td>Led Zeppelin</td>
+            <td>1968</td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <th colspan="3"><small>La historia del Rock</small></th>
+          </tr>
+        </tfoot>
+      </table>
+    </section>
+
+    <a href="#indice">Tabla de contenido 🔝</a>
+    <hr>
+    <section>
+      <h2 id="enlaces-html">Enlaces</h2>
+
+      <article>
+        <h3 id="enlaces-externos">Enlaces a otro documento de nuestra web y externos</h3>
+        <p>Son elementos (textos, imágenes) que nos permiten navegar a otras rutas. Nos dá interactividad entre los
+          distintos documentos html que tiene nuestra web. Se representan a través de la etiqueta a (anchor). El
+          atributo href es el que determina ir a otro documento o a una sección del propio documento (enlace relativo).
+        </p>
+        <pre>
+&lt;a href="./about.html"&gt;Sobre nosotros&lt;/a&gt;
+</pre>
+
+        <p>Este enlace nos llevará a una página de nuestra web llamada about.html, pero si relaizamos un enlace a un
+          sitio externo tendremos que considerar dos atributos.</p>
+
+        <ul>
+          <li>target: utilizando el valor "_blank" le indicamos al navegador que la página se renderice en otra pestaña.
+            Nuestro sitio no se cerrará.</li>
+          <li>rel: a través de este atributo le indicamos a las arañas de los buscadores que no persigan el enlace ya
+            que no pertenece a nuestro sitio. </li>
+        </ul>
+
+        <pre>
+&lt;a href="https://google.com" target="_blank" rel="nofollow"&gt;Google&lt;/a&gt;
+</pre>
+      </article>
+      <article>
+        <h3 id="enlaces-internos">Enlaces internos</h3>
+        <p>Podemos generar enlaces dentro del mismo documento utilizando el atributo id. Veamos un ejemplo:</p>
+
+        <pre>
+&lt;!-- index.html --&gt;        
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+  &lt;title&gt;Enlaces internos&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+  &lt;h2 id="indice"&gt;Indice&lt;/h2&gt;
+  &lt;a href="index.html#tema_1"&gt;Tema 1&lt;/a&gt; 
+  &lt;a href="index.html#tema_2"&gt;Tema 2&lt;/a&gt; 
+  &lt;a href="index.html#tema_3"&gt;Tema 3&lt;/a&gt; 
+  ...
+  &lt;h3 id="tema_1"&gt;Tema 1&lt;/h3&gt;
+  ...
+  &lt;h3 id="tema_2"&gt;Tema 2&lt;/h3&gt;
+  ...
+  &lt;h3 id="tema_3"&gt;Tema 3&lt;/h3&gt;
+  ...
+  &lt;a href="index.html#indice"&gt;Volver al índice 👆&lt;/a&gt; 
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+        <p>El desplazamiento tiene un efecto brusco. Para evitarlo podemos agregar una regla css para suavizarlo.</p>
+
+        <pre>
+html {
+  scroll-behavior: smooth;
+}
+</pre>
+      </article>
+      <article>
+        <h3 id="enlaces-protocolos">Enlaces y Protocolos especiales</h3>
+        <p>Los enlaces también nos permiten interactuar con otros protocolos. Por ejemplo podemos definir un enlace para
+          que abra la aplicación que se encuentra configurada en el dispositivo para enviar mails o para realizar una
+          llamada telefónica. Ejemplo: </p>
+
+        <pre>
+&lt;a href="mailto:jourdanmauricio@gmail.com"&gt;Enviar email&lt;/a&gt;
+&lt;br&gt;
+&lt;a href="tel:541145232145">Teléfono&lt;/a&gt;
+</pre>
+
+        <a href="mailto:jourdanmauricio@gmail.com">Enviar email</a>
+        <br>
+        <a href="tel:541145232145">Teléfono</a>
+
+        <p>El dispositivo del usuario tiene que tener una aplicación configurada para mails, llamadas, etc. También las
+          aplicaciones como Facebook, Whatsapp poseen sus propios protocolos. Ejemplo:</p>
+
+        <a href="https://api.whatsapp.com/send?phone=541158046525&Hola" target="_blank">Whatsapp</a>
+      </article>
+    </section>
+
+    <a href="#indice">Tabla de contenido 🔝</a>
+    <hr>
+
+    <section>
+      <h2 id="interactive-tags">Elementos interactivos</h2>
+      <article>
+        <h3 id="button-tag">Button</h3>
+        <p>Aunque aún no nos adentramos en JavaScript utilizaremos algunas sentencias para ver el comportamiento de los
+          elementos interactivos. Esta es una mala práctica, en la <a href="/pages/js/javascript.html">sección
+            JavaScript</a>
+          veremos en profundidad cómo interactuar con JavaScript</p>
+        <pre>
+&lt;button onclick="alert('Has presionado el botón!')"&gt;Este es un botón&lt;/button&gt;
+</pre>
+        <button onclick="alert('Has presionado el botón!')">Este es un botón</button>
+      </article>
+      <article>
+        <h3 id="details-tag">Details</h3>
+        <p>Este elemeto se confirma por tres etiquetas: details, summary y el contenido que puede ser texto,
+          imágenes,etc. Ejemplo:</p>
+
+        <pre>
+&lt;details&gt;
+  &lt;summary&gt;Titulo del acordeón&lt;/summary&gt;
+  &lt;article&gt;
+    &lt;h3&gt;Contenido del acordeón&lt;/h3&gt;
+    &lt;p&gt;Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eveniet suscipit corporis a consequuntur
+    dolores ipsam reiciendis, perspiciatis corrupti perferendis sint porro eligendi. Reiciendis voluptas dicta
+    quibusdam. Ex molestias ut placeat?&lt;/p&gt;
+    &lt;img class="redu" src="/assets/images/imagen-png.png" alt="Imagen de pinguino"&gt;
+  &lt;/article&gt;
+  &lt;/details&gt;
+</pre>
+
+        <details>
+          <summary>Titulo del acordeón</summary>
+          <article>
+            <h3>Contenido del acordeón</h3>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eveniet suscipit corporis a consequuntur
+              dolores ipsam reiciendis, perspiciatis corrupti perferendis sint porro eligendi. Reiciendis voluptas dicta
+              quibusdam. Ex molestias ut placeat?</p>
+            <img class="redu" src="/assets/images/imagen-png.png" alt="Imagen de pinguino">
+          </article>
+        </details>
+
+        <p>Si queremos que el elemento aparezca abierto podemos agregar el atributo boleano open.</p>
+      </article>
+      <article>
+        <h3 id="dialog-tag">Ventanas modales (experimental)</h3>
+        <p>El elemento HTML dialog representa un cuadro de diálogo, como una alerta o una subventana.
+          El atributo open indica que el cuadro de diálogo está activo y se puede interactuar con él. Cuando el atributo
+          open no está configurado, el cuadro de diálogo no debe mostrarse al usuario. Se recomienda utilizar el método
+          .show() o .showModal() para representar cuadros de diálogo, en lugar del atributo open.
+        </p>
+
+        <p>
+          El siguiente ejemplo generará un diálogo modal abierto. El botón "Aceptar" permite cerrar el cuadro de diálogo
+          cuando se activa. Es importante proporcionar un mecanismo para cerrar un diálogo dentro del elemento de
+          diálogo. Por ejemplo, la tecla Esc no cierra los cuadros de diálogo sin modo de forma predeterminada, ni se
+          puede suponer que un usuario tendrá acceso a un teclado físico (por ejemplo, alguien que usa un dispositivo de
+          pantalla táctil sin acceso a un teclado).
+        </p>
+
+        <pre>
+        &lt;dialog open&gt;
+          &lt;p&gt;Esto es una ventana modal en Html!&lt;/p&gt;
+          &lt;form method="dialog"&gt;
+            &lt;button&gt;OK&lt;/button&gt;
+          &lt;/form&gt;
+        &lt;/dialog&gt;
+        </pre>
+
+        <dialog open>
+          <p>Greetings, one and all!</p>
+          <form method="dialog">
+            <button>OK</button>
+          </form>
+        </dialog>
+      </article>
+    </section>
+
+    <a href="#indice">Tabla de contenido 🔝</a>
+    <hr>
+
+    <section>
+      <h2 id="audio-video">Audio y Video</h2>
+      <p>Desde la llegada de Html5 tenemos soporte a audio y video. Los formatos más utilizados son mp3 y mp4 pero se
+        podría utilizar ogg, webm, etc. Existe un atributo llamado autoplay (no recomendado por experiencia de usuario).
+        El atributo loop repite la reproducción. El atributo mute mutea el sonido. Y el atributo preload comienza a
+        precargar en caché el audio, entonces al momento que el usuario ejecute el play comience la reproducción, este
+        atributo es recomendado.</p>
+
+      <pre>
+&lt;audio src="/assets/media/Uncle Waffles and Tony Duardo - Tanzania.mp3" controls preload&gt;&lt;/audio&gt;
+</pre>
+
+      <audio src="/assets/media/Uncle Waffles and Tony Duardo - Tanzania.mp3" controls preload></audio>
+
+      <p>La etiqueta video posee las mismas características que audio: loop, autoplay, preload, controls. Adicionalmente
+        tiene el atributo poster para configurar una miniatura</p>
+      <pre>
+  &lt;video width="400" src="/assets/media/Uncle Waffles and Tony Duardo - Tanzania.mp3" controls preload&gt;&lt;/audio&gt;
+</pre>
+      <video class="redu" src="/assets/media/sunset_evening_deck_877.mp4" poster="/assets/images/fondo.jpg" controls
+        preload></video>
+    </section>
+
+    <a href="#indice">Tabla de contenido 🔝</a>
+    <hr>
+    <section>
+      <h2 id="iframes">Iframes</h2>
+      <p>La recomendación es no utilizar este recurso. Es conveniente utilizar javascript con ajax, pero si queremos
+        incrustar un elemento de otra página o un pdf podemos utilizarla aunque podemos tener problemas a la hora de
+        cargar la página.</p>
+      <p>Hay páginas que se encuentran protegidas para no ser incrutadas.</p>
+      <pre>
+&lt;iframe src="/index.html"&gt;&lt;/iframe&gt;
+</pre>
+      <iframe src="/index.html"></iframe>
+
+      <p>Google maps y youtube nos permiten incorporar elementos a través de esta etiqueta. Ejemplo:</p>
+
+      <pre>
+&lt;iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3284.0167132768483!2d-58.38375908524271!3d-34.60373888045943!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4aa9f0a6da5edb%3A0x11bead4e234e558b!2sObelisco!5e0!3m2!1sen!2sar!4v1651524263141!5m2!1sen!2sar" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"&gt;&lt;/iframe&gt;
+</pre>
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3284.0167132768483!2d-58.38375908524271!3d-34.60373888045943!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4aa9f0a6da5edb%3A0x11bead4e234e558b!2sObelisco!5e0!3m2!1sen!2sar!4v1651524263141!5m2!1sen!2sar"
+        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </section>
+
+    <a href="#indice">Tabla de contenido 🔝</a>
+    <hr>
+
+    <section>
+      <h2 id="formularios">Elementos de formulario</h2>
+      <p>En este momento no veremos el proceso de envío de formularios porque requerimos de otras tecnologías. Ahora
+        verememos los distintos elementos que existen.</p>
+      <h3 id="input-tag">Input</h3>
+      <p>Existen diferentes tipo de input.</p>
+
+      <pre>
+&lt;input type="text" /&gt;&lt;br&gt;
+&lt;input type="checkbox" /&gt;&lt;br&gt;
+&lt;input type="radio" /&gt;&lt;br&gt;
+&lt;input type="email" /&gt;&lt;br&gt;
+&lt;input type="number" /&gt;&lt;br&gt;
+&lt;input type="password" /&gt;&lt;br&gt;
+&lt;input type="date" /&gt;&lt;br&gt;
+&lt;input type="password" /&gt;&lt;br&gt;
+&lt;input type="color" /&gt;&lt;br&gt;
+&lt;input type="button" value="Botón"&gt;&lt;br&gt;
+&lt;input type="submit" /&gt;&lt;br&gt;
+&lt;input type="reset" /&gt;&lt;br&gt;
+&lt;input type="file" /&gt;&lt;br&gt;
+&lt;input type="file" multiple /&gt;&lt;br&gt;
+&lt;input type="search" /&gt;&lt;br&gt;
+&lt;textarea name="" id="" cols="30" rows="10"&gt;&lt;/textarea&gt;&lt;br&gt;
+&lt;select name="" id=""&gt;
+  &lt;option value=""&gt;HTML&lt;/option&gt;
+  &lt;option value=""&gt;CSS&lt;/option&gt;
+  &lt;option value=""&gt;JS&lt;/option&gt;
+&lt;/select&gt;
+&lt;input type="hidden" /&gt;&lt;br&gt;
+</pre>
+
+      <input type="text" /><br>
+      <input type="checkbox" /><br>
+      <input type="radio" /><br>
+      <input type="email" /><br>
+      <input type="number" /><br>
+      <input type="password" /><br>
+      <input type="date" /><br>
+      <input type="password" /><br>
+      <input type="color" /><br>
+      <input type="button" value="Botón"><br>
+      <input type="submit" /><br>
+      <input type="reset" /> <br>
+      <input type="file" name="" id=""><br>
+      <input type="file" name="" id="" multiple><br>
+      <input type="search" /> <br>
+      <textarea name="" id="" cols="30" rows="10"></textarea><br>
+      <select name="" id="">
+        <option value="">HTML</option>
+        <option value="">CSS</option>
+        <option value="">JS</option>
+      </select>
+      <input type="hidden" /> <br>
+
+      <p>El atributo name es obligatorio para enviar información, ya que se recuperará a través de este atributo.</p>
+      <p>El imput de tipo email es semantico. Espera que la información que enviemos contenga un @ y los dispositivos
+        agregarán al teclado tactil algunos botones útiles como @ y .com</p>
+      <p>Lo mismo ocurre con el tipo number. No solo que no permite el ingreso de texto sino que en dispositivos
+        táctiles cambia el teclado por uno solo numérico.</p>
+      <p>El input de tipo password no muestra el texto ingresado.</p>
+      <p>El tipo textarea nos permite ingresar más texto y podemos definir la cantidad de filas y columnas.</p>
+      <p>La eqtiqueta select nos permite seleccionar entre varias opciones. El atributo multiple nos permite seleccionar
+        varias opciones.</p>
+      <hr>
+      <p>El atributo disabled transforma el input en un elemento de solo lectura y la propiedad disabled genera el
+        efecto visual de inhabilitado.</p>
+
+      <pre>
+&lt;input type="text" value="Mauricio" readonly disabled&gt;
+</pre>
+      <input type="text" value="Mauricio" readonly disabled>
+
+      <p>Otro atributo interesante es el placeholder. Nos ayuda a guiar al usuario indicando el tipo de texto a
+        ingresar. En cuanto el usuario comienza a escribir el placeholder desaparece.</p>
+
+      <pre>
+&lt;input type="text" placeholder="Ingresa tu nombre"&gt;
+</pre>
+      <input type="text" placeholder="Ingresa tu nombre">
+
+    </section>
+
+    <a href="#indice">Tabla de contenido 🔝</a>
+    <hr>
+
+    <section>
+      <h2 id="formulario">El formulario</h2>
+      <p>El formulario se representa a través de la etiqueta form, es un elemento de bloque. El atributo action
+        determina hacia donde se enviará la información. Dentro de los formularios los botones de tipo submit y reset
+        cobran relevancia. Reset vuelve los elementos a su valor por defecto, miestras que submit enviará el formulario
+        a la dirección indicada en el atributo action del formulario.</p>
+      <p>Agregamos la etiqueta br porque los elementos de tipo input son inline. Así agregamos un salto de línea.</p>
+
+      <pre>
+&lt;h4&gt;Ejemplo formulario login&lt;/h4&gt;
+&lt;form action="#formulario"&gt;
+  &lt;input type="text" name="usuario" placeholder="Ingresa tu usuario"&gt;&lt;br&gt;
+  &lt;input type="password" name="password"&gt;&lt;br&gt;
+  &lt;input type="reset" value="Limpiar"&gt;
+  &lt;input type="submit"&gt;
+&lt;/form&gt;
+</pre>
+
+      <h4>Ejemplo formulario login</h4>
+      <form action="#formulario">
+        <input type="text" name="usuario" placeholder="Ingresa tu usuario"><br>
+        <input type="password" name="password"><br>
+        <input type="reset" value="Limpiar">
+        <input type="submit">
+      </form>
+
+      <p>En este caso configuramos el action para que vuelva a la misma sección del documento. Luego veremos como
+        procesamos la información enviada, pero a priori si completamos los campos usuario y password y presionamos
+        enviar podemos ver cómo se envían los datos como parámetros a trapés de la url. Aquí vemos el atributo name en
+        acción.</p>
+
+      <p>Existen dos métodos de envío. El método GET es el que se encuentra establecido por defecto, por eso no
+        configuramos el atributo method. La segunda manera de enviar los datos del formulario es a través del valor POST
+        en el atributo method. La diferencia es que los datos no se envían como parte de la url, sino que se envían
+        ocultos en la cabecera de la petición html. Veremos con mayor profundidad el paso de parámetros en la seccion de
+        JavaScript.</p>
+
+      <pre>
+&lt;h4&gt;Ejemplo formulario login&lt;/h4&gt;
+&lt;form action="#formulario" method="POST"&gt;  &lt;!--method="GET"--&gt
+  &lt;input type="text" name="usuario" placeholder="Ingresa tu usuario"&gt;&lt;br&gt;
+  &lt;input type="password" name="password"&gt;&lt;br&gt;
+  &lt;input type="reset" value="Limpiar"&gt;
+  &lt;input type="submit"&gt;
+&lt;/form&gt;
+</pre>
+
+      <h4>Ejemplo formulario login</h4>
+      <form action="#formulario" method="POST">
+        <input type="text" name="usuario" placeholder="Ingresa tu usuario"><br>
+        <input type="password" name="password"><br>
+        <input type="reset" value="Limpiar">
+        <input type="submit">
+      </form>
+
+      <p>Vemos que al utilizar los formularios el navegador nos ofrece datos que se han utilizado antes. Si deseamos
+        evitarlo podemos colocar el atributo autocomplete en off. El valor por defecto es on.</p>
+      <p>Adicionalmente podemos agregar etiquetas label para indicar a qué refiere el input. En el parámetro for se
+        coloca el id (identificador) del input. De esta manera, si el usuario realiza un click sobre el label el foco
+        pasará al input. Que el atributo name y id posean el mismo valor es casual, podrían ser diferentes. Es
+        información completamente diferente, recordemos que name se utiliza para recuperar la información una vez
+        enviado el formulario y el atributo id entre otras cosas se utiliza para hacer referencia desde el label.</p>
+      <p>Otro atributo importante es required. Le indica al navegador que realice una validación al momento de enviar el
+        formulario. Si un input posee el atributo required y no fue completado nos mostrará un mensaje indicando la
+        obligatoriedad del input y no enviará el formulario.</p>
+      <p>También podemos realizar validaciones personalizadas a través del atributo pattern que utiliza expresiones
+        regulares. Más adelante veremos cómo utilizar las expresiones regulares. Por el momento veremos una expresión
+        sencilla que solo admita letras. Las expresiones regulares comienzas con ^ y finalizan con $. En el atributo
+        title podemos indicar el mensaje que aparecerá cuando el texto ingresado por el usuario no pase la validación.
+      </p>
+      <p>Finalmente, comentar que si no deseamos que ningún input del formulario se autocomplete podemos agregar el
+        atributo autocomplete="off" al form. El atributo se puede utilizar a nivel formulario o por cada input.</p>
+
+      <pre>
+&lt;h4&gt;Ejemplo formulario login&lt;/h4&gt;
+&lt;form action="#formulario" method="POST"&gt;  &lt;!--method="GET"--&gt
+  &lt;label for="usuario"&gt;Usuario&lt;/label&gt;
+  &lt;input type="text" name="usuario" id="usuario" pattern="^[A-Za-z]+$" title="Ingresa solo letras" required&gt;&lt;br&gt;&lt;br&gt;
+  &lt;label for="password"&gt;Password&lt;/label&gt;
+  &lt;input type="password" name="password" id="password" required&gt;&lt;br&gt;&lt;br&gt;
+  &lt;input type="reset" value="Limpiar"&gt;
+  &lt;input type="submit"&gt;
+&lt;/form&gt;
+</pre>
+
+      <h4>Ejemplo formulario login</h4>
+      <form action="#formulario" method="POST">
+        <label for="usuario">Usuario</label>
+        <input type="text" pattern="^[A-Za-z]+$" title="Ingresa solo letras" id="usuario" name="usuario"
+          autocomplete="off" required><br><br>
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required><br><br>
+        <input type="reset" value="Limpiar">
+        <input type="submit">
+      </form>
+    </section>
+
+    <a href="#indice">Tabla de contenido 🔝</a>
+    <hr>
+
+    <section>
+      <h2 id="select-radio-check">Selects, Radios y Checkboxs</h2>
+      <p>Las etiquetas select muestran por defecto el contenido del primer option que tengan. Por ese motivo solemos
+        ingresar una opción que indique "Seleccione..." y cuyo value sea igual a "". Si deseamos que la opcion
+        seleccionada no sea la primera podemos agregar el atributo selected a la opción que deseemos.</p>
+      <p>En el caso de los selects el valor que se enviará es el value de la opción seleccionada.</p>
+      <hr>
+      <p>Las etiquetas de tipo radio deben tener el mismo nombre para que solo podamos selecionar una alternativa. El
+        navegador interpreta que son un grupo y por comportamiento del radio button al seleccionar una alternativa
+        desmarcará las otras.</p>
+      <p>También es importante destacar que el valor que se enviará con el formulario es el valor del atributo value.
+      </p>
+      <p>El atributo selected también aplica a los redio buttons pero se denomina checked. También acepta el atributo
+        required, con solo colocarlo en uno de los radio alcanza para que el nevegador lo valide.</p>
+      <hr>
+      <p>Los checkbox tienen la particularidad de que el usuario puede seleccionar más de una alternativa, no son
+        excluyentes. En este caso los atributos name pueden ser diferentes o el mismo para todas los checkbox, depende
+        de cómo queremos recibir la información. Recuerda que la información se envía a través de parámetros con la
+        forma "name=value". Puedes realizar la prueba de completar el formulario y enviarlo para ver la url que genera.
+        Tenemos dos alternativas, si utilizamos distintos nombres podemos excluir el value y se enviará "name=on" o
+        podemos colocar el mismo nombre y tendremos que definir un value por cada checkbox.</p>
+      <p>En este ejemplo colocamos la etiqueta input dentro del label para no utilizar el atributo for ni id.</p>
+      <p>El atributo required funciona de forma indidependiente. El navegador validará el checkbox marcado como required
+        sin establecer relación con otros checkboxs. Suena extraño tener una alternativa para marcar si obligaremos al
+        usuario a marcarlo. Pero generalmente se utiliza relacionado a la aceptación de términos y condiciones, etc.</p>
+
+      <pre>
+  &lt;form action="#"&gt;
+  &lt;p&gt;Elige tu idioma&lt;/p&gt;
+  &lt;select name="idioma" required&gt;
+    &lt;option value="" selected&gt;Elige el idioma&lt;/option&gt;
+    &lt;option value="en"&gt;Español&lt;/option&gt;
+    &lt;option value="es"&gt;Inglés&lt;/option&gt;
+    &lt;option value="fr"&gt;Francés&lt;/option&gt;
+    &lt;option value="it"&gt;Italiano&lt;/option&gt;
+    &lt;option value="pt"&gt;Portugués&lt;/option&gt;
+  &lt;/select&gt;
+  &lt;p&gt;Elege tu lenguaje de programción favorito&lt;/p&gt;
+  &lt;input type="radio" name="lenguaje" id="radio-js" value="js" checked&gt;
+  &lt;label for="radio-js"&gt;JavaScript&lt;/label&gt;
+  &lt;input type="radio" name="lenguaje" id="radio-py" value="py"&gt;
+  &lt;label for="radio-py"&gt;Python&lt;/label&gt;
+  &lt;input type="radio" name="lenguaje" id="radio-php" value="php"&gt;
+  &lt;label for="radio-php"&gt;PHP&lt;/label&gt;
+  &lt;p&gt;Elige tus intereses&lt;/p&gt;
+  &lt;label&gt;
+    &lt;input type="checkbox" name="intereses" value="deportes" checked&gt;
+    Deportes
+  &lt;/label&gt;
+  &lt;label&gt;
+    &lt;input type="checkbox" name="intereses" value="finanzas"&gt;
+    Finanzas
+  &lt;/label&gt;
+  &lt;label&gt;
+    &lt;input type="checkbox" name="intereses" value="salud"&gt;
+    Salud
+  &lt;/label&gt;
+  &lt;label&gt;
+    &lt;input type="checkbox" name="intereses" value="politica"&gt;
+    Política
+  &lt;/label&gt;
+  &lt;label&gt;
+    &lt;input type="checkbox" name="intereses" value="ecologia"&gt;
+    Ecología
+  &lt;/label&gt;
+  &lt;br&gt;
+  &lt;br&gt;
+  &lt;label&gt;
+  &lt;input type="checkbox" name="terminos" required&gt;
+    Aceptas los terminos y condiciones
+  &lt;/label&gt;
+  &lt;br&gt;
+  &lt;br&gt;
+  &lt;input type="reset" value="Limpiar"&gt;
+  &lt;input type="submit"&gt;
+&lt;/form&gt;
+</pre>
+
+      <form action="#">
+        <p>Elige tu idioma</p>
+        <select name="idioma" required>
+          <option value="" selected>Elige el idioma</option>
+          <option value="en">Español</option>
+          <option value="es">Inglés</option>
+          <option value="fr">Francés</option>
+          <option value="it">Italiano</option>
+          <option value="pt">Portugués</option>
+        </select>
+        <p>Elege tu lenguaje de programción favorito</p>
+        <input type="radio" name="lenguaje" id="radio-js" value="js" checked>
+        <label for="radio-js">JavaScript</label>
+        <input type="radio" name="lenguaje" id="radio-py" value="py">
+        <label for="radio-py">Python</label>
+        <input type="radio" name="lenguaje" id="radio-php" value="php">
+        <label for="radio-php">PHP</label>
+        <p>Elige tus intereses</p>
+        <label>
+          <input type="checkbox" name="intereses" value="deportes" checked>
+          Deportes
+        </label>
+        <label>
+          <input type="checkbox" name="intereses" value="finanzas">
+          Finanzas
+        </label>
+        <label>
+          <input type="checkbox" name="intereses" value="salud">
+          Salud
+        </label>
+        <label>
+          <input type="checkbox" name="intereses" value="politica">
+          Política
+        </label>
+        <label>
+          <input type="checkbox" name="intereses" value="ecologia">
+          Ecología
+        </label>
+        <br>
+        <br>
+        <label>
+          <input type="checkbox" name="terminos" required>
+          Aceptas los terminos y condiciones
+        </label>
+        <br>
+        <br>
+        <input type="reset" value="Limpiar">
+        <input type="submit">
+      </form>
+    </section>
+    <section>
+      <h2 id="contact-form">Formulario de contacto</h2>
+      <p>Para darle funcionalidad al formulario sin tener un backend propio utilizaremos un servicio de envío de emails
+        web (<a href="https://formsubmit.co" rel="nofollow" target="_blank">https://formsubmit.co</a>). En el atributo
+        action del formulario debemos completar con action="https://formsubmit.co/your@email.com". El servicio
+        transforma el form en un correo electrónico y lo envía a la casilla indicada.</p>
+
+      <pre>
+&lt;form action="https://formsubmit.co/jourdanmauricio@gmail.com" method="POST"&gt;
+  &lt;input type="text" name="nombre" placeholder="Ecribe tu nombre" pattern="^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$"
+    title="El nombre solo acepta letras y espacios" required&gt;
+  &lt;br&gt;
+  &lt;input type="email" name="correo" placeholder="Escribe tu correo" pattern="^(\w+[/./-]?){1,}@[a-z]+[/.]\w{2,}$"
+    title="oformato de correo inválido" required&gt;
+  &lt;br&gt;
+  &lt;textarea name="comentarios" cols="30" rows="10" required&gt;&lt;/textarea&gt;
+  &lt;br&gt;
+  &lt;input type="submit"&gt;
+&lt;/form&gt;
+</pre>
+
+      <form action="https://formsubmit.co/jourdanmauricio@gmail.com" method="POST">
+        <input type="text" name="nombre" placeholder="Ecribe tu nombre" pattern="^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$"
+          title="El nombre solo acepta letras y espacios" required>
+        <br>
+        <input type="email" name="correo" placeholder="Escribe tu correo" pattern="^(\w+[/./-]?){1,}@[a-z]+[/.]\w{2,}$"
+          title="oformato de correo inválido" required>
+        <br>
+        <textarea name="comentarios" cols="30" rows="10" required></textarea>
+        <br>
+        <input type="submit">
+      </form>
+    </section>
+
+    <a href="#indice">Tabla de contenido 🔝</a>
+    <hr>
+
+    <section>
+      <h2 id="data-atributtes">Data Atributtes</h2>
+      <p>Html5 nos permite agregar atributos personalizados a las etiquetas y nos sirve, por ejemplo, para guardar
+        información generada dinámicamente a nivel html. Podemos mantener el id de de un listado de usuarios. Luego
+        podemos utilizar ese Id para realizar otras operaciones de consulta o modificaciones.</p>
+      <p>La única regla que tenemos que cumplir es que el atributo comienza por data- y agregamos el nombre que
+        deseemos. Por ejemplo: <b>data-</b>id</p>
+
+      <ul>
+        <li data-id="1" data-name="spring">Primavera</li>
+        <li data-id="2" data-name="summer">Verano</li>
+        <li data-id="3" data-name="autumn">Otoño</li>
+        <li data-id="4" data-name="winter">Invierno</li>
+      </ul>
+      <p>En la seccion javascript veremos como utilizar estos atributos desde la programación</p>
+    </section>
+
+    <a href="#indice">Tabla de contenido 🔝</a>
+    <hr>
+    <section>
+      <h2 id="metas-seo">Metaetiquetas para SEO y Móviles</h2>
+      <p>Hasta el momento vimos la etiqueta title y la etiqueta description. Ahora veremos la etiqueta link. Esta
+        etiqueta se ubica en el HEAD</p>
+
+      <pre>
+&lt;link rel="canonical" href="http://tu-dominio.com/la-url-canonica"&gt;
+</pre>
+      <p>La forma mas simple de entender el concepto de url canónica es pensar en un e-comerce. Muchas veces obtenemos
+        un link a producto por el día de la madre, black friday, etc. Entre los parámetros de ese link se encuentra el
+        descuento. Todas las url aterrizan en el mismo producto pero para los buscadore son distintas urls. Entonces
+        para le indicamos a los navegadores que existen varias urls pero que esta es la auténtica, la original, la
+        canonica. En cada página debemos definir la url canonica.</p>
+
+      <p>Para complementar las meta podemos incluir al favicon y al apple touch. Deben ser imagenes cuadradas. El tamaño
+        mínimo es de 16px por 16px. Pero se verá muy borrosa. Entonces mientras mas grande mejor porque mantendrá mejor
+        definición cuando se renderice en la pestaña del navegador o en el ícono del acceso en móviles. El logo del
+        favicon debe de estar en formato png. También se puede utilizar el .ico pero solo funciona en navegadores, no
+        funciona en dispositivos moviles. </p>
+
+      <pre>
+&lt;link rel="icon" href="/assets/image/favicon.png"&gt;
+&lt;link rel="apple-touch-icon" href="/assets/image/favicon.png"&gt;
+</pre>
+
+      <p>Por mas que el atributo tenga el valor apple-touch-icon funciona para todos los dispositivos móviles, quedó el
+        nombre porque lo solicitó apple pero lugo se extendió al resto. La imagen enlazada en apple-touch-icon debe
+        tener buena reslución. Utilizar imagen de 1024x1024</p>
+
+      <p>Para cambiar el color de la barra de en dispositivos móviles podemos utilizar: </p>
+
+      <pre>
+&lt;meta name="theme-color" content="#FF6600"&gt;
+</pre>
+      <p>Esta línea no tendrá efecto en Pcs pero camviará el color en dispositivos móviles.</p>
+
+    </section>
+
+    <a href="#indice">Tabla de contenido 🔝</a>
+    <hr>
+
+    <section>
+      <h2 id="metas-redes">Meta etiquetas para Redes Sociales</h2>
+      <p>Open graph es un proptocolo para compartir contenido de manera enriquecido en redes sociales. Su página web es
+        <a href="https://ogp.me/" rel="nofollow" target="_balnc">The Open Graph protocol</a>. El protocolo Open Graph
+        permite que cualquier página web se convierta en un objeto enriquecido para compartir en redes sociales. Por
+        ejemplo, en Facebook, Twitter, LinkedIn, al crear una publicación ingresamos la url de la web y automáticamente
+        crea una tarjeta con el título, la metadesciption, una imagen, etc.
+      </p>
+      <p>Para lograr este efecto tenemos que agregar 4 etiquetas en el HEAD de cada página.</p>
+      <ul>
+        <li>og:title - para el título del objeto. Ej: "The Rock"</li>
+        <li>og:type - El tipo de su objeto, por ejemplo, "video.movie". Según el tipo que especifique, es posible que
+          también se requieran otras propiedades</li>
+        <li>og:image - Una URL de imagen que debería representar su objeto</li>
+        <li>og:url - La URL canónica de su objeto que se usará como ID permanente.
+          Ej: "https://www.imdb.com/title/tt0117500/"</li>
+      </ul>
+
+      <p>Existe metadatos adicionales que podemos agregar como: audio, description, determiner, locale, site_name,
+        video.</p>
+      <p>De acuerdo a la red social, puede que existan pequeñas variaciones del protocolo. Para verificar debemos
+        ingresar al área de desarrolladores de la red. Ej, en Twitter:
+        https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/abouts-cards</p>
+      <p>En nuestro caso podríamos agregar las siguientes etiquetas. Ten en cuenta que las url son absolutas al dominio.
+        Antes de establecer las etiquetas, por ejemplo de la imagen, verifique que se este mostrando la imágen colocando
+        la dirección en el navegador.</p>
+
+      <pre>
+&lt;meta property="og:title" content="Aprende html"&gt;
+&lt;meta property="og:description" content="Esta página contiene los fundamentos básicos de html5, utilizala como guía de referencia"&gt;
+&lt;meta property="og:image" content="https://dominio.com/img/table_periodic_html.png"&gt;
+&lt;meta property="og:url" content="https://dominio.com/html.htlm"&gt;
+&lt;meta name="twitter:card" content="summary"&gt;
+&lt;meta name="twitter:site" content="@jourdanmau"&gt;
+</pre>
+
+      <p>Nuevamente destacamos la importancia de colocar distintos títulos, descripciones e imágenes en cada página. No
+        solo para el SEO web, sino para las tarjetas de nuestras páginas en las redes sociales. Ejemplo: si tienes una
+        página personal y deseas compartir ti CV a través de redes sociales, podrías personalizar la página cv.html y
+        compartirla fácilmente. Si tienes una tienda de productos podrías configurar por producto o categoría.</p>
+
+    </section>
+
+    <a href="#indice">Tabla de contenido 🔝</a>
+    <hr>
+
+    <section>
+      <h2 id="accesibilidad-web">Accesibilidad Web</h2>
+      <p>El desarrollo html para accesibilidad es muy grande, no son solo algunas etiquetas, pero veamos algunas a modo
+        de introducción.</p>
+      <p>Tengamos en cuenta que existen personas que utilizan otros dipositivos para que lean el contenido, o utilizan
+        ciertos contrastes de color para navegar por nuestros sitios.</p>
+      <p>Enlaces donde profundizar el tema:</p>
+      <ul>
+        <li>https://web.dev/accessible/</li>
+        <li>https://html5accessibility.com/</li>
+        <li>https://www.w3.org/blog/news/archives/8889</li>
+        <li>https://www.youtube.com/channel/UCU6ljj3m1fglIPjSjs2DpRA/videos</li>
+      </ul>
+      <p>Algunos atributos para hacer nuestro código más accesible son: </p>
+      <h4 role="title">Las estaciones del año</h4>
+      <ul role="list">
+        <li tabindex="1" role="listitem">Primavera</li>
+        <li tabindex="2" role="listitem">Verano</li>
+        <li tabindex="3" role="listitem">Otoño</li>
+        <li tabindex="4" role="listitem">Invierno</li>
+      </ul>
+      <a href="#" role="link" aria-label="En este enlace encontrarás más información sobre las estaciones del año"
+        target="_blank" rel="nofollow">Más información...</a>
+      <p>Las personas con discapacidad visual utilizan un lector que recitará la lista de corrido, pero podemos mejorar
+        la accesibilidad a través del lector especificando el atributo role con los valores list y listitem. De la
+        misma manera, en los links podemos utiliza el atributo role="link" y el atributo aria-label para agregar una
+        descripción del contenido del link.</p>
+      <p>Estos atributos no poseen impacto visual pero son importantes para los lectores.</p>
+      <p>Otro atributo es el tabindex. Por defecto, en los navegadores al presionar la tecla tab el foco salta entre los
+        elementos interactivos. Si deseamos que también se posicione sobre algún texto que sea importante podemos
+        agregar el atributo tabindex.</p>
+      <p>Un caso común es utilizar los colores rojo para error y verde para éxito. En personas con daltonismo esto no
+        posee ningún efecto por lo que debemos ser claros en los mensajes o agregar al mensaje algún emoji
+        representativo.</p>
+
+    </section>
+
+    <a href="#indice">Tabla de contenido 🔝</a>
+    <hr>
+
+  </main>
+  <sergey-import src="footer" />
+  <script src="/assets/js/prism.js"></script>
+</body>
+
+</html>

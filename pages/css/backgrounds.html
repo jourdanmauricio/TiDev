@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Estilos del fondo en CSS</title>
+  <meta name="description"
+    content="Esta página contiene los fundamentos básicos de CSS, utilízala como guía de referencia">
+  <link rel="stylesheet" href="/css/menu.css">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/css/backgrounds.css">
+  <!-- CDN Material+Icons -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+</head>
+
+<body>
+  <!-- https://www.youtube.com/watch?v=K3xmRF8ab1o&list=PLvq-jIkSeTUZYcX9SYwVe7f66afwd9qk_&index=2 -->
+  <header>
+    <nav class="menu-nav">
+      <a href="/index.html" class="enlace">
+        <label class="logo">Aprende</label>
+      </a>
+      <input type="checkbox" id="check">
+      <label for="check" class="checkbtn">
+        <i class="material-icons">menu</i>
+      </label>
+      <ul class="menu">
+        <li><a href="/index.html">Inicio</a></li>
+        <li><a href="/pages/html/html.html">HTML</a></li>
+        <li><a class="active" href="/pages/css/css.html">CSS</a></li>
+        <li><a href="/pages/js/javascript.html">JavaScript</a></li>
+        <li><a href="/pages/contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main class="container">
+
+    <section>
+      <h1>Estilos del fondo en CSS</h1>
+      <p>La propiedad background es un shorthand de con muchas variaciones, por eso es conveniente no utilizarla el
+        shorthand.</p>
+
+      <ul>
+        <li>background-color</li>
+        <li>background-image: define la imagen de fondo del elemento</li>
+        <li>background-size: define el tamaño de la imagen de fondo, primer valor x, segundo y</li>
+        <ul>
+          <li>cover: cambia el tamaño de la imagen de fondo para asegurarse de que permanezca completamente visible</li>
+          <li>contain: cambia el tamaño de la imagen de fondo para asegurarse de que el elemento esté completamente
+            cubierto</li>
+        </ul>
+        <li>background-repeat: define cómo se repite la imagen de fondo en el elemento</li>
+        <li>background-position: define la posición de la imagen de fondo, primer valor x, segundo y, si no se
+          especifica un segundo valor éste será center
+          aparte de valores numéricos podemos indicar el posicionamiento con las palabras: center, top, bottom, left and
+          right
+        </li>
+        <li>background-clip: define cuánto debe extenderse el fondo dentro del elemento.</li>
+        <li>background-origin: define el origen de la imagen de fondo.</li>
+        <li>background-attachment: define cómo se comportará la imagen de fondo al desplazarse por la página</li>
+      </ul>
+
+      <!-- <div class="box"></div> -->
+
+      <article>
+        <h3>background-color</h3>
+        <p>Define el color de fondo del elemento</p>
+        <ul>
+          <li>background-color: transparent; Por defecto, el color de fondo es transparente, significa que no hay color
+            de fondo.</li>
+          <li>background-color: red; Podemos utilizar uno de los más de 140 nombres de color.</li>
+          <li>background-color: #05ffb0; Podemos utilizar códigos de colores hexadecimales.</li>
+          <li>background-color: rgb(50, 115, 220); Podemos utilizar códigos de colores RGB o RGBA</li>
+          <li>background-color: hsl(14, 100%, 53%); Podemos utilizar códigos de colores HSL o HSLA</li>
+        </ul>
+
+        <pre>
+&lt;div class="box bg-color"&gt;&lt;/div&gt;
+
+/* CSS */
+.box {
+  width: 300px;
+  height: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  border: thick dashed red;
+}
+.bg-color {
+  background-color: black;
+}
+</pre>
+        <div class="box bg-color"></div>
+
+        <hr>
+
+        <h3>background-image</h3>
+        <p>Define una imagen como fondo del elemento.</p>
+        <ul>
+          <li>background-image: none; Elimina cualquier imagen de fondo.</li>
+          <li>background-image: url(/images/jt.png); Utiliza la imagen definida en la ruta de la URL. Esta ruta puede
+            ser relativa (al archivo css) o absoluta.</li>
+          <li>background-image: linear-gradient(red, blue); Podemos definir un degradado lineal como imagen de fondo.
+            Necesitamos definir al menos dos colores. El primero comenzará en la parte superior, el segundo en la parte
+            inferior. El ángulo predeterminado es hacia abajo (o 180 grados), lo que significa que el degradado es
+            vertical, comenzando en la parte superior y terminando en la parte inferior del elemento.</li>
+          <li>background-image: linear-gradient(45deg, red, blue); Podemos especificar un ángulo, ya sea en grados o con
+            palabras clave. Al usar grados, especifica la dirección del degradado.</li>
+          <li>background-image: radial-gradient(green, purple); Podemos definir un degradado radial como imagen de
+            fondo. Necesitamos definir al menos dos colores. El primero estará en el centro, el segundo en los bordes.
+          </li>
+          <li>background-image: radial-gradient(circle, green, purple); Podemos especificar la forma del degradado
+            radial: círculo o elipse (predeterminado).</li>
+          <li>background-image: radial-gradient(circle, green 0%, purple 20%, orange 100%); Puede especificar paradas de
+            color utilizando valores porcentuales.</li>
+          <li>background-image: radial-gradient(circle closest-side, green 0%, purple 20%, orange 100%); Puede
+            especificar dónde debe terminar el degradado: closest-side, closest-corner, farthest-side, farthest-corner
+          </li>
+          <li>background-image: radial-gradient(circle closest-side at 45px 45px, green 0%, purple 20%, orange 100%); Al
+            igual que con la posición de fondo, podemos especificar la posición del degradado.</li>
+        </ul>
+        <pre>
+&lt;div class="box bg-image"&gt;&lt;/div&gt;
+
+/* CSS */
+.bg-image {
+  background-image: url("/assets/images/puesta-sol.jpg");
+}
+</pre>
+        <div class="box bg-image"></div>
+
+        <p>La imagen posee una resolución muy grande para las dimensiones del contenedor. Luego volveremos sobre este
+          punto.</p>
+
+        <hr>
+
+        <h3>background-size</h3>
+        <p>Define el tamaño de la imagen de fondo.</p>
+
+        <ul>
+          <li>background-size: auto auto; La imagen de fondo conservará su tamaño original. Si la imagen es más grande
+            que su contenedor se recortará. Valor por defecto</li>
+          <li>background-size: 120px 80px; Podemos especificar un tamaño en píxeles: el primer valor es el tamaño
+            horizontal el segundo es el tamaño vertical</li>
+          <li>background-size: 100% 50%; También podemos utilizar valores porcentuales. Esto puede alterar la relación
+            de aspecto de la imagen de fondo y generar resultados inesperados</li>
+          <li>background-size: contain; La palabra clave constain cambiará el tamaño de la imagen de fondo para
+            asegurarse de que permanezca completamente visible.</li>
+          <li>background-size: cover; La palabra clave cover cambiará el tamaño de la imagen de fondo para asegurarse
+            de que el elemento esté completamente cubierto</li>
+        </ul>
+
+        <pre>
+&lt;div class="box bg-size"&gt;&lt;/div&gt;
+
+/* CSS */
+.bg-size {
+  background-image: url("/assets/images/puesta-sol.jpg");
+  background-size: 300px 200px;
+  background-size: 300px;
+  background-size: cover;
+  background-size: contain;
+}
+</pre>
+        <div class="box bg-size"></div>
+
+        <h3>background-repeat</h3>
+        <p>Define cómo se repite la imagen de fondo en el fondo del elemento, comenzando desde la posición del fondo.
+        </p>
+
+        <ul>
+          <li>background-repeat: repeat; La imagen de fondo se repetirá tanto horizontal como verticalmente</li>
+          <li>background-repeat: repeat-x; La imagen de fondo solo se repetirá horizontalmente</li>
+          <li>background-repeat: repeat-y; La imagen de fondo solo se repetirá verticalmente</li>
+          <li>background-repeat: no-repeat; La imagen de fondo solo aparecerá una vez</li>
+        </ul>
+
+        <pre>
+&lt;div class="box bg-repeat"&gt;&lt;/div&gt;
+/* CSS */
+.bg-size {
+  background-image: url("/assets/images/puesta-sol.jpg");
+  background-size: 200px;
+  background-repeat: repeat;
+  background-repeat: repeat-x;
+  background-repeat: repeat-y;
+  background-repeat: no-repeat;
+}
+</pre>
+        <div class="box bg-repeat"></div>
+
+        <h3>bg-position</h3>
+        <p>Define la posición de la imagen de fondo.</p>
+
+        <ul>
+          <li>background-position: 0% 0%; La imagen de fondo se colocará al 0% en el eje horizontal y al 0% en el eje
+            vertical, lo que significa la esquina superior izquierda del elemento.</li>
+          <li>background-position: bottom right; Podemos utilizar una combinación de palabras clave de posición: centro,
+            arriba, abajo, izquierda y derecha.</li>
+          <li>background-position: center center; La imagen de fondo se colocará en el centro del elemento.</li>
+        </ul>
+        <pre>
+&lt;div class="box bg-position"&gt;&lt;/div&gt;
+
+/* CSS */
+.bg-position {
+  background-color: skyblue;
+  background-image: url("/assets/images/puesta-sol.jpg");
+  background-size: 100px;
+  background-repeat: no-repeat;
+  background-position: 10px 20px;
+  background-position: 1rem 2rem;
+  background-position: 10% 20%;
+  background-position: 10%;
+  background-position: 10% center;
+  background-position: top center;
+  background-position: top right;
+  background-position: top left;
+  background-position: bottom center;
+  background-position: bottom right;
+  background-position: bottom left;
+  background-position: bottom;
+}
+</pre>
+        <div class="box bg-position"></div>
+
+        <h3>background-clip</h3>
+        <p>Define hasta dónde debe extenderse el fondo dentro del elemento.</p>
+        <ul>
+          <li>background-clip: border-box; El fondo se extiende completamente por todo el elemento, incluso debajo del
+            borde.</li>
+          <li>background-clip: padding-box; El fondo solo se extiende hasta el borde del borde: incluye el relleno pero
+            no el borde.</li>
+          <li>background-clip: content-box; El fondo solo se extiende hasta el borde del contenido: no incluye el
+            relleno ni el borde.</li>
+        </ul>
+
+        <pre>
+&lt;div class="box bg-clip"&gt;&lt;/div&gt;
+
+/* CSS */
+.bg-clip {
+  background-color: skyblue;
+  background-image: url("/assets/images/puesta-sol.jpg");
+  background-repeat: no-repeat;
+  background-size: 200px;
+  background-size: cover;
+  background-clip: border-box; /* default */
+  background-clip: padding-box;
+  background-clip: content-box;
+  padding: 1rem;
+}          
+</pre>
+        <div class="box bg-clip"></div>
+
+        <h3>background-origin</h3>
+        <p>Define el origen de la imagen de fondo.</p>
+
+        <ul>
+          <li>background-origin: padding-box; La imagen de fondo comienza en el borde del borde: dentro del relleno pero
+            no en el borde</li>
+          <li>background-origin: border-box; La imagen de fondo comienza debajo del borde</li>
+          <li>background-origin: content-box; La imagen de fondo solo comienza en el borde del contenido: no incluye el
+            relleno ni el borde</li>
+        </ul>
+
+        <pre>
+&lt;div class="box bg-origin"&gt;&lt;/div
+
+/* CSS */
+.bg-origin {
+  background-color: skyblue;
+  background-image: url("/assets/images/puesta-sol.jpg");
+  background-repeat: no-repeat;
+  background-size: 200px;
+  background-size: cover;
+  background-origin: padding-box; /* default */
+  background-origin: border-box;
+  background-origin: content-box;
+  padding: 1rem;
+}
+</pre>
+        <div class="box bg-origin"></div>
+
+        <h3>background-attachment</h3>
+        <p>Define cómo se comportará la imagen de fondo al desplazarse por la página.</p>
+
+        <ul>
+          <li>background-attachment: scroll; La imagen de fondo se desplazará con la página. También se posicionará y
+            cambiará de tamaño según el elemento al que se aplique</li>
+          <li>background-attachment: fixed; La imagen de fondo no se desplazará con la página y permanecerá posicionada
+            de acuerdo con la ventana gráfica. También se posicionará y cambiará de tamaño de acuerdo con la ventana
+            gráfica. Como resultado, la imagen de fondo probablemente solo sea parcialmente visible</li>
+        </ul>
+
+        <pre>
+&lt;div class="box bg-attachment"&gt;&lt;
+
+/* CSS */
+.bg-attachment {
+  background-color: skyblue;
+  background-image: url("/assets/images/puesta-sol.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 50vh;
+  background-attachment: scroll;
+  background-attachment: fixed;
+  /* background: red; */
+}
+</pre>
+
+        <div class="box bg-attachment"></div>
+
+      </article>
+    </section>
+    <br><br><br><br><br><br><br><br><br><br>
+    <hr>
+    <a href="/pages/css/css.html#indice">👆</a>
+
+  </main>
+</body>
+
+</html>

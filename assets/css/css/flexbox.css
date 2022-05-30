@@ -1,0 +1,148 @@
+.container-flex {
+  background-color: #888;
+  height: 30vh;
+  display: flex; /* or inline-flex */
+}
+
+.container-flex-direction {
+  flex-direction: column-reverse;
+}
+
+.container-flex-nowrap {
+  flex-wrap: nowrap;
+}
+
+.container-flex-wrap {
+  flex-wrap: wrap;
+}
+
+.item {
+  background-color: #666;
+  border: thin solid red;
+  width: 20%;
+}
+
+.container-flex-justify {
+  justify-content: space-evenly;
+}
+
+.container-align {
+  align-items: center;
+}
+
+.container-align-content {
+  align-content: space-between;
+}
+
+.flex-container-grid {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.flex-item {
+  border: thin solid #ccc;
+  flex: 0 0 100%;
+}
+
+.container-flex-2 {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.flex-item-2 {
+  flex: 0 0 100%;
+}
+
+.flex-responsive {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.flex-responsive-item {
+  border: thin solid #f60;
+  flex: 1 1 200px;
+}
+
+@media (min-width: 576px) {
+  .flex-item {
+    flex: 0 0 50%;
+  }
+}
+
+@media (min-width: 768px) {
+  .flex-item {
+    flex: 0 0 33.33333333333333%;
+  }
+}
+
+@media (min-width: 992px) {
+  .flex-item {
+    flex: 0 0 25%;
+  }
+  .container-flex-2 {
+    display: flex;
+    /* flex-flow: row nowrap; */
+    align-items: center;
+  }
+
+  .flex-item-2 {
+    flex: 0 0 50%;
+  }
+
+  .flex-order-1 {
+    order: 1;
+  }
+
+  .flex-row-reverse {
+    flex-direction: row-reverse;
+  }
+}
+
+@media (min-width: 1200px) {
+  .flex-item {
+    flex: 0 0 16.66666666666667%;
+  }
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex-grow: 1;
+}
+
+.titulares {
+  padding: 1rem;
+  background-color: #222;
+  color: #eee;
+}
+
+.hero-image {
+  background: url("https://placeimg.com/1000/720/animals");
+  min-height: 100vh;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.hero-image div {
+  min-height: inherit;
+  background-color: rgba(0, 0, 0, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.hero-image h1 {
+  color: #fff;
+  font-size: 5vw;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}

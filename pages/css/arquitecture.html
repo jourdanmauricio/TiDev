@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arquitectura CSS</title>
+  <meta name="description"
+    content="Esta página contiene los fundamentos básicos de CSS, utilízala como guía de referencia">
+  <link rel="stylesheet" href="/css/menu.css">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/css/grid.css">
+  <link rel="stylesheet" href="/css/css/arquitecture.css">
+  <!-- CDN Material+Icons -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+</head>
+
+<body>
+  <!-- https://www.youtube.com/watch?v=udGrXWeJp1Y&list=PLvq-jIkSeTUZYcX9SYwVe7f66afwd9qk_&index=5 -->
+  <header>
+    <nav class="menu-nav">
+      <a href="/index.html" class="enlace">
+        <label class="logo">Aprende</label>
+      </a>
+      <input type="checkbox" id="check">
+      <label for="check" class="checkbtn">
+        <i class="material-icons">menu</i>
+      </label>
+      <ul class="menu">
+        <li><a href="/index.html">Inicio</a></li>
+        <li><a href="/pages/html/html.html">HTML</a></li>
+        <li><a class="active" href="/pages/css/css.html">CSS</a></li>
+        <li><a href="/pages/js/javascript.html">JavaScript</a></li>
+        <li><a href="/pages/contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main class="container">
+    <h1>Arquitectura CSS</h1>
+
+    <h2 id="indice">Tabla de contenidos</h2>
+    <ol>
+      <li><a href="/pages/css/arquitecture.html#introduction">Introducción a las Arquitectura CSS</a></li>
+      <li><a href="/pages/css/arquitecture.html#methodologies">Metodologías</a></li>
+      <li><a href="/pages/css/arquitecture.html#frameworks">Frameworks CSS</a></li>
+      <li><a href="/pages/css/arquitecture.html#procesadores">Procesadores CSS</a></li>
+      <li><a href="/pages/css/arquitecture.html#herramientas">Herramientas de automatización</a></li>
+      <li><a href="/pages/css/arquitecture.html#guides">Guías de Estilos</a></li>
+
+
+
+    </ol>
+
+    <article id="introduction">
+      <h2>Introducción a las Arquitectura CSS</h2>
+      <p>La arquitectura CSS refiere a técnicas que nos ayudan a organizar y mantener nuestro código ordenado, óptimo y
+        escalable.</p>
+
+      <p>Una buena arquitectua CSS debe ser</p>
+
+      <ul>
+        <li>Predecible</li>
+        <p>Las reglas se comportarán como esperamos. Si agregamos una nueva característica esperamos que no afecte a
+          otras
+          secciones de nuestro sitio. Se encuentra relacionado al utility first, que nos permite afectar un atributo en
+          particular como color de fondo, del texto, etc. </p>
+        <li>Reutilizable</li>
+        <p>Que se pueda utilizar en distintas secciones o elementos sin generar problemas.</p>
+        <li>Estable</li>
+        <p>Deberíamos poder modificar el código sin afectar a otras reglas.</p>
+        <li>Escalable</li>
+        <p>Cuando nuestro sitio crezca, el código tiene que seguir siendo fácil de mantener.</p>
+      </ul>
+
+      <p>Comenzar con un plan nos pertirá cumplir con estas características evitándonos refactorizaciones futuras.</p>
+      <p>Una estrategía es comenzar definiendo clases utilizarias, las que solo aplican un estilo en particular. Esto
+        nos
+        generará elementos html textosos porque agregaremos varias clases a cada elemento, pero nos permite reutlizar el
+        código entre distintintos proyectos.</p>
+      <p>Supongamos que creamos un primer proyecto con muchas clases utilitarias. Al momento de iniciar un segundo
+        proyecto podemos copiarlas y agregar las nuevas clases utilitarias que necesitemos. Conforme crezcan nuestras
+        clases utilitarias se transformarán en un miniframwork propio para maquetar proyectos.</p>
+      <p>De esta manera, diseñamos sistemas, no páginas en particular. Si diseñamos exclusivamente para el proyecto
+        invertiremos demasiado tiempo en cada proyecto y no será reutilizable.</p>
+
+      <p>Para crear un flujo escalable, óptimo, escalable y ordenado tenemos que utilizar algunas herramientas como:</p>
+
+      <ul>
+        <li>Metodologías: nos permiten dividir y nombrar las clases.</li>
+        <li>Frameworks: utilizamos estilos preexistentes para no comenzar desde 0.</li>
+        <li>Procesadores: trasnforman el código CSS para optimizarlo. Existen preprocesadores y postprocesadores.</li>
+        <li>Guías de estilo: cómo ordenamos y documentamos nuestros estilos. Ampliar el equipo de trabajo será mucho más
+          facil y mentendremos las mismas normas sobre los estilos.</li>
+      </ul>
+
+    </article>
+    <hr>
+    <a href="#indice">👆</a>
+
+    <article id="methodologies">
+      <h2>Metodologías</h2>
+      <p>Son herramientas que nos permiten organizar y nombrar el código. Tenemos que evaluar con cuál de ellas nos
+        sentimos más cómodos y en muchas ocasiones trabajaremos sobre un proyecto que ya utiliza una metodología y
+        tendremos que adaptarnos.</p>
+
+      <ul>
+        <li><a href="http://getbem.com/" rel="nofollow" target="_blank">BEM - Blocks, Elements and Modifiers</a></li>
+        <li><a href="http://smacss.com/book/" rel="nofollow" target="_blank">SMACSS - Scalable and Modular Architecture
+            for CSS</li>
+        <li><a href="http://oocss.org/" rel="nofollow" target="_blank">OOCSS - Object-Oriented CSS</a></li>
+        <li><a href="https://itcss.io/" rel="nofollow" target="_blank">ITCSS - Inverted Triangle architecture for
+            CSS</a></li>
+        <li><a href="https://amcss.github.io/" rel="nofollow" target="_blank">AMCSS - Attribute Modules for CSS</a></li>
+        <li><a href="https://suitcss.github.io/" rel="nofollow" target="_blank">SUITCSS</a></li>
+        <li><a href="https://bradfrost.com/blog/post/atomic-web-design/" rel="nofollow" target="_blank">Atomic
+            Design</a></li>
+        <ul>
+          <li><a href="https://patternlab.io/" rel="nofollow" target="_blank">Pattern Lab</a></li>
+          <li><a href="https://patternlab.io/demos/" rel="nofollow" target="_blank">Demos</a></li>
+        </ul>
+      </ul>
+    </article>
+
+    <hr>
+    <a href="#indice">👆</a>
+
+    <article id="frameworks">
+      <h2>Frameworks CSS</h2>
+      <p>Son marcos de trabajo que nos ofrecen componentes y utilidades de UI.</p>
+
+      <p>No comenzamos de cero un proyecto. Nos ofrecen su hoja de estilos y archivos js para que funcionen sus
+        componentes interactivos.</p>
+
+      <ul>
+        <li><a href="https://960.gs/" rel="nofollow" target="_blank">960 Grid System</a></li>
+        <li><a href="http://getskeleton.com/" rel="nofollow" target="_blank">Skeleton</a></li>
+        <li><a href="https://purecss.io/" rel="nofollow" target="_blank">Pure CSS</a></li>
+        <li><a href="https://ink.sapo.pt/" rel="nofollow" target="_blank">Ink</a></li>
+        <li><a href="https://www.muicss.com/" rel="nofollow" target="_blank">MUI</a></li>
+        <li><a href="https://semantic-ui.com/" rel="nofollow" target="_blank">Semantic UI</a></li>
+        <li><a href="https://getbootstrap.com/" rel="nofollow" target="_blank">Bootstrap</a></li>
+        <li><a href="https://tailwindcss.com/" rel="nofollow" target="_blank">Tailwind CSS</a></li>
+        <li><a href="https://get.foundation/" rel="nofollow" target="_blank">Foundation</a></li>
+        <li><a href="https://materializecss.com/" rel="nofollow" target="_blank">Materialize</a></li>
+        <li><a href="https://getuikit.com/" rel="nofollow" target="_blank">UI Kit</a></li>
+        <li><a href="https://bulma.io/" rel="nofollow" target="_blank">Bulma</a></li>
+      </ul>
+    </article>
+    <hr>
+    <a href="#indice">👆</a>
+
+    <article id="procesadores">
+
+      <h2>Procesadores CSS</h2>
+      <p>Existen pre-procesadores y post-procesadores. Los pre-procesadores son herramientas que nos permiten tomar un
+        lenguaje y transformalos en CSS. Los post-procesadores son herramientas que procesan el CSS, lo optimizan y
+        automatizan.</p>
+
+      <p><u>Pre-procesadores</u></p>
+      <ul>
+        <li> <a href="https://sass-lang.com/" rel="nofollow" target="_blank">Saas</a></li>
+        <li><a href="https://lesscss.org/" rel="nofollow" target="_blank">Less</a></li>
+        <li><a href="https://stylus-lang.com/" rel="nofollow" target="_blank">Stylus</a></li>
+      </ul>
+
+      <p><u>Post-procesadores</u></p>
+      <ul>
+        <li><a href="https://postcss.org/" rel="nofollow" target="_blank">Post CSS</a></li>
+        <li><a href="https://cssnext.github.io/" rel="nofollow" target="_blank">CSS Next</a></li>
+        <li><a href="https://cssinjs.org/?v=v10.9.1-alpha.2" rel="nofollow" target="_blank">CSS in JS</a></li>
+      </ul>
+    </article>
+
+    <hr>
+    <a href="#indice">👆</a>
+
+    <article id="herramientas">
+      <h2>Herramientas de automatización</h2>
+      <p>Build tools</p>
+
+      <ul>
+        <li><a href="https://nodejs.org/es/" rel="nofollow" target="_blank">Node JS</a></li>
+        <li><a href="https://gruntjs.com/" rel="nofollow" target="_blank">Grunt</a></li>
+        <li><a href="https://gulpjs.com/" rel="nofollow" target="_blank">Gulp</a></li>
+        <li><a href="https://webpack.js.org/" rel="nofollow" target="_blank">Webpack</a></li>
+      </ul>
+
+      <p>Online tools</p>
+
+      <ul>
+        <li><a href="https://codepen.io/" rel="nofollow" target="_blank">Code Pen</a></li>
+        <li><a href="https://jsbin.com/?html,output" rel="nofollow" target="_blank">JS Bin</a></li>
+        <li><a href="https://autoprefixer.github.io/" rel="nofollow" target="_blank">Autoprefixer CSS</a></li>
+        <li><a href="https://css-minifier.com/" rel="nofollow" target="_blank">CSS Minifier</a></li>
+      </ul>
+    </article>
+    <hr>
+    <a href="#indice">👆</a>
+
+    <article id="guides">
+      <h2>Guías de Estilos</h2>
+      <p>Colección de elemento y reglas pre establecidas que aseguran la consistencia y coherencia de nuestro código.
+      </p>
+
+      <li><a href="https://codeguide.co/">Code Guide</a></li>
+      <li><a href="https://design-system.w3.org/">W3C Design System</a></li>
+      <li><a href="http://styleguides.io/">Website Style Guide</a></li>
+      <li><a href="https://github.com/airbnb/css">Airbnb CSS / Sass Styleguide</a></li>
+      <li><a href="https://github.com/necolas/idiomatic-css">Idiomatic CSS</a></li>
+      <li><a href="https://cssguidelin.es/">CSS Guidelines</a></li>
+    </article>
+
+
+
+
+    <hr>
+    <a href="#indice">👆</a>
+
+
+
+  </main>
+</body>
+
+</html>

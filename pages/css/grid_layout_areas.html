@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grid Layout</title>
+  <meta name="description"
+    content="Esta página contiene los fundamentos básicos de CSS, utilízala como guía de referencia">
+  <link rel="stylesheet" href="/css/menu.css">
+  <!-- CDN Material+Icons -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+
+  <style>
+    html {
+      box-sizing: border-box;
+      font-size: 16px;
+      font-family: sans-serif;
+    }
+
+    *,
+    *::after,
+    *::before {
+      box-sizing: inherit;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      grid-template-rows: 12vh repeat(3, 1fr) 12vh;
+      grid-template-areas:
+        "header header header header header header"
+        "nav nav nav nav nav nav"
+        "uc-left uc-left uc-center uc-center uc-right uc-right "
+        "middle middle middle lower lower lower"
+        "footer footer footer footer footer footer"
+    }
+
+    body>* {
+      background-color: #666;
+      border: medium solid #222;
+    }
+
+    h2 {
+      text-align: center;
+    }
+
+    .header {
+      grid-area: header;
+    }
+
+    .nav {
+      grid-area: nav;
+    }
+
+    .uc-left {
+      grid-area: uc-left;
+    }
+
+    .uc-center {
+      grid-area: uc-center;
+    }
+
+    .uc-right {
+      grid-area: uc-right;
+    }
+
+    .middle {
+      grid-area: middle;
+    }
+
+    .lower {
+      grid-area: lower;
+    }
+
+    .footer {
+      grid-area: footer;
+    }
+
+    @media screen and (min-width: 990px) {
+      body {
+        grid-template-columns: repeat(5, 1fr);
+        grid-template-rows: 12vh repeat(3, 1fr) 12vh;
+        grid-template-areas:
+          "header header header header header"
+          "nav uc-left uc-center uc-center uc-right"
+          "nav middle middle middle middle"
+          "nav lower lower lower lower"
+          "footer footer footer footer footer";
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- https://www.youtube.com/watch?v=g6a2zmEsTZE&list=PLvq-jIkSeTUY628cyd9LVbXSXi2xG9mUl&index=17 -->
+  <header class="header">
+    <nav class="menu-nav">
+      <a href="/index.html" class="enlace">
+        <label class="logo">Aprende</label>
+      </a>
+      <input type="checkbox" id="check">
+      <label for="check" class="checkbtn">
+        <i class="material-icons">menu</i>
+      </label>
+      <ul class="menu">
+        <li><a href="/index.html">Inicio</a></li>
+        <li><a href="/pages/html/html.html">HTML</a></li>
+        <li><a class="active" href="/pages/css/css.html">CSS</a></li>
+        <li><a href="/pages/js/javascript.html">JavaScript</a></li>
+        <li><a href="/pages/contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <nav class="nav">
+    <h2>Nav</h2>
+  </nav>
+
+  <article class="uc-left">
+    <h2>Upper Content Left</h2>
+  </article>
+
+  <article class="uc-center">
+    <h2>Upper Content Center</h2>
+  </article>
+
+  <article class="uc-right">
+    <h2>Upper Content Right</h2>
+  </article>
+
+  <article class="middle">
+    <h2>Middle Content</h2>
+  </article>
+
+  <article class="lower">
+    <h2>Lower Content</h2>
+  </article>
+
+  <footer class="footer">
+    <h2>Footer <a href="/pages/css/grid.html#grid-layout-areas">Tabla de contenido 🔝</a></h2>
+
+  </footer>
+
+</body>
+
+</html>
