@@ -22,19 +22,22 @@
         <ul>
           <li><a href="/pages/html/introduction.html#estructura-html">Estructura básica para páginas HTML</a></li>
         </ul>
-        <li><a href="/pages/html/elementos-cabecera.html">Elementos de la cabecera HEAD</a>
+        <li><a href="/pages/html/elementos-cabecera.html">Elementos de la cabecera HEAD</a></li>
+        <ul>
+          <li><a href="/pages/html/elementos-cabecera.html#metadatos">Metadatos (charset, title, description)</a></li>
+        </ul>
+
+        <li><a href="/pages/html/elementos-body.html">Elementos del cuerpo Body</a>
           <ul>
-            <li><a href="/pages/html/elementos-cabecera.html#metadatos">Metadatos (charset, title, description)</a></li>
-          </ul>
-        </li>
-        <li><a href="#elementos-body">Elementos del cuerpo Body</a>
-          <ul>
-            <li><a href="#text-tags">Etiquetas de texto (p, h1, h2, h3, h4, h5, h6)</a></li>
-            <li><a href="#break-tags">Etiquetas de agrupación de contenido (br, hr, pre, ol, ul,
+            <li><a href="/pages/html/elementos-body.html#text-tags">Etiquetas de texto (p, h1, h2, h3, h4, h5, h6)</a>
+            </li>
+            <li><a href="/pages/html/elementos-body.html#break-tags">Etiquetas de agrupación de contenido (br, hr, pre,
+                ol, ul,
                 li)</a>
             </li>
-            <li><a href="#semantic-tags">Etiquetas semánticas estructurales</a></li>
-            <li><a href="#inline-block-tags">Etiquetas de bloque vs etiquetas de línea</a></li>
+            <li><a href="/pages/html/elementos-body.html#semantic-tags">Etiquetas semánticas estructurales</a></li>
+            <li><a href="/pages/html/elementos-body.html#inline-block-tags">Etiquetas de bloque vs etiquetas de
+                línea</a></li>
           </ul>
         </li>
         <li><a href="#rel-html">Relacionando otras tecnologías</a>
@@ -198,7 +201,7 @@
         </figure>
       </article>
     </section> -->
-    <a href="#indice">Tabla de contenido 🔝</a>
+    <!-- <a href="#indice">Tabla de contenido 🔝</a>
     <hr>
     <section id="elementos-body">
       <h2>Elementos del cuerpo Body</h2>
@@ -222,8 +225,8 @@
         <p>Definen encabezados que nos permiten titularizar nuestra página</p>
 
         <pre>
-          <!-- line-numbers language-markup -->
-          <code class="language-html">
+
+    <code class="language-html">
             &lt;h1&gt;Encabezado de nivel 1&lt;/h1&gt;
             &lt;h2&gt;Encabezado de nivel 2&lt;/h2&gt;
             &lt;h3&gt;Encabezado de nivel 3&lt;/h3&gt;
@@ -231,135 +234,135 @@
             &lt;h5&gt;Encabezado de nivel 5&lt;/h5&gt;
             &lt;h6&gt;Encabezado de nivel 6&lt;/h6&gt;
           </code>
-        </pre>
+    </pre>
 
-        <h1 class="without-styles">Encabezado de nivel 1</h1>
-        <h2 class="without-styles">Encabezado de nivel 2</h2>
-        <h3 class="without-styles">Encabezado de nivel 3</h3>
-        <h4 class="without-styles">Encabezado de nivel 4</h4>
-        <h5 class="without-styles">Encabezado de nivel 5</h5>
-        <h6 class="without-styles">Encabezado de nivel 6</h6>
+    <h1 class="without-styles">Encabezado de nivel 1</h1>
+    <h2 class="without-styles">Encabezado de nivel 2</h2>
+    <h3 class="without-styles">Encabezado de nivel 3</h3>
+    <h4 class="without-styles">Encabezado de nivel 4</h4>
+    <h5 class="without-styles">Encabezado de nivel 5</h5>
+    <h6 class="without-styles">Encabezado de nivel 6</h6>
 
-        <blockquote>
-          <p>SEO: Solo se debe definir un elemento h1 por página. Los robots de los buscadores buscan un título
-            principal
-            por cada página. Podemos incluir tantos h2, h3, h4, h5 o h6 como deseemos pero debemos respetar el orden.
-            Para definir correctamente la titulación considiremos la redacción de un artículo o de un capítulo de un
-            libro.</p>
-        </blockquote>
+    <blockquote>
+      <p>SEO: Solo se debe definir un elemento h1 por página. Los robots de los buscadores buscan un título
+        principal
+        por cada página. Podemos incluir tantos h2, h3, h4, h5 o h6 como deseemos pero debemos respetar el orden.
+        Para definir correctamente la titulación considiremos la redacción de un artículo o de un capítulo de un
+        libro.</p>
+    </blockquote>
 
-        <table class="tabla">
-          <caption>Etiquetas comunes</caption>
-          <thead>
-            <th>Etiqueta</th>
-            <th>Sintaxis</th>
-            <th>Acción</th>
-            <th>Resultado</th>
-          </thead>
-          <tbody>
-            <tr>
-              <td>&lt;u&gt;</td>
-              <td>Este es un &lt;u&gt;ejemplo&lt;/u&gt;</td>
-              <td>Subrayado</td>
-              <td>Este es un <u class="without-styles">ejemplo</u></td>
-            </tr>
-            <tr>
-              <td>&lt;i&gt;</td>
-              <td>Este es un &lt;i&gt;ejemplo&lt;/i&gt;</td>
-              <td>Itálica / cursiva</td>
-              <td>Este es un <i>ejemplo</i></td>
-            </tr>
-            <tr>
-              <td>&lt;b&gt;</td>
-              <td>Este es un &lt;b&gt;ejemplo&lt;/b&gt;</td>
-              <td>Negrita</td>
-              <td>Este es un <b>ejemplo</b></td>
-            </tr>
-            <tr>
-              <td>&lt;sup&gt;</td>
-              <td>e = mc&lt;sup&gt;2&lt;/sup&gt;</td>
-              <td>Texto más arriba</td>
-              <td>e = mc<sup>2</sup></td>
-            </tr>
-            <tr>
-              <td>&lt;sub&gt;</td>
-              <td>H&lt;sub&gt;2&lt;/sub&gt;O</td>
-              <td>Texto más abajo</td>
-              <td>H<sub>2</sub>O</td>
-            </tr>
-            <tr>
-              <td>&lt;mark&gt;</td>
-              <td>Este es un &lt;mark&gt;ejemplo&lt;/mark&gt;</td>
-              <td>Texto resaltado</td>
-              <td>Este es un <mark>ejemplo</mark></td>
-            </tr>
-            <tr>
-              <td>&lt;small&gt;</td>
-              <td>Este es un &lt;small&gt;ejemplo&lt;/small&gt;</td>
-              <td>Letras pequeñas</td>
-              <td>Este es un <small>ejemplo</small></td>
-            </tr>
-            <tr>
-              <td>&lt;del&gt;</td>
-              <td>Este es un &lt;del&gt;ejemplo&lt;/del&gt;</td>
-              <td>Texto tachado</td>
-              <td>Este es un <del>ejemplo</del></td>
-            </tr>
-            <tr>
-              <td>&lt;abbr&gt;</td>
-              <td>Este es un ejemplo &lt;abbr&gt; title="Cascading Style Sheets"&gt;CSS&lt;/abbr&gt;</td>
-              <td>Abreviación o acrónimo</td>
-              <td>Este es un ejemplo <abbr title="Cascading Style Sheets">CSS</abbr></td>
-            </tr>
-            <tr>
-              <td>&lt;strong&gt;</td>
-              <td>Este es un &lt;strong&gt;ejemplo&lt;/strong&gt;</td>
-              <td>Texto importante</td>
-              <td>Este es un <strong>ejemplo</strong></td>
-            </tr>
-            <tr>
-              <td>&lt;em&gt;</td>
-              <td>Este es un &lt;em&gt;ejemplo&lt;/em&gt;</td>
-              <td>Texto con énfasis</td>
-              <td>Este es un <em>ejemplo</em></td>
-            </tr>
-            <tr>
-              <td>&lt;blockquote&gt; &lt;cite&gt;</td>
-              <td>&lt;blockquote&gt;Solo se que no se nada&lt;/blockquote&gt;&lt;cite&gt;Socrates&lt;/cite&gt;</td>
-              <td>Cita larga</td>
-              <td>
-                <blockquote>Solo se que no se nada</blockquote>
-                <cite>Socrates</cite>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+    <table class="tabla">
+      <caption>Etiquetas comunes</caption>
+      <thead>
+        <th>Etiqueta</th>
+        <th>Sintaxis</th>
+        <th>Acción</th>
+        <th>Resultado</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td>&lt;u&gt;</td>
+          <td>Este es un &lt;u&gt;ejemplo&lt;/u&gt;</td>
+          <td>Subrayado</td>
+          <td>Este es un <u class="without-styles">ejemplo</u></td>
+        </tr>
+        <tr>
+          <td>&lt;i&gt;</td>
+          <td>Este es un &lt;i&gt;ejemplo&lt;/i&gt;</td>
+          <td>Itálica / cursiva</td>
+          <td>Este es un <i>ejemplo</i></td>
+        </tr>
+        <tr>
+          <td>&lt;b&gt;</td>
+          <td>Este es un &lt;b&gt;ejemplo&lt;/b&gt;</td>
+          <td>Negrita</td>
+          <td>Este es un <b>ejemplo</b></td>
+        </tr>
+        <tr>
+          <td>&lt;sup&gt;</td>
+          <td>e = mc&lt;sup&gt;2&lt;/sup&gt;</td>
+          <td>Texto más arriba</td>
+          <td>e = mc<sup>2</sup></td>
+        </tr>
+        <tr>
+          <td>&lt;sub&gt;</td>
+          <td>H&lt;sub&gt;2&lt;/sub&gt;O</td>
+          <td>Texto más abajo</td>
+          <td>H<sub>2</sub>O</td>
+        </tr>
+        <tr>
+          <td>&lt;mark&gt;</td>
+          <td>Este es un &lt;mark&gt;ejemplo&lt;/mark&gt;</td>
+          <td>Texto resaltado</td>
+          <td>Este es un <mark>ejemplo</mark></td>
+        </tr>
+        <tr>
+          <td>&lt;small&gt;</td>
+          <td>Este es un &lt;small&gt;ejemplo&lt;/small&gt;</td>
+          <td>Letras pequeñas</td>
+          <td>Este es un <small>ejemplo</small></td>
+        </tr>
+        <tr>
+          <td>&lt;del&gt;</td>
+          <td>Este es un &lt;del&gt;ejemplo&lt;/del&gt;</td>
+          <td>Texto tachado</td>
+          <td>Este es un <del>ejemplo</del></td>
+        </tr>
+        <tr>
+          <td>&lt;abbr&gt;</td>
+          <td>Este es un ejemplo &lt;abbr&gt; title="Cascading Style Sheets"&gt;CSS&lt;/abbr&gt;</td>
+          <td>Abreviación o acrónimo</td>
+          <td>Este es un ejemplo <abbr title="Cascading Style Sheets">CSS</abbr></td>
+        </tr>
+        <tr>
+          <td>&lt;strong&gt;</td>
+          <td>Este es un &lt;strong&gt;ejemplo&lt;/strong&gt;</td>
+          <td>Texto importante</td>
+          <td>Este es un <strong>ejemplo</strong></td>
+        </tr>
+        <tr>
+          <td>&lt;em&gt;</td>
+          <td>Este es un &lt;em&gt;ejemplo&lt;/em&gt;</td>
+          <td>Texto con énfasis</td>
+          <td>Este es un <em>ejemplo</em></td>
+        </tr>
+        <tr>
+          <td>&lt;blockquote&gt; &lt;cite&gt;</td>
+          <td>&lt;blockquote&gt;Solo se que no se nada&lt;/blockquote&gt;&lt;cite&gt;Socrates&lt;/cite&gt;</td>
+          <td>Cita larga</td>
+          <td>
+            <blockquote>Solo se que no se nada</blockquote>
+            <cite>Socrates</cite>
+          </td>
+        </tr>
+      </tbody>
+    </table>
 
-        <p>Existen muchas etiquetas, podemos verla en <a href="https://htmlreference.io/" rel="nofollow"
-            target="_blank">htmlreference.io</a></p>
+    <p>Existen muchas etiquetas, podemos verla en <a href="https://htmlreference.io/" rel="nofollow"
+        target="_blank">htmlreference.io</a></p>
 
-      </article>
-      <article>
-        <h3 id="break-tags">Etiquetas de agrupación de contenido (br, hr, pre, ol, ul, li)</h3>
+    </article>
+    <article>
+      <h3 id="break-tags">Etiquetas de agrupación de contenido (br, hr, pre, ol, ul, li)</h3>
 
-        <pre>&lt;br&gt;</pre>
-        <p>Define un salto de línea dentro de un texto.</p>
+      <pre>&lt;br&gt;</pre>
+      <p>Define un salto de línea dentro de un texto.</p>
 
-        <pre>Lorem ipsum dolor sit&lt;br&gt;amet, consectetur adipiscing elit.</pre>
-        <p>Lorem ipsum dolor sit<br>amet, consectetur adipiscing elit.</p>
+      <pre>Lorem ipsum dolor sit&lt;br&gt;amet, consectetur adipiscing elit.</pre>
+      <p>Lorem ipsum dolor sit<br>amet, consectetur adipiscing elit.</p>
 
-        <pre>&lt;hr&gt;</pre>
-        <p>Define una ruptura semántica entre bloques de texto. Se representa como una regla horizontal.</p>
+      <pre>&lt;hr&gt;</pre>
+      <p>Define una ruptura semántica entre bloques de texto. Se representa como una regla horizontal.</p>
 
-        <pre>Lorem ipsum dolor sit&lt;hr&gt;amet, consectetur adipiscing elit.</pre>
-        <p>Lorem ipsum dolor sit
-          <hr>amet, consectetur adipiscing elit.
-        </p>
+      <pre>Lorem ipsum dolor sit&lt;hr&gt;amet, consectetur adipiscing elit.</pre>
+      <p>Lorem ipsum dolor sit
+        <hr>amet, consectetur adipiscing elit.
+      </p>
 
-        <pre>&lt;pre&gt;</pre>
-        <p>Define texto preformateado.</p>
+      <pre>&lt;pre&gt;</pre>
+      <p>Define texto preformateado.</p>
 
-        <pre>Lista de tareas:
+      <pre>Lista de tareas:
 
 - Definir secciones de contenido
   - Establecer orden
@@ -367,37 +370,36 @@
   - Incluir la referencia en Indice
 </pre>
 
-        <pre>&lt;code&gt;</pre>
-        <p>Define un fragmento de código dentro de un bloque de texto.</p>
+      <pre>&lt;code&gt;</pre>
+      <p>Define un fragmento de código dentro de un bloque de texto.</p>
 
-        <pre>&lt;code&gt;Este es un bloque de código en etiqueta code&lt;/code&gt;</pre>
-        <code>Este es un bloque de código en etiqueta code</code>
+      <pre>&lt;code&gt;Este es un bloque de código en etiqueta code&lt;/code&gt;</pre>
+      <code>Este es un bloque de código en etiqueta code</code>
 
-      </article>
-      <article>
-        <h3 id="semantic-tags">Etiquetas semánticas estructurales</h3>
+    </article>
+    <article>
+      <h3 id="semantic-tags">Etiquetas semánticas estructurales</h3>
 
-        <p>Una de las ventajas de HTML5 son las etiquetas semánticos, que nos permiten definir las distintas divisiones
-          de una página web.</p>
+      <p>Una de las ventajas de HTML5 son las etiquetas semánticos, que nos permiten definir las distintas divisiones
+        de una página web.</p>
 
-        <p>En las versiones anteriores se utilizaba la etiqueta &lt;div&gt; para realizar las divisiones de las
-          distintas secciones de una página web, pero se recomienda utilizar los elementos semánticos ya que describen
-          su propósito. Siempre que podamos debemos intentar utilizar las etiquetas smanicas en lugar de DIV.
-        </p>
+      <p>En las versiones anteriores se utilizaba la etiqueta &lt;div&gt; para realizar las divisiones de las
+        distintas secciones de una página web, pero se recomienda utilizar los elementos semánticos ya que describen
+        su propósito. Siempre que podamos debemos intentar utilizar las etiquetas smanicas en lugar de DIV.
+      </p>
 
-        <figure>
-          <img class="image" src="/assets/images/estructura-semantica-html5.jpg"
-            alt="Etiquetas semánticas estructurales">
-          <figcaption>Etiquetas semánticas estructurales</figcaption>
-        </figure>
+      <figure>
+        <img class="image" src="/assets/images/estructura-semantica-html5.jpg" alt="Etiquetas semánticas estructurales">
+        <figcaption>Etiquetas semánticas estructurales</figcaption>
+      </figure>
 
-        <pre>&lt;header&gt;</pre>
-        <p>Define el encabezado de una página web o sección.</p>
+      <pre>&lt;header&gt;</pre>
+      <p>Define el encabezado de una página web o sección.</p>
 
-        <pre>&lt;nav&gt;</pre>
-        <p>Define una sección con enlaces de navegación.</p>
+      <pre>&lt;nav&gt;</pre>
+      <p>Define una sección con enlaces de navegación.</p>
 
-        <pre>
+      <pre>
 &lt;header&gt;
 &lt;h1&gt;HTML Reference&lt;/h1&gt;
 &lt;nav&gt;
@@ -408,69 +410,69 @@
 &lt;/header&gt;
 </pre>
 
-        <pre>&lt;section&gt;</pre>
-        <p>Define una sección dentro de una página web.</p>
+      <pre>&lt;section&gt;</pre>
+      <p>Define una sección dentro de una página web.</p>
 
-        <pre>
+      <pre>
 &lt;section&gt;
   &lt;h2&gt;Section title&lt;/h2&gt;
   &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec viverra nec nulla vitae mollis.&lt;/p&gt;
 &lt;/section&gt;
 </pre>
 
-        <pre>&lt;aside&gt;</pre>
-        <p>Define un bloque de contenido relacionado con el contenido principal. Generalmente se muestra como una barra
-          lateral.</p>
+      <pre>&lt;aside&gt;</pre>
+      <p>Define un bloque de contenido relacionado con el contenido principal. Generalmente se muestra como una barra
+        lateral.</p>
 
-        <pre>&lt;footer&gt;</pre>
-        <p>Define el pie de página de una página web o sección.</p>
-      </article>
-      <article>
-        <h3 id="inline-block-tags">Etiquetas de bloque vs etiquetas de línea</h3>
+      <pre>&lt;footer&gt;</pre>
+      <p>Define el pie de página de una página web o sección.</p>
+    </article>
+    <article>
+      <h3 id="inline-block-tags">Etiquetas de bloque vs etiquetas de línea</h3>
 
-        <p>En Html existen eqtiquetas que de acuerdo a su comportamiento son de bloque o de línea. La etiqueta de bloque
-          más respresentativa es la etiqueta DIV y la etiqueta de línea mas utilizada es la etiqueta SPAN. </p>
+      <p>En Html existen eqtiquetas que de acuerdo a su comportamiento son de bloque o de línea. La etiqueta de bloque
+        más respresentativa es la etiqueta DIV y la etiqueta de línea mas utilizada es la etiqueta SPAN. </p>
 
-        <pre>&lt;DIV&gt;</pre>
-        <p>Define un <mark>bloque genérico de contenido</mark>, que no tiene ningún valor semántico. Se utiliza para
-          elementos de
-          diseño como contenedores.</p>
+      <pre>&lt;DIV&gt;</pre>
+      <p>Define un <mark>bloque genérico de contenido</mark>, que no tiene ningún valor semántico. Se utiliza para
+        elementos de
+        diseño como contenedores.</p>
 
-        <pre>&lt;SPAN&gt;</pre>
-        <p>Define un <mark>genérico de contenido en línea</mark>, que no tiene ningún valor semántico.</p>
+      <pre>&lt;SPAN&gt;</pre>
+      <p>Define un <mark>genérico de contenido en línea</mark>, que no tiene ningún valor semántico.</p>
 
-        <p>Una etiqueta de bloque genera un salto de línea con sus etiquetas hermanas, tanto arriba como abajo. Es
-          decir, ocupa todo el ancho disponible.</p>
+      <p>Una etiqueta de bloque genera un salto de línea con sus etiquetas hermanas, tanto arriba como abajo. Es
+        decir, ocupa todo el ancho disponible.</p>
 
-        <pre>&lt;div style="background-color:pink;"&gt; 
+      <pre>&lt;div style="background-color:pink;"&gt; 
   Este es un bloque DIV. Pintamos el fondo de amarillo para que se vea su magnitud real. Vemos como ocupa el 100% del ancho aunque no lo necesite. 
 &lt;/div&gt;
 </pre>
 
-        <div style="background-color:pink;">
-          Este es un bloque DIV. Pintamos el fondo de amarillo para que se vea su magnitud real. Vemos como ocupa el
-          100% del ancho aunque no lo necesite.
-        </div>
+      <div style="background-color:pink;">
+        Este es un bloque DIV. Pintamos el fondo de amarillo para que se vea su magnitud real. Vemos como ocupa el
+        100% del ancho aunque no lo necesite.
+      </div>
 
-        <pre>&lt;span style="background-color:cyan;"&gt;
+      <pre>&lt;span style="background-color:cyan;"&gt;
   Este es un bloque SPAN. Pintamos el fondo de amarillo para que se vea su magnitud real. Vemos que solo ocupa su contenido.
 &lt;/span&gt;
 &lt;span&gt;
   Soy otro span y comparto línea.
 &lt;/span&gt;</pre>
 
-        <span style="background-color:cyan;">
-          Este es un bloque SPAN. Pintamos el fondo de amarillo para que se vea su magnitud real. Vemos que solo ocupa
-          su contenido.
-        </span>
-        <span>
-          Soy otro span y comparto línea.
-        </span>
+      <span style="background-color:cyan;">
+        Este es un bloque SPAN. Pintamos el fondo de amarillo para que se vea su magnitud real. Vemos que solo ocupa
+        su contenido.
+      </span>
+      <span>
+        Soy otro span y comparto línea.
+      </span>
 
-        <p>Son etiquetas de bloque: los encabezados, los párrafos, div, header, main, footer, etc. Son etiquetas de
-          línea: em, etrong, i, mark, b, blockout, las que aplican a texto, a, etc</p>
-      </article>
-    </section>
+      <p>Son etiquetas de bloque: los encabezados, los párrafos, div, header, main, footer, etc. Son etiquetas de
+        línea: em, etrong, i, mark, b, blockout, las que aplican a texto, a, etc</p>
+    </article>
+    </section> -->
 
     <a href="#indice">Tabla de contenido 🔝</a>
     <hr>
