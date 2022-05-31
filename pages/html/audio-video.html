@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <sergey-import src="metas/statics" />
+  <sergey-import src="metas/titles">TiDev Audio y video</sergey-import>
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <link rel="stylesheet" href="/assets/css/menu.css">
+  <link rel="stylesheet" href="/assets/css/prism.css" />
+  <link rel="stylesheet" href="/assets/css/html/html.css">
+</head>
+
+<body>
+  <sergey-import src="header" />
+
+  <main class="container">
+
+    <section id="audio-video">
+
+      <h1>Audio y Video</h1>
+
+      <p>Desde la llegada de Html5 tenemos soporte a audio y video. Los formatos más utilizados son mp3 y mp4 pero se
+        podría utilizar ogg, webm, etc. Existe un atributo llamado autoplay (no recomendado por experiencia de usuario).
+        El atributo loop repite la reproducción. El atributo mute mutea el sonido. Y el atributo preload comienza a
+        precargar en caché el audio, entonces al momento que el usuario ejecute el play comience la reproducción, este
+        atributo es recomendado.</p>
+
+      <pre>
+        <code class="language-html">
+          &lt;audio src="/assets/media/Uncle Waffles and Tony Duardo - Tanzania.mp3" controls preload&gt;&lt;/audio&gt;
+        </code>
+      </pre>
+
+      <audio src="/assets/media/Uncle Waffles and Tony Duardo - Tanzania.mp3" controls preload></audio>
+
+      <p>La etiqueta video posee las mismas características que audio: loop, autoplay, preload, controls. Adicionalmente
+        tiene el atributo poster para configurar una miniatura</p>
+
+      <pre>
+        <code class="language-html">
+          &lt;video width="400" src="/assets/media/Uncle Waffles and Tony Duardo - Tanzania.mp3" controls preload&gt;&lt;/audio&gt;
+        </code>
+      </pre>
+
+      <video class="redu" src="/assets/media/sunset_evening_deck_877.mp4" poster="/assets/images/fondo.jpg" controls
+        preload></video>
+    </section>
+
+    <hr>
+
+    <section class="pagination">
+      <article class="pagination-item">
+        <a href="/pages/html/elementos-interactivos.html">
+          <i class="material-icons">arrow_back</i>Elementos interactivos
+        </a>
+      </article>
+      <article class="pagination-item">
+        <a href="/pages/html/index.html#indice">Tabla de contenido HTML
+          <i class="material-icons">arrow_upward</i>
+        </a>
+      </article>
+      <article class="pagination-item">
+        <a href="/pages/html/iframes.html">Iframes
+          <i class="material-icons">arrow_forward</i>
+        </a>
+      </article>
+    </section>
+
+  </main>
+  <sergey-import src="footer" />
+  <script src="/assets/js/prism.js"></script>
+</body>
+
+</html>

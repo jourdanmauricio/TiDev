@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <sergey-import src="metas/statics" />
+  <sergey-import src="metas/titles">TiDev selectores</sergey-import>
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <link rel="stylesheet" href="/assets/css/menu.css">
+  <link rel="stylesheet" href="/assets/css/prism.css" />
+  <link rel="stylesheet" href="/assets/css/html/html.css">
+</head>
+
+<body>
+  <sergey-import src="header" />
+
+  <main class="container">
+
+    <section id="selectores">
+      <h1>Selectores CSS</h1>
+
+      <p>Los selectores se utilizan para seleccionar los elementos HTML de nuestra página a los que queremos aplicar
+        estilo. Existen muchos selectores CSS que permiten una gran precisión a la hora de seleccionar elementos a los
+        que aplicar estilo.</p>
+
+      <hr>
+
+      <article id="selectores-basicos">
+        <h2>Selectores básicos: Etiquetas, Identificadores y Clases</h2>
+        <p>Existen 3 selectores básicos</p>
+
+        <ul>
+          <li><u>Etiquetas</u> <i class="material-icons">arrow_right_alt</i> se asocian con elementos HTML. Cuando
+            aplicamos estilos a una etiqueta impactará sobre
+            todas las etiquetas de ese tipo del documento.
+            <pre>
+            <code class="language-html">
+              &lt;p&gt;Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tenetur enim quas ut officia quidem minus 
+              sapiente quibusdam consequatur quaerat facere.&lt;p&gt;
+            </code>
+          </pre>
+            <pre>
+            <code class="language-css">
+              p {
+                color: blue;
+              }
+           </code>
+          </pre>
+            <p style="color: blue;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores qui harum eius
+              deleniti neque quaerat ad corporis nostrum facilis, error vitae cupiditate quasi omnis laborum natus cum
+              sequi id molestias?</p>
+          </li>
+          <li><u>Identificadores</u> <i class="material-icons">arrow_right_alt</i> en los elementos HTML debemos agregar
+            el atributo id y en css lo indentificamos por el símbolo numeral (#). En este caso el estilo solo se
+            aplicará
+            sobre el elemento HTML identificado por ese id. Es una mala práctica utilizar los id para establecer los
+            estilos. Dentro de los documentos, los identificadores son únicos por lo que no estaríamos reutilizando los
+            estilos en varios elementos. Por otro lado, más adelante veremos el algoritmo de CSS y cómo se trata la
+            especificidad de selectores. Allí veremos porqué es un anti patrón utilizar los id para los estilos. Los id
+            se
+            utilizan más en relación a JavaScript.
+            <pre>
+            <code class="language-html">
+              &lt;p id="parrafo-dos"&gt;Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tenetur enim quas ut 
+              officia quidem minus sapiente quibusdam consequatur quaerat facere.&lt;p&gt;
+            </code>
+          </pre>
+            <pre>
+            <code class="language-css">
+              #parrafo-dos {
+                background-color: pink;
+              }
+            </code>
+          </pre>
+
+            <p id="parrafo-dos">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tenetur enim quas ut officia
+              quidem minus sapiente quibusdam consequatur quaerat facere.</p>
+
+          </li>
+          <li><u>Clases</u> <i class="material-icons">arrow_right_alt</i> en los elementos HTML debemos agregar el
+            atributo class y en css lo indentificamos por el
+            símbolo del punto (.). Las clases nos permiten reutilizar código, se aplicarán a todos los elementos que
+            posean la clase asignada. Una de las ventajas es que en el documento HTML podemos agregar más de una clase a
+            un elemento. Solo se separan las clases que le queremos asignar por un espacio.
+            <p>Como las clases son reutilizables tenemos que darles nombres alusivos a las acciones que realizan.</p>
+
+            <pre>
+            <code class="language-html">
+              &lt;p class="text-32 bg-skyblue"&gt;Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
+              Tenetur enim quas ut officia quidem minus sapiente quibusdam consequatur quaerat facere.&lt;p&gt;
+            </code>
+          </pre>
+            <pre>
+            <code class="language-css">
+              .text-32 {
+                font-size: 32px;
+              }
+
+              .bg-skyblue {
+                background-color: skyblue;
+              }
+            </code>
+          </pre>
+
+            <p class="text-32 bg-skyblue">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tenetur enim quas ut
+              officia quidem minus sapiente quibusdam consequatur quaerat facere.</p>
+          </li>
+        </ul>
+      </article>
+
+      <hr>
+
+      <article id="selectores-avanzados">
+        <h2>Selectores avanzados</h2>
+        <p></p>
+        <article>
+          <h3 id="hijos">Selectores de hijos</h3>
+          <p>Existen dos tipos de selectores de tipo hijos.</p>
+
+          <h4>Selector de hijos directos</h4>
+
+          <p>Un hijo directo es un elemento que se encuentra en el primer nivel del elemento referenciado con la clase.
+            En
+            el siguiente ejemplo las etiquetas li son hijas directas del ul pero las etiquetas b, a pesar de ser hijas,
+            no
+            son hijas directas. Son "nietas". En CSS la nomenclatura para indicar hijo directo es el símbolo mayor (>).
+          </p>
+          <pre>
+            <code class="language-html">
+              &lt;ul class="hijos-directos"&gt;
+                &lt;li&gt;&lt;b&gt;Primavera&lt;/b&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;b&gt;Verano&lt;/b&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;b&gt;Otoño&lt;/b&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;b&gt;Invierno&lt;/b&gt;&lt;/li&gt;
+              &lt;/ul&gt;
+            </code>
+          </pre>
+          <pre>
+            <code class="language-css">
+              .hijos-directos > li {
+                background-color: thistle;
+              }
+  
+              /* no aplica porque b no es hijo directo de ul */
+              .hijos-directos > b {
+                background-color: thistle;
+              }
+            </code>
+          </pre>
+
+          <ul class="hijos-directos">
+            <li><b>Primavera</b></li>
+            <li><b>Verano</b></li>
+            <li><b>Otoño</b></li>
+            <li><b>Invierno</b></li>
+          </ul>
+
+          <h4>Selector de hijos descendientes</h4>
+
+          <p>En CSS, el selector de hijo descendiente se representa por un espacio en blanco y aplica a todos los hijos
+            del elemento si considerar el orden en el que se encuentren. No importa si son directos o no.</p>
+
+          <pre>
+            <code class="language-html">
+              &lt;ul class="hijos-descendientes"&gt;
+                &lt;li&gt;&lt;b&gt;Primavera&lt;/b&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;b&gt;Verano&lt;/b&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;b&gt;Otoño&lt;/b&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;b&gt;Invierno&lt;/b&gt;&lt;/li&gt;
+              &lt;/ul&gt;
+            </code>
+          </pre>
+          <pre>
+            <code class="language-css">
+              .hijos-descendientes b {
+                background-color: thistle;
+              }
+            </code>
+          </pre>
+
+          <ul class="hijos-descendientes">
+            <li><b>Primavera</b></li>
+            <li><b>Verano</b></li>
+            <li><b>Otoño</b></li>
+            <li><b>Invierno</b></li>
+          </ul>
+
+          <blockquote>El fondo se pinta distinto porque en el primer caso aplica sobre los li (elementos de bloque),
+            mientras que en el segundo caso aplica sobre las b (elementos en línea).</blockquote>
+        </article>
+
+        <hr>
+
+        <article id="hermanos">
+          <h3>Selectores de hermanos</h3>
+          <p>Existen dos tipos de selectores de tipo hijos.</p>
+
+          <blockquote>
+            Los selectores de hermanos aplicarán sobre los elementos hermanos (mismo nivel) pero que se encuentren por
+            debajo del elemento de referencia.
+          </blockquote>
+
+          <h4>Selector de hermanos (en general)</h4>
+
+          <p>El selector de hermanos en general se representa por el símbolo virgulilla (~) y aplicará a los elementos
+            espcificados que se encuentren en el mismo nivel. En el siguiente ejemplo aplicará sobre todos los li que se
+            encuentren en el mismo nivel que el elemento que posee la clase que referenciamos.</p>
+
+          <pre>
+            <code class="language-html">
+              &lt;ul&gt;
+                &lt;li&gt;&lt;b&gt;Primavera&lt;/b&gt;&lt;/li&gt;
+                &lt;li class="hermanos-general"&gt;&lt;b&gt;Verano&lt;/b&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;b&gt;Otoño&lt;/b&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;b&gt;Invierno&lt;/b&gt;&lt;/li&gt;
+              &lt;/ul&gt;
+            </code>
+          </pre>
+          <pre>
+            <code class="language-css">
+              .hermanos-general ~ li {
+                background-color: thistle;
+              }
+            </code>
+          </pre>
+
+          <ul>
+            <li><b>Primavera</b></li>
+            <li class="hermanos-general"><b>Verano</b></li>
+            <li><b>Otoño</b></li>
+            <li><b>Invierno</b></li>
+          </ul>
+
+          <p><mark>¿Por qué no aplica al elemento li Primavera?</mark> Porque los selectores de hermanos aplican a
+            elementos que sean hermanos pero que se encuentren por debajo de él. No aplican hacia arriba.</p>
+
+          <h4>Selector hermano adyacente</h4>
+
+          <p>El selector hermano adyacente se representa por el símbolo suma (+) y aplicará al siguiente elemento
+            que se encuentren en el mismo nivel del elemento referenciado. En el siguiente ejemplo aplicará sobre el li
+            Otoño.</p>
+
+          <pre>
+            <code class="language-html">
+              &lt;ul&gt;
+                &lt;li&gt;&lt;b&gt;Primavera&lt;/b&gt;&lt;/li&gt;
+                &lt;li class="hermanos-adyacentes"&gt;&lt;b&gt;Verano&lt;/b&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;b&gt;Otoño&lt;/b&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;b&gt;Invierno&lt;/b&gt;&lt;/li&gt;
+              &lt;/ul&gt;
+            </code>
+          </pre>
+
+          <pre>
+            <code class="language-css">
+              .hermanos-adyacentes + li {
+                background-color: thistle;
+              }
+            </code>
+          </pre>
+
+          <ul>
+            <li><b>Primavera</b></li>
+            <li class="hermanos-adyacentes"><b>Verano</b></li>
+            <li><b>Otoño</b></li>
+            <li><b>Invierno</b></li>
+          </ul>
+
+        </article>
+
+        <hr>
+
+        <article id="atributos">
+          <h3>Selectores de atributos</h3>
+          <p>Nos permite aplicar selectores a través de cualquier atributo relacionado a etiquetas HTML. Se representan
+            a
+            través de los corechetes [].</p>
+
+          <pre>
+            <code class="language-html">
+              &lt;nav class="seletores-atributos"&gt;
+                &lt;ul&gt;
+                  &lt;li&gt;&lt;a href="#" target="_blank"&gt;Inicio&lt;/a&gt;&lt;/li&gt;
+                  &lt;li&gt;&lt;a href="#" target="_blank"&gt;Cursos&lt;/a&gt;&lt;/li&gt;
+                  &lt;li&gt;&lt;a href="#" target="_blank"&gt;Blog&lt;/a&gt;&lt;/li&gt;
+                  &lt;li&gt;&lt;a href="#" target="_blank"&gt;CV&lt;/a&gt;&lt;/li&gt;
+                  &lt;li&gt;&lt;a href="#" target="_blank"&gt;Ahora&lt;/a&gt;&lt;/li&gt;
+                  &lt;li&gt;&lt;a href="#" target="_blank"&gt;Notas&lt;/a&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+              &lt;/nav&gt;
+            </code>
+          </pre>
+
+          <pre>
+            <code class="language-css">
+              .seletores-atributos a[href] {
+                color: orangered;
+              }
+            </code>
+          </pre>
+
+          <nav class="seletores-atributos">
+            <ul>
+              <li><a href="#" target="_blank">Inicio</a></li>
+              <li><a href="#" target="_blank">Cursos</a></li>
+              <li><a href="#" target="_blank">Blog</a></li>
+              <li><a class="menu-item boton btn" href="#" target="_blank">CV</a></li>
+              <li><a href="#" target="_blank">Ahora</a></li>
+              <li><a href="#" target="_blank">Notas</a></li>
+            </ul>
+          </nav>
+
+          <p>Aplica a todos los elementos a dentro del elemento que contenga la clase "selectores-atributos" y que
+            posean
+            el atributo "href". También podemos agregar el valor que posee el atributo para realizar la selección.
+            Ejemplo:</p>
+
+          <pre>
+            <code class="language-css">
+              .seletores-atributos a[target="_blank"] {
+                font-weight: bold;
+              }
+            </code>
+          </pre>
+
+          <p>Otra característica de los selectores de atributos es que pueden utilizar comodines</p>
+          <ul>
+            <li>* <i class="material-icons">arrow_right_alt</i> el valor del atributo contiene los caracteres que se
+              detallen</li>
+            <li>^ <i class="material-icons">arrow_right_alt</i> el valor del atributo inicia con los caracteres que se
+              detallen</li>
+            <li>$ <i class="material-icons">arrow_right_alt</i> el valor del atributo finaliza con los caracteres que se
+              detallen</li>
+            <li>~ <i class="material-icons">arrow_right_alt</i> el valor del atributo contiene el valor y se encuentra
+              en
+              una lista separada por espacios</li>
+            <li>| <i class="material-icons">arrow_right_alt</i> el valor del atributo contiene el valor y se encuentra
+              en
+              una lista separada por espacios y que
+              después del texto contenga un guión medio</li>
+          </ul>
+
+          <pre>
+            <code class="language-css">
+              .seletores-atributos a[target*="bl"] {
+                font-weight: bold;
+              }
+              .seletores-atributos a[target^="_bl"] {
+                font-weight: bold;
+              }
+              .seletores-atributos a[target$="anc"] {
+                font-weight: bold;
+              }
+              .seletores-atributos a[class~="boton"] {
+                font-weight: bold;
+              }
+              .seletores-atributos a[class|="menu"] {
+                font-weight: bold;
+              }
+            </code>
+          </pre>
+
+        </article>
+      </article>
+
+      <hr>
+
+      <article id="selector-universal">
+        <h2>Selector universal</h2>
+        <p>Se representa por el asteristo (*) y aplica a todos los elementos HTML que existan en el documento.</p>
+
+        <pre>
+          <code class="language-css">
+            * {
+              font-family: sans-serif;
+            }
+          </code>
+        </pre>
+
+        <p>Aplica la tipografía sans-serif a todos los elementos, y al ser una tipografía estandar existe en todos los
+          sistemas operativos (Mac, Windows o Linux).</p>
+        <p>También se puede aplicar el selector universal pero contextualmente. Aplicará a todos los elementos que se
+          encuentren dentro del elemento referenciado.</p>
+
+        <pre>
+          <code class="language-html">
+            &lt;ul class="selector"&gt;
+              &lt;li&gt;&lt;b&gt;Primavera&lt;/b&gt;&lt;/li&gt;
+              &lt;li&gt;&lt;b&gt;Verano&lt;/b&gt;&lt;/li&gt;
+              &lt;li&gt;&lt;b&gt;Otoño&lt;/b&gt;&lt;/li&gt;
+              &lt;li&gt;&lt;b&gt;Invierno&lt;/b&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+          </code>
+        </pre>
+        <pre>
+          <code class="language-css">
+            .selector * {
+              background-color: thistle;
+            }
+          </code>
+        </pre>
+
+        <ul style="background-color: thistle;">
+          <li><b>Primavera</b></li>
+          <li><b>Verano</b></li>
+          <li><b>Otoño</b></li>
+          <li><b>Invierno</b></li>
+        </ul>
+      </article>
+
+      <hr>
+
+      <section id="pseudoclases">
+
+        <h2>Pseudoclases</h2>
+        <p>Las pseudoclases aplicarán los estilos dependiendo del contexto, de la posición del elemento o de ciertos
+          estados que tenga elemento HTML. Las pseudoclases se representan a través de los dos puntos (:).</p>
+        <p>Documentación de las distintas pseudoclases que podemos encontrar: <a
+            href="https://developer.mozilla.org/es/docs/Web/CSS/Pseudo-classes" target="_blank"
+            rel="nofollow">Pseudoclases</a></p>
+
+        <hr>
+
+        <article id="pseudoclases-form">
+          <h3>Pseudoclases para elementos de formularios</h3>
+
+          <ul>
+            <li>required <i class="material-icons">arrow_right_alt</i> representa cualquier elemento input, select o
+              textarea que tenga el atributo requerido
+              establecido.</li>
+            <li>valid <i class="material-icons">arrow_right_alt</i> representa cualquier elemento input u otro del form
+              cuyo contenido se valide correctamente. Esto
+              permite hacer que los campos válidos adopten una apariencia que ayude al usuario a confirmar que su dato
+              se
+              ingresó correctamente.</li>
+            <li>invalid <i class="material-icons">arrow_right_alt</i> representa cualquier fieldset, input u otro
+              elemento
+              del form cuyo contenido no se valide
+              correctamente. Esta pseudoclase es útil para resaltar errores para el usuario.</li>
+            <li>focus <i class="material-icons">arrow_right_alt</i> representa un elemento (como una entrada de
+              formulario) que ha recibido el foco. Por lo general,
+              se activa cuando el usuario hace clic o toca un elemento o lo selecciona con la tecla tabulador del
+              teclado.
+            </li>
+            <li>disabled <i class="material-icons">arrow_right_alt</i> representa cualquier elemento deshabilitado. Un
+              elemento está deshabilitado si no se puede
+              activar (seleccionar, hacer clic, escribir, etc.) o aceptar el enfoque.</li>
+
+          </ul>
+
+          <pre>
+            <code class="language-html">
+              &lt;form class="form-pseudoclase" action="#"&gt;
+                &lt;input type="text" name="nombre" placeholder="Escribe tu nombre" required&gt;
+                &lt;br&gt;
+                &lt;input type="email" name="correo" placeholder="Escribe tu correo" required&gt;
+                &lt;br&gt;
+                &lt;input type="submit"&gt;
+              &lt;/form&gt;
+            </code>
+          </pre>
+
+          <pre>
+            <code class="language-css">
+              form-pseudoclase *:required {
+                border-color: yellow;
+              }
+              form-pseudoclase *:valid {
+                border-color: green;
+              }
+              form-pseudoclase *:invalid {
+                border-color: red;
+              }
+              form-pseudoclase *:focus {
+                background-color: skyblue;
+              }
+              form-pseudoclase *:disabled {
+                background-color: pink;
+              }
+            </code>
+          </pre>
+
+          <form class="form-pseudoclase" action="#">
+            <input type="text" name="nombre" placeholder="Escribe tu nombre" required>
+            <br>
+            <input type="email" name="correo" placeholder="Escribe tu correo" required>
+            <br>
+            <input type="text" disabled value="Boton deshabiliatdo">
+            <br>
+            <input type="reset">
+            <input type="submit">
+          </form>
+        </article>
+
+        <hr>
+
+        <article id="pseudoclases-enlace">
+          <h3>Pseudoclases para elementos de enlace</h3>
+
+          <ul>
+            <li>hover <i class="material-icons">arrow_right_alt</i> aplica sobre cualquier elemento HTML. Se activa
+              cuando
+              el usuario pasa el cursor sobre un elemento (puntero del mouse). <mark>Los estilos definidos por la
+                pseudoclase :hover serán anulados por cualquier pseudoclase posterior relacionada con el enlace
+                (:enlace,
+                :visitado o :activo) que tenga al menos la misma especificidad. Para aplicar un estilo adecuado a los
+                enlaces, coloque la regla :hover después de las reglas :link y :visited, pero antes de :active</mark>
+            </li>
+            <li>visited <i class="material-icons">arrow_right_alt</i> enlaces que el usuario ya ha visitado</li>
+            <li>active <i class="material-icons">arrow_right_alt</i> representa un elemento (como un botón) que está
+              siendo activado por el usuario. Cuando se usa un mouse, la "activación" generalmente comienza cuando el
+              usuario presiona el botón principal del mouse</li>
+            <li>link <i class="material-icons">arrow_right_alt</i> representa un elemento que aún no ha sido visitado.
+              Coincide con todos los elementos a no visitados que tienen un atributo href</li>
+            <li>target <i class="material-icons">arrow_right_alt</i> representa un elemento único (el elemento objetivo)
+              con una identificación que coincide con el fragmento de la URL. Cuando la url actual posee el símbolo
+              numeral (#) y se establece la pseudoclase :target se aplicarán los estilos a ese identificador
+              <pre>
+                <code class="language-css">
+                  /* Selecciona un elemento con un ID que coincida con el fragmento de la URL actual */
+                  :target {
+                    border: 2px solid black;
+                  }
+                </code>
+              </pre>
+            </li>
+          </ul>
+
+          <blockquote>
+            De acuerdo a la especificidad de las pseudoclases, deberían definirse en con el siguiente orden:
+            <ol>
+              <li>link</li>
+              <li>active</li>
+              <li>visited</li>
+              <li>hover</li>
+            </ol>
+          </blockquote>
+
+          <pre>
+            <code class="language-html">
+              &lt;nav class="menu-pseudoclases"&gt;
+                &lt;a href="#seccion1"&gt;Seccion 1&lt;/a&gt;
+                &lt;a href="#seccion2"&gt;Seccion 2&lt;/a&gt;
+                &lt;a href="#seccion3"&gt;Seccion 3&lt;/a&gt;
+                &lt;a href="#seccion4"&gt;Seccion 4&lt;/a&gt;
+              &lt;/nav&gt;
+            </code>
+          </pre>
+          <pre>
+            <code class="language-css">
+              .menu-pseudoclases a:link{
+                color: pink;
+              }
+              .menu-pseudoclases a:active{
+                color: red;
+              }
+              .menu-pseudoclases a:visited{
+                color: olive;
+              }
+              .menu-pseudoclases a:hover{
+                color: orange;
+              }
+            </code>
+          </pre>
+
+          <nav class="menu-pseudoclases">
+            <a href="#seccion1">Seccion 1</a>
+            <a href="#seccion2">Seccion 2</a>
+            <a href="#seccion3">Seccion 3</a>
+            <a href="#seccion4">Seccion 4</a>
+          </nav>
+        </article>
+
+        <hr>
+
+        <article id="pseudoclases-position">
+          <h3>Pseudoclases por posición y tipo</h3>
+
+          <p>Las pseudoclases por posición hacen referencia a los elementos en relación a la posición que ocupan dentro
+            de su contenedor.</p>
+
+          <ul>
+            <li>first-child <i class="material-icons">arrow_right_alt</i> aplicará al primer elemento que tenga que sea
+              del tipo indicado</li>
+            <li>last-child <i class="material-icons">arrow_right_alt</i> aplicará al último elemento que tenga que sea
+              del tipo indicado</li>
+            <li>nth-child(nro) <i class="material-icons">arrow_right_alt</i> aplicará al elemento nro que tenga que sea
+              del tipo indicado. Esta pseudoclase admite determinadas fórmulas
+              <ul>
+                <li>nth-child(4n) <i class="material-icons">arrow_right_alt</i> aplicará al elemento que tenga que sea
+                  del
+                  tipo indicado pero cada 4 elementos. Aplicará al 4, 8, 12, etc</li>
+                <li>nth-child(3n+1) <i class="material-icons">arrow_right_alt</i> aplicará al elemento que tenga que sea
+                  del tipo indicado pero cada 3 elementos + 1. Aplicará al 4, 7, 10, etc</li>
+                <li>nth-child(even) <i class="material-icons">arrow_right_alt</i> aplicará a los elementos pares que
+                  sean
+                  del tipo indicado</li>
+                <li>nth-child(odd) <i class="material-icons">arrow_right_alt</i> aplicará a los elementos impares que
+                  sean
+                  del tipo indicado</li>
+              </ul>
+            </li>
+          </ul>
+
+          <pre>
+            <code class="language-html">
+              &lt;ol class="lista-pseudoclases"&gt;
+                &lt;li&gt;La Beriso&lt;/li&gt;
+                &lt;li&gt;Bersuit Vergarabat&lt;/li&gt;
+                &lt;li&gt;Las Blacanblus&lt;/li&gt;
+                &lt;li&gt;Callejeros&lt;/li&gt;
+                &lt;li&gt;Hermética&lt;/li&gt;
+                &lt;li&gt;Divididos&lt;/li&gt;
+                &lt;li&gt;La Mississippi&lt;/li&gt;
+                &lt;li&gt;Las Pelotas&lt;/li&gt;
+                &lt;li&gt;Pappo's Blues&lt;/li&gt;
+                &lt;li&gt;La Renga&lt;/li&gt;
+                &lt;li&gt;Los Piojos&lt;/li&gt;
+                &lt;li&gt;Catupecu Machu&lt;/li&gt;
+              &lt;/ol&gt;
+            </code>
+          </pre>
+          <pre>
+            <code class="language-css">
+              .lista-pseudoclases li:first-child {
+                color: green;
+              }
+              .lista-pseudoclases li:last-child {
+                color: violet;
+              }
+              .lista-pseudoclases li:nth-child(3) {
+                color: navy;
+              }
+              .lista-pseudoclases li:nth-child(4n) {
+                font-size: 20px;
+              }
+              .lista-pseudoclases li:nth-child(3n+1) {
+                font-weight: bold;
+              }
+              .lista-pseudoclases li:nth-child(even) {
+                background-color: yellow;
+              }
+              .lista-pseudoclases li:nth-child(odd) {
+                background-color: orange;
+              }
+            </code>
+          </pre>
+
+          <ol class="lista-pseudoclases">
+            <li>La Beriso</li>
+            <li>Bersuit Vergarabat</li>
+            <li>Las Blacanblus</li>
+            <li>Callejeros</li>
+            <li>Hermética</li>
+            <li>Divididos</li>
+            <li>La Mississippi</li>
+            <li>Las Pelotas</li>
+            <li>Pappo's Blues</li>
+            <li>La Renga</li>
+            <li>Los Piojos</li>
+            <li>Catupecu Machu</li>
+          </ol>
+        </article>
+
+        <hr>
+
+        <article id="pseudoclases-position-type">
+          <h3>Pseudoclases por posición y tipo</h3>
+          <p>Este tipo de pseudoclases no solo aplican por posición sino que también consideran el tipo de etiqueta.</p>
+
+          <ul>
+            <li>first-of-type <i class="material-icons">arrow_right_alt</i> buscará dentro de la clase el primer tipo
+              que
+              coincida con el especificado</li>
+            <li>last-of-type <i class="material-icons">arrow_right_alt</i> buscará dentro de la clase el último tipo que
+              coincida con el especificado</li>
+            <li>nth-of-type(nro) <i class="material-icons">arrow_right_alt</i> buscará dentro de la clase el número de
+              elemento del tipo indicado por parámetro que coincida con el especificado. También aplican las fórmulas
+              nth-of-type(4n), nth-of-type(3n+1), nth-of-type(even) y nth-of-type(odd)</li>
+          </ul>
+
+          <pre>
+            <code class="language-html">
+              &lt;article class="articulo-pseudoclases"&gt;
+                &lt;header&gt;Este es un header&lt;/header&gt;
+                &lt;p&gt;Este es un párrafo&lt;/p&gt;
+                &lt;div&gt;Este es un div&lt;/div&gt;
+                &lt;p&gt;Este es otro párrafo&lt;/p&gt;
+                &lt;section&gt;Esta es una sección&lt;/section&gt;
+                &lt;p&gt;Este es otro párrafo&lt;/p&gt;
+                &lt;div&gt;Este es un div&lt;/div&gt;
+                &lt;p&gt;Este es otro párrafo&lt;/p&gt;
+                &lt;footer&gt;Este es un footer&lt;/footer&gt;
+              &lt;/article&gt;
+          </code>
+          </pre>
+          <pre>
+            <code class="language-css">
+              .articulo-pseudoclases p:first-of-type {
+                background-color: pink;
+              }
+              .articulo-pseudoclases p:last-of-type {
+                background-color: violet;
+              }
+              .articulo-pseudoclases p:nth-of-type(3) {
+                background-color: fuchsia;
+              }
+            </code>
+          </pre>
+          <article class="articulo-pseudoclases">
+            <header>Este es un header</header>
+            <p>Este es un párrafo</p>
+            <div>Este es un div</div>
+            <p>Este es otro párrafo</p>
+            <section>Esta es una sección</section>
+            <p>Este es otro párrafo</p>
+            <div>Este es un div</div>
+            <p>Este es otro párrafo</p>
+            <footer>Este es un footer</footer>
+          </article>
+        </article>
+
+        <hr>
+
+        <article id="pseudoclases-negacion">
+          <h3>Pseudoclases de negación</h3>
+          <p>Podemos utilizar esta pseudoclase cuando queremos aplicar a todos los elementos con excepción de un tipo.
+            Si
+            necesitamos que sean más de un elemento a exluir podemos separarlos por coma.</p>
+
+          <pre>
+            <code class="language-css">
+              .articulo-pseudoclases *:not(p, boton, .clase) {
+                background-color: beige;
+              }
+            </code>
+          </pre>
+        </article>
+      </section>
+
+      <hr>
+
+      <section id="pseudoelementos">
+        <h2>Pseudoelementos</h2>
+
+        <p>Las pseudoelementos aplicarán los estilos a partes específicas de un elemento y se representan a través de
+          los dos dos puntos (::).</p>
+        <p>Documentación de los distintos pseudoelememtos que podemos encontrar: <a
+            href="https://developer.mozilla.org/es/docs/web/css/pseudo-elements" target="_blank"
+            rel="nofollow">Pseudoelememtos</a></p>
+
+        <ul>
+          <li>after y before <i class="material-icons">arrow_right_alt</i> nos permiten agregar contenido antes o
+            después de un elemento en particular</li>
+          <li>first-letter <i class="material-icons">arrow_right_alt</i> los estilos se aplicarán al primer caracter
+          </li>
+          <li>first-line <i class="material-icons">arrow_right_alt</i> los estilos se aplicarán a la primera línea</li>
+          <li>selection <i class="material-icons">arrow_right_alt</i> los estilos se aplicarán al momento de seleccionar
+            el elemento</li>
+          <li>placeholder <i class="material-icons">arrow_right_alt</i> los estilos se aplicarán al atributo placeholder
+            del elemento input refernciado</li>
+        </ul>
+
+        <pre>
+          <code class="language-html">
+            &lt;i&gt;Bandai Myth Cloth Ex&lt;/i&gt; &lt;span class="saga-geminis"&gt;Saga geminis&lt;/span&gt; &lt;span class="saga-precio"&gt;500&lt;/span&gt;
+            &lt;p class="p-seudoelementos"&gt;
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam, earum molestias est omnis officiis fugit
+              perferendis libero optio, esse repudiandae minima sequi voluptatum provident magnam excepturi aperiam temporibus
+              exercitationem. Quos!
+              &lt;/p&gt;
+
+            &lt;input class="input-pseudoelementos" type="text" name="nombre" placeholder="Escribe tu nombre"&gt;
+          </code>
+        </pre>
+        <pre>
+          <code class="language-css">
+            .saga-geminis::before {
+              content: "👾";
+            }
+            .saga-geminis::after {
+              content: "😎";
+            }
+            .saga-precio::before {
+              content: "$";
+              font-weight: bold;
+            }
+            .saga-precio::after {
+              content: "USD";
+              font-weight: bold;
+            }
+            .p-seudoelementos::first-line {
+              color: coral;
+            }
+            .p-seudoelementos::selection {
+              color: greenyellow;
+              background-color: black;
+            }
+            .input-pseudoelementos::placeholder {
+              color: green;
+            }
+          </code>
+        </pre>
+
+        <i>Bandai Myth Cloth Ex</i> <span class="saga-geminis">Saga geminis</span> <span class="saga-precio">500</span>
+
+        <p class="p-seudoelementos">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam, earum molestias est omnis officiis fugit
+          perferendis libero optio, esse repudiandae minima sequi voluptatum provident magnam excepturi aperiam
+          temporibus exercitationem. Quos!
+        </p>
+
+        <input class="input-pseudoelementos" type="text" name="nombre" placeholder="Escribe tu nombre">
+      </section>
+
+      <hr>
+
+      <section id="agrupacion-selectores">
+        <h2>Agrupación de selectores</h2>
+        <p>Si necesitamos aplicar los mismos estilos a un conjunto de elementos podemos agruparlos separandolos por
+          coma.
+        </p>
+
+        <pre>
+          <code class="language-html">
+            &LT;form class="form-agrupar-selectores" action="#"&GT;
+              &LT;input type="text" name="nombre" placeholder="Escribe tu nombre"&GT;
+              &LT;input type="email" name="correo" placeholder="Escribe tu correo"&GT;
+              &LT;textarea name="comentarios" cols="30" rows="10" placeholder="Escribe tus comentarios"&GT;&LT;/textarea&GT;
+              &LT;input type="submit" value="Enviar"&GT;
+            &LT;/form&GT;
+          </code>
+        </pre>
+        <pre>
+          <code class="language-css">
+            .form-agrupar-selectores input[type="text"],
+            .form-agrupar-selectores input[type="email"],
+            .form-agrupar-selectores textarea {
+              display: block;
+              border-color: yellow;
+              border-width: 2px;
+              background-color: black;
+              font-size: 20px;
+              width: 300px;
+            }
+          </code>
+        </pre>
+
+        <hr>
+
+        <h3>Agrupar selectores</h3>
+        <form class="form-agrupar-selectores" action="#">
+          <input type="text" name="nombre" placeholder="Escribe tu nombre">
+          <input type="email" name="correo" placeholder="Escribe tu correo">
+          <textarea name="comentarios" cols="30" rows="10" placeholder="Escribe tus comentarios"></textarea>
+          <input type="submit" value="Enviar">
+        </form>
+
+      </section>
+    </section>
+
+    <hr>
+
+    <section class="pagination">
+      <article class="pagination-item">
+        <a href="/pages/css/documentation.html">
+          <i class="material-icons">arrow_back</i>Documentación
+        </a>
+      </article>
+      <article class="pagination-item">
+        <a href="/pages/css/index.html#indice">Tabla de contenido CSS
+          <i class="material-icons">arrow_upward</i>
+        </a>
+      </article>
+      <article class="pagination-item">
+        <a href="/pages/css/pseudoclases.html">Pseudoclases
+          <i class="material-icons">arrow_forward</i>
+        </a>
+      </article>
+    </section>
+
+  </main>
+  <sergey-import src="footer" />
+  <script src="/assets/js/prism.js"></script>
+</body>
+
+</html>

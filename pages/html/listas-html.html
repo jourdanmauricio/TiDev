@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <sergey-import src="metas/statics" />
+  <sergey-import src="metas/titles">TiDev HTML head</sergey-import>
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <link rel="stylesheet" href="/assets/css/menu.css">
+  <link rel="stylesheet" href="/assets/css/prism.css" />
+  <link rel="stylesheet" href="/assets/css/html/html.css">
+</head>
+
+<body>
+  <sergey-import src="header" />
+
+  <main class="container">
+
+    <section id="listas-html">
+      <h1>Listas</h1>
+      <p>Existen 3 tipos de listas, aunque generalmente utilizamos las ordenadas y las desordenadas.</p>
+
+      <hr>
+
+      <article id="listas-ordenadas">
+        <h2>Listas ordenadas</h2>
+        <p>Es una lista numerada y se representa con la etiqueta OL (order list). Cada elemento se debe incorporar con
+          una etiqueta li (list item)</p>
+
+        <pre>
+          <code class="language-html">
+            &lt;h4&gt;Ejemplo: Estaciones del año&lt;/h4&gt;
+            &lt;ol&gt;
+              &lt;li&gt;Primavera&lt;/li&gt;
+              &lt;li&gt;Verano&lt;/li&gt;
+              &lt;li&gt;Otoño&lt;/li&gt;
+              &lt;li&gt;Invierno&lt;/li&gt;
+            &lt;/ol&gt;
+          </code>
+        </pre>
+
+        <h3>Ejemplo: Estaciones del año</h3>
+        <ol>
+          <li>Primavera</li>
+          <li>Verano</li>
+          <li>Otoño</li>
+          <li>Invierno</li>
+        </ol>
+
+        <p>Si queremos comenzar con una numeración diferente podemos agregar el atributo start="3". También podemos
+          invertir la lista con el atributo booleano reversed. Finalmente, el atributo type nos permite seleccionar el
+          tipo de mumeración:
+        </p>
+        <ul>
+          <li>Números (type="1")</li>
+          <li>Letras mayúsculas (type="A")</li>
+          <li>Letras minúsculas (type="a")</li>
+          <li>Números romanos en mayúsculas (type="I")</li>
+          <li>Números romanos en minúsculas (type="i")</li>
+        </ul>
+        <pre>
+          <code class="language-html">
+            &lt;h4&gt;Ejemplo: Estaciones del año&lt;/h4&gt;
+            &lt;ol start="4" type="A" reversed&gt;
+              &lt;li&gt;Primavera&lt;/li&gt;
+              &lt;li&gt;Verano&lt;/li&gt;
+              &lt;li&gt;Otoño&lt;/li&gt;
+              &lt;li&gt;Invierno&lt;/li&gt;
+            &lt;/ol&gt;
+          </code>
+        </pre>
+
+        <h3>Ejemplo: Estaciones del año</h3>
+        <ol start="4" type="A" reversed>
+          <li>Primavera</li>
+          <li>Verano</li>
+          <li>Otoño</li>
+          <li>Invierno</li>
+        </ol>
+
+      </article>
+
+      <hr>
+
+      <article id="listas-desordenadas">
+        <h2>Listas desordenadas</h3>
+          <p>Son las viñetas. Se representan a través de la etiqueta ul (unorder list)</p>
+
+          <p>Podemos utilizar el atributo type con los valores disc (predeterminado), circle, square</p>
+
+          <pre>
+          <code class="language-html">
+            &lt;h4&gt;Cosas para hacer&lt;/h4&gt;
+            &lt;ul&gt;
+              &lt;li&gt;Estudiar inglés&lt;/li&gt;
+              &lt;li&gt;Preparar presentación del proyecto&lt;/li&gt;
+              &lt;li&gt;Compartir la presentación&lt;/li&gt;
+            &lt;/ul&gt;
+            &lt;ul type="circle"&gt;
+              &lt;li&gt;Estudiar inglés&lt;/li&gt;
+              &lt;li&gt;Preparar presentación del proyecto&lt;/li&gt;
+              &lt;li&gt;Compartir la presentación&lt;li&gt;
+            &lt;/ul&gt;
+            &lt;ul type="square"&gt;
+              &lt;li&gt;Estudiar inglés&lt;/li&gt;
+              &lt;li&gt;Preparar presentación del proyecto&lt;/li&gt;
+              &lt;li&gt;Compartir la presentación&lt;/li&gt;
+            &lt;/ul&gt;
+          </code>
+        </pre>
+
+          <h3>Cosas para hacer</h3>
+          <ul>
+            <li>Estudiar inglés</li>
+            <li>Preparar presentación del proyecto</li>
+            <li>Compartir la presentación</li>
+          </ul>
+          <ul type="circle">
+            <li>Estudiar inglés</li>
+            <li>Preparar presentación del proyecto</li>
+            <li>Compartir la presentación</li>
+          </ul>
+          <ul type="square">
+            <li>Estudiar inglés</li>
+            <li>Preparar presentación del proyecto</li>
+            <li>Compartir la presentación</li>
+          </ul>
+
+      </article>
+
+      <hr>
+
+      <article>
+        <h2 id="listas-definicion">Listas de definición</h2>
+        <p>Se utiliza para glosario de términos. Se representan con la etiqueta dl (definition list), la etiqueta dt
+          (definition term) para el término que queremos explicar y para la definicion utilizamos dd (definiton data)
+        </p>
+
+        <pre>
+          <code class="language-html">
+            &lt;dl&gt;
+              &lt;dt&gt;HTML&lt;/dt&gt;
+              &lt;dd&gt;Es un lenguaje de marcado para definir el contenido de nuetsra web&lt;/dd&gt;
+              &lt;dt&gt;CSS&lt;/dt&gt;
+              &lt;dd&gt;Es un lenguaje de definición que da estilos al código html&lt;/dd&gt;
+              &lt;dt&gt;JavaScript&lt;/dt&gt;
+              &lt;dd&gt;Es un lenguaje de la Web&lt;/dd&gt;
+            &lt;/dl&gt;
+          </code>
+        </pre>
+
+        <dl>
+          <dt>HTML</dt>
+          <dd>Es un lenguaje de marcado para definir el contenido de nuetsra web</dd>
+          <dt>CSS</dt>
+          <dd>Es un lenguaje de definición que da estilos al código html</dd>
+          <dt>JavaScript</dt>
+          <dd>Es un lenguaje de la Web</dd>
+        </dl>
+      </article>
+    </section>
+
+    <hr>
+
+    <section class="pagination">
+      <article class="pagination-item">
+        <a href="/pages/html/img-html.html">
+          <i class="material-icons">arrow_back</i>Agregando imágenes</a>
+      </article>
+      <article class="pagination-item">
+        <a href="/pages/html/index.html#indice">Tabla de contenido HTML
+          <i class="material-icons">arrow_upward</i>
+        </a>
+      </article>
+      <article class="pagination-item">
+        <a href="/pages/html/tables.html">Tablas
+          <i class="material-icons">arrow_forward</i>
+        </a>
+      </article>
+    </section>
+
+  </main>
+  <sergey-import src="footer" />
+  <script src="/assets/js/prism.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <sergey-import src="metas/statics" />
+  <sergey-import src="metas/titles">TiDev HTML head</sergey-import>
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <link rel="stylesheet" href="/assets/css/menu.css">
+  <link rel="stylesheet" href="/assets/css/prism.css" />
+  <link rel="stylesheet" href="/assets/css/html/html.css">
+</head>
+
+<body>
+  <sergey-import src="header" />
+
+  <main class="container">
+    <section id="tablas-html">
+      <h1>Tablas</h1>
+      <p>A finales de los 90 las tablas se utilizaban para maquetar. No existían sistemas como grid o flexbox (los
+        veremos en la <a href="/pages/css/css.html">sección CSS</a>). Se representa a con la etiqueta table. Las tablas
+        contienen filas y columnas. Las filas se definen con la etiqueta tr (table row) y las celdas que contiene la
+        fila se define con td (table data)</p>
+
+      <pre>
+        <code class="language-html">
+          &lt;table&gt;
+            &lt;tr&gt;
+              &lt;td&gt;Banda&lt;/td&gt;
+              &lt;td&gt;Tipo&lt;/td&gt;
+              &lt;td&gt;Año de formación&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+              &lt;td&gt;Queen&lt;/td&gt;
+              &lt;td&gt;Rock / Pop&lt;/td&gt;
+              &lt;td&gt;1970&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+              &lt;td&gt;Metallica&lt;/td&gt;
+              &lt;td&gt;Thrash metal&lt;/td&gt;
+              &lt;td&gt;1983&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+              &lt;td&gt;AC/DC&lt;/td&gt;
+              &lt;td&gt;Rock&lt;/td&gt;
+              &lt;td&gt;1973&lt;/td&gt;
+            &lt;/tr&gt;
+          &lt;/table&gt;
+        </code>
+      </pre>
+
+      <table class="tabla">
+        <tr>
+          <td>Banda</td>
+          <td>Tipo</td>
+          <td>Año de formación</td>
+        </tr>
+        <tr>
+          <td>Queen</td>
+          <td>Rock / Pop</td>
+          <td>1970</td>
+        </tr>
+        <tr>
+          <td>Metallica</td>
+          <td>Thrash metal</td>
+          <td>1983</td>
+        </tr>
+        <tr>
+          <td>AC/DC</td>
+          <td>Rock</td>
+          <td>1973</td>
+        </tr>
+      </table>
+
+      <p>Podemos agrupar las filas a través de 3 eqtiquetas: thead, tbody y tfoot. En caso de utilizar thead, la
+        etiqueta tr se reemplaza por th. También podemos combinar filas y columnas con las etiquetas colspan y rwospan
+      </p>
+
+      <pre>
+        <code class="language-html">
+          &lt;table&gt;
+            &lt;thead&gt;
+              &lt;tr&gt;
+                &lt;th colspan="3">Tabla de bandas históricas&lt;/th&gt;
+              &lt;/tr&gt;
+              &lt;tr&gt;
+                &lt;th>Banda&lt;/th&gt;
+                &lt;th>Tipo&lt;/th&gt;
+                &lt;th>Año de formación&lt;/th&gt;
+              &lt;/tr&gt;
+            &lt;/thead&gt;
+            &lt;tbody&gt;
+              &lt;tr&gt;
+                &lt;td&gt;Queen&lt;/td&gt;
+                &lt;td&gt;Rock / Pop&lt;/td&gt;
+                &lt;td&gt;1970&lt;/td&gt;
+              &lt;/tr&gt;
+              &lt;tr&gt;
+                &lt;td&gt;Metallica&lt;/td&gt;
+                &lt;td&gt;Thrash metal&lt;/td&gt;
+                &lt;td&gt;1983&lt;/td&gt;
+              &lt;/tr&gt;
+              &lt;tr&gt;
+                &lt;td&gt;AC/DC&lt;/td&gt;
+                &lt;td rowspan="2"&gt;Rock&lt;/td&gt;
+                &lt;td&gt;1973&lt;/td&gt;
+              &lt;/tr&gt;
+              &lt;tr&gt;
+                &lt;td&gt;Led Zeppelin&lt;/td&gt;
+                &lt;td&gt;1968&lt;/td&gt;
+              &lt;/tr&gt;
+            &lt;/tbody&gt;
+            &lt;tfoot&gt;
+              &lt;tr&gt;
+                &lt;th colspan="3"&gt;&lt;small&gt;La historia del Rock&lt;/small&gt;&lt;/th&gt;
+              &lt;/tr&gt;
+            &lt;/tfoot&gt;
+          &lt;/table&gt;  
+        </code>
+      </pre>
+
+      <table class="tabla">
+        <thead>
+          <tr>
+            <th colspan="3">Tabla de bandas históricas</th>
+          </tr>
+          <tr>
+            <th>Banda</th>
+            <th>Tipo</th>
+            <th>Año de formación</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Queen</td>
+            <td>Rock / Pop</td>
+            <td>1970</td>
+          </tr>
+          <tr>
+            <td>Metallica</td>
+            <td>Thrash metal</td>
+            <td>1983</td>
+          </tr>
+          <tr>
+            <td>AC/DC</td>
+            <td rowspan="2">Rock</td>
+            <td>1973</td>
+          </tr>
+          <tr>
+            <td>Led Zeppelin</td>
+            <td>1968</td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <th colspan="3"><small>La historia del Rock</small></th>
+          </tr>
+        </tfoot>
+      </table>
+    </section>
+
+    <hr>
+
+    <section class="pagination">
+      <article class="pagination-item">
+        <a href="/pages/html/listas-html.html#listas-html">
+          <i class="material-icons">arrow_back</i>Listas
+        </a>
+      </article>
+      <article class="pagination-item">
+        <a href="/pages/html/index.html#indice">Tabla de contenido HTML
+          <i class="material-icons">arrow_upward</i>
+        </a>
+      </article>
+      <article class="pagination-item">
+        <a href="/pages/html/enlaces.html">Enlaces
+          <i class="material-icons">arrow_forward</i>
+        </a>
+      </article>
+    </section>
+
+  </main>
+  <sergey-import src="footer" />
+  <script src="/assets/js/prism.js"></script>
+</body>
+
+</html>

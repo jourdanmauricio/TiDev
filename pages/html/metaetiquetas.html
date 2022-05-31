@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <sergey-import src="metas/statics" />
+  <sergey-import src="metas/titles">TiDev elementos de formulario</sergey-import>
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <link rel="stylesheet" href="/assets/css/menu.css">
+  <link rel="stylesheet" href="/assets/css/prism.css" />
+  <link rel="stylesheet" href="/assets/css/html/html.css">
+</head>
+
+<body>
+  <sergey-import src="header" />
+
+  <main class="container">
+
+    <section id="metaetiquetas">
+
+      <h1>Metaetiquetas</h1>
+      <p>Las metaetiquetas son etiquetas HTML que se incorporan en el encabezado de nuetsra página web y no son
+        visibles para el usuario. Son gran utilidad para navegadores y los robots (arañas) que utilizan esta información
+        para SEO.</p>
+
+      <hr>
+
+      <article id="metas-seo">
+        <h2>Metaetiquetas para SEO y Móviles</h2>
+
+        <p>Hasta el momento vimos la etiqueta title y la etiqueta description. Ahora veremos la etiqueta link. Esta
+          etiqueta se ubica en el HEAD</p>
+
+        <pre>
+          <code class="language-html"> 
+            &lt;link rel="canonical" href="http://tu-dominio.com/la-url-canonica"&gt;
+          </code>
+        </pre>
+
+        <p>La forma mas simple de entender el concepto de url canónica es pensar en un e-comerce. Muchas veces obtenemos
+          un link a producto por el día de la madre, black friday, etc. Entre los parámetros de ese link se encuentra el
+          descuento. Todas las url aterrizan en el mismo producto pero para los buscadore son distintas urls. Entonces
+          para le indicamos a los navegadores que existen varias urls pero que esta es la auténtica, la original, la
+          canonica. En cada página debemos definir la url canonica.</p>
+
+        <p>Para complementar las meta podemos incluir al favicon y al apple touch. Deben ser imagenes cuadradas. El
+          tamaño
+          mínimo es de 16px por 16px. Pero se verá muy borrosa. Entonces mientras mas grande mejor porque mantendrá
+          mejor
+          definición cuando se renderice en la pestaña del navegador o en el ícono del acceso en móviles. El logo del
+          favicon debe de estar en formato png. También se puede utilizar el .ico pero solo funciona en navegadores, no
+          funciona en dispositivos moviles. </p>
+
+        <pre>
+          <code class="language-html">
+            &lt;link rel="icon" href="/assets/image/favicon.png"&gt;
+            &lt;link rel="apple-touch-icon" href="/assets/image/favicon.png"&gt;
+          </code>
+        </pre>
+
+        <p>Por mas que el atributo tenga el valor apple-touch-icon funciona para todos los dispositivos móviles, quedó
+          el nombre porque lo solicitó apple pero lugo se extendió al resto. La imagen enlazada en apple-touch-icon debe
+          tener buena reslución. Utilizar imagen de 1024x1024</p>
+
+        <p>Para cambiar el color de la barra de en dispositivos móviles podemos utilizar: </p>
+
+        <pre>
+          <code class="language-html">
+            &lt;meta name="theme-color" content="#FF6600"&gt;
+          </code>
+        </pre>
+
+        <p>Esta línea no tendrá efecto en Pcs pero camviará el color en dispositivos móviles.</p>
+      </article>
+
+      <hr>
+
+      <article id="metas-redes">
+        <h2>Meta etiquetas para Redes Sociales</h2>
+
+        <p>Open graph es un proptocolo para compartir contenido de manera enriquecido en redes sociales. Su página web
+          es <a href="https://ogp.me/" rel="nofollow" target="_balnc">The Open Graph protocol</a>. El protocolo Open
+          Graph permite que cualquier página web se convierta en un objeto enriquecido para compartir en redes sociales.
+          Por ejemplo, en Facebook, Twitter, LinkedIn, al crear una publicación ingresamos la url de la web y
+          automáticamente crea una tarjeta con el título, la metadesciption, una imagen, etc. </p>
+
+        <p>Para lograr este efecto tenemos que agregar 4 etiquetas en el HEAD de cada página.</p>
+
+        <ul>
+          <li>og:title - para el título del objeto. Ej: "The Rock"</li>
+          <li>og:type - El tipo de su objeto, por ejemplo, "video.movie". Según el tipo que especifique, es posible que
+            también se requieran otras propiedades</li>
+          <li>og:image - Una URL de imagen que debería representar su objeto</li>
+          <li>og:url - La URL canónica de su objeto que se usará como ID permanente.
+            Ej: "https://www.imdb.com/title/tt0117500/"</li>
+        </ul>
+
+        <p>Existe metadatos adicionales que podemos agregar como: audio, description, determiner, locale, site_name,
+          video.</p>
+        <p>De acuerdo a la red social, puede que existan pequeñas variaciones del protocolo. Para verificar debemos
+          ingresar al área de desarrolladores de la red. Ej, en Twitter:
+          https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/abouts-cards</p>
+        <p>En nuestro caso podríamos agregar las siguientes etiquetas. Ten en cuenta que las url son absolutas al
+          dominio.
+          Antes de establecer las etiquetas, por ejemplo de la imagen, verifique que se este mostrando la imágen
+          colocando
+          la dirección en el navegador.</p>
+
+        <pre>
+          <code class="language-html"> 
+            &lt;meta property="og:title" content="Aprende html"&gt;
+            &lt;meta property="og:description" content="Esta página contiene los fundamentos básicos de html5, utilizala como guía de referencia"&gt;
+            &lt;meta property="og:image" content="https://dominio.com/img/table_periodic_html.png"&gt;
+            &lt;meta property="og:url" content="https://dominio.com/html.htlm"&gt;
+            &lt;meta name="twitter:card" content="summary"&gt;
+            &lt;meta name="twitter:site" content="@jourdanmau"&gt;
+          </code>
+        </pre>
+
+        <p>Nuevamente destacamos la importancia de colocar distintos títulos, descripciones e imágenes en cada página.
+          No
+          solo para el SEO web, sino para las tarjetas de nuestras páginas en las redes sociales. Ejemplo: si tienes una
+          página personal y deseas compartir ti CV a través de redes sociales, podrías personalizar la página cv.html y
+          compartirla fácilmente. Si tienes una tienda de productos podrías configurar por producto o categoría.</p>
+
+      </article>
+    </section>
+
+    <hr>
+
+    <section class="pagination">
+      <article class="pagination-item">
+        <a href="/pages/html/elementos-formulario.html">
+          <i class="material-icons">arrow_back</i>Elementos de formulario
+        </a>
+      </article>
+      <article class="pagination-item">
+        <a href="/pages/html/index.html#indice">Tabla de contenido HTML
+          <i class="material-icons">arrow_upward</i>
+        </a>
+      </article>
+      <article class="pagination-item">
+        <a href="/pages/html/accesibilidad-web.html">Accesibilidad Web
+          <i class="material-icons">arrow_forward</i>
+        </a>
+      </article>
+    </section>
+
+  </main>
+  <sergey-import src="footer" />
+  <script src="/assets/js/prism.js"></script>
+</body>
+
+</html>

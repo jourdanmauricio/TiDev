@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <sergey-import src="metas/statics" />
+  <sergey-import src="metas/titles">TiDev Audio y video</sergey-import>
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <link rel="stylesheet" href="/assets/css/menu.css">
+  <link rel="stylesheet" href="/assets/css/prism.css" />
+  <link rel="stylesheet" href="/assets/css/html/html.css">
+</head>
+
+<body>
+  <sergey-import src="header" />
+
+  <main class="container">
+
+    <section id="iframes">
+
+      <h2>Iframes</h2>
+
+      <p>La recomendación es no utilizar este recurso. Es conveniente utilizar javascript con ajax, pero si queremos
+        incrustar un elemento de otra página o un pdf podemos utilizarla aunque podemos tener problemas a la hora de
+        cargar la página.</p>
+      <p>Hay páginas que se encuentran protegidas para no ser incrutadas.</p>
+
+      <pre>
+        <code class="language-html">
+          &lt;iframe src="/index.html"&gt;&lt;/iframe&gt;
+        </code>
+      </pre>
+      <iframe src="/index.html"></iframe>
+
+      <p>Google maps y youtube nos permiten incorporar elementos a través de esta etiqueta. Ejemplo:</p>
+
+      <pre>
+        <code class="language-html">
+          &lt;iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3284.0167132768483!2d-58.38375908524271!3d-34.60373888045943!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4aa9f0a6da5edb%3A0x11bead4e234e558b!2sObelisco!5e0!3m2!1sen!2sar!4v1651524263141!5m2!1sen!2sar" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"&gt;&lt;/iframe&gt;
+        </code>
+      </pre>
+
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3284.0167132768483!2d-58.38375908524271!3d-34.60373888045943!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4aa9f0a6da5edb%3A0x11bead4e234e558b!2sObelisco!5e0!3m2!1sen!2sar!4v1651524263141!5m2!1sen!2sar"
+        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </section>
+
+    <hr>
+
+    <section class="pagination">
+      <article class="pagination-item">
+        <a href="/pages/html/audio-video.html">
+          <i class="material-icons">arrow_back</i>Audio y video
+        </a>
+      </article>
+      <article class="pagination-item">
+        <a href="/pages/html/index.html#indice">Tabla de contenido HTML
+          <i class="material-icons">arrow_upward</i>
+        </a>
+      </article>
+      <article class="pagination-item">
+        <a href="/pages/html/elementos-formulario.html">Elementos de formulario
+          <i class="material-icons">arrow_forward</i>
+        </a>
+      </article>
+    </section>
+
+  </main>
+  <sergey-import src="footer" />
+  <script src="/assets/js/prism.js"></script>
+</body>
+
+</html>

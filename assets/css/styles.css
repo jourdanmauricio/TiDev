@@ -13,7 +13,7 @@ html {
 }
 
 img {
-  max-width: 100%;
+  /* max-width: 100%; */
   height: auto;
   display: block;
   margin: auto;
@@ -90,10 +90,10 @@ i.material-icons {
   border: thin solid #666;
 }
 
-.pagination-item {
-  /* background-color: #666; */
-  /* border: thin solid #666; */
-}
+/* .pagination-item {
+  background-color: #666; 
+  border: thin solid #666;
+} */
 
 footer {
   padding: 1rem;

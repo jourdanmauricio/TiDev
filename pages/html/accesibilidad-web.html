@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <sergey-import src="metas/statics" />
+  <sergey-import src="metas/titles">TiDev metaetiquetas</sergey-import>
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <link rel="stylesheet" href="/assets/css/menu.css">
+  <link rel="stylesheet" href="/assets/css/prism.css" />
+  <link rel="stylesheet" href="/assets/css/html/html.css">
+</head>
+
+<body>
+  <sergey-import src="header" />
+
+  <main class="container">
+
+    <section id="accesibilidad-web">
+      <h1>Accesibilidad Web</h1>
+
+      <p>El desarrollo html para accesibilidad es muy grande, no son solo algunas etiquetas, pero veamos algunas a modo
+        de introducción.</p>
+      <p>Tengamos en cuenta que existen personas que utilizan otros dipositivos para que lean el contenido, o utilizan
+        ciertos contrastes de color para navegar por nuestros sitios.</p>
+      <p>Enlaces donde profundizar el tema:</p>
+      <ul>
+        <li><a href="https://web.dev/accessible/">https://web.dev/accessible/</a></li>
+        <li><a href="https://html5accessibility.com/">https://html5accessibility.com/</a></li>
+        <li><a href="https://www.w3.org/blog/news/archives/8889">https://www.w3.org/blog/news/archives/8889</a></li>
+        <li><a
+            href="https://www.youtube.com/channel/UCU6ljj3m1fglIPjSjs2DpRA/videos">https://www.youtube.com/channel/UCU6ljj3m1fglIPjSjs2DpRA/videos</a>
+        </li>
+      </ul>
+
+      <p>Algunos atributos para hacer nuestro código más accesible son role y tabindex:</p>
+
+      <pre>
+        <code class="language-html">
+          &lt;h4 role="title"&gt;Las estaciones del año&lt;/h4&gt;
+          &lt;ul role="list"&gt;
+            &lt;li tabindex="1" role="listitem"&gt;Primavera&lt;/li&gt;
+            &lt;li tabindex="2" role="listitem"&gt;Verano&lt;/li&gt;
+            &lt;li tabindex="3" role="listitem"&gt;Otoño&lt;/li&gt;
+            &lt;li tabindex="4" role="listitem"&gt;Invierno&lt;/li&gt;
+          &lt;/ul&gt;
+        </code>
+      </pre>
+
+      <h4 role="title">Las estaciones del año</h4>
+      <ul role="list">
+        <li tabindex="1" role="listitem">Primavera</li>
+        <li tabindex="2" role="listitem">Verano</li>
+        <li tabindex="3" role="listitem">Otoño</li>
+        <li tabindex="4" role="listitem">Invierno</li>
+      </ul>
+
+      <a href="#" role="link" aria-label="En este enlace encontrarás más información sobre las estaciones del año"
+        target="_blank" rel="nofollow">Más información...</a>
+      <p>Las personas con discapacidad visual utilizan un lector que recitará la lista de corrido, pero podemos mejorar
+        la accesibilidad a través del lector especificando el atributo role con los valores list y listitem. De la
+        misma manera, en los links podemos utiliza el atributo role="link" y el atributo aria-label para agregar una
+        descripción del contenido del link.</p>
+      <p>Estos atributos no poseen impacto visual pero son importantes para los lectores.</p>
+      <p>Otro atributo es el tabindex. Por defecto, en los navegadores al presionar la tecla tab el foco salta entre los
+        elementos interactivos. Si deseamos que también se posicione sobre algún texto que sea importante podemos
+        agregar el atributo tabindex.</p>
+      <p>Un caso común es utilizar los colores rojo para error y verde para éxito. En personas con daltonismo esto no
+        posee ningún efecto por lo que debemos ser claros en los mensajes o agregar al mensaje algún emoji
+        representativo.</p>
+
+    </section>
+
+    <hr>
+
+    <section class="pagination">
+      <article class="pagination-item">
+        <a href="/pages/html/metaetiquetas.html">
+          <i class="material-icons">arrow_back</i>Metaetiquetas
+        </a>
+      </article>
+      <article class="pagination-item">
+        <a href="/pages/html/index.html#indice">Tabla de contenido HTML
+          <i class="material-icons">arrow_upward</i>
+        </a>
+      </article>
+      <article class="pagination-item">
+        <a href="/pages/html/metaetiquetas.html">Meta etiquetas
+          <i class="material-icons">arrow_forward</i>
+        </a>
+      </article>
+    </section>
+
+  </main>
+  <sergey-import src="footer" />
+  <script src="/assets/js/prism.js"></script>
+</body>
+
+</html>
