@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <sergey-import src="metas/statics" />
+  <sergey-import src="metas/titles">Grid Layout</sergey-import>
+  <link rel="stylesheet" href="/assets/css/menu.css">
+  <style>
+    html {
+      box-sizing: border-box;
+      font-size: 16px;
+      font-family: sans-serif;
+    }
+
+    *,
+    *::after,
+    *::before {
+      box-sizing: inherit;
+    }
+
+    /* body { */
+    body {
+      margin: 0;
+    }
+
+    section {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      grid-template-rows: 12vh repeat(3, 1fr) 12vh;
+    }
+
+    /* body>* { */
+    section>* {
+      background-color: #666;
+      background-color: red;
+      border: medium solid #222;
+    }
+
+    h2 {
+      text-align: center;
+    }
+
+    .header {
+      grid-row: span 1;
+      grid-column: span 6;
+    }
+
+    .nav {
+      grid-row: span 1;
+      grid-column: span 6;
+    }
+
+    .uc-left {
+      grid-column: span 2;
+      grid-row: span 1;
+    }
+
+    .uc-center {
+      grid-column: span 2;
+      grid-row: span 1;
+    }
+
+    .uc-right {
+      grid-column: span 2;
+      grid-row: span 1;
+    }
+
+    .middle {
+      grid-column: span 3;
+      grid-row: span 1;
+    }
+
+    .lower {
+      grid-column: span 3;
+      grid-row: span 1;
+    }
+
+    .footer {
+      grid-column: span 6;
+      grid-row: span 6;
+    }
+
+    @media screen and (min-width: 990px) {
+      body {
+        grid-template-columns: repeat(5, 1fr);
+        /* grid-template-rows: repeat(5, auto); */
+        grid-template-rows: 12vh repeat(3, 1fr) 12vh;
+      }
+
+      .header {
+        grid-column: span 5;
+        grid-row: span 1;
+      }
+
+      .nav {
+        grid-column: 1 / 2;
+        grid-row: 1 / 5;
+      }
+
+      .uc-left {
+        grid-column: 2 / 3;
+        grid-row: 1 / 3;
+      }
+
+      .uc-center {
+        grid-column: 3 / 6;
+        grid-row: 1 / 3;
+      }
+
+      .uc-right {
+        grid-column: 6 / 7;
+        grid-row: 1 / 3;
+      }
+
+      .middle {
+        grid-column: 2 / 7;
+        grid-row: 3 / 4;
+      }
+
+      .lower {
+        grid-column: 2 / 7;
+        grid-row: 4 / 5;
+      }
+
+      .footer {
+        grid-column: span 6;
+        grid-row: span 6;
+      }
+    }
+  </style>
+</head>
+
+
+<body>
+  <sergey-import src="header" />
+  <section>
+
+    <nav class="nav">
+      <h2>Nav</h2>
+    </nav>
+
+    <article class="uc-left">
+      <h2>Upper Content Left</h2>
+    </article>
+
+    <article class="uc-center">
+      <h2>Upper Content Center</h2>
+    </article>
+
+    <article class="uc-right">
+      <h2>Upper Content Right</h2>
+    </article>
+
+    <article class="middle">
+      <h2>Middle Content</h2>
+    </article>
+
+    <article class="lower">
+      <h2>Lower Content</h2>
+    </article>
+
+    <footer class="footer">
+      <h2>Footer <a href="/pages/grid/index.html#grid-layout">Tabla de contenido 🔝</a></h2>
+    </footer>
+  </section>
+
+</body>
+
+</html>

@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="/assets/css/menu.css">
   <link rel="stylesheet" href="/assets/css/prism.css" />
   <link rel="stylesheet" href="/assets/css/html/html.css">
-  <link rel="stylesheet" href="/css/css/grid-css.css">
+  <link rel="stylesheet" href="/assets/css/css/grid-css.css">
 </head>
 
 <body>
@@ -1133,52 +1133,56 @@
         correctamente con líneas nombradas.</p>
 
       <pre>
-&lt;section class="grid-line-names"&gt;
-  &lt;article class="item"&gt;
-    &lt;p&gt;Grid Item 1&lt;/p&gt;
-  &lt;/article&gt;
-  &lt;article class="item"&gt;
-    &lt;p&gt;Grid Item 2&lt;/p&gt;
-  &lt;/article&gt;
-  &lt;article class="item"&gt;
-    &lt;p&gt;Grid Item 3&lt;/p&gt;
-  &lt;/article&gt;
-  &lt;article class="item"&gt;
-    &lt;p&gt;Grid Item 4&lt;/p&gt;
-  &lt;/article&gt;
-  &lt;article class="item"&gt;
-    &lt;p&gt;Grid Item 5&lt;/p&gt;
-  &lt;/article&gt;
-  &lt;article class="item"&gt;
-    &lt;p&gt;Grid Item 6&lt;/p&gt;
-  &lt;/article&gt;
-  &lt;article class="item"&gt;
-    &lt;p&gt;Grid Item 7&lt;/p&gt;
-  &lt;/article&gt;
-  &lt;article class="item"&gt;
-    &lt;p&gt;Grid Item 8&lt;/p&gt;
-  &lt;/article&gt;
-  &lt;article class="item"&gt;
-    &lt;p&gt;Grid Item 9&lt;/p&gt;
-  &lt;/article&gt;
-&lt;/section&gt;
-
-/* CSS */
-.grid-line-names {
-  display: grid;
-  /* Grid 3x3 */
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(3, 1fr);
-  /* Líneas nombradas */
-  grid-template-columns: [linea-c1] 1fr [linea-c2] 1fr [linea-c3] 1fr [linea-c4];
-  grid-template-rows: [linea-r1] 1fr [linea-r2] 1fr [linea-r3] 1fr [linea-r4];
-}
-.grid-line-names .item:nth-child(3) {
-  color: aqua;
-  grid-row: linea-r3 / linea-r4;
-  grid-column: linea-c1 / linea-c4;
-}
-</pre>
+        <code class="language-html">
+          &lt;section class="grid-line-names"&gt;
+            &lt;article class="item"&gt;
+              &lt;p&gt;Grid Item 1&lt;/p&gt;
+            &lt;/article&gt;
+            &lt;article class="item"&gt;
+              &lt;p&gt;Grid Item 2&lt;/p&gt;
+            &lt;/article&gt;
+            &lt;article class="item"&gt;
+              &lt;p&gt;Grid Item 3&lt;/p&gt;
+            &lt;/article&gt;
+            &lt;article class="item"&gt;
+              &lt;p&gt;Grid Item 4&lt;/p&gt;
+            &lt;/article&gt;
+            &lt;article class="item"&gt;
+              &lt;p&gt;Grid Item 5&lt;/p&gt;
+            &lt;/article&gt;
+            &lt;article class="item"&gt;
+              &lt;p&gt;Grid Item 6&lt;/p&gt;
+            &lt;/article&gt;
+            &lt;article class="item"&gt;
+              &lt;p&gt;Grid Item 7&lt;/p&gt;
+            &lt;/article&gt;
+            &lt;article class="item"&gt;
+              &lt;p&gt;Grid Item 8&lt;/p&gt;
+            &lt;/article&gt;
+            &lt;article class="item"&gt;
+              &lt;p&gt;Grid Item 9&lt;/p&gt;
+            &lt;/article&gt;
+          &lt;/section&gt;
+        </code>
+      </pre>
+      <pre>
+        <code class="language-css">
+          .grid-line-names {
+            display: grid;
+            /* Grid 3x3 */
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(3, 1fr);
+            /* Líneas nombradas */
+            grid-template-columns: [linea-c1] 1fr [linea-c2] 1fr [linea-c3] 1fr [linea-c4];
+            grid-template-rows: [linea-r1] 1fr [linea-r2] 1fr [linea-r3] 1fr [linea-r4];
+          }
+          .grid-line-names .item:nth-child(3) {
+            color: aqua;
+            grid-row: linea-r3 / linea-r4;
+            grid-column: linea-c1 / linea-c4;
+          }
+        </code>
+      </pre>
 
       <section class="grid-line-names">
         <article class="item">
@@ -1220,49 +1224,53 @@
       <p>Podemos asignar nombres de áreas.</p>
 
       <pre>
-&lt;section class="container-grid container-grid-areas grid-areas"&gt;
-  &lt;header class="item header"&gt;
-    &lt;p&gt;Header&lt;/p&gt;
-  &lt;/header&gt;
-  &lt;article class="item content"&gt;
-    &lt;p&gt;Content&lt;/p&gt;
-  &lt;/article&gt;
-  &lt;aside class="item sidebar"&gt;
-    &lt;p&gt;SideBar&lt;/p&gt;
-  &lt;/aside&gt;
-  &lt;footer class="item footer"&gt;
-    &lt;p&gt;Footer&lt;/p&gt;
-  &lt;/footer&gt;
-&lt;/section&gt;        
-
-/* CSS */
-.container-grid-areas {
-  height: 80vh;
-}
-.grid-areas {
-  display: grid;
-  /* Grid 2x4 */
-  grid-template-columns: 1fr 200px;
-  grid-template-rows: 100px 1fr 1fr 60px;
-  grid-template-areas:
-    "header header"
-    "content sidebar"
-    "content ."
-    "footer footer";
-}
-.header {
-  grid-area: header;
-}
-.content {
-  grid-area: content;
-}
-.sidebar {
-  grid-area: sidebar;
-}
-.footer {
-  grid-area: footer;
-}
-</pre>
+        <code class="language-html">
+          &lt;section class="container-grid container-grid-areas grid-areas"&gt;
+            &lt;header class="item header"&gt;
+              &lt;p&gt;Header&lt;/p&gt;
+            &lt;/header&gt;
+            &lt;article class="item content"&gt;
+              &lt;p&gt;Content&lt;/p&gt;
+            &lt;/article&gt;
+            &lt;aside class="item sidebar"&gt;
+              &lt;p&gt;SideBar&lt;/p&gt;
+            &lt;/aside&gt;
+            &lt;footer class="item footer"&gt;
+              &lt;p&gt;Footer&lt;/p&gt;
+            &lt;/footer&gt;
+          &lt;/section&gt;        
+        </code>
+      </pre>
+      <pre>
+        <code class="language-css">
+          .container-grid-areas {
+            height: 80vh;
+          }
+          .grid-areas {
+            display: grid;
+            /* Grid 2x4 */
+            grid-template-columns: 1fr 200px;
+            grid-template-rows: 100px 1fr 1fr 60px;
+            grid-template-areas:
+              "header header"
+              "content sidebar"
+              "content ."
+              "footer footer";
+          }
+          .header {
+            grid-area: header;
+          }
+          .content {
+            grid-area: content;
+          }
+          .sidebar {
+            grid-area: sidebar;
+          }
+          .footer {
+            grid-area: footer;
+          }
+        </code>
+      </pre>
       <section class="container-grid container-grid-areas grid-areas">
         <header class="item header">
           <p>Header</p>
@@ -1296,13 +1304,16 @@
         a la grid en nuevas filas pero utilizarán la altura definida por default (la altura de su contenido).</p>
 
       <pre>
-.grid-implicit {
-  /* Grid 4x3 */
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(3, 200px);
-}
-</pre>
+        <code class="language-css">
+          .grid-implicit {
+            /* Grid 4x3 */
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(3, 200px);
+          }
+        </code>
+      </pre>
+
       <section class="container-grid grid-implicit">
         <article class="item">
           <p>Grid Item 1</p>
@@ -1375,6 +1386,7 @@
 
     <section id="grid-flow">
       <h2>Flujo de la Grid</h2>
+
       <p>El flujo natural de grid es apilar los elementos en fila, pero podemos cambiar ese comportamiento a través de
         la propiedad grid-auto-flow.</p>
 
@@ -1383,15 +1395,17 @@
       <p>Es similar a la propiedad flex-direction de flexbox.</p>
 
       <pre>
-.grid-flow {
-  /* Grid 5x3 */
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: repeat(3, 150px);
-  grid-auto-flow: column;
-  grid-auto-columns: 80px;
-}
-</pre>
+        <code class="language-css">
+          .grid-flow {
+            /* Grid 5x3 */
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            grid-template-rows: repeat(3, 150px);
+            grid-auto-flow: column;
+            grid-auto-columns: 80px;
+          }
+        </code>
+      </pre>
 
       <section class="container-grid grid-flow">
         <article class="item">
@@ -1468,18 +1482,21 @@
         una nueva fila sin adelantar otros elementos a las celdas anteriores vacias.</p>
 
       <pre>
-.grid-flow-dense {
-  /* Grid 5x4 */
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: repeat(4, 100px);
-}
-.grid-flow-dense .item:nth-child(9) {
-  color: cyan;
-  grid-row: span 3;
-  grid-column: span 3;
-}
-</pre>
+        <code class="language-css">
+          .grid-flow-dense {
+            /* Grid 5x4 */
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            grid-template-rows: repeat(4, 100px);
+          }
+          .grid-flow-dense .item:nth-child(9) {
+            color: cyan;
+            grid-row: span 3;
+            grid-column: span 3;
+          }
+        </code>
+      </pre>
+
       <section class="container-grid grid-flow-dense">
         <article class="item">
           <p>Grid Item 1</p>
@@ -1552,19 +1569,22 @@
         grid-auto-flow: column dense;</p>
 
       <pre>
-.grid-flow-dense {
-  /* Grid 5x4 */
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: repeat(4, 100px);
-  grid-auto-flow: row dense;
-}
-.grid-flow-dense .item:nth-child(9) {
-  color: cyan;
-  grid-row: span 3;
-  grid-column: span 3;
-}
-</pre>
+        <code class="language-css">
+          .grid-flow-dense {
+            /* Grid 5x4 */
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            grid-template-rows: repeat(4, 100px);
+            grid-auto-flow: row dense;
+          }
+          .grid-flow-dense .item:nth-child(9) {
+            color: cyan;
+            grid-row: span 3;
+            grid-column: span 3;
+          }
+        </code>
+      </pre>
+
       <section class="container-grid grid-flow-dense grid-flow-dense2">
         <article class="item">
           <p>Grid Item 1</p>
@@ -1633,48 +1653,52 @@
       <h2>Grid Items en Capas (superposición)</h2>
 
       <pre>
-&lt;section class="container-grid grid-layers"&gt;
-  &lt;article class="item"&gt;Grid Item 1&lt;/article&gt;
-  &lt;article class="item"&gt;Grid Item 2&lt;/article&gt;
-  &lt;article class="item"&gt;Grid Item 3&lt;/article&gt;
-  &lt;article class="item"&gt;Grid Item 4&lt;/article&gt;
-  &lt;article class="item"&gt;Grid Item 5&lt;/article&gt;
-&lt;/section&gt;
-
-/* CSS */
-.grid-layers {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(4, 1fr);
-  height: 50vh;
-}
-.grid-layers .item:nth-child(1) {
-  background-color: #dbea33;
-  grid-column: 1 / 3;
-  grid-row: 1 / 3;
-}
-.grid-layers .item:nth-child(2) {
-  background-color: #497af8;
-  grid-column: 3 / 5;
-  grid-row: 1 / 3;
-}
-.grid-layers .item:nth-child(3) {
-  background-color: #90e971;
-  grid-column: 1 / 3;
-  grid-row: 3 / 5;
-}
-.grid-layers .item:nth-child(4) {
-  background-color: #f0952a;
-  grid-column: 3 / 5;
-  grid-row: 3 / 5;
-}
-.grid-layers .item:nth-child(5) {
-  background-color: #c92af0;
-  grid-column: 2 / 4;
-  grid-row: 2 / 4;
-  opacity: 0.75;
-}
-</pre>
+        <code class="language-html">
+          &lt;section class="container-grid grid-layers"&gt;
+            &lt;article class="item"&gt;Grid Item 1&lt;/article&gt;
+            &lt;article class="item"&gt;Grid Item 2&lt;/article&gt;
+            &lt;article class="item"&gt;Grid Item 3&lt;/article&gt;
+            &lt;article class="item"&gt;Grid Item 4&lt;/article&gt;
+            &lt;article class="item"&gt;Grid Item 5&lt;/article&gt;
+          &lt;/section&gt;
+        </code>
+      </pre>
+      <pre>
+        <code class="language-css">
+          .grid-layers {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(4, 1fr);
+            height: 50vh;
+          }
+          .grid-layers .item:nth-child(1) {
+            background-color: #dbea33;
+            grid-column: 1 / 3;
+            grid-row: 1 / 3;
+          }
+          .grid-layers .item:nth-child(2) {
+            background-color: #497af8;
+            grid-column: 3 / 5;
+            grid-row: 1 / 3;
+          }
+          .grid-layers .item:nth-child(3) {
+            background-color: #90e971;
+            grid-column: 1 / 3;
+            grid-row: 3 / 5;
+          }
+          .grid-layers .item:nth-child(4) {
+            background-color: #f0952a;
+            grid-column: 3 / 5;
+            grid-row: 3 / 5;
+          }
+          .grid-layers .item:nth-child(5) {
+            background-color: #c92af0;
+            grid-column: 2 / 4;
+            grid-row: 2 / 4;
+            opacity: 0.75;
+          }
+        </code>
+      </pre>
 
       <section class="container-grid grid-layers">
         <article class="item">Grid Item 1</article>
@@ -1700,31 +1724,36 @@
       </blockquote>
 
       <pre>
-&lt;section class="container-grid grid-order"&gt;
-  &lt;article class="item"&gt;Grid Item 1&lt;/article&gt;
-  &lt;article class="item"&gt;Grid Item 2&lt;/article&gt;
-  &lt;article class="item"&gt;Grid Item 3&lt;/article&gt;
-  &lt;article class="item"&gt;Grid Item 4&lt;/article&gt;
-  &lt;article class="item"&gt;Grid Item 5&lt;/article&gt;
-&lt;/section&gt;
+        <code class="language-html">
+          &lt;section class="container-grid grid-order"&gt;
+            &lt;article class="item"&gt;Grid Item 1&lt;/article&gt;
+            &lt;article class="item"&gt;Grid Item 2&lt;/article&gt;
+            &lt;article class="item"&gt;Grid Item 3&lt;/article&gt;
+            &lt;article class="item"&gt;Grid Item 4&lt;/article&gt;
+            &lt;article class="item"&gt;Grid Item 5&lt;/article&gt;
+          &lt;/section&gt;
+        </code>
+      </pre>
+      <pre>
+        <code class="language-css">
+          .grid-order {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            height: 30vh;
+          }
+          .grid-order .item:nth-child(1) {
+            order: 1;
+          }
+          .grid-order .item:nth-child(2) {
+            order: 2;
+          }
+          .grid-order .item:nth-child(5) {
+            order: -1;
+          }
+        </code>
+      </pre>
 
-/* CSS */
-.grid-order {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(2, 1fr);
-  height: 30vh;
-}
-.grid-order .item:nth-child(1) {
-  order: 1;
-}
-.grid-order .item:nth-child(2) {
-  order: 2;
-}
-.grid-order .item:nth-child(5) {
-  order: -1;
-}
-</pre>
       <section class="container-grid grid-order">
         <article class="item">Grid Item 1</article>
         <article class="item">Grid Item 2</article>
@@ -1751,28 +1780,32 @@
       <p>Cuando deseamos alinear solo un item ocupamos las propiedades justify-self y align-self.</p>
 
       <pre>
-justify-items: stretch | start | end | center;
-align-items: stretch | start | end | center;
-justify-self: stretch | start | end | center;
-align-self: stretch | start | end | center;
-</pre>
+        <code class="language-css">
+          justify-items: stretch | start | end | center;
+          align-items: stretch | start | end | center;
+          justify-self: stretch | start | end | center;
+          align-self: stretch | start | end | center;
+        </code>
+      </pre>
 
       <pre>
-.grid-align {
-  display: grid;
-  grid-template-columns: repeat(3, 180px);
-  grid-template-rows: repeat(2, 150px);
-  height: 60vh;
-  /* justify-items: stretch | start | end | center; */
-  justify-items: center;
-  /* align-items: stretch | start | end | center; */ 
-  align-items: center;
-}
-.grid-align .item:nth-child(4) {
-  justify-self: start;
-  align-self: start;
-}
-</pre>
+        <code class="language-css">
+          .grid-align {
+            display: grid;
+            grid-template-columns: repeat(3, 180px);
+            grid-template-rows: repeat(2, 150px);
+            height: 60vh;
+            /* justify-items: stretch | start | end | center; */
+            justify-items: center;
+            /* align-items: stretch | start | end | center; */ 
+            align-items: center;
+          }
+          .grid-align .item:nth-child(4) {
+            justify-self: start;
+            align-self: start;
+          }
+        </code>
+      </pre>
 
       <section class="container-grid grid-align">
         <article class="item">Grid Item 1</article>
@@ -1794,20 +1827,25 @@ align-self: stretch | start | end | center;
         align-content. El valor por default es start.</p>
 
       <pre>
-justify-content: start | end | center | stretch | space-around | space-between | space-evenly;    
-align-content: start | end | center | stretch | space-around | space-between | space-evenly; 
-</pre>
+        <code class="language-css">
+          justify-content: start | end | center | stretch | space-around | space-between | space-evenly;    
+          align-content: start | end | center | stretch | space-around | space-between | space-evenly; 
+        </code>
+      </pre>
 
       <pre>
-.grid-align-tracks {
-  display: grid;
-  grid-template-columns: repeat(3, 180px);
-  grid-template-rows: repeat(2, 150px);
-  height: 60vh;
-  justify-content: space-evenly;
-  align-content: space-between;
-}
-</pre>
+        <code class="language-css">
+          .grid-align-tracks {
+            display: grid;
+            grid-template-columns: repeat(3, 180px);
+            grid-template-rows: repeat(2, 150px);
+            height: 60vh;
+            justify-content: space-evenly;
+            align-content: space-between;
+          }
+        </code>
+      </pre>
+
       <section class="container-grid grid-align-tracks">
         <article class="item">Grid Item 1</article>
         <article class="item">Grid Item 2</article>
@@ -1830,18 +1868,21 @@ align-content: start | end | center | stretch | space-around | space-between | s
         max-content.</p>
 
       <pre>
-.grid-min-max {
-  display: grid;
-  /* Grid 4cols x ?  No definimos filas */
-  grid-template-columns: repeat(4, minmax(100px, 150px));
-  grid-template-columns: repeat(4, minmax(min-content, 150px));
-  grid-template-columns: repeat(4, minmax(100px, min-content));
-  grid-template-columns: repeat(4, minmax(100px, max-content));
-  grid-template-columns: repeat(4, minmax(max-content, 150px));
-  grid-template-columns: repeat(4, minmax(min-content, max-content));
-  height: 60vh;
-}
-</pre>
+        <code class="language-css">
+          .grid-min-max {
+            display: grid;
+            /* Grid 4cols x ?  No definimos filas */
+            grid-template-columns: repeat(4, minmax(100px, 150px));
+            grid-template-columns: repeat(4, minmax(min-content, 150px));
+            grid-template-columns: repeat(4, minmax(100px, min-content));
+            grid-template-columns: repeat(4, minmax(100px, max-content));
+            grid-template-columns: repeat(4, minmax(max-content, 150px));
+            grid-template-columns: repeat(4, minmax(min-content, max-content));
+            height: 60vh;
+          }
+        </code>
+      </pre>
+
       <section class="container-grid grid-min-max">
         <article class="item">Grid Item 1</article>
         <article class="item">Grid Item 2</article>
@@ -1860,13 +1901,15 @@ align-content: start | end | center | stretch | space-around | space-between | s
         alto de 10 y 20% del viewport. En las columnas aplicamos un patrón de 300px y 200px.</p>
 
       <pre>
-.grid-repeat {
-  display: grid;
-  /* Grid 4cols x ?  No definimos cantidad de filas */
-  grid-template-columns: repeat(2, 300px 200px);
-  grid-template-rows: repeat(2, 10vh 20vh);
-}
-</pre>
+        <code class="language-css">
+          .grid-repeat {
+            display: grid;
+            /* Grid 4cols x ?  No definimos cantidad de filas */
+            grid-template-columns: repeat(2, 300px 200px);
+            grid-template-rows: repeat(2, 10vh 20vh);
+          }
+        </code>
+      </pre>
 
       <section class="container-grid grid-repeat">
         <article class="item">
@@ -1940,17 +1983,20 @@ align-content: start | end | center | stretch | space-around | space-between | s
         existentes.</p>
 
       <pre>
-.grid-dynamics {
-  display: grid;
-  /* Grid 4cols x ?  No definimos filas */
-  height: 60vh;
-  grid-template-columns: repeat(4, 100px);
-  grid-template-columns: repeat(auto-fit, 100px);
-  grid-template-columns: repeat(auto-fill, 100px);
-  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-}
-</pre>
+        <code class="language-css">
+          .grid-dynamics {
+            display: grid;
+            /* Grid 4cols x ?  No definimos filas */
+            height: 60vh;
+            grid-template-columns: repeat(4, 100px);
+            grid-template-columns: repeat(auto-fit, 100px);
+            grid-template-columns: repeat(auto-fill, 100px);
+            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+          }
+        </code>
+      </pre>
+
       <section class="container-grid grid-dynamics">
         <article class="item">Grid Item 1</article>
         <article class="item">Grid Item 2</article>
@@ -1967,13 +2013,15 @@ align-content: start | end | center | stretch | space-around | space-between | s
       <h2>Responsive sin Media Queries</h2>
 
       <pre>
-.grid-responsive {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  height: 60vh;
-  gap: 1vw 1vw;
-}
-</pre>
+        <code class="language-css">
+          .grid-responsive {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            height: 60vh;
+            gap: 1vw 1vw;
+          }
+        </code>
+      </pre>
 
       <section class="container-grid grid-responsive">
         <article class="item">
@@ -2036,6 +2084,8 @@ align-content: start | end | center | stretch | space-around | space-between | s
       </section>
     </section>
 
+    <br><br>
+
     <hr>
     <a href="#indice">Tabla de contenido 🔝</a>
 
@@ -2045,50 +2095,54 @@ align-content: start | end | center | stretch | space-around | space-between | s
       <p></p>
 
       <pre>
-&lt;section class="container-grid grid-nested"&gt;
-  &lt;article class="item grid-nested"&gt;
-    &lt;div class="sub-item"&gt;
-      &lt;p&gt;Grid Subitem Anidado 1&lt;/p&gt;
-    &lt;/div&gt;
-    &lt;div class="sub-item"&gt;
-      &lt;p&gt;Grid Subitem Anidado 2&lt;/p&gt;
-    &lt;/div&gt;
-    &lt;div class="sub-item"&gt;
-      &lt;p&gt;Grid Subitem Anidado 3&lt;/p&gt;
-    &lt;/div&gt;
-    &lt;div class="sub-item"&gt;
-      &lt;p&gt;Grid Subitem Anidado 4&lt;/p&gt;
-    &lt;/div&gt;
-    &lt;div class="sub-item"&gt;
-      &lt;p&gt;Grid Subitem Anidado 5&lt;/p&gt;
-    &lt;/div&gt;
-  &lt;/article&gt;
-  &lt;article class="item"&gt;
-    &lt;p&gt;Grid Item 2&lt;/p&gt;
-  &lt;/article&gt;
-  &lt;article class="item"&gt;
-    &lt;p&gt;Grid Item 3&lt;/p&gt;
-  &lt;/article&gt;
-  &lt;article class="item"&gt;
-    &lt;p&gt;Grid Item 4&lt;/p&gt;
-  &lt;/article&gt;
-  &lt;article class="item"&gt;
-    &lt;p&gt;Grid Item 5&lt;/p&gt;
-  &lt;/article&gt;
-&lt;/section&gt;
-
-/* CSS */
-.grid-nested {
-  display: grid;
-  /* Grid 4cols x ?  No definimos filas */
-  grid-template-columns: repeat(3, 1fr);
-}
-.sub-item {
-  padding: 1rem;
-  background-color: #ddd;
-  border: medium solid #ccc;
-}
-</pre>
+        <code class="language-html">
+          &lt;section class="container-grid grid-nested"&gt;
+            &lt;article class="item grid-nested"&gt;
+              &lt;div class="sub-item"&gt;
+                &lt;p&gt;Grid Subitem Anidado 1&lt;/p&gt;
+              &lt;/div&gt;
+              &lt;div class="sub-item"&gt;
+                &lt;p&gt;Grid Subitem Anidado 2&lt;/p&gt;
+              &lt;/div&gt;
+              &lt;div class="sub-item"&gt;
+                &lt;p&gt;Grid Subitem Anidado 3&lt;/p&gt;
+              &lt;/div&gt;
+              &lt;div class="sub-item"&gt;
+                &lt;p&gt;Grid Subitem Anidado 4&lt;/p&gt;
+              &lt;/div&gt;
+              &lt;div class="sub-item"&gt;
+                &lt;p&gt;Grid Subitem Anidado 5&lt;/p&gt;
+              &lt;/div&gt;
+            &lt;/article&gt;
+            &lt;article class="item"&gt;
+              &lt;p&gt;Grid Item 2&lt;/p&gt;
+            &lt;/article&gt;
+            &lt;article class="item"&gt;
+              &lt;p&gt;Grid Item 3&lt;/p&gt;
+            &lt;/article&gt;
+            &lt;article class="item"&gt;
+              &lt;p&gt;Grid Item 4&lt;/p&gt;
+            &lt;/article&gt;
+            &lt;article class="item"&gt;
+              &lt;p&gt;Grid Item 5&lt;/p&gt;
+            &lt;/article&gt;
+          &lt;/section&gt;
+        </code>
+      </pre>
+      <pre>
+        <code class="language-css">
+          .grid-nested {
+            display: grid;
+            /* Grid 4cols x ?  No definimos filas */
+            grid-template-columns: repeat(3, 1fr);
+          }
+          .sub-item {
+            padding: 1rem;
+            background-color: #ddd;
+            border: medium solid #ccc;
+          }
+        </code>
+      </pre>
 
       <section class="container-grid grid-nested">
         <article class="item grid-nested">
@@ -2138,138 +2192,143 @@ align-content: start | end | center | stretch | space-around | space-between | s
       <p>Maquetaremos un layout responsive utilizando las líneas de la grid.</p>
 
       <pre>
-&lt;body&gt;
-  &lt;header class="header"&gt;
-    &lt;h2&gt;Header&lt;/h2&gt;
-  &lt;/header&gt;
+        <code class="language-html">
+          &lt;body&gt;
+            &lt;header class="header"&gt;
+              &lt;h2&gt;Header&lt;/h2&gt;
+            &lt;/header&gt;
 
-  &lt;nav class="nav"&gt;
-    &lt;h2&gt;Nav&lt;/h2&gt;
-  &lt;/nav&gt;
+            &lt;nav class="nav"&gt;
+              &lt;h2&gt;Nav&lt;/h2&gt;
+            &lt;/nav&gt;
 
-  &lt;article class="uc-left"&gt;
-    &lt;h2&gt;Upper Content Left&lt;/h2&gt;
-  &lt;/article&gt;
+            &lt;article class="uc-left"&gt;
+              &lt;h2&gt;Upper Content Left&lt;/h2&gt;
+            &lt;/article&gt;
 
-  &lt;article class="uc-center"&gt;
-    &lt;h2&gt;Upper Content Center&lt;/h2&gt;
-  &lt;/article&gt;
+            &lt;article class="uc-center"&gt;
+              &lt;h2&gt;Upper Content Center&lt;/h2&gt;
+            &lt;/article&gt;
 
-  &lt;article class="uc-right"&gt;
-    &lt;h2&gt;Upper Content Right&lt;/h2&gt;
-  &lt;/article&gt;
+            &lt;article class="uc-right"&gt;
+              &lt;h2&gt;Upper Content Right&lt;/h2&gt;
+            &lt;/article&gt;
 
-  &lt;article class="middle"&gt;
-    &lt;h2&gt;Middle Content&lt;/h2&gt;
-  &lt;/article&gt;
+            &lt;article class="middle"&gt;
+              &lt;h2&gt;Middle Content&lt;/h2&gt;
+            &lt;/article&gt;
 
-  &lt;article class="lower"&gt;
-    &lt;h2&gt;Lower Content&lt;/h2&gt;
-  &lt;/article&gt;
+            &lt;article class="lower"&gt;
+              &lt;h2&gt;Lower Content&lt;/h2&gt;
+            &lt;/article&gt;
 
-  &lt;footer class="footer"&gt;
-    &lt;h2&gt;Footer&lt;/h2&gt;
-  &lt;/footer&gt;
-&lt;/body&gt;
+            &lt;footer class="footer"&gt;
+              &lt;h2&gt;Footer&lt;/h2&gt;
+            &lt;/footer&gt;
+          &lt;/body&gt;
+        </code>
+      </pre>
+      <pre>
+        <code class="language-css">
+          html {
+            box-sizing: border-box;
+            font-size: 16px;
+            font-family: sans-serif;
+          }
+          *,
+          *::after,
+          *::before {
+            box-sizing: inherit;
+          }
+          body {
+            margin: 0;
+            min-height: 100vh;
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            grid-template-rows: 12vh repeat(3, 1fr) 12vh;
+          }
+          body>* {
+            background-color: #666;
+            border: medium solid #222;
+          }
+          h2 {
+            text-align: center;
+          }
+          .header {
+            grid-row: span 1;
+            grid-column: span 6;
+          }
+          .nav {
+            grid-row: span 1;
+            grid-column: span 6;
+          }
+          .uc-left {
+            grid-column: span 2;
+            grid-row: span 1;
+          }
+          .uc-center {
+            grid-column: span 2;
+            grid-row: span 1;
+          }
+          .uc-right {
+            grid-column: span 2;
+            grid-row: span 1;
+          }
+          .middle {
+            grid-column: span 3;
+            grid-row: span 1;
+          }
+          .lower {
+            grid-column: span 3;
+            grid-row: span 1;
+          }
+          .footer {
+            grid-column: span 6;
+            grid-row: span 6;
+          }
+          @media screen and (min-width: 990px) {
+            body {
+              grid-template-columns: repeat(5, 1fr);
+              /* grid-template-rows: repeat(5, auto); */
+              grid-template-rows: 12vh repeat(3, 1fr) 12vh;
+            }
+            .header {
+              grid-column: span 5;
+              grid-row: span 1;
+            }  
+            .nav {
+              grid-column: 1 / 2;
+              grid-row: 2 / 5;
+            }
+            .uc-left {
+              grid-column: 2 / 3;
+              grid-row: 2 / 3;
+            }
+            .uc-center {
+              grid-column: 3 / 5;
+              grid-row: 2 / 3;
+            }
+            .uc-right {
+              grid-column: 5 / 6;
+              grid-row: 2 / 3;
+            }
+            .middle {
+              grid-column: 2 / 6;
+              grid-row: 3 / 4;
+            }
+            .lower {
+              grid-column: 2 / 6;
+              grid-row: 4 / 5;
+            }
+            .footer {
+              grid-column: span 6;
+              grid-row: span 6;
+            }
+          }  
+        </code>      
+      </pre>
 
-/* CSS */        
-html {
-  box-sizing: border-box;
-  font-size: 16px;
-  font-family: sans-serif;
-}
-*,
-*::after,
-*::before {
-  box-sizing: inherit;
-}
-body {
-  margin: 0;
-  min-height: 100vh;
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  grid-template-rows: 12vh repeat(3, 1fr) 12vh;
-}
-body>* {
-  background-color: #666;
-  border: medium solid #222;
-}
-h2 {
-  text-align: center;
-}
-.header {
-  grid-row: span 1;
-  grid-column: span 6;
-}
-.nav {
-  grid-row: span 1;
-  grid-column: span 6;
-}
-.uc-left {
-  grid-column: span 2;
-  grid-row: span 1;
-}
-.uc-center {
-  grid-column: span 2;
-  grid-row: span 1;
-}
-.uc-right {
-  grid-column: span 2;
-  grid-row: span 1;
-}
-.middle {
-  grid-column: span 3;
-  grid-row: span 1;
-}
-.lower {
-  grid-column: span 3;
-  grid-row: span 1;
-}
-.footer {
-  grid-column: span 6;
-  grid-row: span 6;
-}
-@media screen and (min-width: 990px) {
-  body {
-    grid-template-columns: repeat(5, 1fr);
-    /* grid-template-rows: repeat(5, auto); */
-    grid-template-rows: 12vh repeat(3, 1fr) 12vh;
-  }
-  .header {
-    grid-column: span 5;
-    grid-row: span 1;
-  }  
-  .nav {
-    grid-column: 1 / 2;
-    grid-row: 2 / 5;
-  }
-  .uc-left {
-    grid-column: 2 / 3;
-    grid-row: 2 / 3;
-  }
-  .uc-center {
-    grid-column: 3 / 5;
-    grid-row: 2 / 3;
-  }
-  .uc-right {
-    grid-column: 5 / 6;
-    grid-row: 2 / 3;
-  }
-  .middle {
-    grid-column: 2 / 6;
-    grid-row: 3 / 4;
-  }
-  .lower {
-    grid-column: 2 / 6;
-    grid-row: 4 / 5;
-  }
-  .footer {
-    grid-column: span 6;
-    grid-row: span 6;
-  }
-}        
-</pre>
-      <a href="/pages/css/grid_layout.html">Ver ejemplo</a>
+      <a href="/pages/grid/grid_layout.html" target="_blank">Ver ejemplo</a>
     </section>
 
     <hr>
@@ -2278,65 +2337,69 @@ h2 {
     <section id="grid-layout-areas">
       <h2>Grid Layout con Áreas</h2>
       <p>Realizaremos el mismo layout que en el apartado anterior pero empleando</p>
+
       <pre>
-body {
-  margin: 0;
-  min-height: 100vh;
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  grid-template-rows: 12vh repeat(3, 1fr) 12vh;
-  grid-template-areas:
-    "header header header header header header"
-    "nav nav nav nav nav nav"
-    "uc-left uc-left uc-center uc-center uc-right uc-right "
-    "middle middle middle lower lower lower"
-    "footer footer footer footer footer footer"
-}
-body>* {
-  background-color: #666;
-  border: medium solid #222;
-}
-h2 {
-  text-align: center;
-}
-.header {
-  grid-area: header;
-}
-.nav {
-  grid-area: nav;
-}
-.uc-left {
-  grid-area: uc-left;
-}
-.uc-center {
-  grid-area: uc-center;
-}
-.uc-right {
-  grid-area: uc-right;
-}
-.middle {
-  grid-area: middle;
-}
-.lower {
-  grid-area: lower;
-}
-.footer {
-  grid-area: footer;
-}
-@media screen and (min-width: 990px) {
-  body {
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: 12vh repeat(3, 1fr) 12vh;
-    grid-template-areas:
-      "header header header header header"
-      "nav uc-left uc-center uc-center uc-right"
-      "nav middle middle middle middle"
-      "nav lower lower lower lower"
-      "footer footer footer footer footer";
-  }
-}
-</pre>
-      <a href="/pages/css/grid_layout_areas.html">Ver ejemplo</a>
+        <code class="language-css">
+          body {
+            margin: 0;
+            min-height: 100vh;
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            grid-template-rows: 12vh repeat(3, 1fr) 12vh;
+            grid-template-areas:
+              "header header header header header header"
+              "nav nav nav nav nav nav"
+              "uc-left uc-left uc-center uc-center uc-right uc-right "
+              "middle middle middle lower lower lower"
+              "footer footer footer footer footer footer"
+          }
+          body>* {
+            background-color: #666;
+            border: medium solid #222;
+          }
+          h2 {
+            text-align: center;
+          }
+          .header {
+            grid-area: header;
+          }
+          .nav {
+            grid-area: nav;
+          }
+          .uc-left {
+            grid-area: uc-left;
+          }
+          .uc-center {
+            grid-area: uc-center;
+          }
+          .uc-right {
+            grid-area: uc-right;
+          }
+          .middle {
+            grid-area: middle;
+          }
+          .lower {
+            grid-area: lower;
+          }
+          .footer {
+            grid-area: footer;
+          }
+          @media screen and (min-width: 990px) {
+            body {
+              grid-template-columns: repeat(5, 1fr);
+              grid-template-rows: 12vh repeat(3, 1fr) 12vh;
+              grid-template-areas:
+                "header header header header header"
+                "nav uc-left uc-center uc-center uc-right"
+                "nav middle middle middle middle"
+                "nav lower lower lower lower"
+                "footer footer footer footer footer";
+            }
+          }
+        </code>
+      </pre>
+
+      <a href="/pages/grid/grid_layout_areas.html" target="_blank">Ver ejemplo</a>
     </section>
 
     <hr>

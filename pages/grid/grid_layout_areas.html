@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <sergey-import src="metas/statics" />
+  <sergey-import src="metas/titles">Grid Layout</sergey-import>
+  <link rel="stylesheet" href="/assets/css/menu.css">
+
+  <style>
+    html {
+      box-sizing: border-box;
+      font-size: 16px;
+      font-family: sans-serif;
+    }
+
+    *,
+    *::after,
+    *::before {
+      box-sizing: inherit;
+    }
+
+    body {
+      margin: 0;
+    }
+
+    section {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      grid-template-rows: 12vh repeat(3, 1fr) 12vh;
+      grid-template-areas:
+        "header header header header header header"
+        "nav nav nav nav nav nav"
+        "uc-left uc-left uc-center uc-center uc-right uc-right "
+        "middle middle middle lower lower lower"
+        "footer footer footer footer footer footer"
+    }
+
+    section>* {
+      background-color: #666;
+      border: medium solid #222;
+    }
+
+    h2 {
+      text-align: center;
+    }
+
+    .header {
+      grid-area: header;
+    }
+
+    .nav {
+      grid-area: nav;
+    }
+
+    .uc-left {
+      grid-area: uc-left;
+    }
+
+    .uc-center {
+      grid-area: uc-center;
+    }
+
+    .uc-right {
+      grid-area: uc-right;
+    }
+
+    .middle {
+      grid-area: middle;
+    }
+
+    .lower {
+      grid-area: lower;
+    }
+
+    .footer {
+      grid-area: footer;
+    }
+
+    @media screen and (min-width: 990px) {
+      section {
+        grid-template-columns: repeat(5, 1fr);
+        grid-template-rows: 12vh repeat(3, 1fr) 12vh;
+        grid-template-areas:
+          "header header header header header"
+          "nav uc-left uc-center uc-center uc-right"
+          "nav middle middle middle middle"
+          "nav lower lower lower lower"
+          "footer footer footer footer footer";
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <sergey-import src="header" />
+  <section>
+
+    <header class="header">
+      <h2>Header</h2>
+    </header>
+
+    <nav class="nav">
+      <h2>Nav</h2>
+    </nav>
+
+    <article class="uc-left">
+      <h2>Upper Content Left</h2>
+    </article>
+
+    <article class="uc-center">
+      <h2>Upper Content Center</h2>
+    </article>
+
+    <article class="uc-right">
+      <h2>Upper Content Right</h2>
+    </article>
+
+    <article class="middle">
+      <h2>Middle Content</h2>
+    </article>
+
+    <article class="lower">
+      <h2>Lower Content</h2>
+    </article>
+
+    <footer class="footer">
+      <h2>Footer <a href="/pages/grid/index.html#grid-layout-areas">Tabla de contenido 🔝</a></h2>
+    </footer>
+  </section>
+
+</body>
+
+</html>
