@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <sergey-import src="metas/statics" />
+  <sergey-import src="metas/titles">Feature queries</sergey-import>
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <link rel="stylesheet" href="/assets/css/menu.css">
+  <link rel="stylesheet" href="/assets/css/prism.css" />
+  <link rel="stylesheet" href="/assets/css/css/grid.css">
+  <link rel="stylesheet" href="/assets/css/css/responsive-design.css">
+</head>
+
+<body>
+  <sergey-import src="header" />
+
+  <main class="container">
+
+    <section id="feature-queries">
+
+      <h1>Feature Queries</h1>
+
+      <p>Las <b>Feature queries</b> son reglas CSS que le preguntan al navegador si soportan o no una determinada regla
+        o valor. Cuando se incorporan nuevas características y las queremos utilizar, podemos preguntar al navegador si
+        se encuentra soportada e implementarlar o utilizar otras características. </p>
+
+      <p>Ejemplo, a partir del año 2012 podiamos maquetar en Flexblox pero en 2017 se incorporó la maquetación con Grid.
+        Actualmente, todos los navegadores soportan Grid, pero inicialmente teníamos que definir una media query
+        preguntanso si el navegador soportaba Grid para implementarlo. Si no lo soportaba maquetabamos con Flexbox.</p>
+
+      <p>Las feature queries nos permiten implementar nuevas características y mantener la compatibilidad hacia atrás a
+        través del operador not. También podemos utilizar los operadores or y and como condicionales. </p>
+
+      <pre>
+        <code class="language-css">
+          /* Preguntamos si el navegador soporta la propiedad grid con el valor display */
+          @supports (display: grid) {
+            /* 
+            Código CSS que aplicará cuando cumpla con al feature query
+            Clases para grid
+            */
+          }
+          @supports not (display: grid) {
+            /* 
+            Código CSS que aplicará cuando cumpla con al feature query
+            Clases para Flexbox
+            */
+          }
+        </code>
+      </pre>
+
+      <pre>
+        <code class="language-css">
+          @supports (display: grid) and (grid-template-columns: subgrid) {
+            html {
+              background-color: darkslateblue;
+              color: lightseagreen;
+            }
+          }
+          @supports (display: grid) or (grid-template-columns: subgrid) {
+            html {
+              background-color: white;
+              color: black;
+            }
+          }
+        </code>
+      </pre>
+    </section>
+
+    <hr>
+
+    <section class="pagination">
+      <article class="pagination-item">
+        <a href="/pages/responsive/responsive-grid.html">
+          <i class="material-icons">arrow_back</i>Responsive Grid flexbox
+        </a>
+      </article>
+      <article class="pagination-item">
+        <a href="/pages/responsive/index.html#indice">Responsive Design
+          <i class="material-icons">arrow_upward</i>
+        </a>
+      </article>
+      <article class="pagination-item">
+        <a href="/pages/responsive/container-queries.html">Container queries
+          <i class="material-icons">arrow_forward</i>
+        </a>
+      </article>
+    </section>
+
+  </main>
+  <sergey-import src="footer" />
+  <script src="/assets/js/prism.js"></script>
+</body>
+
+</html>

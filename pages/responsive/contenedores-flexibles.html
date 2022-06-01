@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <sergey-import src="metas/statics" />
+  <sergey-import src="metas/titles">Contenedores flexibles</sergey-import>
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <link rel="stylesheet" href="/assets/css/menu.css">
+  <link rel="stylesheet" href="/assets/css/prism.css" />
+  <!-- <link rel="stylesheet" href="/assets/css/html/html.css"> -->
+  <!-- <link rel="stylesheet" href="/css/css/forms.css"> -->
+  <link rel="stylesheet" href="/assets/css/css/responsive-design.css">
+</head>
+
+<body>
+  <sergey-import src="header" />
+
+  <main class="container">
+
+    <section id="contenedores-flexibles" class="full-screen">
+      <h2>Contenedores Flexibles</h2>
+      <p>Todos los elementos de nuestra interfaz tienen que ser flexibles y responsivos.</p>
+
+      <p>Cuando asignamos medidas absolutas y el elemento es mayor a la pantalla del dispositivo aparecerá la barra de
+        scroll vertical.</p>
+
+      <pre>
+        <code class="language-html">
+          &lt;div class="box"&gt;&lt;/div&gt;
+        </code>
+      </pre>
+      <pre>
+        <code class="language-css">
+          .box {
+            width: 300px;
+            height: 300px;
+          }
+        </code>
+      </pre>
+
+      <div class="box"></div>
+
+      <p>Una caja flexible posee las dimensiones definidas a través de unidades relativas. Si utilizamos la medida en
+        porcentajes, al ancho relativo será con respecto a su contendor padre. Para utilizar altura en porcentajes
+        tenemos que considerar que su contenedor padre tenga definidas la medida de altura (height).</p>
+      <p>Podemos utilizar el viewport como unidad de medida. En este caso, utilizamos el 20% de la altura de la
+        pantalla.</p>
+
+      <pre>
+        <code  class="language-html">
+          &lt;div class="box"&gt;&lt;/div&gt;
+        </code>
+      </pre>
+      <pre>
+        <code class="language-css">
+          .box-flexible {
+            width: 50%;
+            height: 20vh;
+          }
+        </code>
+      </pre>
+
+      <div class="box-flexible"></div>
+
+      <p>Expresar el ancho en medidas relativas permite que el elemento se adapte (sea flexible) a los distintos
+        dispositivos. En el caso anterior siempre ocupará el 50% del ancho.</p>
+
+      <p>También, existen propiedades CSS que nos permiten crear contenedores flexibles aunque utilicemos unidades
+        absolutas como los pixeles.</p>
+
+
+      <h3 id="propiedades">Propiedades max-width, min-width, max-height y min-height</h3>
+
+      <p>En lugar de definir una alto y ancho podemos definir máximos y mínimos. No definimos el ancho base, sino la
+        máxima anchura que tomará el elemento. En el ejemplo el elemento no crecerá más allá de 960px y no decrecerá
+        menos de 280px. A pesar de no utilizar unidades relativas conseguimos un contenedor flexible.</p>
+
+      <pre>
+        <code class="language-html">
+          &lt;div class="box"&gt;&lt;/div&gt;
+        </code>
+      </pre>
+      <pre>
+        <code class="language-css">
+          .box-flexible {
+            width: 50%;
+            height: 20vh;
+          }
+        </code>
+      </pre>
+
+      <div class="box-flexible-2"></div>
+
+      <p>La altura siempre depende del contenido. En este caso, como el elemento no posee contenido toma la altura
+        mínima (280px). Para verificar que la altura no supere los 480px creamos un nuevo contenedor con suficiente
+        contenido para que supere la altura máxima.</p>
+
+      <pre>
+        <code class="language-html">
+          &lt;div class="box-flexible-2"&gt;
+            &lt;p&gt;Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates illo debitis illum amet explicabo ipsaea, 
+            placeat facere mollitia tempore hic blanditiis tempora similique quam aspernatur laudantium sint dolorem distinctio.&lt;/p&gt;
+            &lt;p&gt;Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates illo debitis illum amet explicabo ipsaea, 
+            placeat facere mollitia tempore hic blanditiis tempora similique quam aspernatur laudantium sint dolorem distinctio.&lt;/p&gt;
+            &lt;p&gt;Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates illo debitis illum amet explicabo ipsaea, 
+            placeat facere mollitia tempore hic blanditiis tempora similique quam aspernatur laudantium sint dolorem distinctio.&lt;/p&gt;
+            &lt;p&gt;Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates illo debitis illum amet explicabo ipsaea, 
+            placeat facere mollitia tempore hic blanditiis tempora similique quam aspernatur laudantium sint dolorem distinctio.&lt;/p&gt;
+            &lt;p&gt;Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates illo debitis illum amet explicabo ipsaea, 
+            placeat facere mollitia tempore hic blanditiis tempora similique quam aspernatur laudantium sint dolorem distinctio.&lt;/p&gt;
+          &lt;/div&gt;
+        </code>
+      </pre>
+
+      <div class="box-flexible-2">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates illo debitis illum amet explicabo ipsa
+          ea, placeat facere mollitia tempore hic blanditiis tempora similique quam aspernatur laudantium sint dolorem
+          distinctio.</p>
+
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates illo debitis illum amet explicabo ipsa
+          ea, placeat facere mollitia tempore hic blanditiis tempora similique quam aspernatur laudantium sint dolorem
+          distinctio.</p>
+
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates illo debitis illum amet explicabo ipsa
+          ea, placeat facere mollitia tempore hic blanditiis tempora similique quam aspernatur laudantium sint dolorem
+          distinctio.</p>
+
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates illo debitis illum amet explicabo ipsa
+          ea, placeat facere mollitia tempore hic blanditiis tempora similique quam aspernatur laudantium sint dolorem
+          distinctio.</p>
+
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates illo debitis illum amet explicabo ipsa
+          ea, placeat facere mollitia tempore hic blanditiis tempora similique quam aspernatur laudantium sint dolorem
+          distinctio.</p>
+      </div>
+
+      <p>Los cinco párrafos no entran en los 280px (min-height), por lo que el elemento crece verticalmente. Si
+        reducimos la pantalla el contenedor crecerá hasta 480px (max-height), a patir de esa altura el contenido del
+        último párrafo desbordará el contenedor.</p>
+
+      <h3 id="tamanios-fijos-min-max">Tamaños fijos VS Tamaños máximos y mínimos</h3>
+
+      <p>Si en el contenedor definimos mínimos y máximos pero además definimos medidas width y height específicas
+        en pixeles aplicará las medidas específicas ignorando los máximos y mínimos.</p>
+
+      <pre>
+        <code class="language-html">
+          &lt;div class="box-flexible-3"&gt;
+        </code>
+      </pre>
+      <pre>
+        <code class="language-css">
+          .box-flexible-3 {
+            max-width: 960px;
+            min-width: 280px;
+            max-height: 480px;
+            min-height: 280px;
+            width: 300px;
+            height: 300px;
+          }
+        </code>
+      </pre>
+
+      <div class="box-flexible-3"></div>
+
+      <p>Si definimos mínimos y máximos, y además width y height pero en unidades relativas como porcentajes o
+        unidades
+        viewport se aplicará el width y height pero se respetarán los mínimos y máximos.</p>
+
+      <pre>
+        <code class="language-html">
+          &lt;div class="box-flexible-4"&gt;
+        </code>
+      </pre>
+      <pre>
+        <code class="language-css">
+          .box-flexible-4 {
+            max-width: 960px;
+            min-width: 280px;
+            max-height: 480px;
+            min-height: 280px;
+            width: 50%;
+            height: 20vh;
+          }
+        </code>
+      </pre>
+
+      <div class="box-flexible-4"></div>
+
+      <blockquote>
+        <p><mark>Conclusión: las propiedades widht y height tienen mayor jerarquía que los mínimos y máximos. Si las
+            unidades widht y height se expresan en unidades absolutas se ignorarán los mínimos y máximos. En cambio,
+            si se expresan en unidades relativas serán consideradas.No utilizar máximos, mínimos y widht y height con
+            unidades absolutas.</mark></p>
+      </blockquote>
+    </section>
+
+    <hr>
+
+    <section class="pagination">
+      <!-- <article class="pagination-item">
+        <a href="/pages/css/tables.html">
+          <i class="material-icons">arrow_back</i>Tablas en CSS
+        </a>
+      </article> -->
+      <article class="pagination-item">
+        <a href="/pages/responsive/index.html#indice">Tabla de contenido Responsive Design
+          <i class="material-icons">arrow_upward</i>
+        </a>
+      </article>
+      <article class="pagination-item">
+        <a href="/pages/responsive/multimedia-flexible.html">Multimedia flexible
+          <i class="material-icons">arrow_forward</i>
+        </a>
+      </article>
+    </section>
+
+  </main>
+  <sergey-import src="footer" />
+  <script src="/assets/js/prism.js"></script>
+</body>
+
+</html>

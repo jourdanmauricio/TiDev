@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <sergey-import src="metas/statics" />
+  <sergey-import src="metas/titles">Flexbox</sergey-import>
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <link rel="stylesheet" href="/assets/css/menu.css">
+  <link rel="stylesheet" href="/assets/css/prism.css" />
+  <!-- <link rel="stylesheet" href="/assets/css/html/html.css"> -->
+  <link rel="stylesheet" href="/assets/css/css/flexbox.css">
+</head>
+
+<body>
+  <sergey-import src="header" />
+
+  <main class="container">
+
+
+    <section id="examples">
+
+      <h1>Ejemplos Flexbox</h1>
+
+      <h2 id="flexbox-grid">Grid Flexbox</h2>
+
+      <pre>
+        <code class="language-html">
+          &lt;section class="flex-container-grid"&gt;
+            &lt;article class="flex-item"&gt;item 1&lt;/article&gt;
+            &lt;article class="flex-item"&gt;item 2&lt;/article&gt;
+            &lt;article class="flex-item"&gt;item 3&lt;/article&gt;
+            &lt;article class="flex-item"&gt;item 4&lt;/article&gt;
+            &lt;article class="flex-item"&gt;item 5&lt;/article&gt;
+            &lt;article class="flex-item"&gt;item 6&lt;/article&gt;
+            &lt;article class="flex-item"&gt;item 7&lt;/article&gt;
+            &lt;article class="flex-item"&gt;item 8&lt;/article&gt;
+            &lt;article class="flex-item"&gt;item 9&lt;/article&gt;
+            &lt;article class="flex-item"&gt;item 10&lt;/article&gt;
+            &lt;article class="flex-item"&gt;item 11&lt;/article&gt;
+            &lt;article class="flex-item"&gt;item 12&lt;/article&gt;
+            &lt;article class="flex-item"&gt;item 13&lt;/article&gt;
+            &lt;article class="flex-item"&gt;item 14&lt;/article&gt;
+            &lt;article class="flex-item"&gt;item 15&lt;/article&gt;
+            &lt;article class="flex-item"&gt;item 16&lt;/article&gt;
+            &lt;article class="flex-item"&gt;item 17&lt;/article&gt;
+            &lt;article class="flex-item"&gt;item 18&lt;/article&gt;
+            &lt;article class="flex-item"&gt;item 19&lt;/article&gt;
+          &lt;/section&gt;
+        </code>
+      </pre>
+      <pre>
+        <code class="language-css">
+          .flex-container-grid {
+            display: flex;
+            flex-flow: row wrap;
+          }
+          .flex-item {
+            border: thin solid #ccc;
+            flex: 0 0 100%;
+          }
+          @media (min-width: 576px) {
+            .flex-item {
+              flex: 0 0 50%;
+            }
+          }
+          @media (min-width: 768px) {
+            .flex-item {
+              flex: 0 0 33.33333333333333%;
+            }
+          }
+          @media (min-width: 992px) {
+            .flex-item {
+              flex: 0 0 25%;
+            }
+          }
+          @media (min-width: 1200px) {
+            .flex-item {
+              flex: 0 0 16.66666666666667%;
+            }
+          }
+        </code>
+      </pre>
+
+      <section class="flex-container-grid">
+        <article class="flex-item">item 1</article>
+        <article class="flex-item">item 2</article>
+        <article class="flex-item">item 3</article>
+        <article class="flex-item">item 4</article>
+        <article class="flex-item">item 5</article>
+        <article class="flex-item">item 6</article>
+        <article class="flex-item">item 7</article>
+        <article class="flex-item">item 8</article>
+        <article class="flex-item">item 9</article>
+        <article class="flex-item">item 10</article>
+        <article class="flex-item">item 11</article>
+        <article class="flex-item">item 12</article>
+        <article class="flex-item">item 13</article>
+        <article class="flex-item">item 14</article>
+        <article class="flex-item">item 15</article>
+        <article class="flex-item">item 16</article>
+        <article class="flex-item">item 17</article>
+        <article class="flex-item">item 18</article>
+        <article class="flex-item">item 19</article>
+      </section>
+
+      <h2 id="flexbox-grid">Sticky Footer</h2>
+
+      <pre>
+        <code class="language-html">
+          &lt;body&gt;
+            &lt;main&gt;
+              ...
+            &lt;/main&gt;
+            &lt;footer class="titulares"&gt;
+              &lt;h3 id="flexbox-grid"&gt;Sticky Footer&lt;/h3&gt;
+            &lt;/footer&gt;
+          &lt;/body&gt; 
+        </code>
+      </pre>
+      <pre>
+        <code class="language-css">
+          body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+          }
+          main {
+            flex-grow: 1;
+          }
+          .titulares {
+            padding: 1rem;
+            background-color: #222;
+            color: #eee;
+          }
+        </code>
+      </pre>
+
+      <h2 id="center-text">Texto Centrado en imagen</h2>
+
+      <pre>
+        <code class="language-html">
+          &lt;article class="hero-image"&gt;
+            &lt;div&gt;
+              &lt;h1&gt;Flexbox es fantástico!!!&lt;/h1&gt;
+            &lt;/div&gt;
+          &lt;/article&gt;
+        </code>
+      </pre>
+      <pre>
+        <code class="language-css">
+          .hero-image {
+            background: url("https://placeimg.com/1000/720/animals");
+            min-height: 100vh;
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+          }
+          .hero-image div {
+            min-height: inherit;
+            background-color: rgba(0, 0, 0, 0.75);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+          }
+          .hero-image h1 {
+            color: #fff;
+            font-size: 5vw;
+          }
+        </code>
+      </pre>
+
+      <article class="hero-image">
+        <div>
+          <h1>Flexbox es fantástico!!!</h1>
+        </div>
+      </article>
+
+      <h2 id="text-img">Texto e imágenes alternados</h2>
+
+      <pre>
+        <code class="language-html">
+          &lt;section class="container-flex-2"&gt;
+            &lt;article class="flex-item-2"&gt;
+              &lt;!-- flex-order-1 --&gt;
+              &lt;h2&gt;Titulo&lt;/h2&gt;
+              &lt;p&gt;Lorem, ipsum dolor sit amet consectetur adipisicing elit. Natus vero molestias officia architecto quas
+                libero suscipit eveniet beatae ut cum, laboriosam doloribus similique ex consequatur, perferendis sequi aut
+                deleniti. Aut!&lt;/p&gt;
+            &lt;/article&gt;
+            &lt;article class="flex-item-2"&gt;
+              &lt;img src="https://placeimg.com/400/400/people" alt="People"&gt;
+            &lt;/article&gt;
+          &lt;/section&gt;
+          &lt;section class="container-flex-2 flex-row-reverse"&gt;
+            &lt;article class="flex-item-2"&gt;
+              &lt;h2&gt;Titulo&lt;/h2&gt;
+              &lt;p&gt;Lorem, ipsum dolor sit amet consectetur adipisicing elit. Natus vero molestias officia architecto quas
+                libero suscipit eveniet beatae ut cum, laboriosam doloribus similique ex consequatur, perferendis sequi aut
+                deleniti. Aut!&lt;/p&gt;
+            &lt;/article&gt;
+            &lt;article class="flex-item-2"&gt;
+              &lt;img src="https://placeimg.com/400/400/arch" alt="arch"&gt;
+            &lt;/article&gt;
+          &lt;/section&gt;
+        </code>
+      </pre>
+      <pre>
+        <code class="language-css">
+          /* CSS */
+          .container-flex-2 {
+            display: flex;
+            flex-flow: row wrap;
+          }
+          .flex-item-2 {
+            flex: 0 0 100%;
+          }
+          @media (min-width: 992px) {
+            .container-flex-2 {
+              display: flex;
+              /* flex-flow: row nowrap; */
+              align-items: center;
+            }
+            .flex-item-2 {
+              flex: 0 0 50%;
+            }
+            .flex-order-1 {
+              order: 1;
+            }
+            .flex-row-reverse {
+              flex-direction: row-reverse;
+            }
+          }
+        </code>
+      </pre>
+
+      <section class="container-flex-2">
+        <article class="flex-item-2">
+          <!-- flex-order-1 -->
+          <h2>Titulo</h2>
+          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Natus vero molestias officia architecto quas
+            libero suscipit eveniet beatae ut cum, laboriosam doloribus similique ex consequatur, perferendis sequi aut
+            deleniti. Aut!</p>
+        </article>
+        <article class="flex-item-2">
+          <img src="https://placeimg.com/400/400/people" alt="People">
+        </article>
+      </section>
+
+      <section class="container-flex-2 flex-row-reverse">
+        <article class="flex-item-2">
+          <h2>Titulo</h2>
+          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Natus vero molestias officia architecto quas
+            libero suscipit eveniet beatae ut cum, laboriosam doloribus similique ex consequatur, perferendis sequi aut
+            deleniti. Aut!</p>
+        </article>
+        <article class="flex-item-2">
+          <img src="https://placeimg.com/400/400/arch" alt="arch">
+        </article>
+      </section>
+
+      <h2 id="responsive-without-media">Flexbox responsive sin media queries</h2>
+
+      <pre>
+        <code class="language-html">
+          &lt;section class="flex-responsive"&gt;
+            &lt;article class="flex-responsive-item"&gt;Item Responvivo 1&lt;/article&gt;
+            &lt;article class="flex-responsive-item"&gt;Item Responvivo 2&lt;/article&gt;
+            &lt;article class="flex-responsive-item"&gt;Item Responvivo 3&lt;/article&gt;
+            &lt;article class="flex-responsive-item"&gt;Item Responvivo 4&lt;/article&gt;
+            &lt;article class="flex-responsive-item"&gt;Item Responvivo 5&lt;/article&gt;
+            &lt;article class="flex-responsive-item"&gt;Item Responvivo 6&lt;/article&gt;
+            &lt;article class="flex-responsive-item"&gt;Item Responvivo 7&lt;/article&gt;
+            &lt;article class="flex-responsive-item"&gt;Item Responvivo 8&lt;/article&gt;
+            &lt;article class="flex-responsive-item"&gt;Item Responvivo 9&lt;/article&gt;
+            &lt;article class="flex-responsive-item"&gt;Item Responvivo 10&lt;/article&gt;
+            &lt;article class="flex-responsive-item"&gt;Item Responvivo 11&lt;/article&gt;
+            &lt;article class="flex-responsive-item"&gt;Item Responvivo 12&lt;/article&gt;
+            &lt;article class="flex-responsive-item"&gt;Item Responvivo 13&lt;/article&gt;
+            &lt;article class="flex-responsive-item"&gt;Item Responvivo 14&lt;/article&gt;
+            &lt;article class="flex-responsive-item"&gt;Item Responvivo 15&lt;/article&gt;
+            &lt;article class="flex-responsive-item"&gt;Item Responvivo 16&lt;/article&gt;
+            &lt;article class="flex-responsive-item"&gt;Item Responvivo 17&lt;/article&gt;
+            &lt;article class="flex-responsive-item"&gt;Item Responvivo 18&lt;/article&gt;
+            &lt;article class="flex-responsive-item"&gt;Item Responvivo 19&lt;/article&gt;
+          &lt;/section&gt;
+        </code>
+      </pre>
+      <pre>
+        <code class="language-css">
+          .flex-responsive {
+            display: flex;
+            flex-flow: row wrap;
+          }
+          .flex-responsive-item {
+            border: thin solid #f60;
+            flex: 1 1 200px;
+          }
+        </code>
+      </pre>
+
+      <section class="flex-responsive">
+        <article class="flex-responsive-item">Item Responvivo 1</article>
+        <article class="flex-responsive-item">Item Responvivo 2</article>
+        <article class="flex-responsive-item">Item Responvivo 3</article>
+        <article class="flex-responsive-item">Item Responvivo 4</article>
+        <article class="flex-responsive-item">Item Responvivo 5</article>
+        <article class="flex-responsive-item">Item Responvivo 6</article>
+        <article class="flex-responsive-item">Item Responvivo 7</article>
+        <article class="flex-responsive-item">Item Responvivo 8</article>
+        <article class="flex-responsive-item">Item Responvivo 9</article>
+        <article class="flex-responsive-item">Item Responvivo 10</article>
+        <article class="flex-responsive-item">Item Responvivo 11</article>
+        <article class="flex-responsive-item">Item Responvivo 12</article>
+        <article class="flex-responsive-item">Item Responvivo 13</article>
+        <article class="flex-responsive-item">Item Responvivo 14</article>
+        <article class="flex-responsive-item">Item Responvivo 15</article>
+        <article class="flex-responsive-item">Item Responvivo 16</article>
+        <article class="flex-responsive-item">Item Responvivo 17</article>
+        <article class="flex-responsive-item">Item Responvivo 18</article>
+        <article class="flex-responsive-item">Item Responvivo 19</article>
+      </section>
+    </section>
+
+  </main>
+  <footer class="titulares">
+    <h3>Sticky Footer</h3>
+  </footer>
+
+  <hr>
+
+  <section class="pagination">
+    <article class="pagination-item">
+      <a href="/pages/flexbox/items-props.html">
+        <i class="material-icons">arrow_back</i>Propiedades de los items
+      </a>
+    </article>
+    <article class="pagination-item">
+      <a href="/pages/flexbox/index.html#indice">Tabla de contenido Flexbox
+        <i class="material-icons">arrow_upward</i>
+      </a>
+      <!-- </article>
+      <article class="pagination-item">
+        <a href="/pages/flexbox/introduction.html#intro">Introducción
+          <i class="material-icons">arrow_forward</i>
+        </a>
+      </article> -->
+  </section>
+
+  </main>
+  <sergey-import src="footer" />
+  <script src="/assets/js/prism.js"></script>
+</body>
+
+</html>

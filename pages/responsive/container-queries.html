@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <sergey-import src="metas/statics" />
+  <sergey-import src="metas/titles">Container queries</sergey-import>
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <link rel="stylesheet" href="/assets/css/menu.css">
+  <link rel="stylesheet" href="/assets/css/prism.css" />
+  <!-- <link rel="stylesheet" href="/assets/css/css/grid.css"> -->
+  <link rel="stylesheet" href="/assets/css/css/responsive-design.css">
+</head>
+
+<body>
+  <sergey-import src="header" />
+
+  <main class="container">
+
+    <section id="container-queries">
+
+      <h1>Container Queries</h1>
+
+      <p> Los <b>Container Queries</b> nos permiten hacer componentes responsivos de interfaz de usuario, que no
+        dependan del tamaño de la pantalla y las <b>media queries</b> para cambiar o adaptar el diseño de su contenido.
+        Sino que dependan de sus propias necesidades de visualización. Hay quienes sostienen que será la evolución del
+        responsive design.</p>
+
+      <h3>Más información</h3>
+
+      <ul>
+        <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Container_Queries" target="_blank"><i>CSS
+              Container Queries MDN</i></a></li>
+        <li><a href="https://web.dev/new-responsive/" target="_blank"><i>The new responsive</i></a></li>
+        <li><a href="https://ishadeed.com/article/say-hello-to-css-container-queries/" target="_blank"><i>Say Hello To
+              CSS Container Queries</i></a></li>
+      </ul>
+
+      <h3>Sintaxis</h3>
+
+      <pre>
+        <code class="language-css">
+          .card {
+            contain: layout inline-size style;
+          }
+          @container (min-width: 600px) {
+            .card-container {
+              display: flex;
+            }
+          }
+        </code>
+      </pre>
+
+      <h3>Ejemplo</h3>
+
+      <pre>
+        <code class="language-html">
+          &lt;article class="card"&gt;
+            &lt;div class="card-container"&gt;
+              &lt;img class="card-image" src="/assets/images/puesta-sol.jpg" alt="Puesta de Sol"&gt;
+              &lt;aside class="card-content"&gt;
+                &lt;h4 class="card-title"&gt;Card Title&lt;/h4&gt;
+                &lt;p class="card-description"&gt;
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci ratione rerum in, iusto fuga sint
+                  sunt accusamus quam quae obcaecati eum, sed quia saepe? Inventore, aspernatur et. Qui, amet illo!
+                &lt;/p&gt;
+              &lt;/aside&gt;
+            &lt;/div&gt;
+          &lt;/article&gt;
+        </code>
+      </pre>
+      <pre>
+        <code class="language-css">
+          .card {
+            border: thin solid #000;
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 800px;
+            contain: layout inline-size style;
+          }
+          .card-image {
+            max-width: 100%;
+            height: auto;
+            object-fit: cover;
+            object-position: 0 50%;
+          }
+          .card-content {
+            padding: 1rem;
+          }
+          /* chrome://flags/ */
+          @container (min-width: 600px) {
+            .card-container {
+              display: flex;
+            }
+            .card-container > * {
+              width: 50%;
+              flex-basis: 50%;
+            }
+          }
+        </code>
+      </pre>
+
+      <aside>
+        <article class="card">
+          <div class="card-container">
+            <img class="card-image" src="/assets/images/puesta-sol.jpg" alt="Puesta de Sol">
+            <aside class="card-content">
+              <h4 class="card-title">Card Title</h4>
+              <p class="card-description">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci ratione rerum in, iusto fuga sint
+                sunt accusamus quam quae obcaecati eum, sed quia saepe? Inventore, aspernatur et. Qui, amet illo!
+              </p>
+            </aside>
+          </div>
+        </article>
+      </aside>
+
+    </section>
+
+    <hr>
+
+    <section class="pagination">
+      <article class="pagination-item">
+        <a href="/pages/responsive/features-queries.html">
+          <i class="material-icons">arrow_back</i>Feature queries
+        </a>
+      </article>
+      <article class="pagination-item">
+        <a href="/pages/responsive/index.html#indice">Responsive Design
+          <i class="material-icons">arrow_upward</i>
+        </a>
+      </article>
+      <article class="pagination-item">
+        <a href="/pages/responsive/seo.html">Seo
+          <i class="material-icons">arrow_forward</i>
+        </a>
+      </article>
+    </section>
+
+  </main>
+  <sergey-import src="footer" />
+  <script src="/assets/js/prism.js"></script>
+</body>
+
+</html>

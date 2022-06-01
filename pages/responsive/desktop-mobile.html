@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <sergey-import src="metas/statics" />
+  <sergey-import src="metas/titles">Container queries</sergey-import>
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <link rel="stylesheet" href="/assets/css/menu.css">
+  <!-- <link rel="stylesheet" href="/assets/css/prism.css" /> -->
+  <!-- <link rel="stylesheet" href="/assets/css/css/grid.css"> -->
+  <link rel="stylesheet" href="/assets/css/css/responsive-design.css">
+</head>
+
+<body>
+  <sergey-import src="header" />
+
+  <main class="container">
+
+    <section id="desktop-mobile">
+
+      <h1>Responsive Design</h1>
+
+      <p> Es el paradigma actual del diseño <i>web</i>. Son un conjunto de buenas prácticas a nivel de código <i>CSS</i>
+        para adaptar el contenido del documento <i>HTML</i> al tamaño de pantalla del dispositivo que lo visualice. </p>
+      <p> Tiene 3 principios: </p>
+
+      <ol>
+        <li>Grids Flexibles</li>
+        <li>Imágenes Flexibles</li>
+        <li>Media Queries</li>
+      </ol>
+
+      <p> Fue propuesto por <a href="https://ethanmarcotte.com/" target="_blank"><i>Ethan Marcotte</i></a> en 2010.
+      </p>
+
+      <h3>Más información</h3>
+
+      <ul>
+        <li><a href="https://alistapart.com/article/responsive-web-design/" target="_blank">Artículo <i>Responsive
+              Design</i></a></li>
+        <li><a href="https://abookapart.com/products/responsive-web-design" target="_blank">Libro <i>Responsive
+              Design</i></a></li>
+      </ul>
+
+      <h3><i>Desktop First VS Mobile First</i></h3>
+
+      <p> Son las 2 estrategias que tiene el <i>Responsive Design</i> para adaptar el contenido al tamaño de la
+        pantalla, centrándose en los dispositivos con pantalla más pequeña (<i>Mobile First</i>) o a la inversa,
+        centrándose en los dispositivos con pantalla más grande (<i>Desktop First</i>). </p>
+
+      <section class="grid-1-2">
+        <article>
+          <h3><i>Desktop First</i></h3>
+          <h4>(<i>Graceful Degradation</i>)</h4>
+          <p>Las <i>media queries</i> se deben definir de la <b>mayor a la menor</b>.</p>
+          <p>Se utiliza la propiedad <b><i>max-width</i></b> para definir las <i>mediaqueries</i>.</p>
+          <img class="w-75" src="https://jonmircha.com/img/blog/desktop-first.jpg" alt="Desktop First">
+        </article>
+        <article>
+          <h3><i>Mobile First</i></h3>
+          <h4>(<i>Progressive Enhancement</i>)</h4>
+          <p>Las <i>media queries</i> se deben definir de la <b>menor a la mayor</b>.</p>
+          <p>Se utiliza la propiedad <b><i>min-width</i></b> para definir las <i>mediaqueries</i>.</p>
+          <img class="w-75" src="https://jonmircha.com/img/blog/mobile-first.jpg" alt="Mobile First">
+        </article>
+      </section>
+    </section>
+
+    <hr>
+
+    <section class="pagination">
+      <article class="pagination-item">
+        <a href="/pages/responsive/seo.html">
+          <i class="material-icons">arrow_back</i>Seo
+        </a>
+      </article>
+      <article class="pagination-item">
+        <a href="/pages/responsive/index.html#indice">Responsive Design
+          <i class="material-icons">arrow_upward</i>
+        </a>
+      </article>
+      <article class="pagination-item">
+        <a href="/pages/responsive/adaptive-design.html">Adaptive design
+          <i class="material-icons">arrow_forward</i>
+        </a>
+      </article>
+    </section>
+
+  </main>
+  <sergey-import src="footer" />
+  <!-- <script src="/assets/js/prism.js"></script> -->
+</body>
+
+</html>
