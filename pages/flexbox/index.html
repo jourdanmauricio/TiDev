@@ -2,54 +2,32 @@
 <html lang="es">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Flexbox</title>
-  <meta name="description"
-    content="Esta página contiene los fundamentos básicos de CSS, utilízala como guía de referencia">
-  <link rel="stylesheet" href="/css/menu.css">
-  <link rel="stylesheet" href="/css/styles.css">
-  <!-- <link rel="stylesheet" href="/css/css/grid.css"> -->
-  <link rel="stylesheet" href="/css/css/flexbox.css">
-  <!-- CDN Material+Icons -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  <sergey-import src="metas/statics" />
+  <sergey-import src="metas/titles">Flexbox</sergey-import>
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <link rel="stylesheet" href="/assets/css/menu.css">
+  <link rel="stylesheet" href="/assets/css/prism.css" />
+  <link rel="stylesheet" href="/assets/css/html/html.css">
+  <link rel="stylesheet" href="/assets/css/css/flexbox.css">
 </head>
 
 <body>
-  <!-- https://www.youtube.com/watch?v=udGrXWeJp1Y&list=PLvq-jIkSeTUZYcX9SYwVe7f66afwd9qk_&index=5 -->
-  <header>
-    <nav class="menu-nav">
-      <a href="/index.html" class="enlace">
-        <label class="logo">Aprende</label>
-      </a>
-      <input type="checkbox" id="check">
-      <label for="check" class="checkbtn">
-        <i class="material-icons">menu</i>
-      </label>
-      <ul class="menu">
-        <li><a href="/index.html">Inicio</a></li>
-        <li><a href="/pages/html/html.html">HTML</a></li>
-        <li><a class="active" href="/pages/css/css.html">CSS</a></li>
-        <li><a href="/pages/js/javascript.html">JavaScript</a></li>
-        <li><a href="/pages/contacto.html">Contacto</a></li>
-      </ul>
-    </nav>
-  </header>
+  <sergey-import src="header" />
+
   <main class="container">
     <h1>Flexbox</h1>
 
     <h2 id="indice">Tabla de contenidos</h2>
     <ol>
-      <li><a href="/pages/css/flexbox.html#introduction">Introducción</a></li>
-      <li><a href="/pages/css/flexbox.html#parent-props">Propiedades para el contendor padre</a></li>
-      <li><a href="/pages/css/flexbox.html#items-props">Propiedades para los items</a></li>
-      <li><a href="/pages/css/flexbox.html#examples">Ejemplos Flexbox</a></li>
+      <li><a href="#introduction">Introducción</a></li>
+      <li><a href="#parent-props">Propiedades para el contendor padre</a></li>
+      <li><a href="#items-props">Propiedades para los items</a></li>
+      <li><a href="#examples">Ejemplos Flexbox</a></li>
       <ul>
-        <li><a href="/pages/css/flexbox.html#flexbox-grid">Grid Flexbox</a></li>
-        <li><a href="/pages/css/flexbox.html#center-text">Texto Centrado en imagen</a></li>
-        <li><a href="/pages/css/flexbox.html#text-img">Texto e imágenes alternados</a></li>
-        <li><a href="/pages/css/flexbox.html#responsive-without-media">Flexbox responsive sin media queries</a></li>
+        <li><a href="#flexbox-grid">Grid Flexbox</a></li>
+        <li><a href="#center-text">Texto Centrado en imagen</a></li>
+        <li><a href="#text-img">Texto e imágenes alternados</a></li>
+        <li><a href="#responsive-without-media">Flexbox responsive sin media queries</a></li>
       </ul>
     </ol>
 
@@ -113,21 +91,25 @@
         necesitamos colocar cajas una al lado de otra utilizamos display inline-flex.</p>
 
       <pre>
-&lt;section class="container-flex"&gt;
-  &lt;article class="item"&gt;Item 1&lt;/article&gt;
-  &lt;article class="item"&gt;Item 2&lt;/article&gt;
-  &lt;article class="item"&gt;Item 3&lt;/article&gt;
-&lt;/section&gt;
-
-/* CSS */        
-.container-flex {
-  display: flex; /* or inline-flex */
-  background-color: #888;
-}
-.item {
-  background-color: #666;
-}
-</pre>
+        <code class="language-html">
+          &lt;section class="container-flex"&gt;
+            &lt;article class="item"&gt;Item 1&lt;/article&gt;
+            &lt;article class="item"&gt;Item 2&lt;/article&gt;
+            &lt;article class="item"&gt;Item 3&lt;/article&gt;
+          &lt;/section&gt;
+        </code>
+      </pre>
+      <pre>
+        <code class="language-css">
+          .container-flex {
+            display: flex; /* or inline-flex */
+            background-color: #888;
+          }
+          .item {
+            background-color: #666;
+          }
+        </code>
+      </pre>
 
       <section class="container-flex">
         <article class="item">Item 1</article>
@@ -141,11 +123,14 @@
         es un concepto de diseño de una sola dirección.</p>
 
       <pre>
-.container-flex-direction {
-  /* flex-direction: row | row-reverse | column | column-reverse; */ 
-  flex-direction: column-reverse;
-}
-</pre>
+        <code class="language-css">
+          .container-flex-direction {
+            /* flex-direction: row | row-reverse | column | column-reverse; */ 
+            flex-direction: column-reverse;
+          }
+        </code>
+      </pre>
+
       <section class="container-flex container-flex-direction">
         <article class="item">Item 1</article>
         <article class="item">Item 2</article>
@@ -169,35 +154,40 @@
         width será ignorado para intentar colocarlos en la misma línea.</p>
 
       <pre>
-&lt;section class="container-flex container-flex-nowrap"&gt;
-  &lt;article class="item"&gt;NewItem 1&lt;/article&gt;
-  &lt;article class="item"&gt;NewItem 2&lt;/article&gt;
-  &lt;article class="item"&gt;NewItem 3&lt;/article&gt;
-  &lt;article class="item"&gt;NewItem 4&lt;/article&gt;
-  &lt;article class="item"&gt;NewItem 5&lt;/article&gt;
-  &lt;article class="item"&gt;NewItem 6&lt;/article&gt;
-  &lt;article class="item"&gt;NewItem 7&lt;/article&gt;
-  &lt;article class="item"&gt;NewItem 8&lt;/article&gt;
-  &lt;article class="item"&gt;NewItem 9&lt;/article&gt;
-  &lt;article class="item"&gt;NewItem 10&lt;/article&gt;
-  &lt;article class="item"&gt;NewItem 11&lt;/article&gt;
-  &lt;article class="item"&gt;NewItem 12&lt;/article&gt;
-  &lt;article class="item"&gt;NewItem 13&lt;/article&gt;
-  &lt;article class="item"&gt;NewItem 14&lt;/article&gt;
-  &lt;article class="item"&gt;NewItem 15&lt;/article&gt;
-  &lt;article class="item"&gt;NewItem 16&lt;/article&gt;
-  &lt;article class="item"&gt;NewItem 17&lt;/article&gt;
-  &lt;article class="item"&gt;NewItem 18&lt;/article&gt;
-  &lt;article class="item"&gt;NewItem 19&lt;/article&gt;
-&lt;/section&gt;
+        <code class="language-html">
+          &lt;section class="container-flex container-flex-nowrap"&gt;
+            &lt;article class="item"&gt;NewItem 1&lt;/article&gt;
+            &lt;article class="item"&gt;NewItem 2&lt;/article&gt;
+            &lt;article class="item"&gt;NewItem 3&lt;/article&gt;
+            &lt;article class="item"&gt;NewItem 4&lt;/article&gt;
+            &lt;article class="item"&gt;NewItem 5&lt;/article&gt;
+            &lt;article class="item"&gt;NewItem 6&lt;/article&gt;
+            &lt;article class="item"&gt;NewItem 7&lt;/article&gt;
+            &lt;article class="item"&gt;NewItem 8&lt;/article&gt;
+            &lt;article class="item"&gt;NewItem 9&lt;/article&gt;
+            &lt;article class="item"&gt;NewItem 10&lt;/article&gt;
+            &lt;article class="item"&gt;NewItem 11&lt;/article&gt;
+            &lt;article class="item"&gt;NewItem 12&lt;/article&gt;
+            &lt;article class="item"&gt;NewItem 13&lt;/article&gt;
+            &lt;article class="item"&gt;NewItem 14&lt;/article&gt;
+            &lt;article class="item"&gt;NewItem 15&lt;/article&gt;
+            &lt;article class="item"&gt;NewItem 16&lt;/article&gt;
+            &lt;article class="item"&gt;NewItem 17&lt;/article&gt;
+            &lt;article class="item"&gt;NewItem 18&lt;/article&gt;
+            &lt;article class="item"&gt;NewItem 19&lt;/article&gt;
+          &lt;/section&gt;
+        </code>
+      </pre>
+      <pre>
+        <code class="language-css">
+          .container-flex .container-flex-nowrap {
+            /* flex-wrap: nowrap | wrap | wrap-reverse; */
+            flex-wrap: nowrap;
+          }
+        </code>
+      </pre>
 
-/* CSS */
-.container-flex .container-flex-nowrap {
-  /* flex-wrap: nowrap | wrap | wrap-reverse; */
-  flex-wrap: nowrap;
-}
-</pre>
-      <!-- <section class="container-flex container-flex-nowrap">
+      <section class="container-flex container-flex-nowrap">
         <article class="item">NewItem 1</article>
         <article class="item">NewItem 2</article>
         <article class="item">NewItem 3</article>
@@ -217,7 +207,7 @@
         <article class="item">NewItem 17</article>
         <article class="item">NewItem 18</article>
         <article class="item">NewItem 19</article>
-      </section> -->
+      </section>
 
       <p>El valor wrap colocará los elementos en la fila hasta y cuando no entren más generará una nueva fila. Siempre
         respetará el valor width o el ancho definido por el contenido.</p>
@@ -226,10 +216,12 @@
       </p>
 
       <pre>
-.container-flex .container-flex-wrap {
-  flex-wrap: wrap;
-}
-</pre>
+        <code class="language-css">
+          .container-flex .container-flex-wrap {
+            flex-wrap: wrap;
+          }
+        </code>
+      </pre>
 
       <section class="container-flex container-flex-wrap">
         <article class="item">NewItem 1</article>
@@ -261,10 +253,12 @@
         transversal del contenedor flexible. El valor predeterminado es fila nowrap.</p>
 
       <pre>
-.container {
-  flex-flow: column wrap;
-}
-</pre>
+        <code class="language-css">
+          .container {
+            flex-flow: column wrap;
+          }
+        </code>
+      </pre>
 
       <h3>justify-content</h3>
 
@@ -295,11 +289,14 @@
       </ul>
 
       <pre>
-.container-flex-justify {
-  /* justify-content: flex-start | flex-end | center | space-between | space-around | space-evenly | start | end | left | right */
-  justify-content: space-evenly;
-}
-</pre>
+        <code class="language-css">
+          .container-flex-justify {
+            /* justify-content: flex-start | flex-end | center | space-between | space-around | space-evenly | start | end | left | right */
+            justify-content: space-evenly;
+          }
+        </code>
+      </pre>
+
       <section class="container-flex container-flex-justify">
         <article class="item">Item 1</article>
         <article class="item">Item 2</article>
@@ -325,10 +322,13 @@
       </ul>
 
       <pre>
-.container-align {
-  align-items: center;
-}
-</pre>
+        <code class="language-css"> 
+          .container-align {
+            align-items: center;
+          }
+        </code>
+      </pre>
+
       <section class="container-flex container-align">
         <article class="item">Item 1</article>
         <article class="item">Item 2</article>
@@ -360,24 +360,28 @@
       </ul>
 
       <pre>
-&lt;section class="container-flex container-flex-wrap container-align-content"&gt;
-  &lt;article class="item"&gt;NewItemExtend 1&lt;/article&gt;
-  &lt;article class="item"&gt;NewItemExtend 2&lt;/article&gt;
-  &lt;article class="item"&gt;NewItemExtend 3&lt;/article&gt;
-  &lt;article class="item"&gt;NewItemExtend 4&lt;/article&gt;
-  &lt;article class="item"&gt;NewItemExtend 5&lt;/article&gt;
-  &lt;article class="item"&gt;NewItemExtend 6&lt;/article&gt;
-  &lt;article class="item"&gt;NewItemExtend 7&lt;/article&gt;
-  &lt;article class="item"&gt;NewItemExtend 8&lt;/article&gt;
-  &lt;article class="item"&gt;NewItemExtend 9&lt;/article&gt;
-  &lt;article class="item"&gt;NewItemExtend 10&lt;/article&gt;
-&lt;/section&gt;
-
-/* CSS */
-.container-align-content {
-  align-content: space-between;
-}
-</pre>
+        <code class="language-html">
+          &lt;section class="container-flex container-flex-wrap container-align-content"&gt;
+            &lt;article class="item"&gt;NewItemExtend 1&lt;/article&gt;
+            &lt;article class="item"&gt;NewItemExtend 2&lt;/article&gt;
+            &lt;article class="item"&gt;NewItemExtend 3&lt;/article&gt;
+            &lt;article class="item"&gt;NewItemExtend 4&lt;/article&gt;
+            &lt;article class="item"&gt;NewItemExtend 5&lt;/article&gt;
+            &lt;article class="item"&gt;NewItemExtend 6&lt;/article&gt;
+            &lt;article class="item"&gt;NewItemExtend 7&lt;/article&gt;
+            &lt;article class="item"&gt;NewItemExtend 8&lt;/article&gt;
+            &lt;article class="item"&gt;NewItemExtend 9&lt;/article&gt;
+            &lt;article class="item"&gt;NewItemExtend 10&lt;/article&gt;
+          &lt;/section&gt;
+        </code>
+      </pre>
+      <pre>
+        <code class="language-css">
+          .container-align-content {
+            align-content: space-between;
+          }
+        </code>
+      </pre>
 
       <section class="container-flex container-flex-wrap container-align-content">
         <article class="item">NewItemExtend 1</article>
@@ -398,15 +402,17 @@
         en los bordes exteriores del contenedor.</p>
 
       <pre>
-.container {
-  display: flex;
-  ...
-  gap: 10px;
-  gap: 10px 20px; /* row-gap column gap */
-  row-gap: 10px;
-  column-gap: 20px;
-}          
-</pre>
+        <code class="language-css">
+          .container {
+            display: flex;
+            ...
+            gap: 10px;
+            gap: 10px 20px; /* row-gap column gap */
+            row-gap: 10px;
+            column-gap: 20px;
+          }          
+        </code>
+      </pre>
 
       <p>El comportamiento podría considerarse como un canalón mínimo, como si el canalón fuera más grande de alguna
         manera (debido a algo como justificar contenido: espacio intermedio;) entonces la brecha solo tendrá efecto si
@@ -428,10 +434,12 @@
       <p>Los items con el mismo orden vuelven al orden de origen.</p>
 
       <pre>
-.item {
-  order: 5; /* default is 0 */
-}
-</pre>
+        <code class="language-css">
+          .item {
+            order: 5; /* default is 0 */
+          }
+        </code>
+      </pre>
 
       <h3>flex-grow</h3>
       <p>Define la capacidad de crecimiento de un elemento. Acepta un valor sin unidades que sirve como proporción.
@@ -447,10 +455,12 @@
         distribuye el espacio sobrante entre los elementos.</p>
 
       <pre>
-.item {
-  flex-grow: 4; /* default 0 */
-}      
-</pre>
+        <code class="language-css">
+          .item {
+            flex-grow: 4; /* default 0 */
+          }      
+        </code>
+      </pre>
 
       <h3>flex-shrink</h3>
       <p>Define la capacidad de que un elemento se encoja.</p>
@@ -461,10 +471,13 @@
         reducirá el doble de espacio que cualquiera de los otros.</p>
 
       <pre>
-.item {
-  flex-shrink: 3; /* default 1 */
-}
-</pre>
+        <code class="language-css">
+          .item {
+            flex-shrink: 3; /* default 1 */
+          }
+        </code>
+      </pre>
+
       <h3>flex-basis</h3>
 
       <p>Define el tamaño predeterminado de un elemento antes de que se distribuya el espacio restante. Puede ser una
@@ -480,10 +493,13 @@
       <p>El valor por defecto es auo.</p>
 
       <pre>
-.item {
-  flex-basis: auto | 100px; /* default auto */
-}
-</pre>
+        <code class="language-css">
+          .item {
+            flex-basis: auto | 100px; /* default auto */
+          }
+        </code>   
+      </pre>
+
       <p>Si se establece en 0, el espacio adicional alrededor del contenido no se tiene en cuenta. Si se establece en
         automático, el espacio adicional se distribuye en función de su valor de crecimiento flexible. </p>
 
@@ -495,21 +511,27 @@
       </p>
 
       <pre>
-.item {
-  flex: none | [ <'flex-grow'> <'flex-shrink'>? || <'flex-basis'> ]
-  flex: 0 1 auto /* Default. No crecer, reducir proporcionalmente, dimensión de contenido */
-}        
-</pre>
+        <code class="language-css">
+          .item {
+            flex: none | [ <'flex-grow'> <'flex-shrink'>? || <'flex-basis'> ]
+            flex: 0 1 auto /* Default. No crecer, reducir proporcionalmente, dimensión de contenido */
+          }        
+        </code>
+      </pre>
 
       <h3>align-self</h3>
+
       <p>Permite anular la alineación predeterminada para elementos individuales. Sobreescribe el valor que tenga
         definido el padre en la propiedad aling-items.</p>
 
       <pre>
-.item {
-  align-self: auto | flex-start | flex-end | center | baseline | stretch;
-}        
-</pre>
+        <code  class="language-css">
+          .item {
+            align-self: auto | flex-start | flex-end | center | baseline | stretch;
+          }        
+        </code>
+      </pre>
+
     </article>
 
     <hr>
@@ -521,58 +543,63 @@
       <h3 id="flexbox-grid">Grid Flexbox</h3>
 
       <pre>
-&lt;section class="flex-container-grid"&gt;
-  &lt;article class="flex-item"&gt;item 1&lt;/article&gt;
-  &lt;article class="flex-item"&gt;item 2&lt;/article&gt;
-  &lt;article class="flex-item"&gt;item 3&lt;/article&gt;
-  &lt;article class="flex-item"&gt;item 4&lt;/article&gt;
-  &lt;article class="flex-item"&gt;item 5&lt;/article&gt;
-  &lt;article class="flex-item"&gt;item 6&lt;/article&gt;
-  &lt;article class="flex-item"&gt;item 7&lt;/article&gt;
-  &lt;article class="flex-item"&gt;item 8&lt;/article&gt;
-  &lt;article class="flex-item"&gt;item 9&lt;/article&gt;
-  &lt;article class="flex-item"&gt;item 10&lt;/article&gt;
-  &lt;article class="flex-item"&gt;item 11&lt;/article&gt;
-  &lt;article class="flex-item"&gt;item 12&lt;/article&gt;
-  &lt;article class="flex-item"&gt;item 13&lt;/article&gt;
-  &lt;article class="flex-item"&gt;item 14&lt;/article&gt;
-  &lt;article class="flex-item"&gt;item 15&lt;/article&gt;
-  &lt;article class="flex-item"&gt;item 16&lt;/article&gt;
-  &lt;article class="flex-item"&gt;item 17&lt;/article&gt;
-  &lt;article class="flex-item"&gt;item 18&lt;/article&gt;
-  &lt;article class="flex-item"&gt;item 19&lt;/article&gt;
-&lt;/section&gt;
+        <code class="language-html">
+          &lt;section class="flex-container-grid"&gt;
+            &lt;article class="flex-item"&gt;item 1&lt;/article&gt;
+            &lt;article class="flex-item"&gt;item 2&lt;/article&gt;
+            &lt;article class="flex-item"&gt;item 3&lt;/article&gt;
+            &lt;article class="flex-item"&gt;item 4&lt;/article&gt;
+            &lt;article class="flex-item"&gt;item 5&lt;/article&gt;
+            &lt;article class="flex-item"&gt;item 6&lt;/article&gt;
+            &lt;article class="flex-item"&gt;item 7&lt;/article&gt;
+            &lt;article class="flex-item"&gt;item 8&lt;/article&gt;
+            &lt;article class="flex-item"&gt;item 9&lt;/article&gt;
+            &lt;article class="flex-item"&gt;item 10&lt;/article&gt;
+            &lt;article class="flex-item"&gt;item 11&lt;/article&gt;
+            &lt;article class="flex-item"&gt;item 12&lt;/article&gt;
+            &lt;article class="flex-item"&gt;item 13&lt;/article&gt;
+            &lt;article class="flex-item"&gt;item 14&lt;/article&gt;
+            &lt;article class="flex-item"&gt;item 15&lt;/article&gt;
+            &lt;article class="flex-item"&gt;item 16&lt;/article&gt;
+            &lt;article class="flex-item"&gt;item 17&lt;/article&gt;
+            &lt;article class="flex-item"&gt;item 18&lt;/article&gt;
+            &lt;article class="flex-item"&gt;item 19&lt;/article&gt;
+          &lt;/section&gt;
+        </code>
+      </pre>
+      <pre>
+        <code class="language-css">
+          .flex-container-grid {
+            display: flex;
+            flex-flow: row wrap;
+          }
+          .flex-item {
+            border: thin solid #ccc;
+            flex: 0 0 100%;
+          }
+          @media (min-width: 576px) {
+            .flex-item {
+              flex: 0 0 50%;
+            }
+          }
+          @media (min-width: 768px) {
+            .flex-item {
+              flex: 0 0 33.33333333333333%;
+            }
+          }
+          @media (min-width: 992px) {
+            .flex-item {
+              flex: 0 0 25%;
+            }
+          }
+          @media (min-width: 1200px) {
+            .flex-item {
+              flex: 0 0 16.66666666666667%;
+            }
+          }
+        </code>
+      </pre>
 
-/* CSS */
-.flex-container-grid {
-  display: flex;
-  flex-flow: row wrap;
-}
-.flex-item {
-  border: thin solid #ccc;
-  flex: 0 0 100%;
-}
-@media (min-width: 576px) {
-  .flex-item {
-    flex: 0 0 50%;
-  }
-}
-@media (min-width: 768px) {
-  .flex-item {
-    flex: 0 0 33.33333333333333%;
-  }
-}
-@media (min-width: 992px) {
-  .flex-item {
-    flex: 0 0 25%;
-  }
-}
-@media (min-width: 1200px) {
-  .flex-item {
-    flex: 0 0 16.66666666666667%;
-  }
-}
-</pre>
       <section class="flex-container-grid">
         <article class="flex-item">item 1</article>
         <article class="flex-item">item 2</article>
@@ -596,62 +623,72 @@
       </section>
 
       <h3 id="flexbox-grid">Sticky Footer</h3>
+
       <pre>
-  &lt;body&gt;
-    &lt;main&gt;
-      ...
-    &lt;/main&gt;
-    &lt;footer class="titulares"&gt;
-      &lt;h3 id="flexbox-grid"&gt;Sticky Footer&lt;/h3&gt;
-    &lt;/footer&gt;
-  &lt;/body&gt; 
-  
-  /* CSS */
-  body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-  }
-  main {
-    flex-grow: 1;
-  }
-  .titulares {
-    padding: 1rem;
-    background-color: #222;
-    color: #eee;
-  }
-  </pre>
+        <code class="language-html">
+          &lt;body&gt;
+            &lt;main&gt;
+              ...
+            &lt;/main&gt;
+            &lt;footer class="titulares"&gt;
+              &lt;h3 id="flexbox-grid"&gt;Sticky Footer&lt;/h3&gt;
+            &lt;/footer&gt;
+          &lt;/body&gt; 
+        </code>
+      </pre>
+      <pre>
+        <code class="language-css">
+          body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+          }
+          main {
+            flex-grow: 1;
+          }
+          .titulares {
+            padding: 1rem;
+            background-color: #222;
+            color: #eee;
+          }
+        </code>
+      </pre>
 
       <h3 id="center-text">Texto Centrado en imagen</h3>
 
       <pre>
-&lt;article class="hero-image"&gt;
-  &lt;div&gt;
-    &lt;h1&gt;Flexbox es fantástico!!!&lt;/h1&gt;
-  &lt;/div&gt;
-&lt;/article&gt;
+        <code class="language-html">
+          &lt;article class="hero-image"&gt;
+            &lt;div&gt;
+              &lt;h1&gt;Flexbox es fantástico!!!&lt;/h1&gt;
+            &lt;/div&gt;
+          &lt;/article&gt;
+        </code>
+      </pre>
+      <pre>
+      <code class="language-css">
+        .hero-image {
+          background: url("https://placeimg.com/1000/720/animals");
+          min-height: 100vh;
+          background-size: cover;
+          background-position: center center;
+          background-repeat: no-repeat;
+        }
+        .hero-image div {
+          min-height: inherit;
+          background-color: rgba(0, 0, 0, 0.75);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          text-align: center;
+        }
+        .hero-image h1 {
+          color: #fff;
+          font-size: 5vw;
+        }
+      </code>
+    </pre>
 
-/*  CSS  */
-.hero-image {
-  background: url("https://placeimg.com/1000/720/animals");
-  min-height: 100vh;
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
-}
-.hero-image div {
-  min-height: inherit;
-  background-color: rgba(0, 0, 0, 0.75);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
-.hero-image h1 {
-  color: #fff;
-  font-size: 5vw;
-}
-</pre>
       <article class="hero-image">
         <div>
           <h1>Flexbox es fantástico!!!</h1>
@@ -661,55 +698,60 @@
       <h3 id="text-img">Texto e imágenes alternados</h3>
 
       <pre>
-&lt;section class="container-flex-2"&gt;
-  &lt;article class="flex-item-2"&gt;
-    &lt;!-- flex-order-1 --&gt;
-    &lt;h2&gt;Titulo&lt;/h2&gt;
-    &lt;p&gt;Lorem, ipsum dolor sit amet consectetur adipisicing elit. Natus vero molestias officia architecto quas
-      libero suscipit eveniet beatae ut cum, laboriosam doloribus similique ex consequatur, perferendis sequi aut
-      deleniti. Aut!&lt;/p&gt;
-  &lt;/article&gt;
-  &lt;article class="flex-item-2"&gt;
-    &lt;img src="https://placeimg.com/400/400/people" alt="People"&gt;
-  &lt;/article&gt;
-&lt;/section&gt;
-&lt;section class="container-flex-2 flex-row-reverse"&gt;
-  &lt;article class="flex-item-2"&gt;
-    &lt;h2&gt;Titulo&lt;/h2&gt;
-    &lt;p&gt;Lorem, ipsum dolor sit amet consectetur adipisicing elit. Natus vero molestias officia architecto quas
-      libero suscipit eveniet beatae ut cum, laboriosam doloribus similique ex consequatur, perferendis sequi aut
-      deleniti. Aut!&lt;/p&gt;
-  &lt;/article&gt;
-  &lt;article class="flex-item-2"&gt;
-    &lt;img src="https://placeimg.com/400/400/arch" alt="arch"&gt;
-  &lt;/article&gt;
-&lt;/section&gt;
-
-/* CSS */
-.container-flex-2 {
-  display: flex;
-  flex-flow: row wrap;
-}
-.flex-item-2 {
-  flex: 0 0 100%;
-}
-@media (min-width: 992px) {
-  .container-flex-2 {
-    display: flex;
-    /* flex-flow: row nowrap; */
-    align-items: center;
-  }
-  .flex-item-2 {
-    flex: 0 0 50%;
-  }
-  .flex-order-1 {
-    order: 1;
-  }
-  .flex-row-reverse {
-    flex-direction: row-reverse;
-  }
-}
-</pre>
+        <code class="language-html">
+          &lt;section class="container-flex-2"&gt;
+            &lt;article class="flex-item-2"&gt;
+              &lt;!-- flex-order-1 --&gt;
+              &lt;h2&gt;Titulo&lt;/h2&gt;
+              &lt;p&gt;Lorem, ipsum dolor sit amet consectetur adipisicing elit. Natus vero molestias officia architecto quas
+                libero suscipit eveniet beatae ut cum, laboriosam doloribus similique ex consequatur, perferendis sequi aut
+                deleniti. Aut!&lt;/p&gt;
+            &lt;/article&gt;
+            &lt;article class="flex-item-2"&gt;
+              &lt;img src="https://placeimg.com/400/400/people" alt="People"&gt;
+            &lt;/article&gt;
+          &lt;/section&gt;
+          &lt;section class="container-flex-2 flex-row-reverse"&gt;
+            &lt;article class="flex-item-2"&gt;
+              &lt;h2&gt;Titulo&lt;/h2&gt;
+              &lt;p&gt;Lorem, ipsum dolor sit amet consectetur adipisicing elit. Natus vero molestias officia architecto quas
+                libero suscipit eveniet beatae ut cum, laboriosam doloribus similique ex consequatur, perferendis sequi aut
+                deleniti. Aut!&lt;/p&gt;
+            &lt;/article&gt;
+            &lt;article class="flex-item-2"&gt;
+              &lt;img src="https://placeimg.com/400/400/arch" alt="arch"&gt;
+            &lt;/article&gt;
+          &lt;/section&gt;
+        </code>
+      </pre>
+      <pre>
+        <code class="language-css">
+          /* CSS */
+          .container-flex-2 {
+            display: flex;
+            flex-flow: row wrap;
+          }
+          .flex-item-2 {
+            flex: 0 0 100%;
+          }
+          @media (min-width: 992px) {
+            .container-flex-2 {
+              display: flex;
+              /* flex-flow: row nowrap; */
+              align-items: center;
+            }
+            .flex-item-2 {
+              flex: 0 0 50%;
+            }
+            .flex-order-1 {
+              order: 1;
+            }
+            .flex-row-reverse {
+              flex-direction: row-reverse;
+            }
+          }
+        </code>
+      </pre>
       <section class="container-flex-2">
         <article class="flex-item-2">
           <!-- flex-order-1 -->
@@ -737,38 +779,43 @@
       <h3 id="responsive-without-media">Flexbox responsive sin media queries</h3>
 
       <pre>
-&lt;section class="flex-responsive"&gt;
-  &lt;article class="flex-responsive-item"&gt;Item Responvivo 1&lt;/article&gt;
-  &lt;article class="flex-responsive-item"&gt;Item Responvivo 2&lt;/article&gt;
-  &lt;article class="flex-responsive-item"&gt;Item Responvivo 3&lt;/article&gt;
-  &lt;article class="flex-responsive-item"&gt;Item Responvivo 4&lt;/article&gt;
-  &lt;article class="flex-responsive-item"&gt;Item Responvivo 5&lt;/article&gt;
-  &lt;article class="flex-responsive-item"&gt;Item Responvivo 6&lt;/article&gt;
-  &lt;article class="flex-responsive-item"&gt;Item Responvivo 7&lt;/article&gt;
-  &lt;article class="flex-responsive-item"&gt;Item Responvivo 8&lt;/article&gt;
-  &lt;article class="flex-responsive-item"&gt;Item Responvivo 9&lt;/article&gt;
-  &lt;article class="flex-responsive-item"&gt;Item Responvivo 10&lt;/article&gt;
-  &lt;article class="flex-responsive-item"&gt;Item Responvivo 11&lt;/article&gt;
-  &lt;article class="flex-responsive-item"&gt;Item Responvivo 12&lt;/article&gt;
-  &lt;article class="flex-responsive-item"&gt;Item Responvivo 13&lt;/article&gt;
-  &lt;article class="flex-responsive-item"&gt;Item Responvivo 14&lt;/article&gt;
-  &lt;article class="flex-responsive-item"&gt;Item Responvivo 15&lt;/article&gt;
-  &lt;article class="flex-responsive-item"&gt;Item Responvivo 16&lt;/article&gt;
-  &lt;article class="flex-responsive-item"&gt;Item Responvivo 17&lt;/article&gt;
-  &lt;article class="flex-responsive-item"&gt;Item Responvivo 18&lt;/article&gt;
-  &lt;article class="flex-responsive-item"&gt;Item Responvivo 19&lt;/article&gt;
-&lt;/section&gt;
+        <code class="language-html">
+          &lt;section class="flex-responsive"&gt;
+            &lt;article class="flex-responsive-item"&gt;Item Responvivo 1&lt;/article&gt;
+            &lt;article class="flex-responsive-item"&gt;Item Responvivo 2&lt;/article&gt;
+            &lt;article class="flex-responsive-item"&gt;Item Responvivo 3&lt;/article&gt;
+            &lt;article class="flex-responsive-item"&gt;Item Responvivo 4&lt;/article&gt;
+            &lt;article class="flex-responsive-item"&gt;Item Responvivo 5&lt;/article&gt;
+            &lt;article class="flex-responsive-item"&gt;Item Responvivo 6&lt;/article&gt;
+            &lt;article class="flex-responsive-item"&gt;Item Responvivo 7&lt;/article&gt;
+            &lt;article class="flex-responsive-item"&gt;Item Responvivo 8&lt;/article&gt;
+            &lt;article class="flex-responsive-item"&gt;Item Responvivo 9&lt;/article&gt;
+            &lt;article class="flex-responsive-item"&gt;Item Responvivo 10&lt;/article&gt;
+            &lt;article class="flex-responsive-item"&gt;Item Responvivo 11&lt;/article&gt;
+            &lt;article class="flex-responsive-item"&gt;Item Responvivo 12&lt;/article&gt;
+            &lt;article class="flex-responsive-item"&gt;Item Responvivo 13&lt;/article&gt;
+            &lt;article class="flex-responsive-item"&gt;Item Responvivo 14&lt;/article&gt;
+            &lt;article class="flex-responsive-item"&gt;Item Responvivo 15&lt;/article&gt;
+            &lt;article class="flex-responsive-item"&gt;Item Responvivo 16&lt;/article&gt;
+            &lt;article class="flex-responsive-item"&gt;Item Responvivo 17&lt;/article&gt;
+            &lt;article class="flex-responsive-item"&gt;Item Responvivo 18&lt;/article&gt;
+            &lt;article class="flex-responsive-item"&gt;Item Responvivo 19&lt;/article&gt;
+          &lt;/section&gt;
+        </code>
+      </pre>
+      <pre>
+        <code class="language-css">
+          .flex-responsive {
+            display: flex;
+            flex-flow: row wrap;
+          }
+          .flex-responsive-item {
+            border: thin solid #f60;
+            flex: 1 1 200px;
+          }
+        </code>
+      </pre>
 
-/* CSS */
-.flex-responsive {
-  display: flex;
-  flex-flow: row wrap;
-}
-.flex-responsive-item {
-  border: thin solid #f60;
-  flex: 1 1 200px;
-}
-</pre>
       <section class="flex-responsive">
         <article class="flex-responsive-item">Item Responvivo 1</article>
         <article class="flex-responsive-item">Item Responvivo 2</article>
@@ -799,6 +846,30 @@
   <footer class="titulares">
     <h3>Sticky Footer</h3>
   </footer>
+
+  <hr>
+
+  <section class="pagination">
+    <article class="pagination-item">
+      <a href="/pages/css/index.html">
+        <i class="material-icons">arrow_back</i>Guia CSS
+      </a>
+    </article>
+    <article class="pagination-item">
+      <a href="#indice">Tabla de contenido Flexbox
+        <i class="material-icons">arrow_upward</i>
+      </a>
+    </article>
+    <article class="pagination-item">
+      <a href="/pages/grid/index.html">Guía Grid CSS
+        <i class="material-icons">arrow_forward</i>
+      </a>
+    </article>
+  </section>
+
+  </main>
+  <sergey-import src="footer" />
+  <script src="/assets/js/prism.js"></script>
 </body>
 
 </html>

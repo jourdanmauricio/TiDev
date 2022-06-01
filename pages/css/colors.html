@@ -2,41 +2,20 @@
 <html lang="es">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Modelo de caja en CSS</title>
-  <meta name="description"
-    content="Esta página contiene los fundamentos básicos de CSS, utilízala como guía de referencia">
-  <link rel="stylesheet" href="/css/menu.css">
-  <link rel="stylesheet" href="/css/styles.css">
-  <link rel="stylesheet" href="/css/css/colors.css">
-  <!-- CDN Material+Icons -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  <sergey-import src="metas/statics" />
+  <sergey-import src="metas/titles">TiDev colores CSS</sergey-import>
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <link rel="stylesheet" href="/assets/css/menu.css">
+  <link rel="stylesheet" href="/assets/css/prism.css" />
+  <link rel="stylesheet" href="/assets/css/html/html.css">
+  <link rel="stylesheet" href="/assets/css/css/colors.css">
 </head>
 
 <body>
+  <sergey-import src="header" />
 
-  <!-- https://www.youtube.com/watch?v=K3xmRF8ab1o&list=PLvq-jIkSeTUZYcX9SYwVe7f66afwd9qk_&index=2 -->
-  <header>
-    <nav class="menu-nav">
-      <a href="/index.html" class="enlace">
-        <label class="logo">Aprende</label>
-      </a>
-      <input type="checkbox" id="check">
-      <label for="check" class="checkbtn">
-        <i class="material-icons">menu</i>
-      </label>
-      <ul class="menu">
-        <li><a href="/index.html">Inicio</a></li>
-        <li><a href="/pages/html/html.html">HTML</a></li>
-        <li><a class="active" href="/pages/css/css.html">CSS</a></li>
-        <li><a href="/pages/js/javascript.html">JavaScript</a></li>
-        <li><a href="/pages/contacto.html">Contacto</a></li>
-      </ul>
-    </nav>
-  </header>
   <main class="container">
+
     <section>
       <h1>Colores en CSS</h1>
       <p>Existen 4 formas de aplicar colores en CSS.</p>
@@ -47,6 +26,8 @@
         <li>Sistema HSL</li>
       </ul>
 
+      <hr>
+
       <article id="color-by-name">
         <h2>Colores por Nombres</h2>
         <p> <a href="https://htmlcolorcodes.com/es/" rel="nofollow" target="_blank">htmlcolorcodes</a> Es una página
@@ -54,26 +35,38 @@
           lista de posibles colores por nombre, código hexadecimal y código RGB.</p>
 
         <pre>
-&lt;div class="color-by-name"&gt;
-  &lt;p&gt;Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime quo vero ipsa harum sit fugiat molestias nam, possimus dignissimos. Ab necessitatibus quas dolorum. Voluptate aliquid quasi velit quae ipsum odit.&lt;/p&gt;
-&lt;/div&gt;
+          <code class="language-html">
+            &lt;div class="color-by-name"&gt;
+              &lt;p&gt;Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+              Maxime quo vero ipsa harum sit fugiat molestias nam, possimus dignissimos. 
+              Ab necessitatibus quas dolorum. Voluptate aliquid quasi velit quae ipsum odit.&lt;/p&gt;
+            &lt;/div&gt;
+          </code>
+        </pre>
+        <pre>
+          <code class="language-css">
+            .color-by-name {
+              background-color: coral;
+              color: rebeccapurple;
+              border: thick solid greenyellow;
+            }
+          </code>
+        </pre>
 
-/* CSS */
-.color-by-name {
-  background-color: coral;
-  color: rebeccapurple;
-  border: thick solid greenyellow;
-}
-</pre>
         <div class="color-by-name">
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime quo vero ipsa harum sit fugiat molestias
             nam, possimus dignissimos. Ab necessitatibus quas dolorum. Voluptate aliquid quasi velit quae ipsum odit.
           </p>
         </div>
       </article>
+
+      <hr>
+
       <article id="color-hexadecimal">
         <h2>Sistema de color hexadecimal</h2>
+
         <blockquote>Si en google buscamos RGB to Hex nos aparece una paleta con convertidor de colores.</blockquote>
+
         <p>El sistema decimal posee 10 dígitos, en el sistema hexadecimal tenemos 16 dígitos compuestos desde el 0 al 9
           y de la a hasta f (0123456789abcdef). La letra a en hexadecimal es 10,miestras que la f es 16.</p>
 
@@ -104,28 +97,37 @@
           ejemplo: #0005.</p>
 
         <pre>
-&lt;div class="color-hex"&gt;
-  &lt;p&gt;Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime quo vero ipsa harum sit fugiat molestias nam, possimus dignissimos. Ab necessitatibus quas dolorum. Voluptate aliquid quasi velit quae ipsum odit.&lt;/p&gt;
-&lt;/div&gt;
+          <code class="language-html">
+            &lt;div class="color-hex"&gt;
+              &lt;p&gt;Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+              Maxime quo vero ipsa harum sit fugiat molestias nam, possimus dignissimos. 
+              Ab necessitatibus quas dolorum. Voluptate aliquid quasi velit quae ipsum odit.&lt;/p&gt;
+            &lt;/div&gt;
+          </code>
+        </pre>
+        <pre>
+          <code class="language-css">
+            .color-hex {
+              /* background-color: #ff6600; */
+              background-color: #0005;
+              color: #fff;
+              border: thick solid #000;
+            }
+          </code>
+        </pre>
 
-/* CSS */
-.color-hex {
-  /* background-color: #ff6600; */
-  background-color: #0005;
-  color: #fff;
-  border: thick solid #000;
-}
-</pre>
         <div class="color-hex">
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime quo vero ipsa harum sit fugiat molestias
             nam, possimus dignissimos. Ab necessitatibus quas dolorum. Voluptate aliquid quasi velit quae ipsum odit.
           </p>
         </div>
-
       </article>
+
       <hr>
+
       <article>
         <h2>Sistema RGB</h2>
+
         <p>Para utilizar el sistema RGB tenemos que utilizar la función rgb() y el valor de los canales va de 0 a 255,
           siendo 0 el color negro y 255 blanco.</p>
         <p>Los valores llegan a 255 porque cada canal meneja 8 bits que pueden tomar valores 0 o 1. 2<sup>8</sup> =
@@ -142,17 +144,24 @@
         </ul>
 
         <pre>
-&lt;div class="color-rgb"&gt;
-  &lt;p&gt;Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime quo vero ipsa harum sit fugiat molestias nam, possimus dignissimos. Ab necessitatibus quas dolorum. Voluptate aliquid quasi velit quae ipsum odit.&lt;/p&gt;
-&lt;/div&gt;
+          <code class="language-html">
+            &lt;div class="color-rgb"&gt;
+              &lt;p&gt;Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+              Maxime quo vero ipsa harum sit fugiat molestias nam, possimus dignissimos. 
+              Ab necessitatibus quas dolorum. Voluptate aliquid quasi velit quae ipsum odit.&lt;/p&gt;
+            &lt;/div&gt;
+          </code>
+        </pre>
+        <pre>
+          <code class="language-css">
+            .color-rgb {
+                background-color: rgb(255, 127, 80);
+                color: rgb(102, 51, 153);
+                border: thick solid rgb(173, 255, 47);
+            }
+          </code>
+        </pre>
 
-/* CSS */
-.color-rgb {
-    background-color: rgb(255, 127, 80);
-    color: rgb(102, 51, 153);
-    border: thick solid rgb(173, 255, 47);
-}
-</pre>
         <div class="color-rgb">
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime quo vero ipsa harum sit fugiat molestias
             nam, possimus dignissimos. Ab necessitatibus quas dolorum. Voluptate aliquid quasi velit quae ipsum odit.
@@ -161,8 +170,10 @@
       </article>
 
       <hr>
+
       <article>
         <h2>Sistema HSL</h2>
+
         <p>HSL es el acrónimo de Hue Saturation Lightness (Tono Saturación Luminosidad). La función para utilizar este
           sistema se llama hsl(). El primer valor representa un
           ángulo donde: </p>
@@ -188,26 +199,33 @@
         <p>Para agregar transparencia se utiliza la función hsla con un cuarto paámetro que va de 0 a 100%.</p>
 
         <pre>
-&lt;div class="color-hsl"&gt;
-  &lt;p&gt;Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime quo vero ipsa harum sit fugiat molestias nam, possimus dignissimos. Ab necessitatibus quas dolorum. Voluptate aliquid quasi velit quae ipsum odit.&lt;/p&gt;
-&lt;/div&gt;
-
-/* CSS */
-.color-hsl {
-    background-color: hsl(255, 127, 80);
-    color: hsl(102, 51, 153);
-    border: thick solid hsl(173, 255, 47);
-}
-</pre>
+          <code class="language-html">
+            &lt;div class="color-hsl"&gt;
+              &lt;p&gt;Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime quo vero ipsa harum sit fugiat molestias nam, possimus dignissimos. Ab necessitatibus quas dolorum. Voluptate aliquid quasi velit quae ipsum odit.&lt;/p&gt;
+            &lt;/div&gt;
+          </code>
+        </pre>
+        <pre>
+          <code class="language-css">
+            .color-hsl {
+                background-color: hsl(255, 127, 80);
+                color: hsl(102, 51, 153);
+                border: thick solid hsl(173, 255, 47);
+            }
+          </code>
+        </pre>
 
         <div class="color-hsl">
           <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quae eaque magnam, atque esse excepturi dolore.
             Ut quam illo ea officia praesentium voluptates odit modi atque architecto ex, magnam rerum? Illo?</p>
         </div>
       </article>
+
       <hr>
+
       <article>
         <h2>¿Qué sistema de colores uso?</h2>
+
         <p> Podemos utiliza cualquiera de los sistemas de colores pero el navegador realiza un computo a rgb para
           representarlos. También depende de las guias de estilos que utilice el proyecto, o de tus preferencias, o de
           tu conocimiento conmayor profundidad sobre alguno de ellos. Entonces podemos utilizar cualquiera de los
@@ -215,9 +233,12 @@
         <p>No es una buena práctica utilizar distintos sistemas de colores en el mismo proyecto. Utilizamos uno u otro.
         </p>
       </article>
+
       <hr>
+
       <article>
         <h2>Valores transparent & currentColor</h2>
+
         <p>Supongamos que en la versión movil de nuestra web queremos un elemento tenga el color magenta pero no lo
           queremos en la versión tablet o desktop. Una forma de quitar el color es a través del valor transparent.</p>
 
@@ -228,26 +249,35 @@
         </p>
 
       </article>
+
       <hr>
+
       <article>
         <h2>Propiedad opacity</h2>
+
         <p>El valor de opacidad no aplica solo en la defición de colores, también existe una propiedad que podemos
           aplicar a los distintos elementos. Veamos un ejemplo donde aplicamos la propiedad a una caja y no solo
           aplicará al fondo, también aplicará sobre el texto, el borde, etc.</p>
 
         <pre>
-&lt;div class="opacity"&gt;
-  &lt;p&gt;Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime quo vero ipsa harum sit fugiat molestias nam, possimus dignissimos. Ab necessitatibus quas dolorum. Voluptate aliquid quasi velit quae ipsum odit.&lt;/p&gt;
-&lt;/div&gt;
-
-/* CSS */
-.opacity {
-  background-color: orchid;
-  color: navy;
-  border: thick solid black;
-  opacity: 0.5;
-}
-            </pre>
+          <code class="language-html">
+            &lt;div class="opacity"&gt;
+              &lt;p&gt;Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+              Maxime quo vero ipsa harum sit fugiat molestias nam, possimus dignissimos. 
+              Ab necessitatibus quas dolorum. Voluptate aliquid quasi velit quae ipsum odit.&lt;/p&gt;
+            &lt;/div&gt;
+          </code>
+        </pre>
+        <pre>
+          <code class="language-css">
+            .opacity {
+              background-color: orchid;
+              color: navy;
+              border: thick solid black;
+              opacity: 0.5;
+            }
+          </code>
+        </pre>
 
         <div class="opacity">
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime quo vero ipsa harum sit fugiat molestias
@@ -258,10 +288,30 @@
       </article>
 
     </section>
-    <hr>
-    <a href="/pages/css/css.html#indice">👆</a>
-  </main>
 
+    <hr>
+
+    <section class="pagination">
+      <article class="pagination-item">
+        <a href="/pages/css/positions.html">
+          <i class="material-icons">arrow_back</i>Posicionamiento
+        </a>
+      </article>
+      <article class="pagination-item">
+        <a href="/pages/css/index.html#indice">Tabla de contenido CSS
+          <i class="material-icons">arrow_upward</i>
+        </a>
+      </article>
+      <article class="pagination-item">
+        <a href="/pages/css/units.html">Unidades en CSS
+          <i class="material-icons">arrow_forward</i>
+        </a>
+      </article>
+    </section>
+
+  </main>
+  <sergey-import src="footer" />
+  <script src="/assets/js/prism.js"></script>
 </body>
 
 </html>

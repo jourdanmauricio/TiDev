@@ -11,11 +11,11 @@ p.box-model {
   justify-content: space-around;
 }
 
-.p-container pre,
+/* .p-container pre,
 .p-container p {
   max-width: 45%;
   min-width: 350px;
-}
+} */
 
 .width_height p.aplica-wh {
   width: 400px;
@@ -38,6 +38,8 @@ p.box-model {
 .padding-margin .caja-dos {
   background-color: chocolate;
   border: medium solid orange;
+}
+.padding-margin .caja-dos {
   padding: 20px;
   margin: 20px;
 }

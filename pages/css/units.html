@@ -2,41 +2,20 @@
 <html lang="es">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Modelo de caja en CSS</title>
-  <meta name="description"
-    content="Esta página contiene los fundamentos básicos de CSS, utilízala como guía de referencia">
-  <link rel="stylesheet" href="/css/menu.css">
-  <link rel="stylesheet" href="/css/styles.css">
-  <link rel="stylesheet" href="/css/css/units.css">
-  <!-- CDN Material+Icons -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  <sergey-import src="metas/statics" />
+  <sergey-import src="metas/titles">TiDev unidades CSS</sergey-import>
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <link rel="stylesheet" href="/assets/css/menu.css">
+  <link rel="stylesheet" href="/assets/css/prism.css" />
+  <link rel="stylesheet" href="/assets/css/html/html.css">
+  <link rel="stylesheet" href="/assets/css/css/units.css">
 </head>
 
 <body>
+  <sergey-import src="header" />
 
-  <!-- https://www.youtube.com/watch?v=K3xmRF8ab1o&list=PLvq-jIkSeTUZYcX9SYwVe7f66afwd9qk_&index=2 -->
-  <header>
-    <nav class="menu-nav">
-      <a href="/index.html" class="enlace">
-        <label class="logo">Aprende</label>
-      </a>
-      <input type="checkbox" id="check">
-      <label for="check" class="checkbtn">
-        <i class="material-icons">menu</i>
-      </label>
-      <ul class="menu">
-        <li><a href="/index.html">Inicio</a></li>
-        <li><a href="/pages/html/html.html">HTML</a></li>
-        <li><a class="active" href="/pages/css/css.html">CSS</a></li>
-        <li><a href="/pages/js/javascript.html">JavaScript</a></li>
-        <li><a href="/pages/contacto.html">Contacto</a></li>
-      </ul>
-    </nav>
-  </header>
   <main class="container">
+
     <section>
       <h1>Unidades de medida en CSS</h1>
 
@@ -73,6 +52,7 @@
           target="_blank">http://pxtoem.com/</a></p>
 
       <hr>
+
       <article>
         <h2>Pixeles</h2>
         <p>El píxel es el elemento más pequeño de una imagen reproducida digitalmente. Es una 96ava del
@@ -81,190 +61,227 @@
         <p>El tamaño por defecto de tamaño de letra de los navegadores es de 16px. </p>
 
         <pre>
-&lt;div class="pixels"&gt;
-  Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus ad, obcaecati porro aperiam sit ullam itaque
-  fuga corrupti, impedit inventore eum! Quod consectetur adipisci veritatis, assumenda praesentium nobis quo
-  qui?
-&lt;/div&gt;
+          <code class="language-html">
+            &lt;div class="pixels"&gt;
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus ad, obcaecati porro aperiam sit ullam itaque
+              fuga corrupti, impedit inventore eum! Quod consectetur adipisci veritatis, assumenda praesentium nobis quo
+              qui?
+            &lt;/div&gt;
+          </code> 
+        </pre>
+        <pre>
+          <code class="language-css">
+            .pixels {
+              background-color: cadetblue;
+              width: 500px;
+              height: 150px;
+              padding: 20px;
+              border: 5px solid rebeccapurple;
+              font-size: 16px;
+            }
+          </code>
+        </pre>
 
-/* CSS */
-.pixels {
-  background-color: cadetblue;
-  width: 500px;
-  height: 150px;
-  padding: 20px;
-  border: 5px solid rebeccapurple;
-  font-size: 16px;
-}
-</pre>
         <div class="pixels">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus ad, obcaecati porro aperiam sit ullam itaque
-          fuga corrupti, impedit inventore eum! Quod consectetur adipisci veritatis, assumenda praesentium nobis quo
-          qui?
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus ad, obcaecati porro aperiam sit ullam
+          itaque fuga corrupti, impedit inventore eum! Quod consectetur adipisci veritatis, assumenda praesentium nobis
+          quo qui?
         </div>
 
         <p>Los pixeles pueden ser uilizados como unidad de medida en todos los elementos, en propiedades como width,
           height, padding, border, tamaño de letra, etc. </p>
 
-        <p>Para el tamaño de la letra es conveniente utilizar medidas relativas por el concepto de responsive design,
-          donde de acuerdo al tipo de dispositivo o resolución de pantalla el contenido tendrá que adaptarse. Si
-          utilizamos medidas absolutas el tamaño es fijo, utilizando medidas relativas el contenido se adaptará.
-        </p>
+        <p>Para el tamaño de la letra es conveniente utilizar medidas relativas por el concepto de responsive
+          design, donde de acuerdo al tipo de dispositivo o resolución de pantalla el contenido tendrá que adaptarse. Si
+          utilizamos medidas absolutas el tamaño es fijo, utilizando medidas relativas el contenido se adaptará. </p>
       </article>
+
       <hr>
+
       <article>
         <h2>EMs</h2>
-        <p>Basada en la anchura de la "m" de la fuente del elemento. Se basan en la letra m porque la m es el caracter
-          más ancho. </p>
+
+        <p>Basada en la anchura de la "m" de la fuente del elemento. Se basan en la letra m porque la m es el
+          caracter más ancho. </p>
 
         <p>Si el tamaño de fuente por defecto de los navegadoes es de 16px, entonces 1em son 16px.</p>
 
         <pre>
-&lt;div class="ems"&gt;
-  Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus ad, obcaecati porro aperiam sit ullam itaque
-  fuga corrupti, impedit inventore eum! Quod consectetur adipisci veritatis, assumenda praesentium nobis quo
-  qui?
-  &lt;section class="ems-child"&gt;Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione quo, sit sapiente
-    asperiores vero cumque officia necessitatibus qui ut voluptas magnam consectetur eligendi, incidunt unde
-    excepturi, ab itaque aliquam alias.&lt;/section&gt;
-&lt;/div&gt;
+          <code class="language-html">
+            &lt;div class="ems"&gt;
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus ad, obcaecati porro aperiam sit ullam itaque
+              fuga corrupti, impedit inventore eum! Quod consectetur adipisci veritatis, assumenda praesentium nobis quo
+              qui?
+              &lt;section class="ems-child"&gt;Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione quo, sit sapiente
+                asperiores vero cumque officia necessitatibus qui ut voluptas magnam consectetur eligendi, incidunt unde
+                excepturi, ab itaque aliquam alias.&lt;/section&gt;
+            &lt;/div&gt;
+          </code>
+        </pre>
+        <pre>
+          <code class="language-css">
+            .ems {
+              background-color: cadetblue;
+              border: 5px solid rebeccapurple;
+              font-size: 20px;
+              padding: 1em 0.5em;
+            }
+            .ems-child {
+              background-color: salmon;
+              border: thick solid beige;
+              font-size: 2em;
+              margin: 0.5em;
+              padding: 1em;
+            }
+          </code>
+        </pre>
 
-/* CSS */
-.ems {
-  background-color: cadetblue;
-  border: 5px solid rebeccapurple;
-  font-size: 20px;
-  padding: 1em 0.5em;
-}
-.ems-child {
-  background-color: salmon;
-  border: thick solid beige;
-  font-size: 2em;
-  margin: 0.5em;
-  padding: 1em;
-}
-</pre>
         <div class="ems">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus ad, obcaecati porro aperiam sit ullam itaque
-          fuga corrupti, impedit inventore eum! Quod consectetur adipisci veritatis, assumenda praesentium nobis quo
-          qui?
-          <section class="ems-child">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione quo, sit sapiente
-            asperiores vero cumque officia necessitatibus qui ut voluptas magnam consectetur eligendi, incidunt unde
-            excepturi, ab itaque aliquam alias.</section>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus ad, obcaecati porro aperiam sit ullam
+          itaque fuga corrupti, impedit inventore eum! Quod consectetur adipisci veritatis, assumenda praesentium nobis
+          quo qui?
+          <section class="ems-child">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione quo, sit
+            sapiente asperiores vero cumque officia necessitatibus qui ut voluptas magnam consectetur eligendi, incidunt
+            unde excepturi, ab itaque aliquam alias.</section>
         </div>
 
         <p>Para renderizar, el navegador, siempre utiliza pizeles. Podemos definir las medidas en unidades em.
-          Recordemos que inicialmente 1em = 16px; (por el tamaño default de fuente del navegador), pero si modificamos
-          el tamaño de fuente modificamos automáticamente el tamaño de 1em, ya que es una medida relativa a la letra m
-          de la fuente del elemento. Tomamos como referencia los pixeles porque es unidad en la que computa el
-          navegador.</p>
+          Recordemos que inicialmente 1em = 16px; (por el tamaño default de fuente del navegador), pero si
+          modificamos el tamaño de fuente modificamos automáticamente el tamaño de 1em, ya que es una medida relativa a
+          la letra m de la fuente del elemento. Tomamos como referencia los pixeles porque es unidad en la que computa
+          el navegador.</p>
 
-        <p>En el ejemplo definimos el tamaño base de fuente en 20px, y su caja interior utiliza un tamaño de fuente de
-          2em. Por lo tanto el tamaño de fuente en el hijo será de 40px;. <mark>Para saber cuál es el tamaño de letra
-            cuando utilizamos em siempre tenemos que ver el font-size del contenedor padre.</mark> </p>
-
+        <p>En el ejemplo definimos el tamaño base de fuente en 20px, y su caja interior utiliza un tamaño de fuente
+          de 2em. Por lo tanto el tamaño de fuente en el hijo será de 40px;. <mark>Para saber cuál es el tamaño de
+            letra cuando utilizamos em siempre tenemos que ver el font-size del contenedor padre.</mark> </p>
       </article>
+
       <hr>
+
       <article>
         <h2>Rems</h2>
-        <p>Se llaman rem porque están basados en el tamaño del caracter "m" pero del elemento raíz (root). La raíz es la
-          etiqueta html.</p>
+
+        <p>Se llaman rem porque están basados en el tamaño del caracter "m" pero del elemento raíz (root). La raíz
+          es la etiqueta html.</p>
 
         <p>La ventaja de los rems es que siempre estará basado en tamaño de letra del elemento html y no de su
           contenedor. Entonces, si no modificamos el tamaño de letra de elemento HTML 1rem siempre será 16px;.</p>
 
         <pre>
-&lt;div class="ems"&gt;
-  Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus ad, obcaecati porro aperiam sit ullam itaque
-  fuga corrupti, impedit inventore eum! Quod consectetur adipisci veritatis, assumenda praesentium nobis quo
-  qui?
-  &lt;section class="ems-child"&gt;Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione quo, sit sapiente
-    asperiores vero cumque officia necessitatibus qui ut voluptas magnam consectetur eligendi, incidunt unde
-    excepturi, ab itaque aliquam alias.&lt;/section&gt;
-&lt;/div&gt;
+          <code class="language-html">
+            &lt;div class="ems"&gt;
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus ad, obcaecati porro aperiam sit ullam itaque
+              fuga corrupti, impedit inventore eum! Quod consectetur adipisci veritatis, assumenda praesentium nobis quo
+              qui?
+              &lt;section class="ems-child"&gt;Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione quo, sit sapiente
+                asperiores vero cumque officia necessitatibus qui ut voluptas magnam consectetur eligendi, incidunt unde
+                excepturi, ab itaque aliquam alias.&lt;/section&gt;
+            &lt;/div&gt;
+          </code>
+        </pre>
+        <pre>
+          <code class="language-css">
+            .rems {
+              background-color: cadetblue;
+              border: 5px solid rebeccapurple;
+              font-size: 20px;
+              padding: 1em 0.5rem;
+            }
+            .rems-child {
+              background-color: salmon;
+              border: thick solid beige;
+              font-size: 2rem;
+              margin: 0.5rem;
+              padding: 1rem;
+            }
+          </code>
+        </pre>
 
-/* CSS */
-.rems {
-  background-color: cadetblue;
-  border: 5px solid rebeccapurple;
-  font-size: 20px;
-  padding: 1em 0.5rem;
-}
-.rems-child {
-  background-color: salmon;
-  border: thick solid beige;
-  font-size: 2rem;
-  margin: 0.5rem;
-  padding: 1rem;
-}
-</pre>
         <div class="rems">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus ad, obcaecati porro aperiam sit ullam itaque
-          fuga corrupti, impedit inventore eum! Quod consectetur adipisci veritatis, assumenda praesentium nobis quo
-          qui?
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus ad, obcaecati porro aperiam sit ullam
+          itaque fuga corrupti, impedit inventore eum! Quod consectetur adipisci veritatis, assumenda praesentium nobis
+          quo qui?
           <section class="rems-child">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione quo, sit
-            sapiente asperiores vero cumque officia necessitatibus qui ut voluptas magnam consectetur eligendi, incidunt
-            unde excepturi, ab itaque aliquam alias.</section>
+            sapiente asperiores vero cumque officia necessitatibus qui ut voluptas magnam consectetur eligendi,
+            incidunt unde excepturi, ab itaque aliquam alias.
+          </section>
         </div>
 
-        <p><mark>Como vemos modificamos el tamaño de fuente del contenedor a 20px, y el tamaño del hijo es de 2rem. En
-            este caso no será 40px como con los ems, sino que será de 32px porque toma como base el tamaño del elemento
-            html</mark>
+        <p><mark>Como vemos modificamos el tamaño de fuente del contenedor a 20px, y el tamaño del hijo es de 2rem.
+            En este caso no será 40px como con los ems, sino que será de 32px porque toma como base el tamaño del
+            elementos html</mark>
         </p>
       </article>
+
       <hr>
+
       <article>
         <h2>EXs</h2>
+
         <p>La diferencia con los ems es que los ems están basados en el ancho de la m y los exs están basados en la
           altura de la letra x, que es la letra más alta.</p>
-        <p>En la práctica está medida no se utiliza mucho. Al ser una medida poco utilizada ni siquiera existe la unidad
-          de medida rexs.</p>
+        <p>En la práctica está medida no se utiliza mucho. Al ser una medida poco utilizada ni siquiera existe la
+          unidad de medida rexs.</p>
         <p>Tambien toma como base la unidad de medida del contenedor padre.</p>
       </article>
+
       <hr>
+
       <article>
         <h2>CHs</h2>
-        <p>Los chs están basados en la anchura del 0 de la fuente del elemento. Supongamos que diseñamos un botón cuyo
-          contenido será una palabra de no más de 10 caracteres. En este caso los chs toman importancia.</p>
+
+        <p>Los chs están basados en la anchura del 0 de la fuente del elemento. Supongamos que diseñamos un botón
+          cuyo contenido será una palabra de no más de 10 caracteres. En este caso los chs toman importancia.</p>
 
         <p>Las unidades chs nos aseguran la cantidad de caracteres que entrarán en el elemento.</p>
 
         <pre>
-&lt;div class="chs"&gt;
-  1234567890
-&lt;/div&gt;
+          <code class="language-html">
+            &lt;div class="chs"&gt;
+              1234567890
+            &lt;/div&gt;
 
-&lt;div class="chs"&gt;
-a-cd.,ghij
-&lt;/div&gt;
-
-/* CSS */
-.chs {
-  background-color: cadetblue;
-  width: 10ch;
-}
-</pre>
+            &lt;div class="chs"&gt;
+            a-cd.,ghij
+            &lt;/div&gt;
+          </code>
+        </pre>
+        <pre>
+          <code class="language-css">
+            .chs {
+              background-color: cadetblue;
+              width: 10ch;
+            }
+          </code>
+        </pre>
 
         <div class="chs">1234567890</div>
         <div class="chs">a-cd.0ghxj</div>
         <p>Como vemos las unidades chs nos aseguran la cantidad de caracteres que entrarán.</p>
       </article>
+
       <hr>
+
       <article>
         <h2>Porcentajes</h2>
+
         <p>Cuando hablamos de porcentajes tenemos que tener en cuenta la naturaleza de la etiqueta.</p>
 
         <pre>
-&lt;div class="percentages"&gt;Caja de bloque&lt;/div&gt;
-&lt;span class="percentages"&gt;Caja de línea&lt;/span&gt;
-
-/* CSS */
-.percentages {
-  background-color: darkkhaki;
-  width: 50%;
-  height: 80%;  /* No aplica */
-}
-</pre>
+          <code class="language-html">
+            &lt;div class="percentages"&gt;Caja de bloque&lt;/div&gt;
+            &lt;span class="percentages"&gt;Caja de línea&lt;/span&gt;
+          </code>
+        </pre>
+        <pre>
+          <code class="language-css">
+            .percentages {
+              background-color: darkkhaki;
+              width: 50%;
+              height: 80%; /* No aplica */
+            }
+          </code>
+        </pre>
         <div class="percentages">Caja de bloque</div>
         <span class="percentages">Caja de línea</span>
 
@@ -282,42 +299,51 @@ a-cd.,ghij
           sobre la que aplicar un porcentaje. </p>
 
         <pre>
-&lt;div class="height-parent"&gt;
-  &lt;div class="height-child"&gt;
-    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quaerat non mollitia necessitatibus facere! Nam
-    vero laudantium quas doloremque tenetur, ab est blanditiis, consequuntur tempora, ratione debitis earum!
-    Praesentium, deleniti delectus.
-  &lt;/div&gt;
-&lt;/div&gt;
+          <code class="language-html">
+            &lt;div class="height-parent"&gt;
+              &lt;div class="height-child"&gt;
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quaerat non mollitia necessitatibus facere! Nam
+                vero laudantium quas doloremque tenetur, ab est blanditiis, consequuntur tempora, ratione debitis earum!
+                Praesentium, deleniti delectus.
+              &lt;/div&gt;
+            &lt;/div&gt;
+          </code>
+        </pre>
+        <pre>
+          <code class="language-css">
+            .height-parent {
+              background-color: brown;
+              width: 400px;
+              height: 400px;
+            }
+            .height-child {
+              background-color: coral;
+              width: 50%;
+              height: 50%;
+            }
+          </code>
+        </pre>
 
-/* CSS */
-.height-parent {
-  background-color: brown;
-  width: 400px;
-  height: 400px;
-}
-
-.height-child {
-  background-color: coral;
-  width: 50%;
-  height: 50%;
-}
-</pre>
         <div class="height-parent">
           <div class="height-child">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quaerat non mollitia necessitatibus facere! Nam
-            vero laudantium quas doloremque tenetur, ab est blanditiis, consequuntur tempora, ratione debitis earum!
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quaerat non mollitia necessitatibus facere!
+            Nam vero laudantium quas doloremque tenetur, ab est blanditiis, consequuntur tempora, ratione debitis earum!
             Praesentium, deleniti delectus.
           </div>
         </div>
 
-        <p>Como vemos al asignar una altura al elemento padre (contenedor), el hijo aplica la propiedad height al 50%.
-        </p>
+        <p>Como vemos al asignar una altura al elemento padre (contenedor), el hijo aplica la propiedad height al
+          50%. </p>
       </article>
+
       <hr>
+
       <article>
         <h2>Unidades del Viewport</h2>
-        <p>El viweport son las dimensiones de la pantalla disponible. Existen 4 unidades relacionadas al viewport.</p>
+
+        <p>El viweport son las dimensiones de la pantalla disponible. Existen 4 unidades relacionadas al viewport.
+        </p>
+
         <ul>
           <li>vw - ancho del viewport van de 1 a 100</li>
           <li>vh - alto del viewport van de 1 a 100</li>
@@ -325,62 +351,73 @@ a-cd.,ghij
           <li>vmin - entre vw y vh toma el que tenga menor valor</li>
         </ul>
 
-        <p>El vh soluciona el problema que teníamos al intentar aplicar % a la altura, ya que el viewport si posee una
-          altura definida.</p>
+        <p>El vh soluciona el problema que teníamos al intentar aplicar % a la altura, ya que el viewport si posee
+          una altura definida.</p>
 
         <p>Si queremos que un elemento ocupe la mitad de la pantalla, podemos asignar 50vh y no importará el
           dispositivo. Siempre será de la mitad de la pantalla. </p>
 
         <pre>
-&lt;div class="viewport"&gt;
-  Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempore ex vero quis vel at delectus minus placeat
-  debitis repellendus, asperiores fuga ea tempora, laudantium a nobis, dolores illo nam sed.
-&lt;/div&gt;
+          <code class="language-html">
+            &lt;div class="viewport"&gt;
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempore ex vero quis vel at delectus minus placeat
+              debitis repellendus, asperiores fuga ea tempora, laudantium a nobis, dolores illo nam sed.
+            &lt;/div&gt;
+          </code> 
+        </pre>
+        <pre>
+          <code class="language-css">
+            .viewport {
+              background-color: darkcyan;
+              width: 50vw;
+            /* Recuerda que la etiqueta body tiene margenes por defecto y */
+            /* que las barras de scroll del navegador también forman parte del viewport */
+              width: 100%;
+              width: 50vw;
+              height: 100vh;
+              height: 30vh;
+              font-size: 2vw;
+              padding: 2vh 2vw;
+            }
+          </code>
+        </pre>
 
-/* CSS */
-.viewport {
-  background-color: darkcyan;
-  width: 50vw;
-/* Recuerda que la etiqueta body tiene margenes por defecto y */
-/* que las barras de scroll del navegador también forman parte del viewport */
-  width: 100%;
-  width: 50vw;
-  height: 100vh;
-  height: 30vh;
-  font-size: 2vw;
-  padding: 2vh 2vw;
-}
-</pre>
         <div class="viewport">
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempore ex vero quis vel at delectus minus placeat
-          debitis repellendus, asperiores fuga ea tempora, laudantium a nobis, dolores illo nam sed.
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempore ex vero quis vel at delectus minus
+          placeat debitis repellendus, asperiores fuga ea tempora, laudantium a nobis, dolores illo nam sed.
         </div>
 
         <p>A diferencia de los porcentajes que se basan en relación de su contendor, las unidades viewport siempre
           utilizarán las medidas del viewport.</p>
 
         <p><mark>Cuando aplicamos unidades viewport al tamaño de la fuente estamos haciendo que la fuente varíe de
-            acuerdo al tamaño del dispositivo. Podemos ahcer un texto responsivo sin utiliza media querys.</mark></p>
+            acuerdo al tamaño del dispositivo. Podemos ahcer un texto responsivo sin utiliza media querys.</mark>
+        </p>
 
         <p>En la práctica no se utiliza mucho los valores vmax y vmin.</p>
 
         <pre>
-&lt;div class="vmax"&gt;
-  Caja vmax
-&lt;/div&gt;
-&lt;div class="vmin"&gt;
-  Caja vmin
-&lt;/div&gt;
+          <code class="language-html">
+            &lt;div class="vmax"&gt;
+              Caja vmax
+            &lt;/div&gt;
+            &lt;div class="vmin"&gt;
+              Caja vmin
+            &lt;/div&gt;
+          </code>
+        </pre>
+        <pre>
+          <code class="language-css">
+            .vmin,
+            .vmax {
+              background-color: darksalmon;
+              border: thick solid cyan;
+              width: 50vmax;
+              height: 50vmin;
+            }
+          </code>
+        </pre>
 
-/* CSS */
-.vmin,
-.vmax {
-  background-color: darksalmon;
-  border: thick solid cyan;
-  width: 50vmax;
-  height: 50vmin;
-}
-</pre>
         <div class="vmax">
           Caja vmax
         </div>
@@ -388,22 +425,46 @@ a-cd.,ghij
           Caja vmin
         </div>
       </article>
+
       <hr>
+
       <article>
         <h2>¿Cuándo usar cada unidad de medida?</h2>
+
         <p>Absolutas: si tenemos que diseñar una página para imprimir.</p>
-        <p>Relativas: Todos los aspectos realcionados a tipografía se recienda expresarlos en rems. En ocasiones para
-          los paddings y margenes conviene utilizar ems, sobre todo en las cards, cuando tenemos cards pequeñas,
+        <p>Relativas: Todos los aspectos realcionados a tipografía se recienda expresarlos en rems. En ocasiones
+          para los paddings y margenes conviene utilizar ems, sobre todo en las cards, cuando tenemos cards pequeñas,
           medianas y grandes. El padding y margin se adaptará al tamaño de letra del contenedor.</p>
         <p>Los porcentajes son fundamentales para tratar el diseño responsivo</p>
-        <p>Las unidades viewport nos servirán cuando queremos utilizar las medidas de la pantalla, para imagenes hero,
-          textos responsivos, etc.</p>
+        <p>Las unidades viewport nos servirán cuando queremos utilizar las medidas de la pantalla, para imagenes
+          hero, textos responsivos, etc.</p>
 
       </article>
     </section>
+
     <hr>
-    <a href="/pages/css/css.html#indice">👆</a>
+
+    <section class="pagination">
+      <article class="pagination-item">
+        <a href="/pages/css/colors.html">
+          <i class="material-icons">arrow_back</i>Colores en CSS
+        </a>
+      </article>
+      <article class="pagination-item">
+        <a href="/pages/css/index.html#indice">Tabla de contenido CSS
+          <i class="material-icons">arrow_upward</i>
+        </a>
+      </article>
+      <article class="pagination-item">
+        <a href="/pages/css/variables-functions.html">Viariables y funciones
+          <i class="material-icons">arrow_forward</i>
+        </a>
+      </article>
+    </section>
+
   </main>
+  <sergey-import src="footer" />
+  <script src="/assets/js/prism.js"></script>
 </body>
 
 </html>

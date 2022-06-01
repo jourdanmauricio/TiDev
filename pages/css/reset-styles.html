@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <sergey-import src="metas/statics" />
+  <sergey-import src="metas/titles">TiDev reseteo y normalización CSS</sergey-import>
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <link rel="stylesheet" href="/assets/css/menu.css">
+  <link rel="stylesheet" href="/assets/css/prism.css" />
+  <link rel="stylesheet" href="/assets/css/html/html.css">
+</head>
+
+<body>
+  <sergey-import src="header" />
+
+  <main class="container">
+
+    <section id="reset-styles">
+      <h1>Reseteo y Normalización de estilos</h1>
+
+      <p>El navegador asigna ciertos estilos por default a las etiquetas. Aunque en la actualidad los distintos
+        navegadores utilizan estilos iniciales similares, hace un tiempo tenían diferencias ocasionando que nuestra
+        página se renderice de distinta manera según el navegador. Para eliminar esos estilos podemos utilizar un
+        reseteo propio o utilizar algunas hojas de estilo predefinidas.</p>
+      <p>Los recursos más utlizados son: </p>
+      <ul>
+        <li><a href="https://meyerweb.com/eric/tools/css/reset/" rel="nofollow" target="_blank">Reset CSS</a>. Resetea a
+          cero algunos valores (margin, padding, etc) de etiquetas HTML.</li>
+        <li><a href="https://necolas.github.io/normalize.css/" rel="nofollow" target="_blank">Normalize CSS</a>. A
+          diferencia de reset css, normalize realiza una normalización de los valores. Todos los navegadores mostrarán
+          la página con los mismos estilos iniciales pero no tiene porque ser "sin estilo".</li>
+      </ul>
+
+      <p>Para utilizarlas podemos descargar el archivo .css (o crear un archivo y pegar el contenido) e invocarlo desde
+        el html. Tenemos que realizar la invocación a través de la etiqueta Link antes de llamar a nuestros estilos para
+        no sobreescribir nuestras definiciones. La cascada realizará su trabajo.</p>
+
+      <p>Si deseas definir los estilos desde cero para todos los elementos puedes utilizar Reset css, pero hay que tener
+        en cuanta que resetea hasta las dimensiones de los encabezados. Por ello, es mejor utilizar herramientas como
+        normalize porque unifica los estilos en los distintos navegadores pero no tendremos que definirlos desde cero.
+      </p>
+    </section>
+
+    <hr>
+
+    <section class="pagination">
+      <article class="pagination-item">
+        <a href="/pages/css/algoritmo.html">
+          <i class="material-icons">arrow_back</i>El algoritmo de CSS
+        </a>
+      </article>
+      <article class="pagination-item">
+        <a href="/pages/css/index.html#indice">Tabla de contenido CSS
+          <i class="material-icons">arrow_upward</i>
+        </a>
+      </article>
+      <article class="pagination-item">
+        <a href="/pages/css/prefix.html">Prefijos CSS
+          <i class="material-icons">arrow_forward</i>
+        </a>
+      </article>
+    </section>
+
+  </main>
+  <sergey-import src="footer" />
+  <script src="/assets/js/prism.js"></script>
+</body>
+
+</html>

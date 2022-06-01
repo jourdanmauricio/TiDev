@@ -2,39 +2,18 @@
 <html lang="es">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bordes y outlines</title>
-  <meta name="description"
-    content="Esta página contiene los fundamentos básicos de CSS, utilízala como guía de referencia">
-  <link rel="stylesheet" href="/css/menu.css">
-  <link rel="stylesheet" href="/css/styles.css">
-  <link rel="stylesheet" href="/css/css/border-outline.css">
-  <!-- CDN Material+Icons -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  <sergey-import src="metas/statics" />
+  <sergey-import src="metas/titles">Bordes y outlines</sergey-import>
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <link rel="stylesheet" href="/assets/css/menu.css">
+  <link rel="stylesheet" href="/assets/css/prism.css" />
+  <link rel="stylesheet" href="/assets/css/html/html.css">
+  <link rel="stylesheet" href="/assets/css/css/border-outline.css">
 </head>
 
 <body>
-  <!-- https://www.youtube.com/watch?v=K3xmRF8ab1o&list=PLvq-jIkSeTUZYcX9SYwVe7f66afwd9qk_&index=2 -->
-  <header>
-    <nav class="menu-nav">
-      <a href="/index.html" class="enlace">
-        <label class="logo">Aprende</label>
-      </a>
-      <input type="checkbox" id="check">
-      <label for="check" class="checkbtn">
-        <i class="material-icons">menu</i>
-      </label>
-      <ul class="menu">
-        <li><a href="/index.html">Inicio</a></li>
-        <li><a href="/pages/html/html.html">HTML</a></li>
-        <li><a class="active" href="/pages/css/css.html">CSS</a></li>
-        <li><a href="/pages/js/javascript.html">JavaScript</a></li>
-        <li><a href="/pages/contacto.html">Contacto</a></li>
-      </ul>
-    </nav>
-  </header>
+  <sergey-import src="header" />
+
   <main class="container">
 
     <section>
@@ -47,49 +26,56 @@
           Border-radius también es un shorthand.</p>
 
         <pre>
-&lt;div class="box border-radius-1"&gt;&lt;/div&gt;
-
-/* CSS */
-.box {
-  background-color: black;
-  width: 400px;
-  height: 400px;
-  margin-left: auto;
-  margin-right: auto;
-  border: thick solid red;
-}
-.border-radius-1 {
-  /* Apicando 4 valores */
-  border-top-left-radius: 4rem;
-  border-top-right-radius: 4rem;
-  border-bottom-right-radius: 4rem;
-  border-bottom-right-radius: 4rem;
-  /* Aplicando 2 valores */
-  border-radius: 2rem 4rem; /* (sup izq - inf der / sup der - inf izq) */
-  /* Aplicando 3 valores */
-  border-radius: 2rem 4rem 0rem; /* (sup izq / sup der - inf izq / inf der) */
-  /* Aplicando 4 valores */
-  border-radius: 4rem 3rem 2rem 1rem; /* Empieza sup izq y sigue las agujas del reloj */
-  border-radius: 2rem; /* Shorthand */
-}
-</pre>
+          <code class="language-html">
+            &lt;div class="box border-radius-1"&gt;&lt;/div&gt;
+          </code>
+        </pre>
+        <pre>
+          <code class="language-css">
+            .box {
+              background-color: black;
+              width: 400px;
+              height: 400px;
+              margin-left: auto;
+              margin-right: auto;
+              border: thick solid red;
+            }
+            .border-radius-1 {
+              /* Apicando 4 valores */
+              border-top-left-radius: 4rem;
+              border-top-right-radius: 4rem;
+              border-bottom-right-radius: 4rem;
+              border-bottom-right-radius: 4rem;
+              /* Aplicando 2 valores */
+              border-radius: 2rem 4rem; /* (sup izq - inf der / sup der - inf izq) */
+              /* Aplicando 3 valores */
+              border-radius: 2rem 4rem 0rem; /* (sup izq / sup der - inf izq / inf der) */
+              /* Aplicando 4 valores */
+              border-radius: 4rem 3rem 2rem 1rem; /* Empieza sup izq y sigue las agujas del reloj */
+              border-radius: 2rem; /* Shorthand */
+            }
+          </code>
+        </pre>
 
         <div class="box border-radius-1"></div>
 
         <p>También podemos aplicar <b>bordes elípticos</b> dividiendo cada valor en dos valores, uno para el radio en el
-          eje x
-          y otro para el eje y. Si detallamos por esquina, se utiliza el separador / colocando a la izquierda los
+          eje x y otro para el eje y. Si detallamos por esquina, se utiliza el separador / colocando a la izquierda los
           valores para x y a la derecha de la / los valores para y.</p>
 
         <pre>
-&lt;div class="box border-radius-2"&gt;&lt;/div&gt;
-
-/* CSS */
-.border-radius-2 {
-  border-radius: 2rem / 4rem;
-  border-radius: 2rem 4rem 0 / 4rem 8rem 0;
-}
-</pre>
+          <code class="language-html">
+            &lt;div class="box border-radius-2"&gt;&lt;/div&gt;
+          </code>
+        </pre>
+        <pre>
+          <code class="language-css">
+            .border-radius-2 {
+              border-radius: 2rem / 4rem;
+              border-radius: 2rem 4rem 0 / 4rem 8rem 0;
+            }
+          </code>
+        </pre>
 
         <div class="box border-radius-2"></div>
 
@@ -99,19 +85,26 @@
         </p>
 
         <pre>
-&lt;div class="box border-radius-3"&gt;&lt;/div&gt;
+          <code class="language-html">
+            &lt;div class="box border-radius-3"&gt;&lt;/div&gt;
+          </code>
+        </pre>
+        <pre>
+          <code class="language-css">
+            .border-radius-3 {
+              border-radius: 50%;
+            }
+          </code>  
+        </pre>
 
-/* CSS */
-.border-radius-3 {
-  border-radius: 50%;
-}
-</pre>
         <div class="box border-radius-3"></div>
-
       </article>
+
       <hr>
+
       <article>
         <h2>Outlines</h2>
+
         <p>Outline es un borde exterior. No existe dentro del modelo de caja. Sus propiedades son outline-width,
           outline-style, outline-color y outline-offset.</p>
 
@@ -124,29 +117,51 @@
         </p>
 
         <pre>
-&lt;div class="box outline"&gt;&lt;/div&gt;
-
-/* CSS */
-.outline {
-  outline-width: 5px;
-  outline-style: dotted;
-  outline-color: aquamarine;
-  outline: thick solid yellowgreen;
-  color: white;
-  text-align: center;
-  outline-offset: -2rem;
-}
-</pre>
+          <code class="language-html">
+            &lt;div class="box outline"&gt;&lt;/div&gt;
+          </code>
+        </pre>
+        <pre>
+          <code class="language-css">
+            .outline {
+              outline-width: 5px;
+              outline-style: dotted;
+              outline-color: aquamarine;
+              outline: thick solid yellowgreen;
+              color: white;
+              text-align: center;
+              outline-offset: -2rem;
+            }
+          </code>
+        </pre>
 
         <div class="box outline">Outline</div>
       </article>
-
     </section>
+
     <hr>
-    <a href="/pages/css/css.html#indice">👆</a>
+
+    <section class="pagination">
+      <article class="pagination-item">
+        <a href="/pages/css/fonts-texts.html">
+          <i class="material-icons">arrow_back</i>Fuentes y textos
+        </a>
+      </article>
+      <article class="pagination-item">
+        <a href="/pages/css/index.html#indice">Tabla de contenido CSS
+          <i class="material-icons">arrow_upward</i>
+        </a>
+      </article>
+      <article class="pagination-item">
+        <a href="/pages/css/backgrounds.html">Estilos del fondo en CSS
+          <i class="material-icons">arrow_forward</i>
+        </a>
+      </article>
+    </section>
 
   </main>
-
+  <sergey-import src="footer" />
+  <script src="/assets/js/prism.js"></script>
 </body>
 
 </html>

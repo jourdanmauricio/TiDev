@@ -17,7 +17,7 @@
 .slide-codigo {
   width: 100%;
   height: inherit;
-  background-color: #1e2345;
+  /* background-color: #1e2345; */
   /* scroll-snap-align: none | start | end | center; */
   scroll-snap-align: end;
 }

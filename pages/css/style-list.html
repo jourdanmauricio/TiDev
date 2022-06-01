@@ -2,43 +2,25 @@
 <html lang="es">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Estilos de Listas</title>
-  <meta name="description"
-    content="Esta página contiene los fundamentos básicos de CSS, utilízala como guía de referencia">
-  <link rel="stylesheet" href="/css/menu.css">
-  <link rel="stylesheet" href="/css/styles.css">
-  <link rel="stylesheet" href="/css/css/style-list.css">
-  <!-- CDN Material+Icons -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  <sergey-import src="metas/statics" />
+  <sergey-import src="metas/titles">Estilos de Listas</sergey-import>
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <link rel="stylesheet" href="/assets/css/menu.css">
+  <link rel="stylesheet" href="/assets/css/prism.css" />
+  <link rel="stylesheet" href="/assets/css/html/html.css">
+  <link rel="stylesheet" href="/assets/css/css/style-list.css">
 </head>
 
 <body>
-  <!-- https://www.youtube.com/watch?v=K3xmRF8ab1o&list=PLvq-jIkSeTUZYcX9SYwVe7f66afwd9qk_&index=2 -->
-  <header>
-    <nav class="menu-nav">
-      <a href="/index.html" class="enlace">
-        <label class="logo">Aprende</label>
-      </a>
-      <input type="checkbox" id="check">
-      <label for="check" class="checkbtn">
-        <i class="material-icons">menu</i>
-      </label>
-      <ul class="menu">
-        <li><a href="/index.html">Inicio</a></li>
-        <li><a href="/pages/html/html.html">HTML</a></li>
-        <li><a class="active" href="/pages/css/css.html">CSS</a></li>
-        <li><a href="/pages/js/javascript.html">JavaScript</a></li>
-        <li><a href="/pages/contacto.html">Contacto</a></li>
-      </ul>
-    </nav>
-  </header>
+  <sergey-import src="header" />
+
   <main class="container">
+
     <h1>Estilos de Listas y Texto en columnas</h1>
+
     <section>
-      <h2>Estilos de Listas</h2>
+      <h2>Estilos en Listas</h2>
+
       <p>Las propiedades que podemos utilizar para asignar estilos a las listas son: list-style-images,
         list-style-position, list-style-type y list-style.</p>
 
@@ -46,6 +28,7 @@
 
       <article>
         <h3>list-style-type</h3>
+
         <p>Define el tipo de viñeta de un elemento de lista. También se puede realizar utilizando el atributo type del
           elemento ul.</p>
 
@@ -62,18 +45,23 @@
         </ul>
 
         <pre>
-&lt;ul class="list"&gt;
-  &lt;li&gt;Primavera&lt;/li&gt;
-  &lt;li&gt;Verano&lt;/li&gt;
-  &lt;li&gt;Otoño&lt;/li&gt;
-  &lt;li&gt;Invierno&lt;/li&gt;
-&lt;/ul&gt;
+          <code class="language-html">
+            &lt;ul class="list"&gt;
+              &lt;li&gt;Primavera&lt;/li&gt;
+              &lt;li&gt;Verano&lt;/li&gt;
+              &lt;li&gt;Otoño&lt;/li&gt;
+              &lt;li&gt;Invierno&lt;/li&gt;
+            &lt;/ul&gt;
+          </code>
+        </pre>
+        <pre>
+          <code class="language-css">
+            .list {
+              list-style-type: square;
+            }
+          </code>
+        </pre>
 
-/* CSS */
-.list {
-  list-style-type: square;
-}
-</pre>
         <ul class="list">
           <li>Primavera</li>
           <li>Verano</li>
@@ -95,29 +83,33 @@
       </article>
       <article>
         <h3>list-style-position</h3>
-        <p></p>
+
         <li>list-style-position: outside; La viñeta estará fuera del elemento de la lista, como si no fuera parte del
           elemento de la lista. El inicio de cada línea de un elemento de la lista se alineará verticalmente</li>
         <li>list-style-position: inside; La viñeta estará dentro del elemento de la lista. Como es parte del elemento de
           la lista, será parte del texto y empujará el texto al principio.</li>
 
         <pre>
-&lt;ul class="list-2"&gt;
-  &lt;li&gt;Primavera&lt;/li&gt;
-  &lt;li&gt;Verano&lt;/li&gt;
-  &lt;li&gt;Otoño&lt;/li&gt;
-  &lt;li&gt;Invierno&lt;/li&gt;
-&lt;/ul&gt;
-
-/* CSS */
-.list-2 {
-  list-style-position: outside;
-  list-style-position: inside;
-}
-.list-2 li {
-  background-color: coral;
-}
-</pre>
+          <code class="language-html">
+            &lt;ul class="list-2"&gt;
+              &lt;li&gt;Primavera&lt;/li&gt;
+              &lt;li&gt;Verano&lt;/li&gt;
+              &lt;li&gt;Otoño&lt;/li&gt;
+              &lt;li&gt;Invierno&lt;/li&gt;
+            &lt;/ul&gt;
+          </code>
+        </pre>
+        <pre>
+          <code class="language-css">
+            .list-2 {
+              list-style-position: outside;
+              list-style-position: inside;
+            }
+            .list-2 li {
+              background-color: coral;
+            }
+          </code>
+        </pre>
 
         <ul class="list-2">
           <li>Primavera</li>
@@ -128,6 +120,9 @@
 
       </article>
     </section>
+
+    <hr>
+
     <section>
       <h2>Texto en columnas</h2>
 
@@ -140,27 +135,32 @@
         <p>Propiedades: column-count, column-rule, column-width y column-gap.</p>
 
         <pre>
-&lt;ol class="text-column-4"&gt;
-  &lt;li&gt;La Beriso&lt;/li&gt;
-  &lt;li&gt;Bersuit Vergarabat&lt;/li&gt;
-  &lt;li&gt;Las Blacanblus&lt;/li&gt;
-  &lt;li&gt;Callejeros&lt;/li&gt;
-  &lt;li&gt;Hermética&lt;/li&gt;
-  &lt;li&gt;Divididos&lt;/li&gt;
-  &lt;li&gt;La Mississippi&lt;/li&gt;
-  &lt;li&gt;Las Pelotas&lt;/li&gt;
-  &lt;li&gt;Pappo's Blues&lt;/li&gt;
-  &lt;li&gt;La Renga&lt;/li&gt;
-  &lt;li&gt;Los Piojos&lt;/li&gt;
-  &lt;li&gt;Catupecu Machu&lt;/li&gt;
-&lt;/ol&gt;          
+          <code class="language-html"> 
+            &lt;ol class="text-column-4"&gt;
+              &lt;li&gt;La Beriso&lt;/li&gt;
+              &lt;li&gt;Bersuit Vergarabat&lt;/li&gt;
+              &lt;li&gt;Las Blacanblus&lt;/li&gt;
+              &lt;li&gt;Callejeros&lt;/li&gt;
+              &lt;li&gt;Hermética&lt;/li&gt;
+              &lt;li&gt;Divididos&lt;/li&gt;
+              &lt;li&gt;La Mississippi&lt;/li&gt;
+              &lt;li&gt;Las Pelotas&lt;/li&gt;
+              &lt;li&gt;Pappo's Blues&lt;/li&gt;
+              &lt;li&gt;La Renga&lt;/li&gt;
+              &lt;li&gt;Los Piojos&lt;/li&gt;
+              &lt;li&gt;Catupecu Machu&lt;/li&gt;
+            &lt;/ol&gt;     
+          </code>
+        </pre>
+        <pre>
+          <code class="language-css">
+            .text-column-4 {
+              column-count: 4;
+              column-gap: 2rem;
+            }
+          </code>
+        </pre>
 
-/* CSS */
-.text-column-4 {
-  column-count: 4;
-  column-gap: 2rem;
-}
-</pre>
         <ol class="text-column-4">
           <li>La Beriso</li>
           <li>Bersuit Vergarabat</li>
@@ -190,10 +190,30 @@
       </article>
 
     </section>
+
     <hr>
-    <a href="/pages/css/css.html#indice">👆</a>
+
+    <section class="pagination">
+      <article class="pagination-item">
+        <a href="/pages/css/images.html">
+          <i class="material-icons">arrow_back</i>Estilos en imágenes
+        </a>
+      </article>
+      <article class="pagination-item">
+        <a href="/pages/css/index.html#indice">Tabla de contenido CSS
+          <i class="material-icons">arrow_upward</i>
+        </a>
+      </article>
+      <article class="pagination-item">
+        <a href="/pages/css/tables.html">Tablas en CSS
+          <i class="material-icons">arrow_forward</i>
+        </a>
+      </article>
+    </section>
 
   </main>
+  <sergey-import src="footer" />
+  <script src="/assets/js/prism.js"></script>
 </body>
 
 </html>

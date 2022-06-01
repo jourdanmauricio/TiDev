@@ -2,43 +2,22 @@
 <html lang="es">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Estilos del fondo en CSS</title>
-  <meta name="description"
-    content="Esta página contiene los fundamentos básicos de CSS, utilízala como guía de referencia">
-  <link rel="stylesheet" href="/css/menu.css">
-  <link rel="stylesheet" href="/css/styles.css">
-  <link rel="stylesheet" href="/css/css/backgrounds.css">
-  <!-- CDN Material+Icons -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  <sergey-import src="metas/statics" />
+  <sergey-import src="metas/titles">Estilos background en CSS</sergey-import>
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <link rel="stylesheet" href="/assets/css/menu.css">
+  <link rel="stylesheet" href="/assets/css/prism.css" />
+  <link rel="stylesheet" href="/assets/css/html/html.css">
+  <link rel="stylesheet" href="/assets/css/css/backgrounds.css">
 </head>
 
 <body>
-  <!-- https://www.youtube.com/watch?v=K3xmRF8ab1o&list=PLvq-jIkSeTUZYcX9SYwVe7f66afwd9qk_&index=2 -->
-  <header>
-    <nav class="menu-nav">
-      <a href="/index.html" class="enlace">
-        <label class="logo">Aprende</label>
-      </a>
-      <input type="checkbox" id="check">
-      <label for="check" class="checkbtn">
-        <i class="material-icons">menu</i>
-      </label>
-      <ul class="menu">
-        <li><a href="/index.html">Inicio</a></li>
-        <li><a href="/pages/html/html.html">HTML</a></li>
-        <li><a class="active" href="/pages/css/css.html">CSS</a></li>
-        <li><a href="/pages/js/javascript.html">JavaScript</a></li>
-        <li><a href="/pages/contacto.html">Contacto</a></li>
-      </ul>
-    </nav>
-  </header>
+  <sergey-import src="header" />
+
   <main class="container">
 
     <section>
-      <h1>Estilos del fondo en CSS</h1>
+      <h1>Estilos background en CSS</h1>
       <p>La propiedad background es un shorthand de con muchas variaciones, por eso es conveniente no utilizarla el
         shorthand.</p>
 
@@ -47,8 +26,10 @@
         <li>background-image: define la imagen de fondo del elemento</li>
         <li>background-size: define el tamaño de la imagen de fondo, primer valor x, segundo y</li>
         <ul>
-          <li>cover: cambia el tamaño de la imagen de fondo para asegurarse de que permanezca completamente visible</li>
-          <li>contain: cambia el tamaño de la imagen de fondo para asegurarse de que el elemento esté completamente
+          <li type="disc">cover: cambia el tamaño de la imagen de fondo para asegurarse de que permanezca completamente
+            visible</li>
+          <li type="disc">contain: cambia el tamaño de la imagen de fondo para asegurarse de que el elemento esté
+            completamente
             cubierto</li>
         </ul>
         <li>background-repeat: define cómo se repite la imagen de fondo en el elemento</li>
@@ -77,26 +58,33 @@
         </ul>
 
         <pre>
-&lt;div class="box bg-color"&gt;&lt;/div&gt;
+          <code class="language-html">
+            &lt;div class="box bg-color"&gt;&lt;/div&gt;
+          </code>
+        </pre>
+        <pre>
+          <code class="language-css">
+            .box {
+              width: 300px;
+              height: 300px;
+              margin-left: auto;
+              margin-right: auto;
+              border: thick dashed red;
+            }
+            .bg-color {
+              background-color: black;
+            }
+          </code>
+        </pre>
 
-/* CSS */
-.box {
-  width: 300px;
-  height: 300px;
-  margin-left: auto;
-  margin-right: auto;
-  border: thick dashed red;
-}
-.bg-color {
-  background-color: black;
-}
-</pre>
         <div class="box bg-color"></div>
 
         <hr>
 
         <h3>background-image</h3>
+
         <p>Define una imagen como fondo del elemento.</p>
+
         <ul>
           <li>background-image: none; Elimina cualquier imagen de fondo.</li>
           <li>background-image: url(/images/jt.png); Utiliza la imagen definida en la ruta de la URL. Esta ruta puede
@@ -120,14 +108,20 @@
           <li>background-image: radial-gradient(circle closest-side at 45px 45px, green 0%, purple 20%, orange 100%); Al
             igual que con la posición de fondo, podemos especificar la posición del degradado.</li>
         </ul>
-        <pre>
-&lt;div class="box bg-image"&gt;&lt;/div&gt;
 
-/* CSS */
-.bg-image {
-  background-image: url("/assets/images/puesta-sol.jpg");
-}
-</pre>
+        <pre>
+          <code class="language-html">
+            &lt;div class="box bg-image"&gt;&lt;/div&gt;
+          </code>
+        </pre>
+        <pre>
+          <code class="language-css">
+            .bg-image {
+              background-image: url("/assets/images/puesta-sol.jpg");
+            }
+          </code>
+        </pre>
+
         <div class="box bg-image"></div>
 
         <p>La imagen posee una resolución muy grande para las dimensiones del contenedor. Luego volveremos sobre este
@@ -136,6 +130,7 @@
         <hr>
 
         <h3>background-size</h3>
+
         <p>Define el tamaño de la imagen de fondo.</p>
 
         <ul>
@@ -152,20 +147,26 @@
         </ul>
 
         <pre>
-&lt;div class="box bg-size"&gt;&lt;/div&gt;
+          <code class="language-html">
+            &lt;div class="box bg-size"&gt;&lt;/div&gt;
+          </code>
+        </pre>
+        <pre>
+          <code class="language-css">
+            .bg-size {
+              background-image: url("/assets/images/puesta-sol.jpg");
+              background-size: 300px 200px;
+              background-size: 300px;
+              background-size: cover;
+              background-size: contain;
+            }
+          </code>
+        </pre>
 
-/* CSS */
-.bg-size {
-  background-image: url("/assets/images/puesta-sol.jpg");
-  background-size: 300px 200px;
-  background-size: 300px;
-  background-size: cover;
-  background-size: contain;
-}
-</pre>
         <div class="box bg-size"></div>
 
         <h3>background-repeat</h3>
+
         <p>Define cómo se repite la imagen de fondo en el fondo del elemento, comenzando desde la posición del fondo.
         </p>
 
@@ -177,20 +178,27 @@
         </ul>
 
         <pre>
-&lt;div class="box bg-repeat"&gt;&lt;/div&gt;
-/* CSS */
-.bg-size {
-  background-image: url("/assets/images/puesta-sol.jpg");
-  background-size: 200px;
-  background-repeat: repeat;
-  background-repeat: repeat-x;
-  background-repeat: repeat-y;
-  background-repeat: no-repeat;
-}
-</pre>
+          <code class="language-html">
+            &lt;div class="box bg-repeat"&gt;&lt;/div&gt;
+          </code>
+        </pre>
+        <pre>
+          <code class="language-css">
+            .bg-size {
+              background-image: url("/assets/images/puesta-sol.jpg");
+              background-size: 200px;
+              background-repeat: repeat;
+              background-repeat: repeat-x;
+              background-repeat: repeat-y;
+              background-repeat: no-repeat;
+            }
+          </code>
+        </pre>
+
         <div class="box bg-repeat"></div>
 
         <h3>bg-position</h3>
+
         <p>Define la posición de la imagen de fondo.</p>
 
         <ul>
@@ -200,33 +208,41 @@
             arriba, abajo, izquierda y derecha.</li>
           <li>background-position: center center; La imagen de fondo se colocará en el centro del elemento.</li>
         </ul>
-        <pre>
-&lt;div class="box bg-position"&gt;&lt;/div&gt;
 
-/* CSS */
-.bg-position {
-  background-color: skyblue;
-  background-image: url("/assets/images/puesta-sol.jpg");
-  background-size: 100px;
-  background-repeat: no-repeat;
-  background-position: 10px 20px;
-  background-position: 1rem 2rem;
-  background-position: 10% 20%;
-  background-position: 10%;
-  background-position: 10% center;
-  background-position: top center;
-  background-position: top right;
-  background-position: top left;
-  background-position: bottom center;
-  background-position: bottom right;
-  background-position: bottom left;
-  background-position: bottom;
-}
-</pre>
+        <pre>
+          <code class="language-html">
+            &lt;div class="box bg-position"&gt;&lt;/div&gt;
+          </code>
+        </pre>
+        <pre>
+          <code class="language-css">
+            .bg-position {
+              background-color: skyblue;
+              background-image: url("/assets/images/puesta-sol.jpg");
+              background-size: 100px;
+              background-repeat: no-repeat;
+              background-position: 10px 20px;
+              background-position: 1rem 2rem;
+              background-position: 10% 20%;
+              background-position: 10%;
+              background-position: 10% center;
+              background-position: top center;
+              background-position: top right;
+              background-position: top left;
+              background-position: bottom center;
+              background-position: bottom right;
+              background-position: bottom left;
+              background-position: bottom;
+            }
+          </code>
+        </pre>
+
         <div class="box bg-position"></div>
 
         <h3>background-clip</h3>
+
         <p>Define hasta dónde debe extenderse el fondo dentro del elemento.</p>
+
         <ul>
           <li>background-clip: border-box; El fondo se extiende completamente por todo el elemento, incluso debajo del
             borde.</li>
@@ -237,24 +253,30 @@
         </ul>
 
         <pre>
-&lt;div class="box bg-clip"&gt;&lt;/div&gt;
+          <code class="language-html">
+            &lt;div class="box bg-clip"&gt;&lt;/div&gt;
+          </code>
+        </pre>
+        <pre>
+          <code class="language-css">
+            .bg-clip {
+              background-color: skyblue;
+              background-image: url("/assets/images/puesta-sol.jpg");
+              background-repeat: no-repeat;
+              background-size: 200px;
+              background-size: cover;
+              background-clip: border-box; /* default */
+              background-clip: padding-box;
+              background-clip: content-box;
+              padding: 1rem;
+            }          
+          </code>
+        </pre>
 
-/* CSS */
-.bg-clip {
-  background-color: skyblue;
-  background-image: url("/assets/images/puesta-sol.jpg");
-  background-repeat: no-repeat;
-  background-size: 200px;
-  background-size: cover;
-  background-clip: border-box; /* default */
-  background-clip: padding-box;
-  background-clip: content-box;
-  padding: 1rem;
-}          
-</pre>
         <div class="box bg-clip"></div>
 
         <h3>background-origin</h3>
+
         <p>Define el origen de la imagen de fondo.</p>
 
         <ul>
@@ -266,24 +288,30 @@
         </ul>
 
         <pre>
-&lt;div class="box bg-origin"&gt;&lt;/div
+          <code class="language-html">
+            &lt;div class="box bg-origin"&gt;&lt;/div&gt;
+          </code>
+        </pre>
+        <pre>
+          <code class="language-css">
+            .bg-origin {
+              background-color: skyblue;
+              background-image: url("/assets/images/puesta-sol.jpg");
+              background-repeat: no-repeat;
+              background-size: 200px;
+              background-size: cover;
+              background-origin: padding-box; /* default */
+              background-origin: border-box;
+              background-origin: content-box;
+              padding: 1rem;
+            }
+          </code>
+        </pre>
 
-/* CSS */
-.bg-origin {
-  background-color: skyblue;
-  background-image: url("/assets/images/puesta-sol.jpg");
-  background-repeat: no-repeat;
-  background-size: 200px;
-  background-size: cover;
-  background-origin: padding-box; /* default */
-  background-origin: border-box;
-  background-origin: content-box;
-  padding: 1rem;
-}
-</pre>
         <div class="box bg-origin"></div>
 
         <h3>background-attachment</h3>
+
         <p>Define cómo se comportará la imagen de fondo al desplazarse por la página.</p>
 
         <ul>
@@ -295,31 +323,55 @@
         </ul>
 
         <pre>
-&lt;div class="box bg-attachment"&gt;&lt;
-
-/* CSS */
-.bg-attachment {
-  background-color: skyblue;
-  background-image: url("/assets/images/puesta-sol.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  width: 100%;
-  height: 50vh;
-  background-attachment: scroll;
-  background-attachment: fixed;
-  /* background: red; */
-}
-</pre>
+          <code class="language-html">
+            &lt;div class="box bg-attachment"&gt;&lt;
+          </code>
+        </pre>
+        <pre>
+          <code class="language-css">
+            .bg-attachment {
+              background-color: skyblue;
+              background-image: url("/assets/images/puesta-sol.jpg");
+              background-repeat: no-repeat;
+              background-size: cover;
+              width: 100%;
+              height: 50vh;
+              background-attachment: scroll;
+              background-attachment: fixed;
+              /* background: red; */
+            }
+          </code>
+        </pre>
 
         <div class="box bg-attachment"></div>
 
       </article>
     </section>
     <br><br><br><br><br><br><br><br><br><br>
+
     <hr>
-    <a href="/pages/css/css.html#indice">👆</a>
+
+    <section class="pagination">
+      <article class="pagination-item">
+        <a href="/pages/css/border-outline.html">
+          <i class="material-icons">arrow_back</i>Bordes y outlines
+        </a>
+      </article>
+      <article class="pagination-item">
+        <a href="/pages/css/index.html#indice">Tabla de contenido CSS
+          <i class="material-icons">arrow_upward</i>
+        </a>
+      </article>
+      <article class="pagination-item">
+        <a href="/pages/css/images.html">Estilos en imágenes
+          <i class="material-icons">arrow_forward</i>
+        </a>
+      </article>
+    </section>
 
   </main>
+  <sergey-import src="footer" />
+  <script src="/assets/js/prism.js"></script>
 </body>
 
 </html>

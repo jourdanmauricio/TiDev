@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <sergey-import src="metas/statics" />
+  <sergey-import src="metas/titles">TiDev prefijos CSS</sergey-import>
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <link rel="stylesheet" href="/assets/css/menu.css">
+  <link rel="stylesheet" href="/assets/css/prism.css" />
+  <link rel="stylesheet" href="/assets/css/html/html.css">
+</head>
+
+<body>
+  <sergey-import src="header" />
+
+  <main class="container">
+
+    <section id="prefix">
+      <h1>Prefijos de los navegadores</h1>
+
+      <p>HTML, CSS y JavaScript son los estándares web, no los tenemos que descargar a nuestros dispositivos para que
+        funcionen. Son estándares que se encuentran en los navegadores web, que son las tecnologías que entienden. Por
+        ello es que no tendremos que instalar nada, el navegador será capaz de interpretar estas tecnologías.</p>
+      <p>Los navegadores web son desarollados por distintas empresas (Chrome - Google, Firefox - Fundación Mozilla, Edge
+        - Microsoft, Safari - Apple).</p>
+      <p>La <a href="https://www.w3.org/" rel="nofollow" target="_blank">W3C</a> indica cuáles son los siguientes pasos
+        en relación a los estándares HTML, CSS y JavaScript. Cuando una implementación aún no posee soporte al 100%
+        pero se encuentra en etapa experimental podemos utilizar los prefijos para utilizarlas.</p>
+      <p>Prefijos de los navegadores</p>
+      <ul>
+        <li>Microsoft: <code><b>-ms-</b></code></li>
+        <li>Firefox: <code><b>-moz-</b></code></li>
+        <li>Para el resto: <code><b>-webkit-</b></code></li>
+      </ul>
+
+      <p>Una herramienta que nos permite determinar los prefijos necesarios es <a href="https://autoprefixer.github.io/"
+          rel="nofollow" target="_blank">autoprefixer</a></p>
+      <p>Cuando utilizamos herramientas como webpack que nos ayudan a empaquetar nuestra aplicación, automáticamente
+        podemos minificar el código, agregar los prefijos, ofuscar el código, etc. Por eso no tenemos que hacernos
+        demasiados problemas por los prefijos.</p>
+    </section>
+
+    <hr>
+
+    <section class="pagination">
+      <article class="pagination-item">
+        <a href="/pages/css/reset-styles.html">
+          <i class="material-icons">arrow_back</i>Reseteo y normalización
+        </a>
+      </article>
+      <article class="pagination-item">
+        <a href="/pages/css/index.html#indice">Tabla de contenido CSS
+          <i class="material-icons">arrow_upward</i>
+        </a>
+      </article>
+      <article class="pagination-item">
+        <a href="/pages/css/box-model.html">Modelo de caja
+          <i class="material-icons">arrow_forward</i>
+        </a>
+      </article>
+    </section>
+
+  </main>
+  <sergey-import src="footer" />
+  <script src="/assets/js/prism.js"></script>
+</body>
+
+</html>

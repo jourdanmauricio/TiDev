@@ -2,48 +2,29 @@
 <html lang="es">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tablas en CSS</title>
-  <meta name="description"
-    content="Esta página contiene los fundamentos básicos de CSS, utilízala como guía de referencia">
-  <link rel="stylesheet" href="/css/menu.css">
-  <link rel="stylesheet" href="/css/styles.css">
+  <sergey-import src="metas/statics" />
+  <sergey-import src="metas/titles">Tablas en CSS</sergey-import>
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <link rel="stylesheet" href="/assets/css/menu.css">
+  <link rel="stylesheet" href="/assets/css/prism.css" />
+  <link rel="stylesheet" href="/assets/css/html/html.css">
   <link rel="stylesheet" href="/css/css/tables.css">
-  <!-- CDN Material+Icons -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
 </head>
 
 <body>
-  <!-- https://www.youtube.com/watch?v=K3xmRF8ab1o&list=PLvq-jIkSeTUZYcX9SYwVe7f66afwd9qk_&index=2 -->
-  <header>
-    <nav class="menu-nav">
-      <a href="/index.html" class="enlace">
-        <label class="logo">Aprende</label>
-      </a>
-      <input type="checkbox" id="check">
-      <label for="check" class="checkbtn">
-        <i class="material-icons">menu</i>
-      </label>
-      <ul class="menu">
-        <li><a href="/index.html">Inicio</a></li>
-        <li><a href="/pages/html/html.html">HTML</a></li>
-        <li><a class="active" href="/pages/css/css.html">CSS</a></li>
-        <li><a href="/pages/js/javascript.html">JavaScript</a></li>
-        <li><a href="/pages/contacto.html">Contacto</a></li>
-      </ul>
-    </nav>
-  </header>
+  <sergey-import src="header" />
+
   <main class="container">
+
     <h1>Tablas en CSS</h1>
 
     <section>
-
       <p>Veremos algunas propiedades relacionadas con las tablas.</p>
 
       <h3>border-collapse;</h3>
+
       <p>Define si los bordes de la tabla se deben separar o colapsar.</p>
+
       <ul>
         <li>border-collapse: separate; Cada celda de la tabla mostrará sus propios bordes. En este ejemplo, cada celda
           tiene un ancho de borde de 4px. Como resultado, el borde entre dos celdas será de 8 px.</li>
@@ -80,50 +61,55 @@
         verticales) y de los espaciados (arriba, derecho, abajo o izquierdo) en una tabla.</p>
 
       <pre>
-border-collapse: separate;
-border-spacing: 10px 5px;
-</pre>
-
+        <code class="language-css">
+          border-collapse: separate;
+          border-spacing: 10px 5px;
+        </code>
+      </pre>
       <pre>
-&lt;table class="table"&gt;
-  &lt;tr&gt;
-    &lt;th&gt;A&lt;/th&gt;
-    &lt;th&gt;B&lt;/th&gt;
-    &lt;th&gt;C&lt;/th&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-    &lt;td&gt;1&lt;/td&gt;
-    &lt;td&gt;2&lt;/td&gt;
-    &lt;td&gt;3&lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-    &lt;td&gt;4&lt;/td&gt;
-    &lt;td&gt;5&lt;/td&gt;
-    &lt;td&gt;6&lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-    &lt;td&gt;7&lt;/td&gt;
-    &lt;td&gt;&lt;/td&gt;
-    &lt;td&gt;9&lt;/td&gt;
-  &lt;/tr&gt;
-&lt;/table&gt;  
+        <code class="language-html">
+          &lt;table class="table"&gt;
+            &lt;tr&gt;
+              &lt;th&gt;A&lt;/th&gt;
+              &lt;th&gt;B&lt;/th&gt;
+              &lt;th&gt;C&lt;/th&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+              &lt;td&gt;1&lt;/td&gt;
+              &lt;td&gt;2&lt;/td&gt;
+              &lt;td&gt;3&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+              &lt;td&gt;4&lt;/td&gt;
+              &lt;td&gt;5&lt;/td&gt;
+              &lt;td&gt;6&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+              &lt;td&gt;7&lt;/td&gt;
+              &lt;td&gt;&lt;/td&gt;
+              &lt;td&gt;9&lt;/td&gt;
+            &lt;/tr&gt;
+          &lt;/table&gt;  
+        </code>
+      </pre>
+      <pre>
+        <code class="language-css">
+          .table {
+            font-size: 2rem;
+            border-collapse: collapse;
+            border-collapse: separate; /* Default */
+            empty-cells: show; /* Default */
+            empty-cells: hide;
+          }
+          .table,
+          th,
+          td {
+            border: medium solid teal;
+            border-spacing: 1rem;
+          }
+        </code>
+      </pre>
 
-/* CSS */
-.table {
-  font-size: 2rem;
-  border-collapse: collapse;
-  border-collapse: separate; /* Default */
-  empty-cells: show; /* Default */
-  empty-cells: hide;
-}
-
-.table,
-th,
-td {
-  border: medium solid teal;
-  border-spacing: 1rem;
-}
-</pre>
       <table class="table">
         <tr>
           <th>A</th>
@@ -147,10 +133,30 @@ td {
         </tr>
       </table>
     </section>
+
     <hr>
-    <a href="/pages/css/css.html#indice">👆</a>
+
+    <section class="pagination">
+      <article class="pagination-item">
+        <a href="/pages/css/style-list.html">
+          <i class="material-icons">arrow_back</i>Estilos en listas
+        </a>
+      </article>
+      <article class="pagination-item">
+        <a href="/pages/css/index.html#indice">Tabla de contenido CSS
+          <i class="material-icons">arrow_upward</i>
+        </a>
+      </article>
+      <article class="pagination-item">
+        <a href="/pages/css/forms.html">Formularios en CSS
+          <i class="material-icons">arrow_forward</i>
+        </a>
+      </article>
+    </section>
 
   </main>
+  <sergey-import src="footer" />
+  <script src="/assets/js/prism.js"></script>
 </body>
 
 </html>
