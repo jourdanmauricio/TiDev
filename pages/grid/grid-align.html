@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <sergey-import src="metas/statics" />
+  <sergey-import src="metas/titles">Alineamiento de items</sergey-import>
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <link rel="stylesheet" href="/assets/css/menu.css">
+  <link rel="stylesheet" href="/assets/css/prism.css" />
+  <!-- <link rel="stylesheet" href="/assets/css/html/html.css"> -->
+  <link rel="stylesheet" href="/assets/css/css/grid-css.css">
+</head>
+
+<body>
+  <sergey-import src="header" />
+
+  <main class="container">
+
+    <section id="grid-align">
+      <h2>Alineamiento de Grid Items</h2>
+
+      <p>La propiedad justify-items define la alineación de los elementos en la fila, en el eje x. El valor por default
+        es strecth (que las celdas se estiren). </p>
+
+      <p>De la misma manera, la propiedad align-items define la alineación verticalmente (eje y) de todos los elementos.
+      </p>
+
+      <p>La alineación es del item con respecto a la celda.</p>
+
+      <p>Cuando deseamos alinear solo un item ocupamos las propiedades justify-self y align-self.</p>
+
+      <pre>
+        <code class="language-css">
+          justify-items: stretch | start | end | center;
+          align-items: stretch | start | end | center;
+          justify-self: stretch | start | end | center;
+          align-self: stretch | start | end | center;
+        </code>
+      </pre>
+
+      <pre>
+        <code class="language-css">
+          .grid-align {
+            display: grid;
+            grid-template-columns: repeat(3, 180px);
+            grid-template-rows: repeat(2, 150px);
+            height: 60vh;
+            /* justify-items: stretch | start | end | center; */
+            justify-items: center;
+            /* align-items: stretch | start | end | center; */ 
+            align-items: center;
+          }
+          .grid-align .item:nth-child(4) {
+            justify-self: start;
+            align-self: start;
+          }
+        </code>
+      </pre>
+
+      <section class="container-grid grid-align">
+        <article class="item">Grid Item 1</article>
+        <article class="item">Grid Item 2</article>
+        <article class="item">Grid Item 3</article>
+        <article class="item">Grid Item 4</article>
+        <article class="item">Grid Item 5</article>
+      </section>
+
+    </section>
+
+    <hr>
+
+    <section class="pagination">
+      <article class="pagination-item">
+        <a href="/pages/grid/grid-order.html">
+          <i class="material-icons">arrow_back</i>Ordenamiento de items
+        </a>
+      </article>
+      <article class="pagination-item">
+        <a href="/pages/grid/index.html#indice">Tabla de contenido Grid
+          <i class="material-icons">arrow_upward</i>
+        </a>
+      </article>
+      <article class="pagination-item">
+        <a href="/pages/grid/grid-align-tracks.html">Alineamiento de Grid Tracks
+          <i class="material-icons">arrow_forward</i>
+        </a>
+      </article>
+    </section>
+
+  </main>
+  <sergey-import src="footer" />
+  <script src="/assets/js/prism.js"></script>
+</body>
+
+</html>

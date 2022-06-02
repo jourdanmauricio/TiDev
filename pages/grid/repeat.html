@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <sergey-import src="metas/statics" />
+  <sergey-import src="metas/titles">La función repeat</sergey-import>
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <link rel="stylesheet" href="/assets/css/menu.css">
+  <link rel="stylesheet" href="/assets/css/prism.css" />
+  <!-- <link rel="stylesheet" href="/assets/css/html/html.css"> -->
+  <link rel="stylesheet" href="/assets/css/css/grid-css.css">
+</head>
+
+<body>
+  <sergey-import src="header" />
+
+  <main class="container">
+
+    <section id="repeat">
+      <h2>La función repeat() y las palabras clave</h2>
+
+      <pre>
+        <code class="language-css">
+          grid-template-columns:
+            1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+
+          /* easier: */
+          grid-template-columns:
+            repeat(8, 1fr);
+
+          /* especially when: */
+          grid-template-columns:
+            repeat(8, minmax(10px, 1fr));        
+        </code>
+      </pre>
+
+      <p>Pero repetir() puede volverse más elegante cuando se combina con palabras clave:</p>
+
+      <ul>
+        <li>auto-fill: Coloque tantas columnas como sea posible en una fila, incluso si están vacías.</li>
+        <li>auto-fit: Coloque las columnas que haya en el espacio. Prefiere expandir columnas para llenar el espacio en
+          lugar de columnas vacías.</li>
+      </ul>
+
+      <pre><code class="language-css">grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));</code></pre>
+    </section>
+
+    <hr>
+
+    <section class="pagination">
+      <article class="pagination-item">
+        <a href="/pages/grid/sizing-keywords-functions.html">
+          <i class="material-icons">arrow_back</i>Keywords y funciones de tamaño
+        </a>
+      </article>
+      <article class="pagination-item">
+        <a href="/pages/grid/index.html#indice">Tabla de contenido Grid
+          <i class="material-icons">arrow_upward</i>
+        </a>
+      </article>
+      <article class="pagination-item">
+        <a href="/pages/grid/grid-explicit.html">Grid explícita
+          <i class="material-icons">arrow_forward</i>
+        </a>
+      </article>
+    </section>
+
+  </main>
+  <sergey-import src="footer" />
+  <script src="/assets/js/prism.js"></script>
+</body>
+
+</html>

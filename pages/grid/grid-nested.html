@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <sergey-import src="metas/statics" />
+  <sergey-import src="metas/titles">Grids anidados</sergey-import>
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <link rel="stylesheet" href="/assets/css/menu.css">
+  <link rel="stylesheet" href="/assets/css/prism.css" />
+  <!-- <link rel="stylesheet" href="/assets/css/html/html.css"> -->
+  <link rel="stylesheet" href="/assets/css/css/grid-css.css">
+</head>
+
+<body>
+  <sergey-import src="header" />
+
+  <main class="container">
+
+    <section id="grid-nested">
+      <h2>Grids Anidados</h2>
+      <p></p>
+
+      <pre>
+        <code class="language-html">
+          &lt;section class="container-grid grid-nested"&gt;
+            &lt;article class="item grid-nested"&gt;
+              &lt;div class="sub-item"&gt;
+                &lt;p&gt;Grid Subitem Anidado 1&lt;/p&gt;
+              &lt;/div&gt;
+              &lt;div class="sub-item"&gt;
+                &lt;p&gt;Grid Subitem Anidado 2&lt;/p&gt;
+              &lt;/div&gt;
+              &lt;div class="sub-item"&gt;
+                &lt;p&gt;Grid Subitem Anidado 3&lt;/p&gt;
+              &lt;/div&gt;
+              &lt;div class="sub-item"&gt;
+                &lt;p&gt;Grid Subitem Anidado 4&lt;/p&gt;
+              &lt;/div&gt;
+              &lt;div class="sub-item"&gt;
+                &lt;p&gt;Grid Subitem Anidado 5&lt;/p&gt;
+              &lt;/div&gt;
+            &lt;/article&gt;
+            &lt;article class="item"&gt;
+              &lt;p&gt;Grid Item 2&lt;/p&gt;
+            &lt;/article&gt;
+            &lt;article class="item"&gt;
+              &lt;p&gt;Grid Item 3&lt;/p&gt;
+            &lt;/article&gt;
+            &lt;article class="item"&gt;
+              &lt;p&gt;Grid Item 4&lt;/p&gt;
+            &lt;/article&gt;
+            &lt;article class="item"&gt;
+              &lt;p&gt;Grid Item 5&lt;/p&gt;
+            &lt;/article&gt;
+          &lt;/section&gt;
+        </code>
+      </pre>
+      <pre>
+        <code class="language-css">
+          .grid-nested {
+            display: grid;
+            /* Grid 4cols x ?  No definimos filas */
+            grid-template-columns: repeat(3, 1fr);
+          }
+          .sub-item {
+            padding: 1rem;
+            background-color: #ddd;
+            border: medium solid #ccc;
+          }
+        </code>
+      </pre>
+
+      <section class="container-grid grid-nested">
+        <article class="item grid-nested">
+          <div class="sub-item">
+            <p>Grid Subitem Anidado 1</p>
+          </div>
+          <div class="sub-item">
+            <p>Grid Subitem Anidado 2</p>
+          </div>
+          <div class="sub-item">
+            <p>Grid Subitem Anidado 3</p>
+          </div>
+          <div class="sub-item">
+            <p>Grid Subitem Anidado 4</p>
+          </div>
+          <div class="sub-item">
+            <p>Grid Subitem Anidado 5</p>
+          </div>
+        </article>
+        <article class="item">
+          <p>Grid Item 2</p>
+        </article>
+        <article class="item">
+          <p>Grid Item 3</p>
+        </article>
+        <article class="item">
+          <p>Grid Item 4</p>
+        </article>
+        <article class="item">
+          <p>Grid Item 5</p>
+        </article>
+      </section>
+    </section>
+
+    <hr>
+
+    <section class="pagination">
+      <article class="pagination-item">
+        <a href="/pages/grid/grid-responsive.html">
+          <i class="material-icons">arrow_back</i>Responsive sin media queries
+        </a>
+      </article>
+      <article class="pagination-item">
+        <a href="/pages/grid/index.html#indice">Tabla de contenido Grid
+          <i class="material-icons">arrow_upward</i>
+        </a>
+      </article>
+      <article class="pagination-item">
+        <a href="/pages/grid/subgrid.html">Subgrids
+          <i class="material-icons">arrow_forward</i>
+        </a>
+      </article>
+    </section>
+
+  </main>
+  <sergey-import src="footer" />
+  <script src="/assets/js/prism.js"></script>
+</body>
+
+</html>

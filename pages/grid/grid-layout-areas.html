@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <sergey-import src="metas/statics" />
+  <sergey-import src="metas/titles">Grid layout con áreas</sergey-import>
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <link rel="stylesheet" href="/assets/css/menu.css">
+  <link rel="stylesheet" href="/assets/css/prism.css" />
+  <!-- <link rel="stylesheet" href="/assets/css/html/html.css"> -->
+  <link rel="stylesheet" href="/assets/css/css/grid-css.css">
+</head>
+
+<body>
+  <sergey-import src="header" />
+
+  <main class="container">
+
+    <section id="grid-layout-areas">
+      <h2>Grid Layout con Áreas</h2>
+      <p>Realizaremos el mismo layout que en el apartado anterior pero empleando</p>
+
+      <pre>
+        <code class="language-css">
+          body {
+            margin: 0;
+            min-height: 100vh;
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            grid-template-rows: 12vh repeat(3, 1fr) 12vh;
+            grid-template-areas:
+              "header header header header header header"
+              "nav nav nav nav nav nav"
+              "uc-left uc-left uc-center uc-center uc-right uc-right "
+              "middle middle middle lower lower lower"
+              "footer footer footer footer footer footer"
+          }
+          body>* {
+            background-color: #666;
+            border: medium solid #222;
+          }
+          h2 {
+            text-align: center;
+          }
+          .header {
+            grid-area: header;
+          }
+          .nav {
+            grid-area: nav;
+          }
+          .uc-left {
+            grid-area: uc-left;
+          }
+          .uc-center {
+            grid-area: uc-center;
+          }
+          .uc-right {
+            grid-area: uc-right;
+          }
+          .middle {
+            grid-area: middle;
+          }
+          .lower {
+            grid-area: lower;
+          }
+          .footer {
+            grid-area: footer;
+          }
+          @media screen and (min-width: 990px) {
+            body {
+              grid-template-columns: repeat(5, 1fr);
+              grid-template-rows: 12vh repeat(3, 1fr) 12vh;
+              grid-template-areas:
+                "header header header header header"
+                "nav uc-left uc-center uc-center uc-right"
+                "nav middle middle middle middle"
+                "nav lower lower lower lower"
+                "footer footer footer footer footer";
+            }
+          }
+        </code>
+      </pre>
+
+      <a href="/pages/grid/grid_layout_areas.html" target="_blank">Ver ejemplo</a>
+    </section>
+
+    <hr>
+
+    <section class="pagination">
+      <article class="pagination-item">
+        <a href="/pages/grid/grid-layout.html">
+          <i class="material-icons">arrow_back</i>Grid layouts
+        </a>
+      </article>
+      <article class="pagination-item">
+        <a href="/pages/grid/index.html#indice">Tabla de contenido Grid
+          <i class="material-icons">arrow_upward</i>
+        </a>
+      </article>
+      <article class="pagination-item">
+        <a href="/pages/grid/more.html">Más recursos
+          <i class="material-icons">arrow_forward</i>
+        </a>
+      </article>
+    </section>
+
+  </main>
+  <sergey-import src="footer" />
+  <script src="/assets/js/prism.js"></script>
+</body>
+
+</html>

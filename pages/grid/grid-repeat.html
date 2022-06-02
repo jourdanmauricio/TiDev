@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <sergey-import src="metas/statics" />
+  <sergey-import src="metas/titles">Grid con patrones repetitivos</sergey-import>
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <link rel="stylesheet" href="/assets/css/menu.css">
+  <link rel="stylesheet" href="/assets/css/prism.css" />
+  <!-- <link rel="stylesheet" href="/assets/css/html/html.css"> -->
+  <link rel="stylesheet" href="/assets/css/css/grid-css.css">
+</head>
+
+<body>
+  <sergey-import src="header" />
+
+  <main class="container">
+
+    <section id="grid-repeat">
+      <h2>Grid con Patrones Repetitivos</h2>
+      <p>Para ejemplificar los patrones utilizaremos la grid de 19 elementos y un patrón repetitivo por filas con un
+        alto de 10 y 20% del viewport. En las columnas aplicamos un patrón de 300px y 200px.</p>
+
+      <pre>
+        <code class="language-css">
+          .grid-repeat {
+            display: grid;
+            /* Grid 4cols x ?  No definimos cantidad de filas */
+            grid-template-columns: repeat(2, 300px 200px);
+            grid-template-rows: repeat(2, 10vh 20vh);
+          }
+        </code>
+      </pre>
+
+      <section class="container-grid grid-repeat">
+        <article class="item">
+          <p>Grid Item 1</p>
+        </article>
+        <article class="item">
+          <p>Grid Item 2</p>
+        </article>
+        <article class="item">
+          <p>Grid Item 3</p>
+        </article>
+        <article class="item">
+          <p>Grid Item 4</p>
+        </article>
+        <article class="item">
+          <p>Grid Item 5</p>
+        </article>
+        <article class="item">
+          <p>Grid Item 6</p>
+        </article>
+        <article class="item">
+          <p>Grid Item 7</p>
+        </article>
+        <article class="item">
+          <p>Grid Item 8</p>
+        </article>
+        <article class="item">
+          <p>Grid Item 9</p>
+        </article>
+        <article class="item">
+          <p>Grid Item 10</p>
+        </article>
+        <article class="item">
+          <p>Grid Item 11</p>
+        </article>
+        <article class="item">
+          <p>Grid Item 12</p>
+        </article>
+        <article class="item">
+          <p>Grid Item 13</p>
+        </article>
+        <article class="item">
+          <p>Grid Item 14</p>
+        </article>
+        <article class="item">
+          <p>Grid Item 15</p>
+        </article>
+        <article class="item">
+          <p>Grid Item 16</p>
+        </article>
+        <article class="item">
+          <p>Grid Item 17</p>
+        </article>
+        <article class="item">
+          <p>Grid Item 18</p>
+        </article>
+        <article class="item">
+          <p>Grid Item 19</p>
+        </article>
+      </section>
+    </section>
+
+    <hr>
+
+    <section class="pagination">
+      <article class="pagination-item">
+        <a href="/pages/grid/grid-min-max.html">
+          <i class="material-icons">arrow_back</i>Tamaños max y min de tracks
+        </a>
+      </article>
+      <article class="pagination-item">
+        <a href="/pages/grid/index.html#indice">Tabla de contenido Grid
+          <i class="material-icons">arrow_upward</i>
+        </a>
+      </article>
+      <article class="pagination-item">
+        <a href="/pages/grid/grid-dynamics.html">Grids dinámicas
+          <i class="material-icons">arrow_forward</i>
+        </a>
+      </article>
+    </section>
+
+  </main>
+  <sergey-import src="footer" />
+  <script src="/assets/js/prism.js"></script>
+</body>
+
+</html>

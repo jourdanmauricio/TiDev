@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <sergey-import src="metas/statics" />
+  <sergey-import src="metas/titles">Grid layout</sergey-import>
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <link rel="stylesheet" href="/assets/css/menu.css">
+  <link rel="stylesheet" href="/assets/css/prism.css" />
+  <!-- <link rel="stylesheet" href="/assets/css/html/html.css"> -->
+  <link rel="stylesheet" href="/assets/css/css/grid-css.css">
+</head>
+
+<body>
+  <sergey-import src="header" />
+
+  <main class="container">
+
+    <section id="grid-layout">
+      <h1>Grid Layout con Líneas</h1>
+
+      <p>Maquetaremos un layout responsive utilizando las líneas de la grid.</p>
+
+      <pre>
+        <code class="language-html">
+          &lt;body&gt;
+            &lt;header class="header"&gt;
+              &lt;h2&gt;Header&lt;/h2&gt;
+            &lt;/header&gt;
+
+            &lt;nav class="nav"&gt;
+              &lt;h2&gt;Nav&lt;/h2&gt;
+            &lt;/nav&gt;
+
+            &lt;article class="uc-left"&gt;
+              &lt;h2&gt;Upper Content Left&lt;/h2&gt;
+            &lt;/article&gt;
+
+            &lt;article class="uc-center"&gt;
+              &lt;h2&gt;Upper Content Center&lt;/h2&gt;
+            &lt;/article&gt;
+
+            &lt;article class="uc-right"&gt;
+              &lt;h2&gt;Upper Content Right&lt;/h2&gt;
+            &lt;/article&gt;
+
+            &lt;article class="middle"&gt;
+              &lt;h2&gt;Middle Content&lt;/h2&gt;
+            &lt;/article&gt;
+
+            &lt;article class="lower"&gt;
+              &lt;h2&gt;Lower Content&lt;/h2&gt;
+            &lt;/article&gt;
+
+            &lt;footer class="footer"&gt;
+              &lt;h2&gt;Footer&lt;/h2&gt;
+            &lt;/footer&gt;
+          &lt;/body&gt;
+        </code>
+      </pre>
+      <pre>
+        <code class="language-css">
+          html {
+            box-sizing: border-box;
+            font-size: 16px;
+            font-family: sans-serif;
+          }
+          *,
+          *::after,
+          *::before {
+            box-sizing: inherit;
+          }
+          body {
+            margin: 0;
+            min-height: 100vh;
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            grid-template-rows: 12vh repeat(3, 1fr) 12vh;
+          }
+          body>* {
+            background-color: #666;
+            border: medium solid #222;
+          }
+          h2 {
+            text-align: center;
+          }
+          .header {
+            grid-row: span 1;
+            grid-column: span 6;
+          }
+          .nav {
+            grid-row: span 1;
+            grid-column: span 6;
+          }
+          .uc-left {
+            grid-column: span 2;
+            grid-row: span 1;
+          }
+          .uc-center {
+            grid-column: span 2;
+            grid-row: span 1;
+          }
+          .uc-right {
+            grid-column: span 2;
+            grid-row: span 1;
+          }
+          .middle {
+            grid-column: span 3;
+            grid-row: span 1;
+          }
+          .lower {
+            grid-column: span 3;
+            grid-row: span 1;
+          }
+          .footer {
+            grid-column: span 6;
+            grid-row: span 6;
+          }
+          @media screen and (min-width: 990px) {
+            body {
+              grid-template-columns: repeat(5, 1fr);
+              /* grid-template-rows: repeat(5, auto); */
+              grid-template-rows: 12vh repeat(3, 1fr) 12vh;
+            }
+            .header {
+              grid-column: span 5;
+              grid-row: span 1;
+            }  
+            .nav {
+              grid-column: 1 / 2;
+              grid-row: 2 / 5;
+            }
+            .uc-left {
+              grid-column: 2 / 3;
+              grid-row: 2 / 3;
+            }
+            .uc-center {
+              grid-column: 3 / 5;
+              grid-row: 2 / 3;
+            }
+            .uc-right {
+              grid-column: 5 / 6;
+              grid-row: 2 / 3;
+            }
+            .middle {
+              grid-column: 2 / 6;
+              grid-row: 3 / 4;
+            }
+            .lower {
+              grid-column: 2 / 6;
+              grid-row: 4 / 5;
+            }
+            .footer {
+              grid-column: span 6;
+              grid-row: span 6;
+            }
+          }  
+        </code>      
+      </pre>
+
+      <a href="/pages/grid/grid_layout.html" target="_blank">Ver ejemplo</a>
+    </section>
+
+    <hr>
+
+    <section class="pagination">
+      <article class="pagination-item">
+        <a href="/pages/grid/subgrid.html">
+          <i class="material-icons">arrow_back</i>Subgrids
+        </a>
+      </article>
+      <article class="pagination-item">
+        <a href="/pages/grid/index.html#indice">Tabla de contenido Grid
+          <i class="material-icons">arrow_upward</i>
+        </a>
+      </article>
+      <article class="pagination-item">
+        <a href="/pages/grid/grid-layout-areas.html">Grid layouts con áreas
+          <i class="material-icons">arrow_forward</i>
+        </a>
+      </article>
+    </section>
+
+  </main>
+  <sergey-import src="footer" />
+  <script src="/assets/js/prism.js"></script>
+</body>
+
+</html>

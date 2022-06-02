@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <sergey-import src="metas/statics" />
+  <sergey-import src="metas/titles">Grid con Áreas</sergey-import>
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <link rel="stylesheet" href="/assets/css/menu.css">
+  <link rel="stylesheet" href="/assets/css/prism.css" />
+  <!-- <link rel="stylesheet" href="/assets/css/html/html.css"> -->
+  <link rel="stylesheet" href="/assets/css/css/grid-css.css">
+</head>
+
+<body>
+  <sergey-import src="header" />
+
+  <main class="container">
+
+    <section id="grid-areas">
+      <h2>Grid con Áreas</h2>
+      <p>Podemos asignar nombres de áreas.</p>
+
+      <pre>
+        <code class="language-html">
+          &lt;section class="container-grid container-grid-areas grid-areas"&gt;
+            &lt;header class="item header"&gt;
+              &lt;p&gt;Header&lt;/p&gt;
+            &lt;/header&gt;
+            &lt;article class="item content"&gt;
+              &lt;p&gt;Content&lt;/p&gt;
+            &lt;/article&gt;
+            &lt;aside class="item sidebar"&gt;
+              &lt;p&gt;SideBar&lt;/p&gt;
+            &lt;/aside&gt;
+            &lt;footer class="item footer"&gt;
+              &lt;p&gt;Footer&lt;/p&gt;
+            &lt;/footer&gt;
+          &lt;/section&gt;        
+        </code>
+      </pre>
+      <pre>
+        <code class="language-css">
+          .container-grid-areas {
+            height: 80vh;
+          }
+          .grid-areas {
+            display: grid;
+            /* Grid 2x4 */
+            grid-template-columns: 1fr 200px;
+            grid-template-rows: 100px 1fr 1fr 60px;
+            grid-template-areas:
+              "header header"
+              "content sidebar"
+              "content ."
+              "footer footer";
+          }
+          .header {
+            grid-area: header;
+          }
+          .content {
+            grid-area: content;
+          }
+          .sidebar {
+            grid-area: sidebar;
+          }
+          .footer {
+            grid-area: footer;
+          }
+        </code>
+      </pre>
+      <section class="container-grid container-grid-areas grid-areas">
+        <header class="item header">
+          <p>Header</p>
+        </header>
+        <article class="item content">
+          <p>Content</p>
+        </article>
+        <aside class="item sidebar">
+          <p>SideBar</p>
+        </aside>
+        <section class="item footer">
+          <p>Footer</p>
+          </footer>
+        </section>
+      </section>
+
+      <hr>
+
+      <section class="pagination">
+        <article class="pagination-item">
+          <a href="/pages/grid/grid-line-names.html">
+            <i class="material-icons">arrow_back</i>Grid con Nombres de Línea
+          </a>
+        </article>
+        <article class="pagination-item">
+          <a href="/pages/grid/index.html#indice">Tabla de contenido Grid
+            <i class="material-icons">arrow_upward</i>
+          </a>
+        </article>
+        <article class="pagination-item">
+          <a href="/pages/grid/grid-implicit.html">Grid implícita
+            <i class="material-icons">arrow_forward</i>
+          </a>
+        </article>
+      </section>
+
+  </main>
+  <sergey-import src="footer" />
+  <script src="/assets/js/prism.js"></script>
+</body>
+
+</html>

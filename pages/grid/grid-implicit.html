@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <sergey-import src="metas/statics" />
+  <sergey-import src="metas/titles">Grid implícita</sergey-import>
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <link rel="stylesheet" href="/assets/css/menu.css">
+  <link rel="stylesheet" href="/assets/css/prism.css" />
+  <!-- <link rel="stylesheet" href="/assets/css/html/html.css"> -->
+  <link rel="stylesheet" href="/assets/css/css/grid-css.css">
+</head>
+
+<body>
+  <sergey-import src="header" />
+
+  <main class="container">
+
+    <section id="grid-implicit">
+      <h1>Grid Implícita</h1>
+
+      <p>Hablamos de grid explícita cuando definimos filas y columnas en el contenedor grid. Pero si no sabemos la
+        cantidad de elementos hijos a incorporar nos referimos a grid implícitas.</p>
+
+      <p>Cuando incorporamos más elementos hijos a un grid que ya no posee lugar, el navegador continua apilando los
+        elementos en la grid aunque ya no se encuentre defnida.</p>
+
+      <p>Si agregamos 19 elementos con una altura fija de 200px a una grid de 4x3 (12 elementos), los primeros 12
+        elementos conservarán su altura y se acomodarán en las 3 filas definidas. Los 7 elementos restantes se agregarán
+        a la grid en nuevas filas pero utilizarán la altura definida por default (la altura de su contenido).</p>
+
+      <pre>
+        <code class="language-css">
+          .grid-implicit {
+            /* Grid 4x3 */
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(3, 200px);
+          }
+        </code>
+      </pre>
+
+      <section class="container-grid grid-implicit">
+        <article class="item">
+          <p>Grid Item 1</p>
+        </article>
+        <article class="item">
+          <p>Grid Item 2</p>
+        </article>
+        <article class="item">
+          <p>Grid Item 3</p>
+        </article>
+        <article class="item">
+          <p>Grid Item 4</p>
+        </article>
+        <article class="item">
+          <p>Grid Item 5</p>
+        </article>
+        <article class="item">
+          <p>Grid Item 6</p>
+        </article>
+        <article class="item">
+          <p>Grid Item 7</p>
+        </article>
+        <article class="item">
+          <p>Grid Item 8</p>
+        </article>
+        <article class="item">
+          <p>Grid Item 9</p>
+        </article>
+        <article class="item">
+          <p>Grid Item 10</p>
+        </article>
+        <article class="item">
+          <p>Grid Item 11</p>
+        </article>
+        <article class="item">
+          <p>Grid Item 12</p>
+        </article>
+        <article class="item">
+          <p>Grid Item 13</p>
+        </article>
+        <article class="item">
+          <p>Grid Item 14</p>
+        </article>
+        <article class="item">
+          <p>Grid Item 15</p>
+        </article>
+        <article class="item">
+          <p>Grid Item 16</p>
+        </article>
+        <article class="item">
+          <p>Grid Item 17</p>
+        </article>
+        <article class="item">
+          <p>Grid Item 18</p>
+          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam quia tempora sapiente, dicta aliquid nihil
+            aspernatur sunt.</p>
+        </article>
+        <article class="item">
+          <p>Grid Item 19</p>
+        </article>
+      </section>
+
+      <p>La propiedad display (para grid) puede tomar los valores grid e inline-grid. El valor grid otorga el
+        comportamiento de bloque "hacia fuera", en cambio inline-grid se comporta en línea.</p>
+
+    </section>
+
+    <hr>
+
+    <section class="pagination">
+      <article class="pagination-item">
+        <a href="/pages/grid/grid-areas.html">
+          <i class="material-icons">arrow_back</i>Grid con Áreas
+        </a>
+      </article>
+      <article class="pagination-item">
+        <a href="/pages/grid/index.html#indice">Tabla de contenido Grid
+          <i class="material-icons">arrow_upward</i>
+        </a>
+      </article>
+      <article class="pagination-item">
+        <a href="/pages/grid/grid-flow.html">Flujo de la grid
+          <i class="material-icons">arrow_forward</i>
+        </a>
+      </article>
+    </section>
+
+  </main>
+  <sergey-import src="footer" />
+  <script src="/assets/js/prism.js"></script>
+</body>
+
+</html>
