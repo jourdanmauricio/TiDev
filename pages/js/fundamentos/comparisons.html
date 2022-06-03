@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <sergey-import src="metas/statics" />
+  <sergey-import src="metas/titles">Conversiones de tipos</sergey-import>
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <link rel="stylesheet" href="/assets/css/menu.css">
+  <link rel="stylesheet" href="/assets/css/prism.css" />
+</head>
+
+<body>
+  <sergey-import src="header" />
+
+  <main class="container">
+
+    <h1>Fundamentos de JavaScript</h1>
+
+    <section id="comparaciones">
+      <h2>Comparaciones</h2>
+
+      <ul>
+        <li>Mayor/menor que: a > b, a < b.</li>
+        <li>Mayor/menor o igual que: a >= b, a <= b.</li>
+        <li>Igual: a == b (ten en cuenta que el doble signo == significa comparación, mientras que un solo símbolo a =
+          b significaría una asignación).</li>
+        <li>Distinto. En matemáticas la notación es ≠, pero en JavaScript se escribe como una asignación con un signo
+          de exclamación delante: a != b.</li>
+      </ul>
+
+      <h3>Resultado booleano</h3>
+
+      <pre>
+        <code class="language-javascript">
+          alert( 2 > 1 ); // true (correcto)
+          alert( 2 == 1 ); // false (incorrecto)
+          alert( 2 != 1 ); // true (correcto)
+
+          let result = 5 > 4; 
+          alert( result ); // true
+        </code>
+      </pre>
+
+      <h3>Comparación de cadenas</h3>
+
+      <p>Para ver si una cadena es “mayor” que otra, JavaScript utiliza el llamado orden lexicográfico, donde las
+        cadenas se comparan letra por letra.</p>
+
+      <pre>
+        <code class="language-javascript">
+          alert( 'Z' > 'A' ); // true
+          alert( 'Glow' > 'Glee' ); // true
+          alert( 'Bee' > 'Be' ); // true
+        </code>
+      </pre>
+
+      <h3>Comparación de diferentes tipos</h3>
+
+      <p>Al comparar valores de diferentes tipos, JavaScript convierte los valores a números.</p>
+
+      <pre>
+        <code class="language-javascript">
+          alert( '2' > 1 ); // true, la cadena '2' se convierte en el número 2
+          alert( '01' == 1 ); // true, la cadena '01' se convierte en el número 1
+
+          // Para valores booleanos, true se convierte en 1 y false en 0.
+
+          alert( true == 1 ); // true
+          alert( false == 0 ); // true
+        </code>
+      </pre>
+
+      <h3>Igualdad estricta</h3>
+
+      <p> Una comparación regular de igualdad == tiene un problema. No puede diferenciar 0 de `falso’. Lo mismo sucede
+        con una cadena vacía:</p>
+
+      <pre>
+        <code class="language-javascript">
+          alert( 0 == false ); // true
+          alert( '' == false ); // true
+        </code>
+      </pre>
+
+      <p>Esto sucede porque los operandos de diferentes tipos son convertidos a números por el operador de igualdad
+        ==. Una cadena vacía, al igual que false, se convierte en un cero.</p>
+
+      <p><b>Un operador de igualdad estricto === comprueba la igualdad sin conversión de tipo.</b></p>
+
+      <pre>
+        <code class="language-javascript">
+          alert( 0 === false ); // falso, porque los tipos son diferentes
+        </code>
+      </pre>
+
+      <p>Existe también un operador de “diferencia estricta” !== análogo a !=.</p>
+
+      <h3>Evitar problemas</h3>
+
+      <ul>
+        <li>Trata cualquier comparación con undefined/null (excepto la igualdad estricta ===) con sumo cuidado.</li>
+        <li>No uses comparaciones >= > < <=con una variable que puede ser null/undefined, a menos que estés realmente
+            seguro de lo que estás haciendo. Si una variable puede tener estos valores, verifícalos por separado. </li>
+      </ul>
+    </section>
+
+    <hr>
+
+    <section class="pagination">
+      <article class="pagination-item">
+        <a href="/pages/js/fundamentos/basic-operators.html">
+          <i class="material-icons">arrow_back</i>Operadores básicos
+        </a>
+      </article>
+      <article class="pagination-item">
+        <a href="/pages/js/index.html#indice">Tabla de contenido JS
+          <i class="material-icons">arrow_upward</i>
+        </a>
+      </article>
+      <article class="pagination-item">
+        <a href="/pages/js/fundamentos/conditional.html">Condicional if
+          <i class="material-icons">arrow_forward</i>
+        </a>
+      </article>
+    </section>
+
+  </main>
+  <sergey-import src="footer" />
+  <script src="/assets/js/prism.js"></script>
+</body>
+
+</html>

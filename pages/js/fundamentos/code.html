@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <sergey-import src="metas/statics" />
+  <sergey-import src="metas/titles">Código JavaScript</sergey-import>
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <link rel="stylesheet" href="/assets/css/menu.css">
+  <link rel="stylesheet" href="/assets/css/prism.css" />
+</head>
+
+<body>
+  <sergey-import src="header" />
+
+  <main class="container">
+
+    <h1>Fundamentos de JavaScript</h1>
+    <section id="code">
+
+      <h2>Estructura del código</h2>
+
+      <h3>Sentencias</h3>
+
+      <p>Las sentencias son construcciones sintácticas y comandos que realizan acciones. Podemos tener tantas
+        sentencias en nuestro código como queramos, las cuales se pueden separar con un punto y coma o, como
+        generalmente se realiza, escribir en líneas separadas.</p>
+
+      <p>Se puede omitir un punto y coma en la mayoría de los casos cuando existe un salto de línea.</p>
+
+      <h3>Comentarios</h3>
+
+      <p>En ocasiones, cuando es código es coplejo, se pueden agregar comentarios que serán ignorados por el motor del
+        navegador.</p>
+
+      <p>Los comentarios de una línea comienzan por //, mientras que los comentarios de varias líneas comienzan con /*
+        y terminan con */.</p>
+
+      <pre>
+        <code class="language-javascript">
+          // Este es un comentario de una línea
+          alert('Ejemplos de comentarios!'); 
+          console.log('Ejemplos de comentarios!');
+          /* Este es un comentatio
+          de más de una línea */
+        </code>
+      </pre>
+
+      <h3>Nomenclatura</h3>
+
+      <p>Por convención se utilizan las siguientes reglas para nombrar variables, constantes, funciones, archivos,
+        clases, objetos, etc.</p>
+
+      <ul>
+        <li>Los identificadores (nombres de variables, funciones, clases, archivo, etc) deben comenzar con:
+          <ul>
+            <li type="disc">una letra</li>
+            <li type="disc">un signo $</li>
+            <li type="disc">un guión bajo _</li>
+            <li type="disc">No deben comenzar con números o caracteres especiales</li>
+            <li type="disc">Aunque se encuentra permitido no utilizar caracteres fuera del idioma inglés como ñ o
+              acentos. De esta manera evitaremos inconvenientes. </li>
+            <li type="disc">No utilizar <a
+                href="https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Lexical_grammar#palabras_clave"
+                rel="nofollow" target="_blank">palabras clave</a> del lenguaje. </li>
+          </ul>
+        </li>
+        <li>Utilizar <b>UPPER_CASE</b> (mayúsculas y guiones bajos para separar las palabras) en:
+          <ul>
+            <li type="disc">Constantes.
+              <pre>
+                <code class="language-javascript"> 
+                  const PI = 3.141592653589793;
+                  const BACKGROUD_COLOR = "blue";
+                </code>
+              </pre>
+            </li>
+          </ul>
+        <li>Utilizar <b>snake_case</b> (las palabras se separan por guión bajo y se escriben en minúscula) en:
+          <ul>
+            <li type="disc">Archvivos.
+              <pre>
+                <code class="language-javascript"> 
+                  nombre_archivo.js;
+                </code>
+              </pre>
+            </li>
+          </ul>
+        </li>
+        <li>Utilizar <b>UpperCamelCase</b> (Cada palabra comienza con mayúsculas) en:
+          <ul>
+            <li type="disc">Clases.
+              <pre>
+                <code class="language-javascript"> 
+                  class  CategoriaProducto {}
+                </code>
+              </pre>
+            </li>
+          </ul>
+        </li>
+        <li>Utilizar <b>lowerCamelCase</b> (mayúsculas en primera letra de cada palabra, excepto en la primera) en:
+          <ul>
+            <li type="disc">Objetos.
+              <pre>
+                <code class="language-javascript"> 
+                  const myObject = {
+                    myName = "Mauricio"
+                    myAge = 35
+                  }
+                </code>
+              </pre>
+            </li>
+            <li type="disc">Primitivos.
+              <pre>
+                <code class="language-javascript"> 
+                  let unaCadena = "esta es una cadena";
+                  let unNumero = 35
+                </code>
+              </pre>
+            </li>
+            <li type="disc">Funciones.
+              <pre>
+                <code class="language-javascript"> 
+                  function myFunction (text) {
+                    alert(`Mensaje desde una ${text}`)
+                  }
+                  myFunction("función");
+                </code>
+              </pre>
+            </li>
+            <li type="disc">Instancias.
+              <pre>
+                <code class="language-javascript"> 
+                  const ajax = new XMLHttpRequest()
+                </code>
+              </pre>
+            </li>
+          </ul>
+        </li>
+      </ul>
+
+      <h3>Orden del código</h3>
+
+      <p>Recomendación. Ordenar el código genera estructura que facilita ubicar cada elemento.</p>
+
+      <ul>
+        <li>Importación de módulos</li>
+        <li>Declaración de variables</li>
+        <li>Declaración de funciones</li>
+        <li>Ejecución de código</li>
+      </ul>
+
+    </section>
+
+    <hr>
+
+    <section class="pagination">
+      <article class="pagination-item">
+        <a href="/pages/js/fundamentos/scripts.html">
+          <i class="material-icons">arrow_back</i>Etiqueta Script
+        </a>
+      </article>
+      <article class="pagination-item">
+        <a href="/pages/js/index.html#indice">Tabla de contenido JS
+          <i class="material-icons">arrow_upward</i>
+        </a>
+      </article>
+      <article class="pagination-item">
+        <a href="/pages/js/fundamentos/variables-constantes.html">Variables y constantes
+          <i class="material-icons">arrow_forward</i>
+        </a>
+      </article>
+    </section>
+
+  </main>
+  <sergey-import src="footer" />
+  <script src="/assets/js/prism.js"></script>
+</body>
+
+</html>

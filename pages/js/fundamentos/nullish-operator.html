@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <sergey-import src="metas/statics" />
+  <sergey-import src="metas/titles">Operador Nullish</sergey-import>
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <link rel="stylesheet" href="/assets/css/menu.css">
+  <link rel="stylesheet" href="/assets/css/prism.css" />
+</head>
+
+<body>
+  <sergey-import src="header" />
+
+  <main class="container">
+
+    <h1>Fundamentos de JavaScript</h1>
+
+    <section id="nullish-operator">
+      <h2>Operador Nullish Coalescing "??"</h2>
+
+      <p>El resultado de a ?? b: si a está "definida", será a, sino será b.</p>
+
+      <p>Es decir, ?? devuelve el primer argumento cuando este no es null ni undefined. En caso contrario, devuelve el
+        segundo. Ejemplo:</p>
+
+      <pre>
+        <code class="language-javascript">
+          let user;
+          result = (user ?? "Anonymous"); // Anonymous (user no definido)
+        
+          // Es equivalente a:
+        
+          let user;
+          result = (user !== null && user !== undefined) ? user : "Anonymous";
+        </code>
+      </pre>
+
+      <p>También podemos usar una secuencia de ?? para seleccionar el primer valor que no sea null/undefined de una
+        lista.</p>
+
+      <pre>
+        <code class="language-javascript">
+          let firstName = null;
+          let lastName = null;
+          let nickName = "Supercoder";
+      
+          // Muestra el primer valor definido:
+          alert(firstName ?? lastName ?? nickName ?? "Anonymous"); // Supercoder
+        </code>
+      </pre>
+    </section>
+
+    <hr>
+
+    <section class="pagination">
+      <article class="pagination-item">
+        <a href="/pages/js/fundamentos/logical-operators.html">
+          <i class="material-icons">arrow_back</i>Operadores lógicos
+        </a>
+      </article>
+      <article class="pagination-item">
+        <a href="/pages/js/index.html#indice">Tabla de contenido JS
+          <i class="material-icons">arrow_upward</i>
+        </a>
+      </article>
+      <article class="pagination-item">
+        <a href="/pages/js/fundamentos/while-for.html">Bucles: while y for
+          <i class="material-icons">arrow_forward</i>
+        </a>
+      </article>
+    </section>
+
+  </main>
+  <sergey-import src="footer" />
+  <script src="/assets/js/prism.js"></script>
+</body>
+
+</html>

@@ -35,6 +35,7 @@ main {
   flex-grow: 1;
 }
 
+blockquote,
 li,
 p {
   line-height: 1.6;
@@ -50,8 +51,8 @@ p {
   --elem-radius: 10px;
 }
 
-a {
-  text-decoration: none;
+.body {
+  background: var(--bg-gray-light);
 }
 
 h1,
@@ -64,8 +65,8 @@ h1 {
   font-size: 2rem;
 }
 
-.body {
-  background: var(--bg-gray-light);
+a {
+  text-decoration: none;
 }
 
 i.material-icons {

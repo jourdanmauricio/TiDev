@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <sergey-import src="metas/statics" />
+  <sergey-import src="metas/titles">Condicional if</sergey-import>
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <link rel="stylesheet" href="/assets/css/menu.css">
+  <link rel="stylesheet" href="/assets/css/prism.css" />
+</head>
+
+<body>
+  <sergey-import src="header" />
+
+  <main class="container">
+
+    <h1>Fundamentos de JavaScript</h1>
+
+    <section id="conditional">
+      <h2>Ejecución condicional: if, '?'</h2>
+
+      <p>Si necesitamos ejecutar diferentes acciones basadas en diferentes condiciones podemos usar la sentencia if y
+        el operador condicional ?, también llamado operador de “signo de interrogación”.</p>
+
+      <h3>La sentencia “if”</h3>
+
+      <p>La sentencia if(...) evalúa la condición en los paréntesis, y si el resultado es true ejecuta un bloque de
+        código. Si en el bloque de código a ejecutar contiene más de una sentencia, debemos encerrar nuestro bloque de
+        código entre llaves.</p>
+
+      <pre>
+        <code class="language-javascript">
+          let year = prompt('¿En que año fué publicada la especificación ECMAScript-2015?', '');
+
+          if (year == 2015) alert( '¡Estás en lo cierto!' );
+
+          if (year == 2015) {
+            alert( "¡Es Correcto!" );
+            alert( "¡Eres muy inteligente!" );
+          }
+        </code>
+      </pre>
+
+      <h3>La cláusula "else"</h3>
+
+      <p>La sentencia if quizás contenga un bloque “else” opcional. Este se ejecutará cuando la condición sea falsa.
+      </p>
+
+      <pre>
+        <code class="language-javascript">
+          let year = prompt('¿En qué año fue publicada la especificación ECMAScript-2015?', '');
+
+          if (year == 2015) {
+            alert( '¡Lo adivinaste, correcto!' );
+          } else {
+            alert( '¿Cómo puedes estar tan equivocado?' ); // cualquier valor excepto 2015
+          }
+        </code>
+      </pre>
+
+      <h3>Muchas condiciones: else if</h3>
+
+      <pre>
+        <code class="language-javascript">
+          let year = prompt('¿En qué año fue publicada la especificación ECMAScript-2015?', '');
+
+            if (year < 2015) {
+              alert( 'Muy poco...' );
+            } else if (year > 2015) {
+              alert( 'Muy Tarde' );
+            } else {
+              alert( '¡Exactamente!' );
+            }
+        </code>
+      </pre>
+
+      <h3>Operador ternario "?"</h3>
+
+      <p>A veces necesitamos asignar una variable dependiendo de alguna condición. Podemos simplificar el código a
+        través del operador ternario o de interrogacón.</p>
+
+      <pre>
+        <code class="language-javascript">
+          let accessAllowed;
+          let age = prompt('¿Qué edad tienes?', '');
+          
+          if (age > 18) {
+            accessAllowed = true;
+          } else {
+            accessAllowed = false;
+          }
+          
+          alert(accessAllowed);
+
+          // Es equivalente a:
+
+          let accessAllowed = age > 18 ? true : false;
+
+          // es lo mismo que
+          
+          let accessAllowed = age > 18;
+        </code>
+      </pre>
+
+      <h3>Uso no tradicional de "?"</h3>
+
+      <p>A veces el signo de interrogación cerrado ? se utiliza para reemplazar if.</p>
+
+      <pre>
+        <code class="language-javascript">
+          let company = prompt('¿Qué compañía creó JavaScript?', '');
+
+          (company == 'Netscape') ?
+            alert('¡Correcto!') : alert('Equivocado.');
+        </code>
+      </pre>
+
+      <p>Dependiendo de la condición company == 'Netscape', se ejecutará la primera o la segunda expresión del
+        operador ? y se mostrará una alerta. </p>
+
+      <p>Aquí no asignamos el resultado de una variable. En vez de esto, ejecutamos diferentes códigos dependiendo de
+        la condición.</p>
+
+      <p><mark>No se recomienda el uso del operador de signo de interrogación de esta forma porque es poco
+          legible.</mark></p>
+    </section>
+
+    <hr>
+
+    <section class="pagination">
+      <article class="pagination-item">
+        <a href="/pages/js/fundamentos/comparisons.html">
+          <i class="material-icons">arrow_back</i>Comparaciones
+        </a>
+      </article>
+      <article class="pagination-item">
+        <a href="/pages/js/index.html#indice">Tabla de contenido JS
+          <i class="material-icons">arrow_upward</i>
+        </a>
+      </article>
+      <article class="pagination-item">
+        <a href="/pages/js/fundamentos/logical-operators.html">Operadores lógicos
+          <i class="material-icons">arrow_forward</i>
+        </a>
+      </article>
+    </section>
+
+  </main>
+  <sergey-import src="footer" />
+  <script src="/assets/js/prism.js"></script>
+</body>
+
+</html>

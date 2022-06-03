@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <sergey-import src="metas/statics" />
+  <sergey-import src="metas/titles">Etiqueta Script</sergey-import>
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <link rel="stylesheet" href="/assets/css/menu.css">
+  <link rel="stylesheet" href="/assets/css/prism.css" />
+</head>
+
+<body>
+  <sergey-import src="header" />
+
+  <main class="container">
+
+    <h1>Fundamentos de JavaScript</h1>
+
+    <section id="tag-script">
+
+      <h2>La etiqueta script</h2>
+
+      Los programas de JavaScript se pueden insertar en casi cualquier parte de un documento HTML con el uso de la
+      etiqueta script.
+
+      <pre>
+        <code class="language-html">
+          &lt;!DOCTYPE HTML&gt;
+            &lt;html&gt;
+            &lt;body&gt;
+              &lt;p&gt;Antes del script...&lt;/p&gt;
+              &lt;script&gt;
+                alert( '¡Hola, mundo!' );
+              &lt;/script&gt;
+              &lt;p&gt;...Después del script.&lt;/p&gt;
+            &lt;/body&gt;
+            &lt;/html&gt;
+        </code>
+      </pre>
+
+      <p>La etiqueta <code>&lt;script&gt;</code> contiene código JavaScript que se ejecuta automáticamente cuando el
+        navegador procesa la etiqueta.</p>
+
+      <p>También podemos incorporar código JavaScript a nuestra página a través de archivos externos. Los archivos de
+        script se adjuntan a HTML con el atributo src:</p>
+
+      <pre>
+          <code class="language-html">
+            &lt;script src="/path/to/script.js"&gt;&lt;/script&gt;
+          </code>
+        </pre>
+
+      <p>En el ejemplo utilizamos una ruta absoluta pero también podemos utilizar rutas relativas. Por ejemplo,
+        src="script.js" significaría un archivo "script.js" en la carpeta actual. También podemos dar una URL
+        completa.
+        Por ejemplo: </p>
+
+      <pre>
+          <code class="language-html">
+            &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.11/lodash.js"&gt;&lt;/script&gt;
+          </code>
+        </pre>
+
+      <blockquote>
+        <p>Como regla general, incorporamos los scripts desde archivos externos. La ventaja de un archivo
+          separado es que el navegador lo descargará y lo almacenará en caché. Otras páginas que hacen referencia al
+          mismo script lo tomarán del caché en lugar de descargarlo, por lo que el archivo solo se descarga una vez.
+        </p>
+        <p>Eso reduce el tráfico y hace que las páginas sean más rápidas.</p>
+      </blockquote>
+
+    </section>
+
+    <hr>
+
+    <section class="pagination">
+      <article class="pagination-item">
+        <a href="/pages/js/history.html">
+          <i class="material-icons">arrow_back</i>Historia
+        </a>
+      </article>
+      <article class="pagination-item">
+        <a href="/pages/js/index.html#indice">Tabla de contenido JS
+          <i class="material-icons">arrow_upward</i>
+        </a>
+      </article>
+      <article class="pagination-item">
+        <a href="/pages/js/fundamentos/code.html">Código JavaScript
+          <i class="material-icons">arrow_forward</i>
+        </a>
+      </article>
+    </section>
+
+  </main>
+  <sergey-import src="footer" />
+  <script src="/assets/js/prism.js"></script>
+</body>
+
+</html>
