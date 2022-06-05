@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <sergey-import src="metas/statics" />
+  <sergey-import src="metas/titles">Manejo de errores</sergey-import>
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <link rel="stylesheet" href="/assets/css/menu.css">
+  <link rel="stylesheet" href="/assets/css/prism.css" />
+</head>
+
+<body>
+  <sergey-import src="header" />
+
+  <main class="container">
+
+    <h1>Manejo de errores</h1>
+
+    <section id="errors">
+
+      <p>Los objetos Error se lanzan cuando ocurren errores en tiempo de ejecución. También puedes utilizar el objeto
+        Error como objeto base para excepciones definidas por el usuario.</p>
+
+      <h2>try / catch / finally</h2>
+
+      <p>Para gestionar los errores JavaScript posee la sentencia try / catch / finally. Es una estructura que nos
+        permite evaluar fragmentos de código y capturar errores.</p>
+
+      <p>En el bloque try puede ocurrir un error originados en el código (sinatxis) o podemos lanzar una excepción
+        intencionalmente. Este error será capturado en el bloque catch y se ejecutarán las sentencias del bloque. Si se
+        define el bloque finally se ejecutará luego del bloque try (si no hay errores) o despúes del bloque catch (si
+        hubo error).</p>
+
+      <pre>
+        <code class="language-javascript">
+          try {
+            console.log("try: Ejecución de Código que puede generar un error");
+          } catch (error) {
+            console.log("Catch: Captura error surgido en try");
+          } finally {
+            console.log("finally: Se ejecutará siempre después del try o del catch");
+          }
+        </code>
+      </pre>
+
+      <h3>Tipos de error</h3>
+
+      <ul>
+        <li>EvalError. Crea una instancia que representa un error que ocurre con respecto a la función global eval().
+        </li>
+        <li>InternalError. Crea una instancia que representa un error que ocurre cuando se produce un error interno en
+          el motor de JavaScript. Por ejemplo: "demasiada recursividad".</li>
+        <li>RangeError. Crea una instancia que representa un error que ocurre cuando una variable numérica o parámetro
+          está fuera de su rango válido.</li>
+        <li>ReferenceError. Crea una instancia que representa un error que ocurre cuando se quita la referencia a una
+          referencia no válida.</li>
+        <li>SyntaxError. Crea una instancia que representa un error de sintaxis.</li>
+        <li>TypeError. Crea una instancia que representa un error que ocurre cuando una variable o parámetro no es de un
+          tipo válido.</li>
+        <li>URIError. Crea una instancia que representa un error que ocurre cuando encodeURI() o decodeURI() pasan
+          parámetros no válidos.</li>
+      </ul>
+
+      <h3>Propiedades</h3>
+
+      <ul>
+        <li>message. Mensaje de error.</li>
+        <li>name. Nombre del error.</li>
+        <li>description. Una propiedad no estándar de Microsoft para la descripción del error. Similar a message.</li>
+        <li>number. Una propiedad no estándar de Microsoft para un número de error.</li>
+        <li>fileName. Una propiedad no estándar de Mozilla para la ruta al archivo que generó este error.</li>
+        <li>lineNumber. Una propiedad no estándar de Mozilla para el número de línea en el archivo que generó este
+          error.</li>
+        <li>columnNumber (en-US). Una propiedad no estándar de Mozilla para el número de columna en la línea que generó
+          este error.</li>
+        <li>stack (en-US). Una propiedad no estándar de Mozilla para un seguimiento de la pila.</li>
+      </ul>
+
+      <h2>Lanzar un error genérico</h2>
+
+      <p>Normalmente, creas un objeto Error utilizando la palabra clave throw. Puedes manejar el error usando la
+        construcción try...catch:</p>
+
+      <pre>
+        <code class="language-javascript">
+          try {
+            // let numero = 10;
+            let numero = "y";
+            if(isNaN(numero)) {
+              throw new Error('El caracter no es un número!');
+            }
+            console.log(numero * numero);
+          } catch (error) {
+            // console.error(error.name + ': ' + error.message)
+            console.log(`Se produjo el siguiente error: ${error}`);
+          }
+          // 100
+          // Error: Se produjo el siguiente error: El caracter no es un número!
+        </code>
+      </pre>
+
+      <h2>Manejar de un error específico</h2>
+
+      <p>Puede elegir manejar solo tipos de error específicos probando el tipo de error con la propiedad constructor del
+        error o, si estás escribiendo para motores JavaScript modernos, la palabra clave instanceof:</p>
+
+      <pre>
+        <code class="language-javascript">
+          try {
+            foo.bar()
+          } catch (e) {
+            if (e instanceof EvalError) {
+              console.error(e.name + ': ' + e.message)
+            } else if (e instanceof RangeError) {
+              console.error(e.name + ': ' + e.message)
+            }
+            // ... etc
+          }
+        </code>
+      </pre>
+
+      <hr>
+
+      <section class="pagination">
+        <article class="pagination-item">
+          <a href="/pages/js/fundamentos/objects.html">
+            <i class="material-icons">arrow_back</i>Objetos
+          </a>
+        </article>
+        <article class="pagination-item">
+          <a href="/pages/js/index.html#indice">Tabla de contenido JS
+            <i class="material-icons">arrow_upward</i>
+          </a>
+        </article>
+        <article class="pagination-item">
+          <a href="/pages/js/destructuring.html">Destructuración
+            <i class="material-icons">arrow_forward</i>
+          </a>
+        </article>
+      </section>
+
+  </main>
+  <sergey-import src="footer" />
+  <script src="/assets/js/prism.js"></script>
+</body>
+
+</html>

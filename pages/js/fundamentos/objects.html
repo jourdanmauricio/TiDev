@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <sergey-import src="metas/statics" />
+  <sergey-import src="metas/titles">Objetos</sergey-import>
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <link rel="stylesheet" href="/assets/css/menu.css">
+  <link rel="stylesheet" href="/assets/css/prism.css" />
+</head>
+
+<body>
+  <sergey-import src="header" />
+
+  <main class="container">
+
+    <h1>Objetos</h1>
+
+    <section id="objects">
+
+      <p>Un objeto es una colección de datos relacionados y/o funcionalidad que consta de variables y funciones, que se
+        denominan propiedades y métodos.</p>
+
+      <p>un objeto se compone de varios miembros o propiedades, cada uno de los cuales tiene un nombre (por ejemplo,
+        nombre y edad) y un valor (por ejemplo, ['Mauricio', 'Jourdan'] y 47). Cada par nombre/valor debe estar separado
+        por una coma, y el nombre y el valor en cada caso están separados por dos puntos. La sintaxis siempre sigue este
+        patrón:</p>
+
+      <pre>
+        <code class="language-javascript">
+          var nombreObjeto = {
+            miembro1Nombre: miembro1Valor,
+            miembro2Nombre: miembro2Valor,
+            miembro3Nombre: miembro3Valor
+          }
+        </code>
+      </pre>
+
+      <p>El valor de un miembro de un objeto puede ser cualquier cosa: en nuestro objeto persona tenemos una cadena de
+        texto, un número, dos arreglos y dos funciones. Los primeros cuatro elementos son elementos de datos y se
+        denominan propiedades del objeto. Los dos últimos elementos son funciones que le permiten al objeto hacer algo
+        con esos datos, y se les denomina métodos del objeto.</p>
+
+      <pre>
+        <code class="language-javascript">
+          // Crear objeto
+          const persona = {};
+
+          //
+          const persona = {
+            nombre: ['Mauricio', 'Jourdan'],
+            edad: 47,
+            genero: 'masculino',
+            intereses: ['música', 'FTA'],
+            bio: function () {
+              alert(this.nombre[0] + '' + this.nombre[1] + ' tiene ' + this.edad + ' años. Le gusta ' + this.intereses[0] + ' y ' + this.intereses[1] + '.');
+            },
+            saludo: function() {
+              alert('Hola, Soy '+ this.nombre[0] + '. ');
+            }
+          };
+        </code>
+      </pre>
+
+      <p>Un objeto como este se conoce como un objeto literal. Esto está en contraste con los objetos instanciados de
+        las clases, que veremos más adelante. </p>
+
+      <p>Es muy común crear un objeto utilizando un objeto literal cuando deseas transferir una serie de elementos de
+        datos relacionados y estructurados de alguna manera, por ejemplo, enviando una solicitud al servidor para
+        ponerla en una base de datos. Enviar un solo objeto es mucho más eficiente que enviar varios elementos
+        individualmente, y es más fácil de procesar que con un arreglo, cuando deseas identificar elementos individuales
+        por nombre.</p>
+
+      <h3>Notación de punto</h3>
+
+      <p>El nombre del objeto (persona) actúa como el espacio de nombre (namespace); al cual se debe ingresar primero
+        para acceder a cualquier elemento encapsulado dentro del objeto. A continuación, escribe un punto y luego el
+        elemento al que deseas acceder: puede ser el nombre de una simple propiedad, un elemento de una propiedad de
+        arreglo o una llamada a uno de los métodos del objeto, por ejemplo:</p>
+
+      <pre>
+        <code class="language-javascript">
+          persona.edad
+          persona.intereses[1]
+          persona.bio()
+        </code>
+      </pre>
+
+      <h3>Espacios de nombres secundarios</h3>
+
+      <p>Incluso es posible hacer que el valor de un miembro del objeto sea otro objeto. Ejemplo: </p>
+
+      <pre>
+        <code class="language-javascript">
+          // Cambiamos
+          nombre: ['Mauricio', 'Jourdan'],
+          // por 
+          nombre : {
+            pila: 'Mauricio',
+            apellido: 'Jourdan'
+          },
+        </code>
+      </pre>
+
+      <p>Para acceder a estos elementos necesitamos un paso adicional, encadenar con otro punto al final.</p>
+
+      <pre>
+        <code class="language-javascript">
+          persona.nombre.pila
+          persona.nombre.apellido
+        </code>
+      </pre>
+
+      <h3>Notación de corchetes</h3>
+
+      <p>Hay otra manera de acceder a las propiedades del objeto, usando la notación de corchetes.</p>
+
+      <pre>
+        <code class="language-javascript">
+          persona['edad']
+          persona['nombre']['pila']
+        </code>
+      </pre>
+
+      <p>Esto se ve muy similar a cómo se accede a los elementos en un arreglo, y básicamente es lo mismo: en lugar de
+        usar un número de índice para seleccionar un elemento, se esta utilizando el nombre asociado con el valor de
+        cada miembro. No es de extrañar que los objetos a veces se denominen arreglos asociativos: asocian cadenas de
+        texto a valores de la misma manera que las arreglos asocian números a valores.</p>
+
+      <h3>Establecer miembros de objetos</h3>
+
+      <p>Se puede actualizar el valor de los miembros del objeto declarando el miembro que deseas establecer de esta
+        manera:</p>
+
+      <pre>
+        <code class="language-javascript">
+          persona.edad = 48;
+          persona['nombre']['pila'] = 'Adrián';
+
+          // Creamos nuevas propiedades y métodos
+          persona['ojos'] = 'avellana';
+          persona.despedida = function() { alert("¡Adiós a todos!"); }
+        </code>
+      </pre>
+
+      <blockquote>
+        Un aspecto útil de la notación de corchetes es que se puede usar para establecer dinámicamente no solo los
+        valores de los miembros, sino también los nombres de los miembros. Digamos que queremos que los usuarios puedan
+        almacenar tipos de valores personalizados en sus datos personales, escribiendo el nombre y el valor del miembro
+        en dos entradas de texto.
+      </blockquote>
+
+      <pre>
+        <code class="language-javascript">
+          let nombrePerzonalizado = 'altura';
+          let valorPerzonalizado = '1.75m';
+          
+          persona[nombrePerzonalizado] = valorPerzonalizado;
+        </code>
+      </pre>
+
+      <p>Ahora podemos acceder:</p>
+
+      <pre>
+        <code class="language-javascript">
+          persona.altura
+        </code>
+      </pre>
+
+      <p>Agregar una propiedad a un objeto no es posible con la notación de puntos, que solo puede aceptar un nombre de
+        miembro literal, no un valor variable que apunte a un nombre.</p>
+
+      <h3>¿Qué es "this"?</h3>
+
+      <p>La palabra clave this se refiere al objeto actual en el que se está escribiendo el código, por lo que en este
+        caso this es equivalente a la persona.</p>
+
+      <pre>
+        <code class="language-javascript">
+          var persona1 = {
+            nombre: 'Chris',
+            saludo: function() {
+              alert('¡Hola!, Soy '+ this.nombre + '.');
+            }
+          }
+          
+          var persona2 = {
+            nombre: 'Brian',
+            saludo: function() {
+              alert('¡Hola!, Soy '+ this.nombre + '.');
+            }
+          }
+        </code>
+      </pre>
+
+      <p>En este caso, persona1.saludo() mostrará "¡Hola!, Soy Chris"; persona2.saludo() por otro lado mostrará "¡Hola!,
+        Soy Brian", aunque el código del método es exactamente el mismo en cada caso. </p>
+
+      <hr>
+
+      <h2>Métodos</h2>
+
+      <ul>
+        <li>Object.keys(). Devuelve un array con los nombres de las propiedades de un objeto, en el mismo orden como se
+          obtienen en un loop normal</li>
+        <li>Object.values(). Devuelve un array con los valores correspondientes a las propiedades de un objeto. Las
+          propiedades son devueltas en el mismo orden a como lo haría un bucle for...in.</li>
+        <li>Object.hasOwnProperty(). Devuelve un booleano indicando si el objeto tiene la propiedad especificada.</li>
+      </ul>
+
+      <pre>
+        <code class="language-javascript">
+          var obj = { 0: 'a', 1: 'b', 2: 'c' };
+
+          console.log(Object.keys(obj)); // ['0', '1', '2']
+          console.log(Object.values(obj)); // ['a', 'b', 'c']
+          console.log(obj.hasOwnProperty('0');   // returns true
+        </code>
+      </pre>
+
+      <h3>Iterar las propiedades de un objeto</h3>
+
+      <pre>
+        <code class="language-javascript">
+          const person = {
+            nombre: "Mauricio",
+            apellido: "Jourdan"
+          }
+
+          for (const propiedad in person) {
+            console.log(`key: ${propiedad}, value: ${person[propiedad]});
+          }
+        </code>
+      </pre>
+
+      <hr>
+
+      <section class="pagination">
+        <article class="pagination-item">
+          <a href="/pages/js/fundamentos/arrays.html">
+            <i class="material-icons">arrow_back</i>Arrays
+          </a>
+        </article>
+        <article class="pagination-item">
+          <a href="/pages/js/index.html#indice">Tabla de contenido JS
+            <i class="material-icons">arrow_upward</i>
+          </a>
+        </article>
+        <article class="pagination-item">
+          <a href="/pages/js/errors.html">Manejo de errores
+            <i class="material-icons">arrow_forward</i>
+          </a>
+        </article>
+      </section>
+
+  </main>
+  <sergey-import src="footer" />
+  <script src="/assets/js/prism.js"></script>
+</body>
+
+</html>

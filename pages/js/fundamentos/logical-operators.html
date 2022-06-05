@@ -14,14 +14,13 @@
 
   <main class="container">
 
-    <h1>Fundamentos de JavaScript</h1>
+    <h1>Operadores Lógicos </h1>
 
     <section id="logical-operators">
-      <h2>Operadores Lógicos </h2>
       <p>Hay cuatro operadores lógicos en JavaScript: || (o), && (y), ! (no), ?? (Fusión de nulos). Aquí cubrimos los
         primeros tres, el operador ?? se verá en el siguiente artículo.</p>
 
-      <h3>|| or</h3>
+      <h2>|| or</h2>
 
       <p>Hay cuatro combinaciones lógicas posibles.</p>
 
@@ -47,7 +46,7 @@
         </code>
       </pre>
 
-      <h4>Obtener el primer valor verdadero de una lista de variables o expresiones</h4>
+      <h3>Obtener el primer valor verdadero de una lista de variables o expresiones</h3>
 
       <pre>
         <code class="language-javascript"> 
@@ -61,10 +60,9 @@
 
       <p>Si todas las variables fueran falsas, aparecería "Anonymous".</p>
 
-      <h3>&& (AND)</h3>
+      <h2>&& (AND)</h2>
 
-      <p>En la programación clásica, AND retorna true si ambos operandos son valores verdaderos y false en cualquier
-        otro caso.</p>
+      <p>AND retorna true si ambos operandos son valores verdaderos y false en cualquier otro caso.</p>
 
       <pre>
         <code class="language-javascript">
@@ -89,12 +87,12 @@
       </pre>
 
       <blockquote>
-        <p>La precedencia de AND && es mayor que la de OR ||</p><br>
-        <p>Así que el código a && b || c && d es básicamente el mismo que si la expresiones && estuvieran entre
-          paréntesis: (a && b) || (c && d)</p>
+        La precedencia de AND && es mayor que la de OR ||<br>
+        Así que el código a && b || c && d es básicamente el mismo que si la expresiones && estuvieran entre
+        paréntesis: (a && b) || (c && d)
       </blockquote>
 
-      <h3>! (NOT)</h3>
+      <h2>! (NOT)</h2>
 
       <p>El operador acepta un solo argumento y convierte el operando al tipo booleano: true/false. Retorna el valor
         contrario.</p>
@@ -107,8 +105,8 @@
         </pre>
 
       <blockquote>
-        <p>La precedencia de NOT ! es la mayor de todos los operadores lógicos, así que siempre se ejecuta primero,
-          antes que && o ||</p>
+        La precedencia de NOT ! es la mayor de todos los operadores lógicos, así que siempre se ejecuta primero,
+        antes que && o ||
       </blockquote>
 
     </section>
@@ -118,7 +116,7 @@
     <section class="pagination">
       <article class="pagination-item">
         <a href="/pages/js/fundamentos/conditional.html">
-          <i class="material-icons">arrow_back</i>Condicional if
+          <i class="material-icons">arrow_back</i>Condicionales
         </a>
       </article>
       <article class="pagination-item">
@@ -127,7 +125,7 @@
         </a>
       </article>
       <article class="pagination-item">
-        <a href="/pages/js/fundamentos/nullish-operator.html">Operador Nullish
+        <a href="/pages/js/fundamentos/while-for.html">Bucles: while y for
           <i class="material-icons">arrow_forward</i>
         </a>
       </article>

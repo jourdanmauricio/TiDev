@@ -14,15 +14,19 @@
 
   <main class="container">
 
+    <h1>Funciones</h1>
+
     <section id="functions">
-      <h1>Funciones</h1>
 
       <p>En ocasiones necesitamos realizar las mismas acciones en muchos lugares del script. Las funciones permiten
         que el código se llame muchas veces sin repetición. </p>
 
-      <h3>Declaración de funciones</h3>
+      <hr>
 
-      <pre>
+      <section id="declared-functions">
+        <h2>Funciones declaradas</h2>
+
+        <pre>
         <code class="language-javascript">
           function showMessage() {
             alert( '¡Hola!' );
@@ -33,15 +37,15 @@
         </code>
       </pre>
 
-      <p>La llamada showMessage() ejecuta el código de la función. Aquí veremos el mensaje dos veces. Este ejemplo
-        demuestra claramente uno de los propósitos principales de las funciones: evitar la duplicación de código.
-      </p>
+        <p>La llamada showMessage() ejecuta el código de la función. Aquí veremos el mensaje dos veces. Este ejemplo
+          demuestra claramente uno de los propósitos principales de las funciones: evitar la duplicación de código.
+        </p>
 
-      <h3>Variables Locales</h3>
+        <h3>Variables Locales</h3>
 
-      <p>Una variable declarada dentro de una función solo es visible dentro de esa función.</p>
+        <p>Una variable declarada dentro de una función solo es visible dentro de esa función.</p>
 
-      <pre>
+        <pre>
         <code class="language-javascript">
           function showMessage() {
             let message = "Hola, ¡Soy JavaScript!"; // variable local
@@ -55,12 +59,12 @@
         </code>
       </pre>
 
-      <h3>Variables Externas</h3>
+        <h3>Variables Externas</h3>
 
-      <p>Una función puede acceder a variables externas. La función tiene acceso completo a la variable externa. Puede
-        modificarlo también.</p>
+        <p>Una función puede acceder a variables externas. La función tiene acceso completo a la variable externa. Puede
+          modificarlo también.</p>
 
-      <pre>
+        <pre>
         <code class="language-javascript">
           let userName = 'Juan';
 
@@ -79,11 +83,11 @@
         </code>
       </pre>
 
-      <p>La variable externa solo se usa si no hay una local. Si una variable con el mismo nombre se declara dentro de
-        la función, le hace sombra a la externa. Por ejemplo, en el siguiente código, la función usa la variable
-        userName local. La exterior se ignora.</p>
+        <p>La variable externa solo se usa si no hay una local. Si una variable con el mismo nombre se declara dentro de
+          la función, le hace sombra a la externa. Por ejemplo, en el siguiente código, la función usa la variable
+          userName local. La exterior se ignora.</p>
 
-      <pre>
+        <pre>
         <code class="language-javascript">
           let userName = 'John';
 
@@ -101,92 +105,92 @@
         </code>
       </pre>
 
-      <blockquote>
-        Variables globales<br><br>
-        Variables declaradas fuera de cualquier función, como la variable externa userName en el código anterior,
-        se llaman globales. Son visibles desde cualquier función (a menos que se les superpongan variables locales
-        con el mismo nombre).<br><br>
-        Es una buena práctica reducir el uso de variables globales.
-      </blockquote>
+        <blockquote>
+          Variables globales<br><br>
+          Variables declaradas fuera de cualquier función, como la variable externa userName en el código anterior,
+          se llaman globales. Son visibles desde cualquier función (a menos que se les superpongan variables locales
+          con el mismo nombre).<br><br>
+          Es una buena práctica reducir el uso de variables globales.
+        </blockquote>
 
-      <h3>Parámetros</h3>
+        <h3>Parámetros</h3>
 
-      <p>Podemos pasar datos a funciones usando parámetros.</p>
+        <p>Podemos pasar datos a funciones usando parámetros.</p>
 
-      <pre>
+        <pre>
         <code class="language-javascript">
-          function showMessage(from, text) { // parámetros: from, text
-            alert(from + ': ' + text);
+          function showMessage(author, text) { // parámetros: author, text
+            alert(author + ': ' + text);
           }
           
-          showMessage('Ann', '¡Hola!'); // Ann: ¡Hola! 
-          showMessage('Ann', "¿Cómo estás?"); // Ann: ¿Cómo estás? 
+          showMessage('Paola', '¡Hola!'); // Paola: ¡Hola! 
+          showMessage('Paola', "¿Cómo estás?"); // Paola: ¿Cómo estás? 
         </code>
       </pre>
 
-      <p>En el siguiente ejemplo la función cambia from, pero el cambio no se ve afuera, porque una función siempre
-        obtiene una copia del valor</p>
+        <p>En el siguiente ejemplo la función cambia author, pero el cambio no se ve afuera, porque una función siempre
+          obtiene una copia del valor</p>
 
-      <pre>
+        <pre>
         <code class="language-javascript">
-          function showMessage(from, text) {
+          function showMessage(author, text) {
 
-            from = '*' + from + '*'; // hace que "from" se vea mejor
+            author = '*' + author + '*'; // hace que "author" se vea mejor
           
-            alert( from + ': ' + text );
+            alert( author + ': ' + text );
           }
           
-          let from = "Ann";
+          let author = "Paola";
           
-          showMessage(from, "Hola"); // *Ann*: Hola
+          showMessage(author, "Hola"); // *Paola*: Hola
           
-          // el valor de "from" es el mismo, la función modificó una copia local
-          alert( from ); // Ann
+          // el valor de "author" es el mismo, la función modificó una copia local
+          alert( author ); // Paola
         </code>
       </pre>
 
-      <p>Cuando un valor es pasado como un parámetro de función, también se denomina argumento.</p>
+        <p>Cuando un valor es pasado como un parámetro de función, también se denomina argumento.</p>
 
-      <ul>
-        <li>Un parámetro es una variable listada dentro de los paréntesis en la declaración de función (es un término
-          para el momento de la declaración)</li>
-        <li>Un argumento es el valor que es pasado a la función cuando esta es llamada (es el término para el momento
-          en que se llama) </li>
-      </ul>
+        <ul>
+          <li>Un parámetro es una variable listada dentro de los paréntesis en la declaración de función (es un término
+            para el momento de la declaración)</li>
+          <li>Un argumento es el valor que es pasado a la función cuando esta es llamada (es el término para el momento
+            en que se llama) </li>
+        </ul>
 
-      <p>Declaramos funciones listando sus parámetros, luego las llamamos pasándoles argumentos. </p>
+        <p>Declaramos funciones listando sus parámetros, luego las llamamos pasándoles argumentos. </p>
 
-      <h3>Valores predeterminados</h3>
+        <h3>Valores predeterminados</h3>
 
-      <p>Si una función es llamada pero no se le proporciona un argumento, su valor correspondiente se convierte en
-        undefined. Puede especificar un valor llamado predeterminado (que se usa si el argumento fue
-        omitido) en la declaración de función usando =</p>
+        <p>Si una función es llamada pero no se le proporciona un argumento, su valor correspondiente se convierte en
+          undefined. Puede especificar un valor llamado predeterminado (que se usa si el argumento fue
+          omitido) en la declaración de función usando =</p>
 
-      <pre>
+        <pre>
         <code class="language-javascript">
-          function showMessage(from, text = "sin texto") {
-            alert( from + ": " + text );
+          function showMessage(author, text = "sin texto") {
+            alert( author + ": " + text );
           }
           
-          showMessage("Ann"); // Ann: sin texto
+          showMessage("Paola"); // Paola: sin texto
 
           // Es equivalente a:
 
-          function showMessage(from, text) {
+          function showMessage(author, text) {
             if (text === undefined) {
               text = 'sin texto dado';
             }
           
-            alert( from + ": " + text );
+            alert( author + ": " + text );
           }
         </code>
       </pre>
 
-      <h3>Retornando un valor</h3>
+        <h3>Retornando un valor</h3>
 
-      <p>Una función puede devolver un valor al código de llamada como resultado. </p>
+        <p>Una función puede devolver un valor al código de llamada como resultado. </p>
 
-      <pre>
+        <pre>
         <code class="language-javascript">
           function sum(a, b) {
             return a + b;
@@ -197,12 +201,12 @@
         </code>
       </pre>
 
-      <p>La directiva return puede estar en cualquier lugar de la función. Cuando la ejecución lo alcanza, la función
-        se detiene y el valor se devuelve al código de llamada.</p>
+        <p>La directiva return puede estar en cualquier lugar de la función. Cuando la ejecución lo alcanza, la función
+          se detiene y el valor se devuelve al código de llamada.</p>
 
-      <p>Puede haber muchos casos de return en una sola función. Ejemplo:</p>
+        <p>Puede haber muchos casos de return en una sola función. Ejemplo:</p>
 
-      <pre>
+        <pre>
         <code class="language-javascript"> 
           function checkAge(age) {
             if (age > 18) {
@@ -222,9 +226,9 @@
         </code>
       </pre>
 
-      <p>Es posible utilizar return sin ningún valor. Eso hace que la función salga o termine inmediatamente.</p>
+        <p>Es posible utilizar return sin ningún valor. Eso hace que la función salga o termine inmediatamente.</p>
 
-      <pre>
+        <pre>
         <code class="language-javascript">
           function showMovie(age) {
             if ( !checkAge(age) ) {
@@ -237,42 +241,44 @@
         </code>
       </pre>
 
-      <p>En el código de arriba, si checkAge(age) devuelve false, entonces showMovie no mostrará la alert. </p>
+        <p>En el código de arriba, si checkAge(age) devuelve false, entonces showMovie no mostrará la alert. </p>
 
-      <h3>Nomenclatura de funciones</h3>
+        <h3>Nomenclatura de funciones</h3>
 
-      <p>Las funciones son acciones. Entonces su nombre suele ser un verbo. Debe ser breve, lo más preciso posible y
-        describir lo que hace la función, para que alguien que lea el código obtenga una indicación de lo que hace la
-        función.</p>
+        <p>Las funciones son acciones. Entonces su nombre suele ser un verbo. Debe ser breve, lo más preciso posible y
+          describir lo que hace la función, para que alguien que lea el código obtenga una indicación de lo que hace la
+          función.</p>
 
-      <p>Es una práctica generalizada comenzar una función con un prefijo verbal que describe vagamente la acción.
-        Debe haber un acuerdo dentro del equipo sobre el significado de los prefijos.</p>
+        <p>Es una práctica generalizada comenzar una función con un prefijo verbal que describe vagamente la acción.
+          Debe haber un acuerdo dentro del equipo sobre el significado de los prefijos.</p>
 
-      <p>Ejemplos:</p>
+        <p>Ejemplos:</p>
 
-      <ul>
-        <li>showMessage(..) // muestra un mensaje</li>
-        <li>getAge(..) // devuelve la edad (la obtiene de alguna manera)</li>
-        <li>calcSum(..) // calcula una suma y devuelve el resultado</li>
-        <li>createForm(..) // crea un formulario (y usualmente lo devuelve)</li>
-        <li>checkPermission(..) // revisa permisos, y devuelve true/false</li>
-      </ul>
+        <ul>
+          <li>showMessage(..) // muestra un mensaje</li>
+          <li>getAge(..) // devuelve la edad (la obtiene de alguna manera)</li>
+          <li>calcSum(..) // calcula una suma y devuelve el resultado</li>
+          <li>createForm(..) // crea un formulario (y usualmente lo devuelve)</li>
+          <li>checkPermission(..) // revisa permisos, y devuelve true/false</li>
+        </ul>
 
-      <blockquote>
-        Una función - una acción<br><br>
-        Una función debe hacer exactamente lo que sugiere su nombre, no más.<br><br>
-        Dos acciones independientes por lo general merecen dos funciones, incluso si generalmente se convocan
-        juntas (en ese caso, podemos hacer una tercera función que llame a esas dos).
-      </blockquote>
+        <blockquote>
+          Una función - una acción<br><br>
+          Una función debe hacer exactamente lo que sugiere su nombre, no más.<br><br>
+          Dos acciones independientes por lo general merecen dos funciones, incluso si generalmente se convocan
+          juntas (en ese caso, podemos hacer una tercera función que llame a esas dos).
+        </blockquote>
 
-    </section>
+      </section>
 
-    <section id="expresions-functions">
-      <h2>Funciones expresadas</h2>
+      <hr>
 
-      <p>Existe otra sintaxis para crear una función que se llama una funcion expresada. </p>
+      <section id="expresions-functions">
+        <h2>Funciones expresadas</h2>
 
-      <pre>
+        <p>Existe otra sintaxis para crear una función que se llama una funcion expresada. </p>
+
+        <pre>
         <code class="language-javascript">
           let sayHi = function() {
             alert( "Hola" );
@@ -280,12 +286,12 @@
         </code>
       </pre>
 
-      <p>Note que no hay un nombre después de la palabra clave function. Omitir el nombre está permitido en las
-        expresiones de función.</p>
+        <p>Note que no hay un nombre después de la palabra clave function. Omitir el nombre está permitido en las
+          expresiones de función.</p>
 
-      <p>Podemos copiar una función a otra variable:</p>
+        <p>Podemos copiar una función a otra variable:</p>
 
-      <pre>
+        <pre>
         <code class="language-javascript">
           function sayHi() {   // (1) crear
             alert( "Hola" );
@@ -297,21 +303,21 @@
         </code>
       </pre>
 
-      <h3>Funciones Callback</h3>
+        <h3>Funciones Callback</h3>
 
-      <p>Veamos ejemplos del pasaje de funciones como valores y el uso de expresiones de función.</p>
+        <p>Veamos ejemplos del pasaje de funciones como valores y el uso de expresiones de función.</p>
 
-      <p>Escribimos una función ask(question, yes, no) con tres argumentos:</p>
+        <p>Escribimos una función ask(question, yes, no) con tres argumentos:</p>
 
-      <ul>
-        <li>question: Texto de la pregunta</li>
-        <li>yes: Función a ejecutar si la respuesta es 'Yes'</li>
-        <li>no: Función a ejecutar si la respuesta es 'No'</li>
-      </ul>
+        <ul>
+          <li>question: Texto de la pregunta</li>
+          <li>yes: Función a ejecutar si la respuesta es 'Yes'</li>
+          <li>no: Función a ejecutar si la respuesta es 'No'</li>
+        </ul>
 
-      <p>La función deberá preguntar la question y, dependiendo de la respuesta del usuario, llamar yes() o no(). </p>
+        <p>La función deberá preguntar la question y, dependiendo de la respuesta del usuario, llamar yes() o no(). </p>
 
-      <pre>
+        <pre>
         <code class="language-javascript"> 
           function ask(question, yes, no) {
             if (confirm(question)) yes()
@@ -331,15 +337,15 @@
         </code>
       </pre>
 
-      <p>Los argumentos de ask se llaman <strong>funciones callback</strong>.</p>
+        <p>Los argumentos de ask se llaman <strong>funciones callback</strong>.</p>
 
-      <p>La idea es que pasamos una función y esperamos que se "devuelva la llamada" más tarde si es necesario. En
-        nuestro caso, showOk se convierte en la callback para la respuesta "Yes", y showCancel para la respuesta "No".
-      </p>
+        <p>La idea es que pasamos una función y esperamos que se "devuelva la llamada" más tarde si es necesario. En
+          nuestro caso, showOk se convierte en la callback para la respuesta "Yes", y showCancel para la respuesta "No".
+        </p>
 
-      <p>Podemos usar Expresión de Función para redactar una función equivalente y más corta.</p>
+        <p>Podemos usar Expresión de Función para redactar una función equivalente y más corta.</p>
 
-      <pre>
+        <pre>
         <code class="language-javascript">
           function ask(question, yes, no) {
             if (confirm(question)) yes()
@@ -354,19 +360,20 @@
         </code>
       </pre>
 
-      <p>Aquí, las funciones son declaradas justo dentro del llamado ask. No tienen nombre, y por lo tanto se
-        denominan <strong>funciones anónimas</strong>. Tales funciones no se pueden acceder fuera de ask </p>
+        <p>Aquí, las funciones son declaradas justo dentro del llamado ask. No tienen nombre, y por lo tanto se
+          denominan <strong>funciones anónimas</strong>. Tales funciones no se pueden acceder fuera de ask </p>
 
-    </section>
-    <hr>
+      </section>
 
-    <section id="arrow-functions">
-      <h2>Funciones Flecha</h2>
+      <hr>
 
-      <p>Hay otra sintaxis muy simple y concisa para crear funciones, que a menudo es mejor que las Expresiones de
-        funciones.</p>
+      <section id="arrow-functions">
+        <h2>Funciones Flecha</h2>
 
-      <pre>
+        <p>Hay otra sintaxis muy simple y concisa para crear funciones, que a menudo es mejor que las Expresiones de
+          funciones.</p>
+
+        <pre>
         <code class="language-javascript">
           let func = (arg1, arg2, ..., argN) => expression;
 
@@ -377,9 +384,9 @@
         </code>
       </pre>
 
-      <p>Ejemplo:</p>
+        <p>Ejemplo:</p>
 
-      <pre>
+        <pre>
         <code class="language-javascript">
           let sum = (a, b) => a + b;
 
@@ -393,13 +400,13 @@
         </code>
       </pre>
 
-      <ul>
-        <li>
-          <p>Si solo tenemos un argumento, se pueden omitir paréntesis alrededor de los parámetros, lo que lo hace aún
-            más
-            corto.</p>
+        <ul>
+          <li>
+            <p>Si solo tenemos un argumento, se pueden omitir paréntesis alrededor de los parámetros, lo que lo hace aún
+              más
+              corto.</p>
 
-          <pre>
+            <pre>
             <code class="language-javascript">
               let double = n => n * 2;
               // Más o menos lo mismo que: let double = function(n) { return n * 2 }
@@ -407,26 +414,26 @@
               alert( double(3) ); // 6
             </code>
           </pre>
-        </li>
-        <li>
-          <p>Si no hay parámetros, los paréntesis estarán vacíos pero deben estar presentes.</p>
-          <pre>
+          </li>
+          <li>
+            <p>Si no hay parámetros, los paréntesis estarán vacíos pero deben estar presentes.</p>
+            <pre>
             <code class="language-javascript"> 
               let sayHi = () => alert("¡Hola!");
   
               sayHi();
             </code>
           </pre>
-        </li>
-      </ul>
+          </li>
+        </ul>
 
-      <h3>Funciones de flecha multilínea</h3>
+        <h3>Funciones de flecha multilínea</h3>
 
-      <p>A veces necesitamos una función más compleja, con múltiples expresiones o sentencias. En ese caso debemos
-        encerrarlos entre llaves. La diferencia principal es que las llaves necesitan usar un return para devolver un
-        valor (tal como lo hacen las funciones comunes).</p>
+        <p>A veces necesitamos una función más compleja, con múltiples expresiones o sentencias. En ese caso debemos
+          encerrarlos entre llaves. La diferencia principal es que las llaves necesitan usar un return para devolver un
+          valor (tal como lo hacen las funciones comunes).</p>
 
-      <pre>
+        <pre>
         <code class="language-javascript">
           let sum = (a, b) => {  // la llave abre una función multilínea
             let result = a + b;
@@ -436,12 +443,16 @@
           alert( sum(1, 2) ); // 3
         </code>
       </pre>
+      </section>
+
     </section>
+
+    <hr>
 
     <section class="pagination">
       <article class="pagination-item">
-        <a href="/pages/js/fundamentos/switch.html">
-          <i class="material-icons">arrow_back</i>Sentencia Switch
+        <a href="/pages/js/fundamentos/while-for.html">
+          <i class="material-icons">arrow_back</i>Bucles: while y for
         </a>
       </article>
       <article class="pagination-item">
@@ -450,7 +461,7 @@
         </a>
       </article>
       <article class="pagination-item">
-        <a href="/pages/js/fundamentos/expresions-function.html">Expresiones de función
+        <a href="/pages/js/fundamentos/arrays.html">Arrays
           <i class="material-icons">arrow_forward</i>
         </a>
       </article>
