@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <sergey-import src="metas/statics" />
+  <sergey-import src="metas/titles">Módulos (import / export)</sergey-import>
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <link rel="stylesheet" href="/assets/css/menu.css">
+  <link rel="stylesheet" href="/assets/css/prism.css" />
+</head>
+
+<body>
+  <sergey-import src="header" />
+
+  <main class="container">
+
+    <h1>Módulos (import / export)</h1>
+
+    <section id="modules">
+
+      <p>Actualmente (desde ES6) podemos invocar archivos JavaScript, no solo desde archivos .html, sino desde otros
+        archivos JavaScript. </p>
+
+      <p>Como vimos en la sección <a href="/pages/js/fundamentos/scripts.html">Etiqueta script</a>, inicialmente
+        invocamos el archivo .js desde el archivo .html a través de la <strong>etiqueta script</strong>. Utilizando el
+        atributo src indicamos el path del archivo. Y si el archivo .js invocará a otros archivos .js tendremos que
+        <mark>agregar el atributo type='module'</mark>. Si no agregamos este atributo las importaciones generarán un
+        error.
+      </p>
+
+      <p>A menos que el programador del archivo indique que el archivo sea invocado desde la sección head, se debe
+        invocar desde el final de la sección body, lo más próximo al cierre de la etiqueta. Se debe a que JavaScript es
+        bloqueante para la carga de la página y si el archivo es pesado o son varios archivos tendremos problemas de
+        rendimiento.</p>
+
+      <p>En el siguiente ejemplo trabajaremos sobre un proyecto que posee el archivo index.html en la carpeta raiz del
+        proyecto, y un archivo (modulos.js) dentro de la carpeta js.</p>
+
+      <pre>
+        <code>
+          new-proyect
+          | - js
+          |    | 
+          |     - modulos.js
+          |     - constantes.js y 
+          |     - aritmetica.js
+          | - css
+          |    |
+          |     - styles.css 
+          |
+           - index.html 
+        </code>
+      </pre>
+
+      <pre>
+        <code class="language-html">
+          &lt;!-- index.html --&gt;
+          &lt;!DOCTYPE html&gt;
+          &lt;html lang="es"&gt;
+          &lt;head&gt;
+            &lt;meta charset="UTF-8"&gt;
+            &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+            &lt;title&gt;Modulos en JavaScript&lt;/title&gt;
+          &lt;/head&gt;
+          &lt;body&gt;
+            ...
+            &lt;script src='js/modulos.js' type='module'&gt;&lt;/script&gt;
+          &lt;/body&gt;
+          &lt;/html&gt;
+        </code>
+      </pre>
+
+      <p>Adentro de los archivos .js lo primero que debemos hacer es la importación de archivos. No debería existir
+        código antes de las importaciones.</p>
+
+      <p>Continuando con el ejemplo creamos dos nuevos archivos dentro de la carpeta js: constantes.js y aritmetica.js
+      </p>
+
+      <pre>
+        <code class="language-javascript">
+          /* modulos.js */
+          import { PI } from './constantes.js';
+          import { sumar, restar } from './aritmetica.js'
+
+          /* una vez realizado el import podemos utilizar las funciones, 
+          constantes o variables que hayamos exportado. */
+          console.log(PI);
+          console.log(sumar(3, 4)); // 7
+        </code>
+      </pre>
+      <pre>
+        <code class="language-javascript">
+          /* constantes.js */
+          export const PI = Math.PI;
+
+          /* Solo exportamos las variables que necetamos */
+          let user = "Mauricio";
+          let password = "new-pass";
+        </code>
+      </pre>
+      <pre>
+        <code class="language-javascript">
+          /* aritmetica.js */
+
+          export function sumar(a, b) {
+            return a + b;
+          }
+          export function restar(a, b) {
+            return a - b;
+          }
+        </code>
+      </pre>
+
+      <p>En lugar de exportar dos funciones podemos agruparlas en un objeto y exportar el objeto. Recordemos que, dentro
+        de un objeto, cuando el nombre de la propiedad coincide con el valor podemos abreviar reemplazando: </p>
+
+      <pre>
+        <code class="language-javascript">
+          objeto = { 
+            sumar: sumar,
+            restar: restar
+          }
+          // es equivalente a:
+          objeto = { 
+            sumar,
+            restar
+          }
+        </code>
+      </pre>
+
+      <hr>
+
+      <pre>
+        <code class="language-javascript">
+          /* modulos.js */
+          import { PI } from './constantes.js';
+          import { aritmetica } from './aritmetica.js'
+
+          console.log(PI);
+          console.log(aritmetica.sumar(3, 4)); // 7
+
+        </code>
+      </pre>
+      <pre>
+        <code class="language-javascript">
+          /* constantes.js */
+          export const PI = Math.PI;
+
+          /* Solo exportamos las variables que necetamos */
+          let user = "Mauricio";
+          let password = "new-pass";
+        </code>
+      </pre>
+      <pre>
+        <code class="language-javascript">
+          /* aritmetica.js */
+
+          function sumar(a, b) {
+            return a + b;
+          }
+          function restar(a, b) {
+            return a - b;
+          }
+          export const aritmetica = {
+            sumar,
+            restar
+          }
+        </code>
+      </pre>
+
+      <h3>Export default</h3>
+
+      <p>Podemos realizar una exportación por defecto de una variable o función utilizando la <strong>palabra clave
+          export default</strong>. Al momento de importar la exportación por defecto no se utilizan las llaves {}.</p>
+
+      <p>Solo se puede tener un export default por archivo.</p>
+
+      <p>Si queremos exportar por default una variable o constante primero debemos declararla y luego realizar el
+        export. Si exportamos funciones (dependiendo de como se encuentren definidas) o clases podemos exportarlas al
+        momento de declararlas. Este comportamiento se debe al hoisting. Lo primero que realiza el procesamiento de
+        JavaScript es elevar las declaraciones de funciones. Cuando el interprete llega a la línea la función ya fue
+        declarada (lo que no ocurre con variables y constantes). </p>
+
+      <pre>
+        <code class="language-javascript">
+          /* modulos.js */
+          import saludar, { PI } from './constantes.js';
+          import { aritmetica } from './aritmetica.js'
+
+          console.log(PI);
+          console.log(aritmetica.sumar(3, 4)); // 7
+
+          saludar(); // 'Hola Módulos +ES6'
+
+        </code>
+      </pre>
+      <pre>
+        <code class="language-javascript">
+          /* constantes.js */
+          export const PI = Math.PI;
+
+          /* Solo exportamos las variables que necetamos */
+          let user = 'Mauricio';
+          let password = 'new-pass';
+
+          export default function saludar() {
+            console.log('Hola Módulos +ES6');
+          }
+
+        </code>
+      </pre>
+      <pre>
+        <code class="language-javascript">
+          /* aritmetica.js */
+
+          function sumar(a, b) {
+            return a + b;
+          }
+          function restar(a, b) {
+            return a - b;
+          }
+          export const aritmetica = {
+            sumar,
+            restar
+          }
+        </code>
+      </pre>
+
+      <h3>Alias</h3>
+
+      <p>Finalemente, al momento de importar podemos generar un alias. Generalmente, se utiliza cuando tenemos nombres
+        largos o cuando importamos de distintos archivos una variable o función con el mismo nombre.</p>
+
+      <pre>
+        <code class="language-javascript">
+          /* modulos.js */
+          import { PI } from './constantes.js';
+          import { aritmetica as a } from './aritmetica.js'
+
+          console.log(PI);
+          console.log(a.sumar(3, 4)); // 7
+
+        </code>
+      </pre>
+      <pre>
+        <code class="language-javascript">
+          /* aritmetica.js */
+
+          function sumar(a, b) {
+            return a + b;
+          }
+          function restar(a, b) {
+            return a - b;
+          }
+          export const aritmetica = {
+            sumar,
+            restar
+          }
+        </code>
+      </pre>
+
+      <hr>
+
+      <section class="pagination">
+        <article class="pagination-item">
+          <a href="/pages/js/regular-expressions.html">
+            <i class="material-icons">arrow_back</i>Expresiones regulares
+          </a>
+        </article>
+        <article class="pagination-item">
+          <a href="/pages/js/index.html#indice">Tabla de contenido JS
+            <i class="material-icons">arrow_upward</i>
+          </a>
+        </article>
+        <article class="pagination-item">
+          <a href="/pages/js/prototypes.html">Prototipos
+            <i class="material-icons">arrow_forward</i>
+          </a>
+        </article>
+      </section>
+
+  </main>
+  <sergey-import src="footer" />
+  <script src="/assets/js/prism.js"></script>
+</body>
+
+</html>

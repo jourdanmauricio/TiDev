@@ -445,6 +445,35 @@
       </pre>
       </section>
 
+      <hr>
+
+      <section id="iife-functions">
+        <h2>Funciones anónimas autoejecutables</h2>
+
+        <p>Las funciones anónimas autoejecutables son funciones que se ejecutan tan pronto como se definen. </p>
+
+        <pre>
+          <code class="language-javascript">
+            (function () {
+              console.log('Función IIFE');
+            })();
+          </code>
+        </pre>
+
+        <p>Es un patrón de diseño que se compone por dos partes. La primera es la función anónima encerrada por el
+          operador de agrupación (). Esto impide accesar variables fuera de la función así cómo contaminar
+          el alcance global. </p>
+
+        <p>Al englobar el código lo encapsulamos, de tal manera que las variables de una función no entrarán en
+          conflicto con variables que tengan el mismo nombre de otra función. </p>
+
+        <p>La segunda parte crea la expresión de función cuya ejecución es inmediata (), siendo interpretado
+          directamente en el engine de JavaScript. </p>
+
+        <p>La evolución de este tema se encuentra relacionado a los <a href="/pages/js/modules.html">Módulos</a> ya que
+          podemos invocar archivos JavaScript desde otros archivos JavaScript. </p>
+
+      </section>
     </section>
 
     <hr>
