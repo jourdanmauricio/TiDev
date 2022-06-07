@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <sergey-import src="metas/statics" />
+  <sergey-import src="metas/titles">Asincronismo - Temporizadores</sergey-import>
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <link rel="stylesheet" href="/assets/css/menu.css">
+  <link rel="stylesheet" href="/assets/css/prism.css" />
+</head>
+
+<body>
+  <sergey-import src="header" />
+
+  <main class="container">
+
+    <h1>Asincronismo en JavaScript</h1>
+
+    <section id="temporizadores">
+
+      <h2>Temporizadores</h2>
+
+      <p>A través de los temporizadores podemos ejecutar acciones a posteriori. En JavaScript existen 2: setTimeOut() y
+        setInterval().</p>
+
+      <h3>setTimeOut()</h3>
+
+      <p>El <strong>método setTimeout()</strong> establece un temporizador que ejecuta una función o una porción de
+        código después de que
+        transcurre un tiempo establecido.</p>
+
+      <pre>
+        <code class="language-javascript">
+          console.log('Inicio setTimeout');
+          setTimeout(() => {
+            console.log('Ejecutando un setTimeOut, se ejecuta una sola vez');
+          }, 2000);
+          console.log('Fin setTimeout');
+        </code>
+      </pre>
+
+      <!-- <script>
+        console.log( 'Inicio setTimeout' );
+        setTimeout( () => {
+          console.log( 'Ejecutando un setTimeOut, se ejecuta una sola vez' );
+        }, 2000 );
+        console.log( 'Fin setTimeout' );
+      </script> -->
+
+      <p>El <strong>método clearTimeOut()</strong> cancela setTimeOut(). Para que funcione el setTimeOut debe estar
+        almacenado en una variable. En el siguiente ejemplo inicia el temporizador pero es cancelado inmediatamente. El
+        console.log de la función nunca se ejecuta.</p>
+
+      <pre>
+        <code class="language-javascript">
+          let temporizador = setTimeout(() => {
+            console.log('Ejecutando un setTimeOut');
+            console.log('Pero lo estamos cancelando');
+          }, 2000);
+
+          clearTimeOut(temporizador);
+        </code>
+      </pre>
+
+      <h3>setInterval()</h3>
+
+      <p>El <strong>método setInterval()</strong> ejecuta una función o un fragmento de código de forma repetitiva cada
+        vez que termina el periodo de tiempo determinado. Devuelve un ID de proceso. </p>
+
+      <pre>
+        <code class="language-javascript">
+          console.log('Inicio setInterval');
+          setInterval(() => {
+            console.log('Ejecutando un setInteval');
+            console.log('Se ejecuta indefinidamente cada cierto intervalo de tiempo');
+          }, 3000);
+        </code>
+      </pre>
+
+      <!-- <script>
+        console.log( 'Inicio setInterval' );
+        setInterval( () => {
+          console.log( 'Ejecutando un setInteval' );
+          console.log( 'Se ejecuta indefinidamente cada cierto intervalo de tiempo' );
+        }, 3000 );
+      </script> -->
+
+      <p>El <strong>método clearInterval()</strong> cancela el setInterval (también debe estar almecenado en una
+        variable). </p>
+
+      <pre>
+        <code class="language-javascript">
+          let temporizador = setInterval(() => {
+            console.log('Ejecutando un setInteval');
+            console.log('Se ejecutaría indefinidamente cada cierto intervalo de tiempo');
+            console.log('Pero lo estamos cancelando');
+          }, 3000);
+
+          clearInterval(temporizador);
+        </code>
+      </pre>
+
+    </section>
+
+    <hr>
+
+    <section class="pagination">
+      <article class="pagination-item">
+        <a href="/pages/js/modules.html">
+          <i class="material-icons">arrow_back</i>Módulo (import / export)
+        </a>
+      </article>
+      <article class="pagination-item">
+        <a href="/pages/js/index.html#indice">Tabla de contenido JS
+          <i class="material-icons">arrow_upward</i>
+        </a>
+      </article>
+      <article class="pagination-item">
+        <a href="/pages/js/asincronismo/event-loop.html">Event Loop
+          <i class="material-icons">arrow_forward</i>
+        </a>
+      </article>
+    </section>
+
+  </main>
+  <sergey-import src="footer" />
+  <script src="/assets/js/prism.js"></script>
+</body>
+
+</html>

@@ -26,8 +26,8 @@
       <ul>
         <li>Var: Era la forma en que se declaraban las variables hasta ECMAScript 5. Casi no se usa porque su ámbito es
           global y posee las siguientes características:
-          <ul>
-            <li type="disc">Se puede reinicializar: el último dato predomina.
+          <ul class="list">
+            <li>Se puede reinicializar: el último dato predomina.
               <pre>
                 <code class="language-javascript">
                   var music = "Pop";
@@ -36,7 +36,7 @@
                 </code>
               </pre>
             </li>
-            <li type="disc">Se puede reasignar: a la variable ya inicializada le reasignamos otro valor.
+            <li>Se puede reasignar: a la variable ya inicializada le reasignamos otro valor.
               <pre>
                 <code class="language-javascript">
                   var music = "Pop"
@@ -46,7 +46,7 @@
                 </code>
               </pre>
             </li>
-            <li type="disc">Su alcance es global: inicializamos la variable y la podemos invocar desde
+            <li>Su alcance es global: inicializamos la variable y la podemos invocar desde
               cualquier bloque de código pero no es recomendable utilizar VAR.</li>
           </ul>
         </li>
@@ -54,8 +54,8 @@
         <b>const y let es la forma en que se declaran las variables a partir de ECMAScript 6,</b>
         <br><br>
         <li>const: podemos declarar variables que nunca serán modificadas.
-          <ul>
-            <li type="disc">No se puede reinicilizar: no se puede redeclarar una const con el mismo nombre.
+          <ul class="list">
+            <li>No se puede reinicilizar: no se puede redeclarar una const con el mismo nombre.
               <pre>
                 <code class="language-javascript">
                   const music = "Pop"
@@ -64,7 +64,7 @@
                 </code>
               </pre>
             </li>
-            <li type="disc">No se pude reasignar: una vez que la hayamos inicializado no la podemos reasignar
+            <li>No se pude reasignar: una vez que la hayamos inicializado no la podemos reasignar
               <pre>
                 <code class="language-javascript">
                   const music = "Pop"
@@ -76,8 +76,8 @@
           </ul>
         </li>
         <li>let: Son variables que pueden ser modificadas:
-          <ul>
-            <li type="disc">No se puede reinicilizar: no puede haber otra declaración con el mismo nombre.
+          <ul class="list">
+            <li>No se puede reinicilizar: no puede haber otra declaración con el mismo nombre.
               <pre>
                 <code class="language-javascript">
                   let music = "Pop"
@@ -86,7 +86,7 @@
                 </code>
               </pre>
             </li>
-            <li type="disc">Se puede reasignar: a la variable ya inicializada le reasignamos otro valor.
+            <li>Se puede reasignar: a la variable ya inicializada le reasignamos otro valor.
               <pre>
                 <code class="language-javascript">
                   let music = "Pop"
@@ -94,7 +94,7 @@
                   music = "Rock"
                 </code>
               </pre>
-            <li type="disc">Su contexto de es bloque: solo podemos utilizarla dentro de su bloque {}</li>
+            <li>Su contexto de es bloque: solo podemos utilizarla dentro de su bloque {}</li>
           </ul>
         </li>
       </ul>

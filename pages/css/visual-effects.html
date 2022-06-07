@@ -701,42 +701,42 @@
           <li>inherit: heredará el modo de fusión de su padre</li>
           <li>unset: elimina el modo de fusión actual</li>
           <li>&lt;blend-mode&gt;: indica el modo de fusión</li>
-          <ul>
-            <li type="disc">normal: no aplica mezcla alguna</li>
-            <li type="disc">multiply: es como apilar varias transparencias una encima de la otra. Los píxeles blancos
+          <ul class="list">
+            <li>normal: no aplica mezcla alguna</li>
+            <li>multiply: es como apilar varias transparencias una encima de la otra. Los píxeles blancos
               aparecerán transparentes y los píxeles negros aparecerán negros. Los intermedios multiplicarán sus valores
               de luminosidad. Las luces se vuelven mucho más claras y las oscuras, más oscuras</li>
-            <li type="disc">screen: multiplica los valores de luz, un efecto inverso a la multiplicación y, en la
+            <li>screen: multiplica los valores de luz, un efecto inverso a la multiplicación y, en la
               mayoría de los casos, producirá un resultado más brillante</li>
-            <li type="disc">overlay: combina multiply y screen. Los colores oscuros se volverán más oscuros y los
+            <li>overlay: combina multiply y screen. Los colores oscuros se volverán más oscuros y los
               colores claros se volverán más claros. Los intermedios no se ven afectados.</li>
-            <li type="disc">darken: compara la luminosidad del color oscuro de la imagen de origen y la imagen de fondo
+            <li>darken: compara la luminosidad del color oscuro de la imagen de origen y la imagen de fondo
               y selecciona el más oscuro de los dos. Lo hace comparando los valores rgb en lugar de la luminosidad (como
               multiply y screen), para cada canal de color. Con darken y lighten, a menudo se crean nuevos valores de
               color a partir de este proceso de comparación</li>
-            <li type="disc">lighten: hace lo contrario que darken</li>
-            <li type="disc">color-dodge: aclara el color de fondo para reflejar el color de origen. Los colores negros
+            <li>lighten: hace lo contrario que darken</li>
+            <li>color-dodge: aclara el color de fondo para reflejar el color de origen. Los colores negros
               puros no ven ningún efecto en este modo</li>
-            <li type="disc">color-burn: es muy similar al modo de fusión multiply, pero aumenta el contraste, da como
+            <li>color-burn: es muy similar al modo de fusión multiply, pero aumenta el contraste, da como
               resultado tonos medios más saturados y reflejos reducidos</li>
-            <li type="disc">hard-light: crea un contraste vívido. Filtra o multiplica los valores de luminosidad. Si el
+            <li>hard-light: crea un contraste vívido. Filtra o multiplica los valores de luminosidad. Si el
               valor del píxel es más claro que un 50 % de gris, la imagen se aclara, como si estuviera tramada. Si es
               más oscuro, se multiplica</li>
-            <li type="disc">soft-light: es una versión menos dura de la superposición. Funciona de la misma manera con
+            <li>soft-light: es una versión menos dura de la superposición. Funciona de la misma manera con
               menos contraste.</li>
-            <li type="disc">difference: es como funciona un negativo fotográfico. Toma el valor de diferencia de cada
+            <li>difference: es como funciona un negativo fotográfico. Toma el valor de diferencia de cada
               píxel, invirtiendo los colores claros. Si los valores de color son idénticos, se vuelven negros. Las
               diferencias en los valores se invertirán</li>
-            <li type="disc">exclusion: es similar a difference, pero en lugar de devolver el negro para píxeles
+            <li>exclusion: es similar a difference, pero en lugar de devolver el negro para píxeles
               idénticos, devolverá un 50 % de gris, lo que dará como resultado una salida más suave con menos contraste
             </li>
-            <li type="disc">hue: toma el tono del color de origen y lo aplica a la saturación y luminosidad del color de
+            <li>hue: toma el tono del color de origen y lo aplica a la saturación y luminosidad del color de
               fondo</li>
-            <li type="disc">saturation: funciona como el tono, pero al usar la saturación como modo de fusión, se aplica
+            <li>saturation: funciona como el tono, pero al usar la saturación como modo de fusión, se aplica
               la saturación del color de origen al tono y la luminosidad del color de fondo</li>
-            <li type="disc">color: creará un color a partir del tono y la saturación del color de origen y la
+            <li>color: creará un color a partir del tono y la saturación del color de origen y la
               luminosidad del color de fondo</li>
-            <li type="disc">luminosity: es lo inverso del color. Crea un color con la luminosidad del color de origen y
+            <li>luminosity: es lo inverso del color. Crea un color con la luminosidad del color de origen y
               el matiz y la saturación del color de fondo</li>
           </ul>
         </ul>
@@ -862,10 +862,10 @@
           <p>Parámetros:</p>
 
           <ul type="circle">
-            <li type="disc">1 valor, aplica el mismo padding a los 4 lados</li>
-            <li type="disc">2 valores, el primero para arriba y abajo y el segundo para los lados</li>
-            <li type="disc">3 valores, el primero para arriba, el segundo para los laterale y el tercero para abajo</li>
-            <li type="disc">4 valores, indicamos los cuatro lados comenzando desde arriba y siguiendo las agujas del
+            <li>1 valor, aplica el mismo padding a los 4 lados</li>
+            <li>2 valores, el primero para arriba y abajo y el segundo para los lados</li>
+            <li>3 valores, el primero para arriba, el segundo para los laterale y el tercero para abajo</li>
+            <li>4 valores, indicamos los cuatro lados comenzando desde arriba y siguiendo las agujas del
               reloj</li>
           </ul>
 
@@ -873,13 +873,13 @@
             desde 1 a 4 parámetros.</p>
 
           <ul type="circle">
-            <li type="disc">1 valor, aplicará el mismo redondeo a las 4 esquinas</li>
-            <li type="disc">2 valores, el primer valor aplica a la diagonal (superior izquierda e inferior derecha) y el
+            <li>1 valor, aplicará el mismo redondeo a las 4 esquinas</li>
+            <li>2 valores, el primer valor aplica a la diagonal (superior izquierda e inferior derecha) y el
               segundo para la otra diagonal</li>
-            <li type="disc">3 valores, el primer valor es para la esquina superior izquierda, el segundo es para la
+            <li>3 valores, el primer valor es para la esquina superior izquierda, el segundo es para la
               diagonal (superior derecha e inferior izquierda) y el tercer valor es para la esquina inferior derecha
             </li>
-            <li type="disc">4 valores, indicamos las 4 esquinas comenzando desde la esquina superior izquierda y
+            <li>4 valores, indicamos las 4 esquinas comenzando desde la esquina superior izquierda y
               siguiendo las agujas del reloj</li>
           </ul>
 

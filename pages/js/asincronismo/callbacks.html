@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <sergey-import src="metas/statics" />
+  <sergey-import src="metas/titles">Asincronismo - Callbacks</sergey-import>
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <link rel="stylesheet" href="/assets/css/menu.css">
+  <link rel="stylesheet" href="/assets/css/prism.css" />
+</head>
+
+<body>
+  <sergey-import src="header" />
+
+  <main class="container">
+
+    <h1>Asincronismo en JavaScript - Callbacks</h1>
+
+    <section id="event-loop">
+
+      <h2>Callbacks</h2>
+
+      <p>JavaScript posee diferentes mecanismos para trabajar la asincronía. El primero que se implemento son las
+        callbacks. </p>
+
+      <h3>¿Que son las funciones callbacks?</h3>
+
+      <p>Una función callback es una función que se pasa a otra función como un argumento, que se ejecutará después de
+        que la primera lo haga para completar algún tipo de rutina o acción.</p>
+
+      <h3>¿Cómo trabaja una función callback?</h3>
+
+      <p>El siguiente ejemplo muetsra el funcionamiento de una callback sincrónica, ya que se ejecuta
+        inmediatamente.</p>
+
+      <pre>
+        <code class="language-javascript">
+          function saludar(nombre) {
+            alert('Hola ' + nombre);
+          }
+          function procesarEntradaUsuario(callback) {
+            var nombre = prompt('Por favor ingresa tu nombre.');
+            callback(nombre);
+          }
+          procesarEntradaUsuario(saludar);
+        </code>
+      </pre>
+
+      <p>Sin embargo, las callbacks a menudo se utilizan para continuar con la ejecución del código después de que se
+        haya completado una operación asincronica.</p>
+
+      <p>En el siguiente ejemplo veremos un caso con callbacks asíncronas (como aún no vemos consumo de APIS, utilizamos
+        setTimeout) y recursividad (la función se invoca a si misma).</p>
+
+      <pre>
+        <code class="language-javascript">
+          function cuadradoCallback(value, callback) {
+            setTimeout(() => {
+              callback(value, value * value);
+            }, 0 || Math.random() * 1000);
+          }
+          cuadradoCallback(0, (value, result) => {
+            console.log("Inicia Callback");
+            console.log(`Callback: ${value}, ${result}`);
+            cuadradoCallback(1, (value, result) => {
+              console.log(`Callback: ${value}, ${result}`);
+              cuadradoCallback(2, (value, result) => {
+                console.log(`Callback: ${value}, ${result}`);
+                cuadradoCallback(3, (value, result) => {
+                  console.log(`Callback: ${value}, ${result}`);
+                  cuadradoCallback(4, (value, result) => {
+                    console.log(`Callback: ${value}, ${result}`);
+                    cuadradoCallback(5, (value, result) => {
+                      console.log(`Callback: ${value}, ${result}`);
+                      console.log("Fin Callback");
+                      console.log("Callback Hell !!!!!😈🤘");
+                      console.log("http://callbackhell.com/");
+                    });
+                  });
+                });
+              });
+            });
+          }); 
+        </code>  
+      </pre>
+
+      <p> Cuando anidamos callbacks, de alguna manera estamos controlando el asincronismo, ya que hasta que no termine
+        la ejecución de la función anterior no comienza la siguiente (como si trabajáramos en forma síncrona). Un
+        ejemplo es el caso de una consulta a una API. Hasta que no tengamos los datos (respuesta) no podremos ejecutar
+        la siguiente función (almacenar los datos en una base de datos). Luego de almacenar los datos, podríamos mostrar
+        los datos en pantalla. </p>
+
+      <p>Este mecanismo puede generar lo que se denomina callback hell (código dificil de seguir). Podemos profundizar
+        sobre callbacks hell en <a href="http://callbackhell.com/" target="_blank"
+          rel="noopener noreferrer">http://callbackhell.com/</a>. Las promesas y funciones asíncronas (que veremos en
+        las siguientes secciones) resulven este inconveniente. </p>
+
+    </section>
+
+    <hr>
+
+    <section class="pagination">
+      <article class="pagination-item">
+        <a href="/pages/js/asincronismo/event-loop.html">
+          <i class="material-icons">arrow_back</i>Event Loop
+        </a>
+      </article>
+      <article class="pagination-item">
+        <a href="/pages/js/index.html#indice">Tabla de contenido JS
+          <i class="material-icons">arrow_upward</i>
+        </a>
+      </article>
+      <article class="pagination-item">
+        <a href="/pages/js/asincronismo/promises.html">Promesas
+          <i class="material-icons">arrow_forward</i>
+        </a>
+      </article>
+    </section>
+
+  </main>
+  <sergey-import src="footer" />
+  <script src="/assets/js/prism.js"></script>
+</body>
+
+</html>

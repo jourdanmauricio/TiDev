@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <sergey-import src="metas/statics" />
+  <sergey-import src="metas/titles">Asincronismo - Async - Await</sergey-import>
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <link rel="stylesheet" href="/assets/css/menu.css">
+  <link rel="stylesheet" href="/assets/css/prism.css" />
+</head>
+
+<body>
+  <sergey-import src="header" />
+
+  <main class="container">
+
+    <h1>Asincronismo en JavaScript - Async - Await</h1>
+
+    <section id="async-await">
+
+      <h2>Async - Await</h2>
+
+      <p>La finalidad de las funciones async/await es simplificar el comportamiento del uso síncrono de promesas y
+        realizar algún comportamiento específico en un grupo de Promises. </p>
+
+      <p>Cuando se llama a una función async retorna un elemento Promise. Cuando la función async devuelve un
+        valor, Promise se resolverá con el valor devuelto. Si la función async genera una excepción o algún valor,
+        Promise se rechazará con el valor generado.</p>
+
+      <p>Una función async puede contener una expresión await, la cual pausa la ejecución de la función asíncrona y
+        espera la resolución de la Promise pasada y, a continuación, reanuda la ejecución de la función async y devuelve
+        el valor resuelto.</p>
+
+      <pre>
+        <code class="language-javascript">
+          function cuadradoPromise(value) {
+            if (typeof value !== "number") {
+              return Promise.reject(`Error, el valor " ${value} " ingresado no es un número`);
+            }
+            return new Promise((resolve, reject) => {
+              setTimeout(() => {
+                resolve({
+                  value,
+                  result: value * value
+                });
+              }, 0 | Math.random() * 1000);
+            });
+          }
+
+          async function funcionAsincronaDeclarada() {
+            try {
+              console.log('Inicio Async Function');
+              let obj = await cuadradoPromise(0);
+              console.log(`Async Function: ${obj.value}, ${obj.result}`);
+              obj = await cuadradoPromise(1);
+              console.log(`Async Function: ${obj.value}, ${obj.result}`);
+              obj = await cuadradoPromise(2);
+              console.log(`Async Function: ${obj.value}, ${obj.result}`);
+              obj = await cuadradoPromise("3");
+              console.log(`Async Function: ${obj.value}, ${obj.result}`);
+              obj = await cuadradoPromise(4);
+              console.log(`Async Function: ${obj.value}, ${obj.result}`);
+              obj = await cuadradoPromise(5);
+              console.log(`Async Function: ${obj.value}, ${obj.result}`);
+              console.log('Fin Async Function');
+            } catch (err) {
+              console.error(err)
+            }
+          }
+        </code>
+      </pre>
+
+      <p>Async - Await no reemplaza las promesas, se complementan. De hecho, vemos que la definición de la función que
+        estamos ejecutando es igual a la que utilizamos en la sección de promsas.</p>
+
+      <p>Para manejar los errores ocupamos un bloque try / catch.</p>
+
+      <p>También podemos utilizar async - await con funciones expresadas:</p>
+
+      <pre>
+        <code class="language-javascript">
+
+        const funcionAsincronaExpresada = async () => {
+          try {
+            console.log('Inicio Async Function');
+            let obj = await cuadradoPromise(6);
+            console.log(`Async Function: ${obj.value}, ${obj.result}`);
+            obj = await cuadradoPromise(7);
+            console.log(`Async Function: ${obj.value}, ${obj.result}`);
+            obj = await cuadradoPromise(8);
+            console.log(`Async Function: ${obj.value}, ${obj.result}`);
+            obj = await cuadradoPromise("9");
+            console.log(`Async Function: ${obj.value}, ${obj.result}`);
+            obj = await cuadradoPromise(10);
+            console.log(`Async Function: ${obj.value}, ${obj.result}`);
+            console.log('Fin Async Function');
+          } catch (err) {
+            console.error(err)
+          }
+        }
+        
+        funcionAsincronaExpresada(); 
+        </code>
+      </pre>
+
+      <p>La palabra reservada async se debe escribir antes de la declaración de la arrow function.</p>
+      <h3>Callbacks Vs Promesas Vs Async/Await</h3>
+
+      <ul>
+        <li>Callbacks
+          <ul class="list">
+            <li>Ventajas: Simple (una función que recibe otra función). Son universales, corren en cualquier
+              navegador.</li>
+            <li>Desventajas: Composición tediosa, anidando cada vez más elementos. Caer en Callback Hell.
+            </li>
+          </ul>
+        </li>
+        <li>Promesas
+          <ul class="list">
+            <li>Ventajas: Facilmente enlazables .Then ( return… ).Then - Fácil e intuitivo de leer.</li>
+            <li>Desventajas: Posible error si no se retorna el siguiente llamado. No corre en todos los
+              navegadores.</li>
+          </ul>
+        </li>
+        <li>Async - Await
+          <ul class="list">
+            <li>Ventajas: Se puede usar try-catch . Código más ordenado e intuitivo.</li>
+            <li>Desventajas: No corre en todos los navegadores (se requiere un transpilador).</li>
+          </ul>
+        </li>
+      </ul>
+
+    </section>
+
+    <hr>
+
+    <section class="pagination">
+      <article class="pagination-item">
+        <a href="/pages/js/asincronismo/promises.html">
+          <i class="material-icons">arrow_back</i>Promesas
+        </a>
+      </article>
+      <article class="pagination-item">
+        <a href="/pages/js/index.html#indice">Tabla de contenido JS
+          <i class="material-icons">arrow_upward</i>
+        </a>
+      </article>
+      <article class="pagination-item">
+        <a href="/pages/js/new-types.html">Symbol
+          <i class="material-icons">arrow_forward</i>
+        </a>
+      </article>
+    </section>
+
+  </main>
+  <sergey-import src="footer" />
+  <script src="/assets/js/prism.js"></script>
+</body>
+
+</html>
