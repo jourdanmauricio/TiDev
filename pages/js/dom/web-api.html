@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <sergey-import src="metas/statics" />
+  <sergey-import src="metas/titles">Web APIs</sergey-import>
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <link rel="stylesheet" href="/assets/css/menu.css">
+  <link rel="stylesheet" href="/assets/css/prism.css" />
+</head>
+
+<body>
+  <sergey-import src="header" />
+
+  <main class="container">
+
+    <h1>Web APIs</h1>
+    <section>
+
+      <p>API (Application Programming Interfaces) es un término genérico que es usado para cubrir todos los
+        requerimientos técnicos para tener varios componentes de software capaces de funcionar con los demás. En un
+        contexto web, su uso es un poco más restrictivo, una API es usualmente un conjunto de métodos, propiedades y
+        eventos para con el fin lograr ciertas tareas.</p>
+
+      <figure>
+        <img src="/assets/images/js_32.png" alt="Window, DOM, BOM">
+        <figcaption>Window, DOM, BOM</figcaption>
+      </figure>
+
+      <p>El objeto window representa la ventana que contiene un documento DOM; la propiedad document apunta al DOM
+        document cargado en esa ventana. </p>
+
+      <p>El DOM es un modelo de documento que se carga en el navegador web y que representa el documento como un árbol
+        de nodos, en donde cada nodo representa una parte del documento (puede tratarse de un elemento, una cadena de
+        texto o un comentario).</p>
+
+      <p>El DOM es una de las APIs más usadas en la Web, pues permite ejecutar código en el navegador para acceder e
+        interactuar con cualquier nodo del documento. Estos nodos pueden crearse, moverse o modificarse. Pueden añadirse
+        a estos nodos manejadores de eventos (event listeners en inglés) que se ejecutarán/activarán cuando ocurra el
+        evento indicado en este manejador.</p>
+
+
+      <p>El BOM (Browser Object Model) controla la ventana del navegador, barra de dirección, tamaño, posicionamiento,
+        etc</p>
+
+      <p>El CSSOM (CSS Object Model) es un conjunto de APIs que permite manipular CSS desde JavaScript. Así como el DOM
+        (Document Object Model) es para HTML, el CSSOM (CSS Object Model) es para CSS. Permite leer y modificar el
+        estilo de CSS de forma dinámica.</p>
+
+      <p>Existen muchas Web APIs para realizar distintas tareas:</p>
+
+      <ul>
+        <li>Eventos</li>
+        <li>Forms</li>
+        <li>AJAX - Fetch</li>
+        <li>History</li>
+        <li>Web Storage</li>
+        <li>Geolocation</li>
+        <li>Drag & Drop</li>
+        <li>Indexed DB</li>
+        <li>Canvas</li>
+        <li>MatchMedia</li>
+        <li>etc..</li>
+      </ul>
+
+      <script>console.log( window );</script>
+
+    </section>
+
+    <hr>
+
+    <section class="pagination">
+      <article class="pagination-item">
+        <a href="/pages/js/json.html">
+          <i class="material-icons">arrow_back</i>Json
+        </a>
+      </article>
+      <article class="pagination-item">
+        <a href="/pages/js/index.html#indice">Tabla de contenido JS
+          <i class="material-icons">arrow_upward</i>
+        </a>
+      </article>
+      <article class="pagination-item">
+        <a href="/pages/js/json.html">
+          <i class="material-icons">arrow_forward</i>Json
+        </a>
+      </article>
+    </section>
+
+  </main>
+  <sergey-import src="footer" />
+  <script src="/assets/js/prism.js"></script>
+</body>
+
+</html>
