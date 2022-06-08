@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <sergey-import src="metas/statics" />
+  <sergey-import src="metas/titles">Nodos, elementos y selectores</sergey-import>
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <link rel="stylesheet" href="/assets/css/menu.css">
+  <link rel="stylesheet" href="/assets/css/prism.css" />
+</head>
+
+<body>
+  <sergey-import src="header" />
+
+  <main class="container">
+
+    <h1>Nodos, elementos y selectores</h1>
+
+    <section id="selectors">
+
+      <p>Todo objeto situado dentro de un documento es un nodo de algún tipo. En un documento HTML, un objeto puede ser
+        un
+        nodo de elemento, pero también un nodo de texto o de atributo.</p>
+
+      <p>No se deben confirdir las etiquetas html (elemento) con nodos. Existen diferentes tipos de nodos: etiquetas
+        html, textos, comentarios, para documentos XML, etc. Para interactuar con una página web, básicamente nos
+        interesa los nodos de tipo elemento (etiqueta html) y los nodos de tipo texto (texto que se encuentra dentro de
+        los elementos. Ejemplo: texto del h1). </p>
+
+      <h2>Métodos del DOM para seleccionar elementos</h2>
+
+      <p>Comenzaremos viendo métodos que ya no se utilizan porque se han reemplazado por algunos más óptimos.</p>
+
+      <blockquote>
+        Cuando es llamado sobre el objeto document, la búsqueda se realiza en todo el document, incluido el nodo raíz.
+        También puedes llamar loe distintos métodos sobre cualquier elemento; en ese caso retornara sólo los elementos
+        hijos del elemento raíz indicado.
+      </blockquote>
+
+      <h3>Document.getElementsByTagName</h3>
+
+      <p>Retorna una lista de elementos que tienen una etiqueta determinado. </p>
+
+      <pre>
+        <code class="language-javascript">
+          document.getElementByTagName('li');
+        </code>
+      </pre>
+
+      <h3>Document.getElementsByClassName()</h3>
+
+      <p>Retorna un objecto similar a un array de los elementos hijos que tengan todos los nombres de clase indicados.
+        No se debe incluir el punto '.' antes del nombre de la clase, porque se encuentra implícito en el nombre del
+        método. </p>
+
+      <pre>
+        <code class="language-javascript">
+          document.getElementsByClassName('nombre-de-clase');
+        </code>
+      </pre>
+
+      <h3>Document.getElementsByName()</h3>
+
+      <p>Retorna una colección de lista de nodos con un nombre determinado. Nos referimos al atributo name, que
+        generalmente utilizamos en las etiquetas html para procesar formularios al enviarlos al servidor. Cuando
+        enviamos el formuario se transformarán en variables enviadas a través de métodos como POST o GET. </p>
+
+      <pre>
+        <code class="language-html">
+          &lt;input type='text' name='nombre' placeholder='Nombre'&gt;
+        </code>
+      </pre>
+      <pre>
+        <code class="language-javascript">
+          document.getElementsByName('nombre');
+        </code>
+      </pre>
+
+      <h3>document.getElementById()</h3>
+
+      <p>Devuelve una referencia al elemento por su ID. El ID es una cadena única dentro del documento. No puede existir
+        más de un elemento con el mismo identificador.</p>
+
+      <pre>
+        <code class="language-javascript">
+          document.getElementById('menu');
+        </code>
+      </pre>
+
+      <blockquote>
+        Los métodos getElementsByTagName, getElementsByClassName y getElementsByName han sido reemplazados por los
+        métodos: querySelector y querySelectorAll.
+      </blockquote>
+
+      <h3>Document.querySelector()</h3>
+
+      <p>Retorna el primer elemento del documento que coincida con el grupo especificado de selectores. Recibe como
+        parámetro un selector válido CSS, que no sean pseudoclases o pseudoelementos. Si seleccionamos una clase debemos
+        colocar el punto '.' o el numeral '#' si seleccionamos un Id, tal como se colocan en selectores CSS. </p>
+
+      <pre>
+        <code class="language-javascript">
+          document.querySelector('#menu');
+          document.querySelector('.card');
+          document.querySelector('a'); // Selecciona el primer elemento
+        </code>
+      </pre>
+
+      <blockquote>
+        Podriamos pensar que el método querySelector puede reemplazar a getElementById pero el rendimiento de
+        getElementById es superior a querySelector. querySelector es más lento.
+      </blockquote>
+
+      <h3>Document.querySelectorAll()</h3>
+
+      <p>El método querySelector() solo selecciona el primer elemento que coincida. El método querySelectorAll() de un
+        retorna un NodeList que representa una lista de elementos del documento que coinciden con el grupo de selectores
+        indicados. Las listas de nodos comparten algunos métodos con los arreglos como lentgh o forEach. También podemos
+        acceder a alguno de los elementos del nodeList a través de la notación de corchetes '[]'.</p>
+
+      <pre>
+        <code class="language-javascript">
+          document.querySelectorAll('a'); // Todos los elementos
+          document.querySelectorAll('#menu li'); // li hijos del id menu
+          document.querySelectorAll('a').length;
+          document.querySelectorAll('a').forEach( el => console.log(el));
+          document.querySelectorAll('a')[2];
+        </code>
+      </pre>
+
+      <p>Ejemplos</p>
+
+      <pre>
+        <code class="language-html">
+          &lt;p id="que-es"&gt;
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem, laboriosam cum quod, perferendis eveniet pariatur
+            facere doloribus adipisci consequatur totam est dolorum vero nisi voluptate porro explicabo quo necessitatibus
+            blanditiis.
+          &lt;/p&gt;
+          &lt;nav id="menu"&gt;
+            &lt;ul&gt;
+              &lt;li&gt;&lt;a href="#"&gt;Sección 1&lt;/a&gt;&lt;/li&gt;
+              &lt;li&gt;&lt;a href="#"&gt;Sección 2&lt;/a&gt;&lt;/li&gt;
+              &lt;li&gt;&lt;a href="#"&gt;Sección 3&lt;/a&gt;&lt;/li&gt;
+              &lt;li&gt;&lt;a href="#"&gt;Sección 4&lt;/a&gt;&lt;/li&gt;
+              &lt;li&gt;&lt;a href="#"&gt;Sección 5&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/nav&gt;
+          &lt;input type="text" name="nombre" placeholder="Nombre"&gt;
+          &lt;a class="link-dom" data-id="1" data-description="Document Object Model" href="dom.html"
+            style="background-color: #F7DF1E; color: #222;"&gt;DOM&lt;/a&gt;
+          &lt;section class="cards"&gt;
+            &lt;figure class="card"&gt;
+              &lt;img src="https://placeimg.com/200/200/tech" alt="Tech"&gt;
+              &lt;figcaption&gt;Tech&lt;/figcaption&gt;
+            &lt;/figure&gt;
+            &lt;figure class="card"&gt;
+              &lt;img src="https://placeimg.com/200/200/animals" alt="Animals"&gt;
+              &lt;figcaption&gt;Animals&lt;/figcaption&gt;
+            &lt;/figure&gt;
+            &lt;figure class="card"&gt;
+              &lt;img src="https://placeimg.com/200/200/arch" alt="Architecture"&gt;
+              &lt;figcaption&gt;Architecture&lt;/figcaption&gt;
+            &lt;/figure&gt;
+            &lt;figure class="card"&gt;
+              &lt;img src="https://placeimg.com/200/200/people" alt="People"&gt;
+              &lt;figcaption&gt;People&lt;/figcaption&gt;
+            &lt;/figure&gt;
+            &lt;figure class="card"&gt;
+              &lt;img src="https://placeimg.com/200/200/nature" alt="Nature"&gt;
+              &lt;figcaption&gt;Nature&lt;/figcaption&gt;
+            &lt;/figure&gt;
+          &lt;/section&gt;
+          &lt;template id="template-card"&gt;
+            &lt;figure class="card"&gt;
+              &lt;img&gt;
+              &lt;figcaption&gt;&lt;/figcaption&gt;
+            &lt;/figure&gt;
+          &lt;/template&gt;        
+        </code>
+      </pre>
+
+      <p id="que-es">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem, laboriosam cum quod, perferendis eveniet
+        pariatur
+        facere doloribus adipisci consequatur totam est dolorum vero nisi voluptate porro explicabo quo necessitatibus
+        blanditiis.
+      </p>
+      <nav id="menu">
+        <ul>
+          <li><a href="#">Sección 1</a></li>
+          <li><a href="#">Sección 2</a></li>
+          <li><a href="#">Sección 3</a></li>
+          <li><a href="#">Sección 4</a></li>
+          <li><a href="#">Sección 5</a></li>
+        </ul>
+      </nav>
+      <input type="text" name="nombre" placeholder="Nombre">
+      <a class="link-dom" data-id="1" data-description="Document Object Model" href="dom.html"
+        style="background-color: #F7DF1E; color: #222;">DOM</a>
+      <section class="cards">
+        <figure class="card">
+          <img src="https://placeimg.com/200/200/tech" alt="Tech">
+          <figcaption>Tech</figcaption>
+        </figure>
+        <figure class="card">
+          <img src="https://placeimg.com/200/200/animals" alt="Animals">
+          <figcaption>Animals</figcaption>
+        </figure>
+        <figure class="card">
+          <img src="https://placeimg.com/200/200/arch" alt="Architecture">
+          <figcaption>Architecture</figcaption>
+        </figure>
+        <figure class="card">
+          <img src="https://placeimg.com/200/200/people" alt="People">
+          <figcaption>People</figcaption>
+        </figure>
+        <figure class="card">
+          <img src="https://placeimg.com/200/200/nature" alt="Nature">
+          <figcaption>Nature</figcaption>
+        </figure>
+      </section>
+      <template id="template-card">
+        <figure class="card">
+          <img>
+          <figcaption></figcaption>
+        </figure>
+      </template>
+
+      <pre>
+        <code class="language-javascript">
+          console.log(document.getElementsByTagName("li"));
+          console.log(document.getElementsByClassName("card"));
+          console.log(document.getElementsByName("nombre"));
+          console.log(document.getElementById("menu"));
+          console.log(document.querySelector("#menu"));
+          console.log(document.querySelector("a"));
+          console.log(document.querySelectorAll("a"));
+          console.log(document.querySelectorAll("a").length);
+          document.querySelectorAll("a").forEach((el) => console.log(el));
+          console.log(document.querySelector(".card"));
+          console.log(document.querySelectorAll(".card"));
+          console.log(document.querySelectorAll(".card")[2]);
+          console.log(document.querySelector("#menu li"));
+          console.log(document.querySelectorAll("#menu li"));
+        </code>
+      </pre>
+
+      <figure>
+        <img src="/assets/images/js/js_34.png" alt="Ejemplos de métodos de selección">
+        <figcaption>Ejemplos de métodos de selección</figcaption>
+      </figure>
+
+
+      <script>
+        console.log( document.getElementsByTagName( "li" ) );
+        console.log( document.getElementsByClassName( "card" ) );
+        console.log( document.getElementsByName( "nombre" ) );
+        console.log( document.getElementById( "menu" ) );
+        console.log( document.querySelector( "#menu" ) );
+        console.log( document.querySelector( "a" ) );
+        console.log( document.querySelectorAll( "a" ) );
+        console.log( document.querySelectorAll( "a" ).length );
+        document.querySelectorAll( "a" ).forEach( ( el ) => console.log( el ) );
+        console.log( document.querySelector( ".card" ) );
+        console.log( document.querySelectorAll( ".card" ) );
+        console.log( document.querySelectorAll( ".card" )[2] );
+        console.log( document.querySelector( "#menu li" ) );
+        console.log( document.querySelectorAll( "#menu li" ) );
+      </script>
+
+    </section>
+
+    <hr>
+
+    <section class="pagination">
+      <article class="pagination-item">
+        <a href="/pages/js/dom/introduction.html">
+          <i class="material-icons">arrow_back</i>DOM
+        </a>
+      </article>
+      <article class="pagination-item">
+        <a href="/pages/js/index.html#indice">Tabla de contenido JS
+          <i class="material-icons">arrow_upward</i>
+        </a>
+      </article>
+      <article class="pagination-item">
+        <a href="/pages/js/dom/manejo-dom.html">
+          <i class="material-icons">arrow_forward</i>Manejo del DOM
+        </a>
+      </article>
+    </section>
+
+  </main>
+  <sergey-import src="footer" />
+  <script src="/assets/js/prism.js"></script>
+</body>
+
+</html>
