@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <sergey-import src="metas/statics" />
+  <sergey-import src="metas/titles">DOM Traversing: Recorriendo el DOM</sergey-import>
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <link rel="stylesheet" href="/assets/css/menu.css">
+  <link rel="stylesheet" href="/assets/css/prism.css" />
+  <style>
+    :root {
+      --yellow-color: #F7DF1E;
+      --dark-color: #222;
+    }
+
+    .cards {
+      border: thin solid var(--dark-color);
+      padding: 1rem;
+    }
+
+    .card {
+      display: inline-block;
+      background-color: var(--dark-color);
+      color: var(--yellow-color);
+    }
+
+    .card figcaption {
+      padding: 1rem;
+    }
+  </style>
+</head>
+
+<body>
+  <sergey-import src="header" />
+
+  <main class="container">
+
+    <h1>DOM Traversing: Recorriendo el DOM</h1>
+
+    <section id="text">
+
+      <p>La API del DOM nos brinda una serie de métodos para recorrer los elementos del documento o los elementos a
+        partir de una referencia. Los siguientes métodos refieren las etiquetas html, a nodos de tipo elementos
+        (ELEMENT_NODE).</p>
+
+      <h2>Métodos y propiedades</h2>
+      <ul>
+        <li>Propiedad children: retorna una colecion html con los elementos hijos.
+          <ul class="list">
+            <li>Propiedad firstElementChild: hace referencia al primer hijo.</li>
+            <li>Propiedad lastElementChild: hace referencia al último hijo.</li>
+            <li>Podemos acceder a cada hijo utilizando la notación de corchetes '[]'.</li>
+          </ul>
+        </li>
+        <li>Propiedad parentElement: retorna el elemento padre.</li>
+        <li>Propiedad previousElementSibling: retorna el elemento hermano anterior.</li>
+        <li>Propiedad nextElementSibling: retorna el siguiente elemento hermano.</li>
+        <li>Método closest(): retorna el padre más cercano del tipo de selector que indiquemos.</li>
+      </ul>
+
+      <p>En el siguiente ejemplo recorreremos parte del DOM desde la seccion identificada con la clase cards.</p>
+
+      <pre>
+        <code class="language-html">
+          &lt;!-- En el head --&gt;
+          &lt;style&gt;
+            :root {
+              --yellow-color: #F7DF1E;
+              --dark-color: #222;
+            }
+            .cards {
+              border: thin solid var(--dark-color);
+              padding: 1rem;
+            }
+            .card {
+              display: inline-block;
+              background-color: var(--dark-color);
+              color: var(--yellow-color);
+            }
+            .card figcaption {
+              padding: 1rem;
+            }
+          &lt;/style&gt;
+
+          &lt;!-- En el body --&gt;
+            &lt;section class="cards"&gt;
+              &lt;figure class="card"&gt;
+                &lt;img src="https://placeimg.com/200/200/tech" alt="Tech"&gt;
+                &lt;figcaption&gt;Tech&lt;/figcaption&gt;
+              &lt;/figure&gt;
+              &lt;figure class="card"&gt;
+                &lt;img src="https://placeimg.com/200/200/animals" alt="Animals"&gt;
+                &lt;figcaption&gt;Animals&lt;/figcaption&gt;
+              &lt;/figure&gt;
+              &lt;figure class="card"&gt;
+                &lt;img src="https://placeimg.com/200/200/arch" alt="Architecture"&gt;
+                &lt;figcaption&gt;Architecture&lt;/figcaption&gt;
+              &lt;/figure&gt;
+              &lt;figure class="card"&gt;
+                &lt;img src="https://placeimg.com/200/200/people" alt="People"&gt;
+                &lt;figcaption&gt;People&lt;/figcaption&gt;
+              &lt;/figure&gt;
+              &lt;figure class="card"&gt;
+                &lt;img src="https://placeimg.com/200/200/nature" alt="Nature"&gt;
+                &lt;figcaption&gt;Nature&lt;/figcaption&gt;
+              &lt;/figure&gt;
+            &lt;/section&gt;           
+        </code>
+      </pre>
+
+      <section class="cards">
+        <figure class="card">
+          <img src="https://placeimg.com/200/200/tech" alt="Tech">
+          <figcaption>Tech</figcaption>
+        </figure>
+        <figure class="card">
+          <img src="https://placeimg.com/200/200/animals" alt="Animals">
+          <figcaption>Animals</figcaption>
+        </figure>
+        <figure class="card">
+          <img src="https://placeimg.com/200/200/arch" alt="Architecture">
+          <figcaption>Architecture</figcaption>
+        </figure>
+        <figure class="card">
+          <img src="https://placeimg.com/200/200/people" alt="People">
+          <figcaption>People</figcaption>
+        </figure>
+        <figure class="card">
+          <img src="https://placeimg.com/200/200/nature" alt="Nature">
+          <figcaption>Nature</figcaption>
+        </figure>
+      </section>
+
+      <pre>
+        <code class="language-javascript">
+          const $cards = document.querySelector('.cards');
+          console.log( $cards );
+          console.log( $cards.children );
+          console.log( $cards.children[2] );
+          console.log( $cards.parentElement );
+          console.log( $cards.firstElementChild );
+          console.log( $cards.lastElementChild );
+          console.log( $cards.previousElementSibling );
+          console.log( $cards.nextElementSibling );
+          console.log( $cards.closest( 'div' ) );
+          console.log( $cards.closest( 'body' ) );
+          console.log( $cards.children[3].closest( 'section' ) );
+        </code>
+      </pre>
+
+      <figure>
+        <img src="/assets/images/js/js_38.png" alt="Consola. Métodos y propiedades DOM Traversing">
+        <figcaption>Métodos y propiedades DOM Traversing</figcaption>
+      </figure>
+
+      <script>
+        const $cards = document.querySelector( '.cards' );
+        console.log( $cards );
+        console.log( $cards.children );
+        console.log( $cards.children[2] );
+        console.log( $cards.parentElement );
+        console.log( $cards.firstElementChild );
+        console.log( $cards.lastElementChild );
+        console.log( $cards.previousElementSibling );
+        console.log( $cards.nextElementSibling );
+        console.log( $cards.closest( 'div' ) );
+        console.log( $cards.closest( 'body' ) );
+        console.log( $cards.children[3].closest( 'section' ) );
+      </script>
+    </section>
+
+    <hr>
+
+    <section class="pagination">
+      <article class="pagination-item">
+        <a href="/pages/js/dom/text.html">
+          <i class="material-icons">arrow_back</i>Texto y HTML
+        </a>
+      </article>
+      <article class="pagination-item">
+        <a href="/pages/js/index.html#indice">Tabla de contenido JS
+          <i class="material-icons">arrow_upward</i>
+        </a>
+      </article>
+      <article class="pagination-item">
+        <a href="/pages/js/dom/manejo-dom.html">
+          <i class="material-icons">arrow_forward</i>Manejo del DOM
+        </a>
+      </article>
+    </section>
+
+  </main>
+  <sergey-import src="footer" />
+  <script src="/assets/js/prism.js"></script>
+</body>
+
+</html>
