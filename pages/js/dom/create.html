@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <sergey-import src="metas/statics" />
+  <sergey-import src="metas/titles">DOM: Creando Elementos y Fragmentos</sergey-import>
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <link rel="stylesheet" href="/assets/css/menu.css">
+  <link rel="stylesheet" href="/assets/css/prism.css" />
+  <style>
+    :root {
+      --yellow-color: #F7DF1E;
+      --dark-color: #222;
+    }
+
+    .cards {
+      border: thin solid var(--dark-color);
+      padding: 1rem;
+    }
+
+    .card {
+      display: inline-block;
+      background-color: var(--dark-color);
+      color: var(--yellow-color);
+    }
+
+    .card figcaption {
+      padding: 1rem;
+    }
+  </style>
+</head>
+
+<body>
+  <sergey-import src="header" />
+
+  <main class="container">
+
+    <h1>DOM: Creando Elementos y Fragmentos</h1>
+
+    <section id="create">
+
+      <ul>
+        <li>Método createElement(tagname): crea un elemento HTML especificado por su tagName (Cadena que especifica el
+          tipo de
+          elemento a crear), o un HTMLUnknownElement si su tagName no se reconoce.</li>
+        <li>Método createTextNode(data): crea un nuevo nodo de texto. Data es una cadena de texto string que contiene
+          los datos a poner en el nodo de texto.</li>
+        <li>appendChild(child): agrega un nuevo nodo al final de la lista de un elemento padre especificado. Si el
+          hijo(Child) es una referencia (hace referencia) hacia un nodo existente en el documento actual, este es
+          quitado del padre actual para ser puesto en el nodo padre nuevo. La clave está en si el (Child) es una
+          referencia a un nodo existente en el documento.</li>
+      </ul>
+
+      <p>Continuando con el ejemplo de las tarjetas, agregaremos una nueva tarjeta a la sección cards.</p>
+
+      <pre>
+        <code class="language-html">
+          &lt;!-- En el head --&gt;
+          &lt;style&gt;
+            :root {
+              --yellow-color: #F7DF1E;
+              --dark-color: #222;
+            }
+            .cards {
+              border: thin solid var(--dark-color);
+              padding: 1rem;
+            }
+            .card {
+              display: inline-block;
+              background-color: var(--dark-color);
+              color: var(--yellow-color);
+            }
+            .card figcaption {
+              padding: 1rem;
+            }
+          &lt;/style&gt;
+
+          &lt;!-- En el body --&gt;
+            &lt;section class="cards"&gt;
+              &lt;figure class="card"&gt;
+                &lt;img src="https://placeimg.com/200/200/tech" alt="Tech"&gt;
+                &lt;figcaption&gt;Tech&lt;/figcaption&gt;
+              &lt;/figure&gt;
+              &lt;figure class="card"&gt;
+                &lt;img src="https://placeimg.com/200/200/animals" alt="Animals"&gt;
+                &lt;figcaption&gt;Animals&lt;/figcaption&gt;
+              &lt;/figure&gt;
+              &lt;figure class="card"&gt;
+                &lt;img src="https://placeimg.com/200/200/arch" alt="Architecture"&gt;
+                &lt;figcaption&gt;Architecture&lt;/figcaption&gt;
+              &lt;/figure&gt;
+              &lt;figure class="card"&gt;
+                &lt;img src="https://placeimg.com/200/200/people" alt="People"&gt;
+                &lt;figcaption&gt;People&lt;/figcaption&gt;
+              &lt;/figure&gt;
+              &lt;figure class="card"&gt;
+                &lt;img src="https://placeimg.com/200/200/nature" alt="Nature"&gt;
+                &lt;figcaption&gt;Nature&lt;/figcaption&gt;
+              &lt;/figure&gt;
+            &lt;/section&gt;           
+        </code>
+      </pre>
+
+      <section class="cards">
+        <figure class="card">
+          <img src="https://placeimg.com/200/200/tech" alt="Tech">
+          <figcaption>Tech</figcaption>
+        </figure>
+        <figure class="card">
+          <img src="https://placeimg.com/200/200/animals" alt="Animals">
+          <figcaption>Animals</figcaption>
+        </figure>
+        <figure class="card">
+          <img src="https://placeimg.com/200/200/arch" alt="Architecture">
+          <figcaption>Architecture</figcaption>
+        </figure>
+        <figure class="card">
+          <img src="https://placeimg.com/200/200/people" alt="People">
+          <figcaption>People</figcaption>
+        </figure>
+        <figure class="card">
+          <img src="https://placeimg.com/200/200/nature" alt="Nature">
+          <figcaption>Nature</figcaption>
+        </figure>
+      </section>
+
+      <p>El proceso consiste en crear los elementos (etiquetas, textos). En caso de crear un nodo con hijos tendremos
+        que apendearlos. Tenemos que armar el árbol de nodos. En el ejemplo, seguimos el siguiente orden:
+
+      <ul>
+        <li>Al elemento figcaption le apendeamos el texto figcaptionText, de esta manera, completamos el figcaption.
+        </li>
+        <li>Para elemento img debemos configurar el atributo scr con el path de la imagen. En este caso, utilizamos
+          https://placeimg.com.</li>
+        <li>Para completar el elemento img, configuramos el atributo alt con el texto que deseemos.</li>
+        <li>Antes de incluir el elemento figure, agregamos a sus clases la clase card.</li>
+        <li>Finalmente, apendeamos el elemento figure a la seccion identificada con la clase cards.</li>
+      </ul>
+
+      <blockquote>
+        De esta manera trabajan los frameworks basados en JavaScript como Angular, Vue o React. Asi es como van creando
+        los nodos.
+      </blockquote>
+
+      <p>Existe otra forma de crear nodos que no es tan correcta pero es más simple. Utilizamos innertHTML con la
+        desventaja de que al realizarlo como texto JavaScript no lo considera como un nodo, pero finalmente generamos
+        contenido dinámico. Para ejemplicficarlo agregaremos una nueva tarjeta a la sección cards.</p>
+
+      <pre>
+        <code class="language-javascript">
+          /* Creamos el elemento figure */
+          const $figure = document.createElement( "figure" );
+          /* Creamos el elemento img */
+          const $img = document.createElement( "img" );
+          /* Creamos el elemento figcaption */
+          const $figcaption = document.createElement( "figcaption" );
+          /* Creamos el nodo de tipo texto */
+          const $figcaptionText = document.createTextNode( "Animals" );
+          /* Seleccionamos la etiqueta section a través de la clase .cards */
+          const $cards = document.querySelector( ".cards" );
+          /* Creamos el elemento figure */
+          const $figure2 = document.createElement( "figure" );
+          /* Configuramos los atributos (src y alt) de la imagen */
+          $img.setAttribute( "src", "https://placeimg.com/200/200/animals" );
+          $img.setAttribute( "alt", "Animals" );
+          /* Agregamos la clase card al elemento figure */
+          $figure.classList.add( "card" );
+          /* Apendeamos el nodo de texto al elemento figcaption */
+          $figcaption.appendChild( $figcaptionText );
+          /* Terminamos de construir el arbol debajo de figure, 
+          apendeádole los elementos img y figcaption */
+          $figure.appendChild( $img );
+          $figure.appendChild( $figcaption );
+          /* Finalmente, apendeamos el elemento figure en la sección cards */
+          $cards.appendChild( $figure );
+  
+          /* ####################### */
+  
+          $figure2.innerHTML = `&lt;img src="https://placeimg.com/200/200/people" alt="People"&gt;
+          &lt;figcaption&gt;People&lt;/figcaption&gt;`;
+          $figure2.classList.add( "card" );
+          $cards.appendChild( $figure2 );          
+        </code>
+      </pre>
+
+      <script>
+        /* Creamos el elemento figure */
+        const $figure = document.createElement( "figure" );
+        /* Creamos el elemento img */
+        const $img = document.createElement( "img" );
+        /* Creamos el elemento figcaption */
+        const $figcaption = document.createElement( "figcaption" );
+        /* Creamos el nodo de tipo texto */
+        const $figcaptionText = document.createTextNode( "Animals" );
+        /* Seleccionamos la etiqueta section a través de la clase .cards */
+        const $cards = document.querySelector( ".cards" );
+        /* Creamos el elemento figure */
+        const $figure2 = document.createElement( "figure" );
+        /* Configuramos los atributos (src y alt) de la imagen */
+        $img.setAttribute( "src", "https://placeimg.com/200/200/animals" );
+        $img.setAttribute( "alt", "Animals" );
+        /* Agregamos la clase card al elemento figure */
+        $figure.classList.add( "card" );
+        /* Apendeamos el nodo de texto al elemento figcaption */
+        $figcaption.appendChild( $figcaptionText );
+        /* Terminamos de construir el arbol debajo de figure, 
+        apendeádole los elementos img y figcaption */
+        $figure.appendChild( $img );
+        $figure.appendChild( $figcaption );
+        /* Finalmente, apendeamos el elemento figure en la sección cards */
+        $cards.appendChild( $figure );
+
+        /* ####################### */
+
+        $figure2.innerHTML = `
+        <img src="https://placeimg.com/200/200/people" alt="People">
+        <figcaption>People</figcaption>
+        `;
+        $figure2.classList.add( "card" );
+        $cards.appendChild( $figure2 );
+      </script>
+
+      <hr>
+
+      <p>De esta manera, agregamos elementos uno a uno dinámicamente. En el siguiente ejemplo agregaremos varios
+        elementos que podríamos recuperar desde una base de datos o consultando una API. En este caso, lo realizaremos
+        desde un array de datos.</p>
+
+      <pre>
+        <code class="language-javascript">
+          const position = document.getElementById( 'create' );
+          const estaciones = ["Primavera", "Verano", "Otoño", "Invierno"];
+  
+          const $ul = document.createElement( "ul" );
+          document.write( "&lt;h3&gt;Estaciones del Año&lt;/h3&gt;" );
+  
+          position.appendChild( $ul );
+          estaciones.forEach( ( el ) => {
+            const $li = document.createElement( "li" );
+            $li.textContent = el;
+            $ul.appendChild( $li );
+          } );
+  
+          const continentes = ["África", "América", "Asia", "Europa", "Oceanía"];
+          const $ul2 = document.createElement( "ul" );
+          document.write( "&lt;h3&gt;Continentes del Mundo&lt;/h3&gt;" );
+          $ul2.innerHTML = "";
+          continentes.forEach( ( el ) => ( $ul2.innerHTML += `&lt;li&gt;${el}&lt;/li&gt;` ) );
+          position.appendChild( $ul2 );
+        </code>
+      </pre>
+
+      <script>
+        const position = document.getElementById( 'create' );
+        const estaciones = ["Primavera", "Verano", "Otoño", "Invierno"];
+
+        const $ul = document.createElement( "ul" );
+        document.write( "<h3>Estaciones del Año</h3>" );
+
+        position.appendChild( $ul );
+        estaciones.forEach( ( el ) => {
+          const $li = document.createElement( "li" );
+          $li.textContent = el;
+          $ul.appendChild( $li );
+        } );
+
+        const continentes = ["África", "América", "Asia", "Europa", "Oceanía"];
+        const $ul2 = document.createElement( "ul" );
+        document.write( "<h3>Continentes del Mundo</h3>" );
+        $ul2.innerHTML = "";
+        continentes.forEach( ( el ) => ( $ul2.innerHTML += `<li>${el}</li>` ) );
+        position.appendChild( $ul2 );
+      </script>
+
+    </section>
+
+    <hr>
+
+    <section id="fragments">
+      <h2>Fragmentos</h2>
+
+      <p>El proceso de inserción de elementos al DOM es de los más costosos en términos de recursos. Cuando son algunos
+        elementos no hay problema, pero si tenemos cientos de elementos como en un e-comerce podemos afectar el
+        rendimiento de la aplicación. </p>
+
+      <p>En luagr de pegarle al DOM en cada iteración (por cada nuevo elemento) podemos utilizar un fragmento. Podemos
+        insertar los elementos en el fragmento, y una vez finalizado apendeamos el fragmento al DOM. Esto mejora el
+        rendimiento porque solo realizamos una inserción en el DOM.</p>
+
+      <p>El <strong>método createDocumentFragment()</strong> crea un objeto DocumentFragment vacio, el cual queda listo
+        para que pueda insertarseles nodos en el.</p>
+
+      <p>DocumentFragment son Nodos del DOM que nunca forman parte del arbol DOM. El caso de uso mas comun es crear un
+        document fragment, agregar elementos al document fragment y luego agregar dicho document fragment al arbol del
+        DOM. En el arbol del DOM, el document fragment es remplazado por todos sus hijos.</p>
+
+      <p>Dado que document fragment se genera en memoria y no como parte del arbol del DOM, agregar elementos al mismo
+        no causan reflow (computo de la posición y geometría de los elementos) en la pagina. Como consecuencia,
+        usar document fragments mejorá la performance.</p>
+
+      <pre>
+        <code class="language-javascript">
+          const position2 = document.getElementById( 'fragments' );
+          const meses = [
+            "Enero",
+            "Febrero",
+            "Marzo",
+            "Abril",
+            "Mayo",
+            "Junio",
+            "Julio",
+            "Agosto",
+            "Septiembre",
+            "Octubre",
+            "Noviembre",
+            "Diciembre",
+          ];
+          const $ul3 = document.createElement( "ul" );
+          const $fragment = document.createDocumentFragment();
+          meses.forEach( ( el ) => {
+            const $li = document.createElement( "li" );
+            $li.textContent = el;
+            $fragment.appendChild( $li );
+          } );
+  
+          document.write( "<h3>Meses del Año</h3>" );
+  
+          $ul3.appendChild( $fragment );
+          position2.appendChild( $ul3 );          
+        </code>
+      </pre>
+
+      <script>
+        const position2 = document.getElementById( 'fragments' );
+        const meses = [
+          "Enero",
+          "Febrero",
+          "Marzo",
+          "Abril",
+          "Mayo",
+          "Junio",
+          "Julio",
+          "Agosto",
+          "Septiembre",
+          "Octubre",
+          "Noviembre",
+          "Diciembre",
+        ];
+        const $ul3 = document.createElement( "ul" );
+        const $fragment = document.createDocumentFragment();
+        meses.forEach( ( el ) => {
+          const $li = document.createElement( "li" );
+          $li.textContent = el;
+          $fragment.appendChild( $li );
+        } );
+
+        document.write( "<h3>Meses del Año</h3>" );
+
+        $ul3.appendChild( $fragment );
+        position2.appendChild( $ul3 );
+      </script>
+    </section>
+
+    <hr>
+
+    <section class="pagination">
+      <article class="pagination-item">
+        <a href="/pages/js/dom/traversing.html">
+          <i class="material-icons">arrow_back</i>Recorriendo el DOM
+        </a>
+      </article>
+      <article class="pagination-item">
+        <a href="/pages/js/index.html#indice">Tabla de contenido JS
+          <i class="material-icons">arrow_upward</i>
+        </a>
+      </article>
+      <article class="pagination-item">
+        <a href="/pages/js/dom/manejo-dom.html">
+          <i class="material-icons">arrow_forward</i>Manejo del DOM
+        </a>
+      </article>
+    </section>
+
+  </main>
+  <sergey-import src="footer" />
+  <script src="/assets/js/prism.js"></script>
+</body>
+
+</html>
