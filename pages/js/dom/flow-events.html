@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <sergey-import src="metas/statics" />
+  <sergey-import src="metas/titles">DOM: Flujo de Eventos (Burbuja y Captura)</sergey-import>
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <link rel="stylesheet" href="/assets/css/menu.css">
+  <link rel="stylesheet" href="/assets/css/prism.css" />
+  <style>
+    .eventos-flujo div {
+      padding: 4rem;
+      font-size: 2rem;
+      text-align: center;
+    }
+
+    .uno {
+      background-color: yellow;
+    }
+
+    .dos {
+      background-color: gold;
+    }
+
+    .tres {
+      background-color: lightyellow;
+    }
+  </style>
+</head>
+
+<body>
+  <sergey-import src="header" />
+
+  <main class="container">
+
+    <h1>DOM: Flujo de Eventos (Burbuja y Captura)</h1>
+
+    <section id="flow-events">
+      <p>El flujo de eventos describe el orden en que se reciben los eventos de la página. </p>
+
+      <p>Cuando se produce un evento, se propagará entre el nodo del elemento que originó el evento y el nodo raíz, y
+        todos los nodos a lo largo de la ruta recibirán el evento. Este proceso de propagación es el flujo del evento.
+      </p>
+
+      <p>La secuencia de propagación de eventos posee dos modelos de flujo de eventos: </p>
+
+      <ul>
+        <li>Fase de burbuja: la propagación de eventos va desde el objetivo de evento más específico hasta
+          el objetivo de evento menos específico. Es la propagación por defecto.</li>
+        <li>Fase de captaura: la propagación de eventos va desde el objetivo de evento menos específico hasta
+          el objetivo de evento más específico. </li>
+      </ul>
+
+      <hr>
+
+      <h2>Fase de burbuja</h2>
+
+      <pre>
+        <code class="language-html">
+          &lt;!-- En el head --&gt;
+            &lt;style&gt;
+              .eventos-flujo div {
+                padding: 4rem;
+                font-size: 2rem;
+                text-align: center;
+              }
+              .uno {
+                background-color: yellow;
+              }
+              .dos {
+                background-color: gold;
+              }
+              .tres {
+                background-color: lightyellow;
+              }
+            &lt;/style&gt;
+
+          &lt;!-- En el body --&gt;
+          &lt;section class="eventos-flujo"&gt;
+            &lt;div class="uno"&gt;
+                1
+                &lt;div class="dos"&gt;
+                  2
+                  &lt;div class="tres"&gt;
+                    3
+                  &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/section&gt;
+        </code>
+      </pre>
+
+      <section class="eventos-flujo">
+        <div class="uno">
+          Click 1
+          <div class="dos">
+            Click 2
+            <div class="tres">
+              Click 3
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <pre>
+        <code class="language-javascript">
+          const $divsEventos = document.querySelectorAll(".eventos-flujo div");
+          function flujoEventos(e) {
+            console.log(
+              `Hola te saluda ${this.className}, el click lo originó ${e.target.className}`
+            );
+          }
+          console.log($divsEventos);
+          $divsEventos.forEach((div) => {
+            //Fase de burbuja
+            div.addEventListener("click", flujoEventos);
+            //div.addEventListener("click", flujoEventos, false);
+            //Fase de captura
+            //div.addEventListener("click", flujoEventos, true);
+          });
+        </code>
+      </pre>
+
+      <p>Como los divs se encuentran anidados cuando realizamos click en el div inerior (click 3), se propaga al div 2 y
+        al div 1. En consola se imprimen los tres mensajes. En cambio, si realizamos click en 2 se propaga hasta el div
+        1. Y si realizamos click en el div 1 se propagará hacia arriba en el árbol pero no hacia los divs 1 y 2.
+      </p>
+
+      <figure>
+        <img src="/assets/images/js/js_40.png" alt="Consola. Propagación de eventos Burbuja">
+        <figcaption>Propagación de eventos Burbuja</figcaption>
+      </figure>
+
+      <hr>
+
+      <h2>Fase de captaura</h2>
+
+      <p>En el método addEventListener podemos definir un tercer parámetro indicando la dirección del flujo. Por
+        defecto, es false (del más específico hacia el más general). Si especificamos el parámetro a true, en consola
+        vemos como actúa la propagación de captura:</p>
+
+      <pre>
+        <code class="language-javascript">
+          /* Agregamos eventos dinámicamente a los divs seleccionados */
+          $divsEventos.forEach( ( div ) => {
+            /* Fase de burbuja */
+            // div.addEventListener( "click", flujoEventos );
+            // div.addEventListener("click", flujoEventos, false);
+            /* Fase de captura */
+            div.addEventListener( "click", flujoEventos, true );
+        </code>
+      </pre>
+
+      <figure>
+        <img src="/assets/images/js/js_41.png" alt="Consola. Propagación de eventos Captura">
+        <figcaption>Propagación de eventos Captura</figcaption>
+      </figure>
+
+      <blockquote>
+        En la práctica, no se utiliza la fase de captaura, aunque en algunas situaciones por rendimiento puede ser más
+        convienete utilizarla.
+      </blockquote>
+
+      <p>En la actualidad al tercer parámetro le podemos especificar caracterísicas adicionales. True/False hace
+        referencia a la fese de captura/burbuja, pero también pudemos pasar un objeto con las propiedades: </p>
+
+      <ul>
+        <li>capture: true (comportamiento captura). false (comportamiento burbuja).</li>
+        <li>once: true (el evento se ejecuta solo una vez, no importa quien originó el evento). false (comportamiento
+          normal).</li>
+      </ul>
+
+      <pre>
+        <code class="language-javascript">
+          $divsEventos.forEach( ( div ) => {
+            div.addEventListener( "click", flujoEventos, {
+              capture: false,
+              once: true,
+            } );
+          } );
+        </code>
+      </pre>
+
+      <blockquote>
+        En framworks como vue, el parámetro once: true se utilizaría en métodos como mount(), que solo se ejecuta un
+        vez.
+      </blockquote>
+
+      <hr>
+
+      <h2>stopPropagation</h2>
+
+      <p>En ocasiones no deseamos que el evento se propague. En el ejemplo de los divs ocupamos el método
+        stopPropagation(). Recordemos que el evento se porpogaba desde el elemento entre los divs anidados. Al incluir
+        stopPropagation frenamos la propagación.</p>
+
+      <pre>
+        <code class="language-javascript">
+          function flujoEventos(e) {
+            console.log(
+              `Hola te saluda ${this.className}, el click lo originó ${e.target.className}`
+            );
+            e.stopPropagation();
+          }
+          console.log($divsEventos);
+          $divsEventos.forEach((div) => {
+            //Fase de burbuja
+            div.addEventListener("click", flujoEventos);
+          });
+        </code>
+      </pre>
+
+      <figure>
+        <img src="/assets/images/js/js_43.png" alt="Consola. Método stopPorpagation()">
+        <figcaption>Método stopPorpagation()</figcaption>
+      </figure>
+
+
+      <script>
+        const $divsEventos = document.querySelectorAll( ".eventos-flujo div" );
+        function flujoEventos( e ) {
+          console.log(
+            `Hola te saluda ${this.className}, el click lo originó ${e.target.className}`
+          );
+          e.stopPropagation();
+          console.log( 'StopPropagation' );
+        }
+        console.log( $divsEventos );
+        $divsEventos.forEach( ( div ) => {
+          //Fase de burbuja
+          div.addEventListener( "click", flujoEventos );
+        } );
+      </script>
+
+      <hr>
+
+      <h2>preventDefault</h2>
+
+      <p>Algunos elementos del DOM poseen comportamientos o eventos por defecto. Por ejemplo: </p>
+
+      <ul>
+        <li>Etiqueta input de tipo submit que incluimos en los formularios. Cuando presionamos el botón submit, el
+          formulario se procesa. Nosotros no hemos programado esta acción. </li>
+        <li>Scroll delas barras de desplazamiento. Al utilizar las teclas de dirección o la rueda del mouse, se activa
+          el desplazamiento. </li>
+        <li>Links o enlaces. Cuando presionamos el enlace nos lleva al contenido indicado en el atributo href.</li>
+      </ul>
+
+      <p>Preparamos dos enlaces y definimos el addEventListener para que muesten un alert con el mensaje 'Hola desde el
+        link*?, y de acuerdo a su comportamiento default se abrirá una nueva pestaña del navegador para que se cargue la
+        homepage.</p>
+
+      <p>En la definición de la función menejadora del link2 incluimos el método preventDefault para que no se abra la
+        pestaña. Solo se mostrará el alert.</p>
+
+      <pre>
+        <code class="language-html">
+          Link 1: &lt;a href="/index.html" id="link1" target="_blank" rel="noopener"&gt;Home page&lt;/a&gt;
+          &lt;br&gt;
+          Link 2: &lt;a href="/index.html" id="link2" target="_blank" rel="noopener"&gt;Home page&lt;/a&gt;
+        </code>
+      </pre>
+
+      Link 1: <a href="/index.html" id="link1" target="_blank" rel="noopener">Home page</a>
+      <br>
+      Link 2: <a href="/index.html" id="link2" target="_blank" rel="noopener">Home page</a>
+
+      <pre>
+        <code class="language-javascript">
+          const $linkEventos = document.getElementById( "link1" );
+          const $linkEventos2 = document.getElementById( "link2" );
+  
+          $linkEventos.addEventListener( 'click', ( e ) => {
+            alert( "Hola desde el link1. Abriremos una nueva pestaña." );
+          } );
+  
+          $linkEventos2.addEventListener( 'click', ( e ) => {
+            alert( "Hola desde el link2. No abriremos una nueva pestaña." );
+            e.preventDefault();
+          } )
+        </code>
+      </pre>
+
+      <script>
+        const $linkEventos = document.getElementById( "link1" );
+        const $linkEventos2 = document.getElementById( "link2" );
+
+        $linkEventos.addEventListener( 'click', ( e ) => {
+          alert( "Hola desde el link1. Abriremos una nueva pestaña." );
+        } );
+
+        $linkEventos2.addEventListener( 'click', ( e ) => {
+          alert( "Hola desde el link2. No abriremos una nueva pestaña." );
+          e.preventDefault();
+        } )
+      </script>
+    </section>
+
+    <hr>
+
+    <section class="pagination">
+      <article class="pagination-item">
+        <a href="/pages/js/dom/event-handler.html">
+          <i class="material-icons">arrow_back</i>Manejadores de eventos
+        </a>
+      </article>
+      <article class="pagination-item">
+        <a href="/pages/js/index.html#indice">Tabla de contenido JS
+          <i class="material-icons">arrow_upward</i>
+        </a>
+      </article>
+      <article class="pagination-item">
+        <a href="/pages/js/dom/events-delegation.html">
+          <i class="material-icons">arrow_forward</i>Delegación de eventos
+        </a>
+      </article>
+    </section>
+
+  </main>
+  <sergey-import src="footer" />
+  <script src="/assets/js/prism.js"></script>
+</body>
+
+</html>

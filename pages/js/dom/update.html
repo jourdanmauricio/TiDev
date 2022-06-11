@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <sergey-import src="metas/statics" />
+  <sergey-import src="metas/titles">DOM: Modificando elementos</sergey-import>
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <link rel="stylesheet" href="/assets/css/menu.css">
+  <link rel="stylesheet" href="/assets/css/prism.css" />
+  <style>
+    :root {
+      --yellow-color: #F7DF1E;
+      --dark-color: #222;
+    }
+
+    .cards2,
+    .cards {
+      border: thin solid var(--dark-color);
+      padding: 1rem;
+    }
+
+    .card2,
+    .card {
+      display: inline-block;
+      background-color: var(--dark-color);
+      color: var(--yellow-color);
+    }
+
+    .card2 figcaption,
+    .card figcaption {
+      padding: 1rem;
+    }
+  </style>
+</head>
+
+<body>
+  <sergey-import src="header" />
+
+  <main class="container">
+
+    <h1>DOM: Modificando elementos</h1>
+
+    <section id="update">
+
+      <p>Hasta el momento solo hemos visto el método appendChild para agregar elementos que creamos dinámicamente.
+        appendChild agrega los elementos al final del selector objetivo.</p>
+
+      <p>La API del DOM nos brinda otros métodos para insertarlos al inicio o en una posición particular dentro del
+        documento.</p>
+
+      <hr>
+
+      <section id="old-update">
+        <h2>Métodos anteriores</h2>
+
+        <p>Comenzaremos viendo los métodos que utilizabamos antiguamente. Nos ayudamos de las propiedades del DOM
+          traversing.</p>
+
+        <h3>replaceChild()</h3>
+
+        <p>El método Node.replaceChild(newChild, oldChild) reemplaza un nodo hijo del elemento especificado por otro.
+          newChild es el nuevo nodo con el que reemplazar oldChild. Si ya existe en el DOM, será eliminado previamente.
+        </p>
+
+        <p>oldChild es el nodo existente para ser reemplazado.</p>
+
+        <h3>insertBefore()</h3>
+
+        <p>El método parentNode.insertBefore(newNode, referenceNode) inserta un nodo antes del nodo de referencia como
+          hijo de un nodo padre indicado. Si el nodo hijo es una referencia a un nodo ya existente en el documento,
+          insertBefore() lo mueve de la posición actual a la nueva posición. Esto significa que el nodo no puede estar
+          en dos puntos del documento al simultáneamente. </p>
+
+        <p>insertedNode es el nodo que esta siendo insertado, es decir, newNode. parentNode es el padre del nodo recién
+          insertado. newNode es el nodo a insertar. referenceNode es el nodo antes del cual se inserta newNode.</p>
+
+        <h3>removeChild()</h3>
+
+        <p>El método const antiguoHijo = elemento.removeChild(child); o elemento.removeChild(child); elimina un nodo
+          hijo del DOM y puede devolver el nodo eliminado. child es el nodo hijo a eliminar del DOM. elemento es el nodo
+          padre de hijo. antiguoHijo tiene una referencia al hijo eliminado.</p>
+
+        <p>El hijo(child) eliminado aún existe en memoria pero ya no es parte del DOM. Con la primera forma de sintaxis
+          mostrada, se puede reutilizar el nodo eliminado más tarde en el código, por medio de la referencia al objeto
+          antiguoHijo. Sin embargo, en la segunda forma, la referencia a antiguoHijo se pierde, y suponiendo que el
+          código no mantenga una referencia a ese objeto en alguna otra parte, inmediatamente será inutilizable e
+          irrecuperable y será eliminada automáticamente de memoria después de poco tiempo.</p>
+
+        <h3>cloneNode()</h3>
+
+        <p>El método dupNode.cloneNode(deep) devuelve un duplicado del nodo en el que este método fue llamado.</p>
+
+        <p>node es el nodo que se desea clonar. deep (Opcional) será true si los hijos del nodo también deben ser
+          clonados, o false para clonar únicamente al nodo.</p>
+
+        <hr>
+
+        <pre>
+          <code class="language-html">
+            &lt;!-- En el head --&gt;
+            &lt;style&gt;
+              :root {
+                --yellow-color: #F7DF1E;
+                --dark-color: #222;
+              }
+              .cards {
+                border: thin solid var(--dark-color);
+                padding: 1rem;
+              }
+              .card {
+                display: inline-block;
+                background-color: var(--dark-color);
+                color: var(--yellow-color);
+              }
+              .card figcaption {
+                padding: 1rem;
+              }
+            &lt;/style&gt;
+
+            &lt;!-- En el body --&gt;
+            &lt;section class="cards"&gt;
+              &lt;figure class="card"&gt;
+                &lt;img src="https://placeimg.com/200/200/tech" alt="Tech"&gt;
+                &lt;figcaption&gt;Tech&lt;/figcaption&gt;
+              &lt;/figure&gt;
+              &lt;figure class="card"&gt;
+                &lt;img src="https://placeimg.com/200/200/animals" alt="Animals"&gt;
+                &lt;figcaption&gt;Animals&lt;/figcaption&gt;
+              &lt;/figure&gt;
+              &lt;figure class="card"&gt;
+                &lt;img src="https://placeimg.com/200/200/arch" alt="Architecture"&gt;
+                &lt;figcaption&gt;Architecture&lt;/figcaption&gt;
+              &lt;/figure&gt;
+              &lt;figure class="card"&gt;
+                &lt;img src="https://placeimg.com/200/200/people" alt="People"&gt;
+                &lt;figcaption&gt;People&lt;/figcaption&gt;
+              &lt;/figure&gt;
+              &lt;figure class="card"&gt;
+                &lt;img src="https://placeimg.com/200/200/nature" alt="Nature"&gt;
+                &lt;figcaption&gt;Nature&lt;/figcaption&gt;
+              &lt;/figure&gt;
+            &lt;/section&gt;
+            &lt;template id="template-card"&gt;
+              &lt;figure class="card"&gt;
+                &lt;img&gt;
+                &lt;figcaption&gt;&lt;/figcaption&gt;
+              &lt;/figure&gt;
+            &lt;/template&gt;
+          </code>
+        </pre>
+
+        <pre>
+          <code class="language-javascript">
+            /* Definimos una posición que utlizaremos 
+            para ubicar un nueva sección de tarjetas */
+            const $position = document.getElementById( 'old-update' );
+            /* Seleccionamos la seccion indetificada con la clase card */
+            const $cards = document.querySelector( ".cards" );
+            /* Creamos el elemento figure */
+            const $newCard = document.createElement( "figure" );
+
+            /* Clonamos el clonamos el nodo section */
+            const $cloneCards = $cards.cloneNode( true );
+            /* Práctica no recomendada. Generamos el contenido a través de innerHTML */
+            $newCard.innerHTML = `&lt;img src="https://placeimg.com/200/200/any" alt="Any"&gt;
+            &lt;figcaption&gt;Any&lt;/figcaption&gt;`;
+          
+            /* Agregamos la clase card al elemento figure */
+            $newCard.classList.add( "card" );
+          
+            /* Clonamos la nueva tarjeta */
+            const $newCard2 = $newCard.cloneNode( true );
+
+            /* Después se 3 segundos */
+            setTimeout( () => {
+              /* Reemplazamos la tercer imagen de la sección */
+              $cards.replaceChild( $newCard, $cards.children[2] );
+              /* insertamos la nueva tarjeta antes de la primera */
+              $cards.insertBefore( $newCard2, $cards.firstElementChild );
+            }, 3000 );
+          
+            /* Después se 4 segundos */
+            setTimeout( () => {
+              /* Eliminamos la última tarjeta */
+              $cards.removeChild( $cards.lastElementChild );
+            }, 4000 );
+          
+            /* Después se 5 segundos */
+            setTimeout( () => {
+              /* Agregamos una section clonada con las 5 tarjetas */
+              $position.appendChild( $cloneCards );
+            }, 5000 );
+          </code>
+        </pre>
+
+        <section class="cards">
+          <figure class="card">
+            <img src="https://placeimg.com/200/200/tech" alt="Tech">
+            <figcaption>Tech</figcaption>
+          </figure>
+          <figure class="card">
+            <img src="https://placeimg.com/200/200/animals" alt="Animals">
+            <figcaption>Animals</figcaption>
+          </figure>
+          <figure class="card">
+            <img src="https://placeimg.com/200/200/arch" alt="Architecture">
+            <figcaption>Architecture</figcaption>
+          </figure>
+          <figure class="card">
+            <img src="https://placeimg.com/200/200/people" alt="People">
+            <figcaption>People</figcaption>
+          </figure>
+          <figure class="card">
+            <img src="https://placeimg.com/200/200/nature" alt="Nature">
+            <figcaption>Nature</figcaption>
+          </figure>
+        </section>
+
+        <script>
+          const $position = document.getElementById( 'old-update' );
+          const $cards = document.querySelector( ".cards" );
+          const $newCard = document.createElement( "figure" );
+
+          const $cloneCards = $cards.cloneNode( true );
+          $newCard.innerHTML = `<img src="https://placeimg.com/200/200/any" alt="Any">
+        <figcaption>Any</figcaption>`;
+
+          $newCard.classList.add( "card" );
+          const $newCard2 = $newCard.cloneNode( true );
+
+          setTimeout( () => {
+            $cards.replaceChild( $newCard, $cards.children[2] );
+            $cards.insertBefore( $newCard2, $cards.firstElementChild );
+          }, 3000 );
+
+          setTimeout( () => {
+            $cards.removeChild( $cards.lastElementChild );
+          }, 4000 );
+
+          setTimeout( () => {
+            $position.appendChild( $cloneCards );
+          }, 5000 );
+        </script>
+
+      </section>
+
+      <hr>
+
+      <h2>Nuevos métodos</h2>
+
+      <section id="new-update">
+        <h3>insertAdjacentElement()</h3>
+
+        <p>El método elementoObjetivo.insertAdjacentElement(posición, elemento) inserta un elemento nodo dado en una
+          posición dada con respecto al elemento sobre el que se invoca.</p>
+
+        <p>posición es un DOMString representando la posición relativa al elementoObjetivo. Debe ser una de las
+          siguientes cadenas:</p>
+
+        <ul>
+          <li>'beforebegin': Antes del elementoObjetivo.</li>
+          <li>'afterbegin': Dentro del elementoObjetivo, antes de su primer hijo.</li>
+          <li>'beforeend': Dentro del elementoObjetivo, después de su último hijo.</li>
+          <li>'afterend': Después del elementoObjetivo.</li>
+        </ul>
+
+        <p>elemento es elemento HTML a ser insertado.</p>
+
+        <h3>insertAdjacentHTML()</h3>
+
+        <p>EL método element.insertAdjacentHTML(posición, texto) analiza la cadena de texto introducida como cadena HTML
+          o XML e inserta al árbol DOM los nodos en la posición especificada. Este método no re-analiza el elemento
+          sobre el cual se está invocando y por lo tanto no corrompe los elementos ya existentes dentro de dicho
+          elemento. Esto evita el paso adicional de la serialización, haciéndolo mucho más rápido que la manipulación
+          directa con innerHTML.</p>
+
+        <p>Posición es un DOMString que representa la posición relativa al elemento, y deberá ser una de las siguientes
+          cadenas:</p>
+
+        <ul>
+          <li>'beforebegin': Antes que el propio elemento.</li>
+          <li>'afterbegin': Justo dentro del elemento, antes de su primer elemento hijo.</li>
+          <li>'beforeend': Justo dentro del elemento, después de su último elemento hijo.</li>
+          <li>'afterend': Después del propio elemento.</li>
+        </ul>
+
+        <p>texto es la cadena a ser analizada como HTML o XML e insertada en el árbol.</p>
+
+        <h3>insertAdjacentText()</h3>
+
+        <p>El método insertAdjacentText(posicion, data), dada una posición relativa y una cadena, inserta un
+          nuevo nodo de texto en la posición dada en relación con el elemento desde el que se llama.</p>
+
+        <p>posicion es una cadena que representa la posición relativa al elemento desde el que se llama al método. Debe
+          ser una de las siguientes cadenas:</p>
+
+        <ul>
+          <li>'beforebegin': Antes del propio elemento. </li>
+          <li>'afterbegin': Justo dentro del elemento, antes de su primer hijo. </li>
+          <li>'beforeend': Justo dentro del elemento, después de su último hijo. </li>
+          <li>'afterend': después del propio elemento.</li>
+        </ul>
+
+        <p>data es una cadena de texto para insertar en la posición dada en relación con el elemento desde el que se
+          llama al método.</p>
+
+        <hr>
+
+        <pre>
+          <code class="language-html">
+            &lt;!-- En el head --&gt;
+            &lt;style&gt;
+              :root {
+                --yellow-color: #F7DF1E;
+                --dark-color: #222;
+              }
+              .cards {
+                border: thin solid var(--dark-color);
+                padding: 1rem;
+              }
+              .card {
+                display: inline-block;
+                background-color: var(--dark-color);
+                color: var(--yellow-color);
+              }
+              .card figcaption {
+                padding: 1rem;
+              }
+            &lt;/style&gt;
+
+            &lt;!-- En el body --&gt;
+            &lt;section class="cards"&gt;
+              &lt;figure class="card"&gt;
+                &lt;img src="https://placeimg.com/200/200/tech" alt="Tech"&gt;
+                &lt;figcaption&gt;Tech&lt;/figcaption&gt;
+              &lt;/figure&gt;
+              &lt;figure class="card"&gt;
+                &lt;img src="https://placeimg.com/200/200/animals" alt="Animals"&gt;
+                &lt;figcaption&gt;Animals&lt;/figcaption&gt;
+              &lt;/figure&gt;
+              &lt;figure class="card"&gt;
+                &lt;img src="https://placeimg.com/200/200/arch" alt="Architecture"&gt;
+                &lt;figcaption&gt;Architecture&lt;/figcaption&gt;
+              &lt;/figure&gt;
+              &lt;figure class="card"&gt;
+                &lt;img src="https://placeimg.com/200/200/people" alt="People"&gt;
+                &lt;figcaption&gt;People&lt;/figcaption&gt;
+              &lt;/figure&gt;
+              &lt;figure class="card"&gt;
+                &lt;img src="https://placeimg.com/200/200/nature" alt="Nature"&gt;
+                &lt;figcaption&gt;Nature&lt;/figcaption&gt;
+              &lt;/figure&gt;
+            &lt;/section&gt;
+            &lt;template id="template-card"&gt;
+              &lt;figure class="card"&gt;
+                &lt;img&gt;
+                &lt;figcaption&gt;&lt;/figcaption&gt;
+              &lt;/figure&gt;
+            &lt;/template&gt;
+          </code>
+        </pre>
+
+        <pre>
+          <code class="language-javascript">
+            const $cards2 = document.querySelector( ".cards2" );
+            const $newCardExample = document.createElement( "figure" );
+            let $contenCard = `<img src="https://placeimg.com/200/200/any" alt="Any">
+            <figcaption></figcaption>`;
+            $newCardExample.classList.add( "card" );
+            /* Agregamos los atributos a la nueva tarjeta */
+            $newCardExample.insertAdjacentHTML( "afterbegin", $contenCard );
+  
+            const $newCard8 = $newCardExample.cloneNode( true );
+            $newCard8.querySelector( "figcaption" ).insertAdjacentText( "afterbegin", "beforeend" );
+            $cards2.insertAdjacentElement( "beforeend", $newCard8 );
+            const $newCard9 = $newCardExample.cloneNode( true );
+            $newCard9.querySelector( "figcaption" ).insertAdjacentText( "afterbegin", "beforebegin" );
+            $cards2.insertAdjacentElement( "beforebegin", $newCard9 );
+            const $newCard10 = $newCardExample.cloneNode( true );
+            $newCard10.querySelector( "figcaption" ).insertAdjacentText( "afterbegin", "afterbegin" );
+            $cards2.insertAdjacentElement( "afterbegin", $newCard10 );
+            const $newCard11 = $newCardExample.cloneNode( true );
+            $newCard11.querySelector( "figcaption" ).insertAdjacentText( "afterbegin", "afterend" );
+            $cards2.insertAdjacentElement( "afterend", $newCard11 );
+  
+            const $newCard4 = $newCardExample.cloneNode( true );
+            $newCard4.querySelector( "figcaption" ).insertAdjacentText( "afterbegin", "prepend " );
+            $cards2.prepend( $newCard4 );
+            const $newCard5 = $newCardExample.cloneNode( true );
+            $newCard5.querySelector( "figcaption" ).insertAdjacentText( "afterbegin", "append " );
+            $cards2.append( $newCard5 );
+            const $newCard6 = $newCardExample.cloneNode( true );
+            $newCard6.querySelector( "figcaption" ).insertAdjacentText( "afterbegin", "before " );
+            $cards2.before( $newCard6 );
+            const $newCard7 = $newCardExample.cloneNode( true );
+            $newCard7.querySelector( "figcaption" ).insertAdjacentText( "afterbegin", "after " );
+            $cards2.after( $newCard7 );
+          </code>
+        </pre>
+
+        <p>Los métodos prepend, append, before y after se utilizaron en Jquery, y luego se incorporaron al estandar.</p>
+
+        <p>El <strong>método element.prepend(param1, param2, /* ... ,*/ paramN)</strong> inserta un conjunto de objetos
+          antes del primer hijo del elemento. Los inserta como primer hijo. Los objetos de cadena se insertan como nodos
+          de texto.</p>
+
+        <p>El método element.append(param1, param2, /* ... ,*/ paramN) inserta un conjunto de objetos después del último
+          hijo del elemento. Los inserta como últimos hijos. Los objetos de cadena se insertan como nodos de texto. Lo
+          inserta como hijo.</p>
+
+        <p>El método element.after(node1, node2, /* ... ,*/ nodeN) inserta un conjunto de objetos como hermanos
+          posteriores, justo después del elemento. Los objetos de cadena se insertan como nodos de texto.</p>
+
+        <p>El método element.before(param1, param2, /* ... ,*/ paramN) inserta un conjunto de objetos como hermano
+          anterior, justo antes de este elemento. Los objetos de cadena se insertan como nodos de texto.</p>
+
+        <hr>
+
+        <section class="cards2">
+          <figure class="card2">
+            <img src="https://placeimg.com/200/200/tech" alt="Tech">
+            <figcaption>Tech</figcaption>
+          </figure>
+          <figure class="card2">
+            <img src="https://placeimg.com/200/200/animals" alt="Animals">
+            <figcaption>Animals</figcaption>
+          </figure>
+          <figure class="card2">
+            <img src="https://placeimg.com/200/200/arch" alt="Architecture">
+            <figcaption>Architecture</figcaption>
+          </figure>
+          <figure class="card2">
+            <img src="https://placeimg.com/200/200/people" alt="People">
+            <figcaption>People</figcaption>
+          </figure>
+          <figure class="card2">
+            <img src="https://placeimg.com/200/200/nature" alt="Nature">
+            <figcaption>Nature</figcaption>
+          </figure>
+        </section>
+
+        <script>
+          const $cards2 = document.querySelector( ".cards2" );
+          const $newCardExample = document.createElement( "figure" );
+          let $contenCard = `<img src="https://placeimg.com/200/200/any" alt="Any">
+          <figcaption></figcaption>`;
+          $newCardExample.classList.add( "card" );
+          /* Agregamos los atributos a la nueva tarjeta */
+          $newCardExample.insertAdjacentHTML( "afterbegin", $contenCard );
+
+          const $newCard8 = $newCardExample.cloneNode( true );
+          $newCard8.querySelector( "figcaption" ).insertAdjacentText( "afterbegin", "beforeend" );
+          $cards2.insertAdjacentElement( "beforeend", $newCard8 );
+
+          const $newCard9 = $newCardExample.cloneNode( true );
+          $newCard9.querySelector( "figcaption" ).insertAdjacentText( "afterbegin", "beforebegin" );
+          $cards2.insertAdjacentElement( "beforebegin", $newCard9 );
+
+          const $newCard10 = $newCardExample.cloneNode( true );
+          $newCard10.querySelector( "figcaption" ).insertAdjacentText( "afterbegin", "afterbegin" );
+          $cards2.insertAdjacentElement( "afterbegin", $newCard10 );
+
+          const $newCard11 = $newCardExample.cloneNode( true );
+          $newCard11.querySelector( "figcaption" ).insertAdjacentText( "afterbegin", "afterend" );
+          $cards2.insertAdjacentElement( "afterend", $newCard11 );
+
+          const $newCard4 = $newCardExample.cloneNode( true );
+          $newCard4.querySelector( "figcaption" ).insertAdjacentText( "afterbegin", "prepend " );
+          $cards2.prepend( $newCard4 );
+          const $newCard5 = $newCardExample.cloneNode( true );
+          $newCard5.querySelector( "figcaption" ).insertAdjacentText( "afterbegin", "append " );
+          $cards2.append( $newCard5 );
+          const $newCard6 = $newCardExample.cloneNode( true );
+          $newCard6.querySelector( "figcaption" ).insertAdjacentText( "afterbegin", "before " );
+          $cards2.before( $newCard6 );
+          const $newCard7 = $newCardExample.cloneNode( true );
+          $newCard7.querySelector( "figcaption" ).insertAdjacentText( "afterbegin", "after " );
+          $cards2.after( $newCard7 );
+        </script>
+      </section>
+
+    </section>
+    <hr>
+
+    <section class="pagination">
+      <article class="pagination-item">
+        <a href="/pages/js/dom/template.html">
+          <i class="material-icons">arrow_back</i>Templates HTML
+        </a>
+      </article>
+      <article class="pagination-item">
+        <a href="/pages/js/index.html#indice">Tabla de contenido JS
+          <i class="material-icons">arrow_upward</i>
+        </a>
+      </article>
+      <article class="pagination-item">
+        <a href="/pages/js/dom/event-handler.html">
+          <i class="material-icons">arrow_forward</i>Manejadores de eventos
+        </a>
+      </article>
+    </section>
+
+  </main>
+  <sergey-import src="footer" />
+  <script src="/assets/js/prism.js"></script>
+</body>
+
+</html>
