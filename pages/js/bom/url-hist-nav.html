@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <sergey-import src="metas/statics" />
+  <sergey-import src="metas/titles">BOM Objetos: URL, Historial y Navegador</sergey-import>
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <link rel="stylesheet" href="/assets/css/menu.css">
+  <link rel="stylesheet" href="/assets/css/prism.css" />
+  <style>
+    .indicators {
+      border: thin solid teal;
+      border-radius: 10px;
+      padding: 0 10px 0 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <sergey-import src="header" />
+
+  <main class="container">
+
+    <section id="objects">
+      <h1>BOM Objetos: URL, Historial y Navegador</h1>
+
+      <section id="url">
+        <h2>El objeto url (location)</h2>
+
+
+        <script>
+          console.log( "##### El objeto url (location) #####" );
+          console.log( location );
+          location.reload();
+
+        </script>
+
+        <p></p>
+
+      </section>
+
+
+
+
+    </section>
+
+    <hr>
+
+    <section class=" pagination">
+      <article class="pagination-item">
+        <a href="/pages/js/bom/methods.html">
+          <i class="material-icons">arrow_back</i>BOM: Métodos
+        </a>
+      </article>
+      <article class="pagination-item">
+        <a href="/pages/js/index.html#indice">Tabla de contenido JS
+          <i class="material-icons">arrow_upward</i>
+        </a>
+      </article>
+      <article class="pagination-item">
+        <a href="/pages/js/bom/methods.html">
+          <i class="material-icons">arrow_forward</i>Métodos
+        </a>
+      </article>
+    </section>
+
+  </main>
+  <sergey-import src="footer" />
+  <script src="/assets/js/prism.js"></script>
+</body>
+
+</html>

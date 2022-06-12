@@ -125,6 +125,13 @@
         </code>
       </pre>
 
+      <blockquote>
+        Este mecanismo es importante al realizar peticiones asíncronas (ajax, fetch) para generar elementos dinámicos y
+        aún no se ha cargado el DOM. No podremos asignar event listeners a elementos que aún no existen en el DOM.
+        Entonces podríamos invocar una API, con el resultado preparamos elementos html dinámicos y asignamos los eventos
+        al document mediante la delegación de eventos.
+      </blockquote>
+
       <script>
         function flujoEventos( e ) {
           alert(
@@ -138,13 +145,6 @@
           }
         } );
       </script>
-
-      <blockquote>
-        Este mecanismo es importante al realizar peticiones asíncronas (ajax, fetch) para generar elementos dinámicos y
-        aún no se ha cargado el DOM. No podremos asignar event listeners a elementos que aún no existen en el DOM.
-        Entonces podríamos invocar una API, con el resultado preparamos elementos html dinámicos y asignamos los eventos
-        al document mediante la delegación de eventos.
-      </blockquote>
 
     </section>
 
@@ -162,8 +162,8 @@
         </a>
       </article>
       <article class="pagination-item">
-        <a href="/pages/js/dom/event-parameter.html">
-          <i class="material-icons">arrow_forward</i>Parámetros y Remover Eventos
+        <a href="/pages/js/bom/properties-events.html">
+          <i class="material-icons">arrow_forward</i>BOM: propiedades y eventos
         </a>
       </article>
     </section>
