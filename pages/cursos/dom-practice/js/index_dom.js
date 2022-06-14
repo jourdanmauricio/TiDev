@@ -13,6 +13,10 @@ import getGeolocation from "./geolocalizacion.js";
 import searchFilters from "./filtro_busqueda.js";
 import draw from "./sorteo.js";
 import slider from "./carrusel.js";
+import scrollSpy from "./scroll_spy.js";
+import smartVideo from "./video_inteligente.js";
+import contactFormValidation from "./validaciones_formulario.js";
+import speechReader from "./narrador.js";
 
 const d = document;
 
@@ -46,14 +50,18 @@ d.addEventListener("DOMContentLoaded", (e) => {
   searchFilters(".card-filter", ".card");
   draw("#winner-btn", ".player");
   slider();
+  scrollSpy();
+  smartVideo();
+  contactFormValidation();
 });
 
 d.addEventListener("keydown", (e) => {
   // d.addEventListener("keyup", (e) => {
   // d.addEventListener("keypress", (e) => {
   shorcuts(e);
-  moveBall(e, ".ball", ".stage");
+  if (d.activeElement.matches("body")) moveBall(e, ".ball", ".stage");
 });
 
 darkTheme(".dark-theme-btn", "dark-mode");
 networkStatus();
+speechReader();
