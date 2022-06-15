@@ -550,7 +550,7 @@ html {
 .off-canvas-btn {
   position: fixed;
   bottom: 1rem;
-  right: 1rem;
+  left: 1rem;
   z-index: 999;
   width: 3rem;
   height: 3rem;
@@ -562,7 +562,7 @@ html {
 .off-canvas-burger {
   position: fixed;
   bottom: 1rem;
-  right: 1rem;
+  left: 1rem;
   z-index: 998;
   width: 3rem;
   height: 0.6rem;

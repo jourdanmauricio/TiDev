@@ -167,13 +167,13 @@ footer {
   bottom: 3vh;
   /* right: calc(4.25rem + 1vw); */
   right: 3vh;
-  width: 4rem;
-  height: 4rem;
+  width: 3rem;
+  height: 3rem;
   border-radius: 50%;
   font-size: 2rem;
   font-weight: bold;
   background-color: #3ea7f2;
-  color: var(--second-color);
+  color: var(--code-background-block);
   cursor: pointer;
   outline: 0;
   border: 0;

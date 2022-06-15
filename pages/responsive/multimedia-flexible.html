@@ -7,7 +7,6 @@
   <link rel="stylesheet" href="/css/styles.css">
   <link rel="stylesheet" href="/css/menu.css">
   <link rel="stylesheet" href="/css/prism.css" />
-  <!-- <link rel="stylesheet" href="/css/html/html.css"> -->
   <link rel="stylesheet" href="/css/css/responsive-design.css">
 </head>
 
@@ -179,11 +178,11 @@
 
       <pre>
         <code class="language-html">
-          &lt;video src="/media/sunset_evening_deck_877.mp4" controls&gt;&lt;/video&gt;
+          &lt;video src="/assets/media/sunset_evening_deck_877.mp4" controls&gt;&lt;/video&gt;
         </code>
       </pre>
 
-      <video src="/media/sunset_evening_deck_877.mp4" controls></video>
+      <video src="/assets/media/sunset_evening_deck_877.mp4" controls></video>
 
       <p>El video del ejemplo anterior posee un formato widescreen (16:9), pero si tuviera otro formato podemos hacerlo
         responsivo a través de una técnica que ya posee cierta antigüedad:</p>
@@ -191,7 +190,7 @@
       <pre>
         <code class="language-html">
           &lt;div class="responsive-media"&gt;
-            &lt;video src="/media/sunset_evening_deck_877.mp4" controls&gt;&lt;/video&gt;
+            &lt;video src="/assets/media/sunset_evening_deck_877.mp4" controls&gt;&lt;/video&gt;
           &lt;/div&gt;
         </code>
       </pre>
@@ -217,7 +216,7 @@
       </pre>
 
       <div class="responsive-media">
-        <video src="/media/sunset_evening_deck_877.mp4" controls></video>
+        <video src="/assets/media/sunset_evening_deck_877.mp4" controls></video>
       </div>
 
       <p>Finalmente, podemos obtener el mismo resultado colocando la resolución de pantalla o aspect ratio que deseemos
@@ -226,7 +225,7 @@
       <pre>
         <code class="language-html">
           &lt;div class="aspect-ratio-16-9"&gt;
-            &lt;video src="/media/sunset_evening_deck_877.mp4" controls&gt;&lt;/video&gt;
+            &lt;video src="/assets/media/sunset_evening_deck_877.mp4" controls&gt;&lt;/video&gt;
           &lt;/div&gt;
         </code>
       </pre>
@@ -241,14 +240,13 @@
       </pre>
 
       <div class="aspect-ratio-16-9">
-        <video src="/media/sunset_evening_deck_877.mp4" controls></video>
+        <video src="/assets/media/sunset_evening_deck_877.mp4" controls></video>
       </div>
-
 
       <h3 id="responsive-iframe">Iframes responsivos</h3>
 
       <pre>
-        <code class="laguage-html">
+        <code class="language-html">
           &lt;div class="responsive-media"&gt;
             &lt;iframe width="560" height="315" src="https://www.youtube.com/embed/ymrnENDEmWw" title="YouTube video player"
               frameborder="0"
@@ -318,26 +316,25 @@
     </section>
 
     <hr>
-
-    <section class="pagination">
-      <article class="pagination-item">
-        <a href="/pages/responsive/contenedores-flexibles.html">
-          <i class="material-icons">arrow_back</i>Contenedores flexibles
-        </a>
-      </article>
-      <article class="pagination-item">
-        <a href="/pages/responsive/index.html#indice">Responsive Design
-          <i class="material-icons">arrow_upward</i>
-        </a>
-      </article>
-      <article class="pagination-item">
-        <a href="/pages/responsive/media-queries.html">Media queries
-          <i class="material-icons">arrow_forward</i>
-        </a>
-      </article>
-    </section>
-
   </main>
+
+  <section class="pagination">
+    <article class="pagination-item">
+      <a href="/pages/responsive/contenedores-flexibles.html">
+        <i class="material-icons">arrow_back</i>Contenedores flexibles
+      </a>
+    </article>
+    <article class="pagination-item">
+      <a href="/pages/responsive/index.html#indice">Responsive Design
+        <i class="material-icons">arrow_upward</i>
+      </a>
+    </article>
+    <article class="pagination-item">
+      <a href="/pages/responsive/media-queries.html">Media queries
+        <i class="material-icons">arrow_forward</i>
+      </a>
+    </article>
+  </section>
   <sergey-import src="footer" />
   <script src="/js/prism.js"></script>
 </body>
