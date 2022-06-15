@@ -160,6 +160,36 @@ footer {
   list-style-type: disc;
 }
 
+/* *** Scroll Top Buton*** */
+.scroll-top-btn {
+  position: fixed;
+  z-index: 999;
+  bottom: 3vh;
+  /* right: calc(4.25rem + 1vw); */
+  right: 3vh;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  font-size: 2rem;
+  font-weight: bold;
+  background-color: #3ea7f2;
+  color: var(--second-color);
+  cursor: pointer;
+  outline: 0;
+  border: 0;
+  transition: all 0.3s ease-out;
+}
+
+.scroll-top-btn:hover {
+  background-color: rgba(62, 167, 242, 0.5);
+  color: var(--code-background-text);
+}
+
+.hidden {
+  visibility: hidden;
+  opacity: 0;
+}
+
 @media screen and (max-width: 1024px) {
   .pagination {
     /* margin-top: 20px;
@@ -183,4 +213,9 @@ footer {
     background: var(--subtitle-color);
     transition: 0.5s;
   } */
+
+  .scroll-top-btn {
+    right: 1vw;
+    bottom: 1vw;
+  }
 }
