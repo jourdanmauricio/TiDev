@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <sergey-import src="metas/statics" />
+  <sergey-import src="metas/titles">Rest y spread operator</sergey-import>
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/menu.css">
+  <link rel="stylesheet" href="/css/prism.css" />
+</head>
+
+<body>
+  <sergey-import src="header" />
+
+  <main class="container">
+
+    <h1>Rest y spread operator</h1>
+
+    <section id="rest">
+
+      <h2>Parámetros Rest</h2>
+
+      <p>La sintaxis de los parámetros rest nos permiten representar un número indefinido de argumentos como un array.
+      </p>
+
+      <p>El último parámetro de una función se puede prefijar con ..., lo que hará que todos los argumentos restantes
+        (suministrados por el usuario) se coloquen dentro de un array. Sólo el último parámetro puede ser un "parámetro
+        rest". </p>
+
+      <pre>
+        <code class="language-javascript">
+          function sumar(a, b, ...c) {
+            let resultado = a + b;
+            
+            c.forEach(function(n)) {
+              resultado += n;   
+            }
+            return resultado;
+          }
+
+          console.log(sumar(1,2,3,4)); // 10
+        </code>
+      </pre>
+
+    </section>
+
+    <hr>
+
+    <section>
+      <h2>Operador de propagación (spread operator)</h2>
+
+      <p>La sintaxis spread operator permite a un elemento iterable tal como un arreglo, una cadena o un objeto ser
+        expandido.</p>
+
+      <pre>
+          <code class="language-javascript">
+            const arr1 = [1, 2, 3, 4, 5];
+            const arr2 = [6, 7, 8, 9, 0];
+
+            const arr3 = [...arr1, ...arr2];
+
+            console.log(arr3);  // [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
+          </code>
+        </pre>
+
+    </section>
+
+    <hr>
+  </main>
+
+  <section class="pagination">
+    <article class="pagination-item">
+      <a href="/pages/js/destructuracion.html">
+        <i class="material-icons">arrow_back</i>Destructuración
+      </a>
+    </article>
+    <article class="pagination-item">
+      <a href="/pages/js/index.html#indice">Tabla de contenido JS
+        <i class="material-icons">arrow_upward</i>
+      </a>
+    </article>
+    <article class="pagination-item">
+      <a href="/pages/js/prototipos.html">Prototipos
+        <i class="material-icons">arrow_forward</i>
+      </a>
+    </article>
+  </section>
+  <sergey-import src="footer" />
+  <script src="/js/prism.js"></script>
+</body>
+
+</html>

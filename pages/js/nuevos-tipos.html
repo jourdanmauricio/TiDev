@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <sergey-import src="metas/statics" />
+  <sergey-import src="metas/titles">Nuevos Tipos de datos</sergey-import>
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/menu.css">
+  <link rel="stylesheet" href="/css/prism.css" />
+</head>
+
+<body>
+  <sergey-import src="header" />
+
+  <main class="container">
+
+    <h1>Nuevos Tipos de datos</h1>
+
+    <section id="symbols">
+      <h2>Tipo de datos Symbol</h2>
+
+      <p>El tipo de dato symbol nos permite crear identificadores únicos, identificadores de referencia únicos.</p>
+
+      <p>Symbol es un tipo de dato primitivo como number o string. Es un tipo de dato muy particular. Una vez creado, su
+        valor se mantiene privado y para uso interno. Generalmente se utilizan como una propiedad de los objetos.</p>
+
+      <p>Se crean a través del contructor Symbol() y acepta como parámetro un string o number, que se utilizará como una
+        descripción o etiqueta. Los creamos como constantes porque al ser referencias no cambiarán.</p>
+
+      <pre>
+        <code class="language-javascript">
+          let id = "hola";
+          let id2 = "hola";
+          console.log(id===id2); // True
+
+          let id3 = Symbol();
+          let id4 = Symbol();
+          console.log(id===id2); // False
+
+          const NOMBRE = Symbol();
+          
+          const person = {
+            [NOMBRE]: "Mauro"
+          };
+
+          console.log(person);
+          console.log(person[NOMBRE]);
+        </code>
+      </pre>
+
+    </section>
+
+    <hr>
+
+    <section id="set">
+      <h2>Tipo de dato Set</h2>
+
+      <p>El tipo de datos set es similar a un array pero de datos únicos de cualquier tipo. </p>
+
+      <p>Los objetos Set son colecciones de valores. Puede iterar a través de los elementos de un conjunto en orden de
+        inserción. </p>
+
+      <p>Debido a que cada valor en el Set tiene que ser único, se verificará la igualdad de valores.</p>
+
+      <p>El método has de Set verifica si un valor está en un objeto Set, utilizando un enfoque que es más rápido que el
+        método includes cuando un objeto Array tiene un length igual al size de un objeto Set.</p>
+
+      <pre>
+        <code class="language-javascript">
+          /* Crear un set y asignar datos */
+          const set = new Set([1, 2, 3, 3, 4, 5, true, false, false, {}, {}, 'hola', 'Hola']);
+          console.log(set); 
+
+          /* Tamaño del set */
+          console.log(set.size); 
+
+          /* Crear un set */
+          const set2 = new Set();
+
+          /* Asignar datos */
+          set2.add(1);
+          set2.add(2);
+          set2.add(2);
+          set2.add(3);
+          set2.add(true);
+          set2.add(false);
+          set2.add(true);
+          set2.add({});
+          console.log(set2); 
+          console.log(set2.size); 
+
+          /* Recorrer un set */
+          console.log('Recorriendo con for');
+          for (item of set) {
+            console.log(item);
+          }
+          console.log('Recorriendo con forEach');            
+          set2.forEach(item => console.log(item));
+
+          let arr = Array.from(set);
+          console.log(arr);
+          console.log(arr(0));
+          console.log(arr(9));
+
+          set.delete('Hola');
+          console.log(set);
+
+          /* Propiedad has */
+          console.log(set.has('hola'));
+          console.log(set.has(19));
+
+          /* Propiedad clear */
+          set2.clear();
+          console.log(set2);
+        </code>
+      </pre>
+
+      <figure>
+        <img src="/assets/images/js/js_19.png" alt="Ejemplo tipo de dato Set">
+        <figcaption>Ejemplo tipo de dato Set</figcaption>
+      </figure>
+
+      <p>Caundo intentamos crear el objeto con elementos repetidos, no arroja error pero no inserta los datos. Los
+        objetos si se insertan porque poseen distinta referencia, por lo que son distintos.</p>
+
+      <p>A diferencia de los array, la longitud se obtiene a través de size en lugar de length.</p>
+
+      </pre>
+
+    </section>
+
+    <hr>
+
+    <section id="map">
+      <h2>Tipo de dato Map</h2>
+      <p>El tipo de dato Map son objetos en los que podemos almacenar valores asociados. Son similares a los objetos
+        primitivos, con algunas características poco utilizables.</p>
+
+      <p>A diferencia de los objetos primitivos (donde las llaves son String), podemos generar llaves (keys) de
+        cualquier tipo: number, null, object, undefined, boolean, etc.</p>
+
+      <pre>
+        <code class="language-javascript">
+          /* Utilizando tipo de dato Map */
+          /* Crear Map */
+          let mapa = new Map();
+          /* asignar datos */
+          mapa.set("nombre", "Mauricio");
+          mapa.set("apellido", "Jourdán");
+          mapa.set("edad", 47);
+
+          console.log(mapa);
+
+          /* Tamaño del Map */
+          console.log(mapa.size);
+         
+          /* Porpiedad has */
+          console.log(mapa.has("correo"));
+          console.log(mapa.has("nombre"));
+          /* Porpiedad get */
+          console.log(mapa.get("nombre"));
+
+          /* Modificar datos */
+          mapa.set("nombre", "Jonathan MirCha");
+          console.log(mapa.get("nombre"));
+
+          /* Eliminar datos */
+          mapa.delete("apellido");
+          mapa.set(19, "diecinueve");
+          mapa.set(false, "falso");
+
+          mapa.set({}, {});
+          
+          console.log(mapa);
+          
+          /* Recorrer un Map */
+          for (let [key, value] of mapa) {
+            console.log(`Llave: ${key}, Valor:${value}`);
+          }
+          
+          /* Crear Map y asignar datos */
+          const mapa2 = new Map([
+            ["nombre", "Hermes"],
+            ["edad", 17],
+            ["animal", "gato"],
+            [null, "nulo"]
+          ]);
+
+          console.log(mapa2);
+
+          /* Obtener las keys */
+          const llavesMapa2 = [...mapa2.keys()];
+          /* Obtener los valores */
+          const valoresMapa2 = [...mapa2.values()];
+
+          console.log(llavesMapa2);
+          console.log(valoresMapa2);
+        </code>
+      </pre>
+
+      <figure>
+        <img src="/assets/images/js/js_21.png" alt="Utilización Tipo de dato Map">
+        <figcaption>Utilización Tipo de dato Map</figcaption>
+      </figure>
+
+    </section>
+
+    <hr>
+
+    <section id="weakset-weakmap">
+      <h2>Tipo de datos WeakSets & WeakMaps</h2>
+
+      <p>El <strong>objeto WeakSet</strong> permite almacenar objetos débiles en una colección. Las llavas deben ser de
+        tipo objeto. </p>
+
+      <p>Los objetos WeakSet son colecciones de objetos. Al igual que Set, cada objecto WeakSet puede estar solo una
+        vez; todos los objetos en una colección WeakSet son unicos. </p>
+
+      <p>Las principales diferencias con el objeto Set son:</p>
+
+      <ul>
+        <li>WeakSet son colecciones de objetos solamente. No pueden contener valores arbitrarios de cualquier tipo, como
+          pueden hacerlo los Set.</li>
+        <li>El WeakSet es débil, lo que significa que las referencias a objectos en un WeakSet se mantienen débilmente.
+          Si no existen otras referencias a un objecto almacenado en WeakSet, esos objectos pueden ser recolectados como
+          basura.</li>
+      </ul>
+
+      <p>El <strong>objeto WeakMap</strong> es una colección de pares llave/valor en la que las llaves deben ser objetos
+        con valores de cualquier tipo de dato en JavaScript, y el cual no crea fuertes referencias a sus llaves. Es
+        decir, la presencia de un objeto como llave en un WeakMap no evita que el objeto sea recolectado como basura.
+        Una vez que se ha recopilado un objeto utilizado como llave, sus valores correspondientes en cualquier WeakMap
+        se convierten en candidatos para la recolección de basura — siempre y cuando no se les mencione fuertemente en
+        otros lugares.</p>
+
+      <hr>
+
+      <p>Al crear objetos WeakSet o WeakMap se crean con refrencias débiles, lo que permite al recolector de basura
+        limpiar estas referencias en cuanto los objetos sean nulificafidos o limpiados. Esto mejora el rendimiento de
+        nuestra aplicación.</p>
+
+      <p>Los objetos WeakSet y WeakMap poseen algunas carencias, no pueden ser iterados, no podemos recorrerlos. Tampoco
+        podemos eliminar todos los elementos de una vez (como con el método clear), ni conocer su tamaño a través de
+        la propiedad size.</p>
+
+      <p>Estos objetos poseen los métodos add, has y delete. Los obejtos WeakMap además poseen el método get.</p>
+
+      <pre>
+        <code class="language-javascript">
+          // const ws = new WeakSet([1, 2, 3, 3, 4, 5, true, false, false, {}, {}, "hola", "HOla"]);
+          // arroja error. No podemos crear y asignar. 
+          // Primero se debe crear y luego agregar valores uno a uno con el método add
+
+          /* Creamos objetos WeakSet */
+          const ws = new WeakSet();
+
+          /* Asigamos valores (solo objetos) */
+          let valor1 = { "valor1": 1 };
+          let valor2 = { "valor2": 2 };
+          let valor3 = { "valor3": 3 };
+          ws.add(valor1);
+          ws.add(valor2);
+          console.log(ws);
+
+          /* Propiedad has */
+          console.log(ws.has(valor1));
+          console.log(ws.has(valor3));
+
+          /* Propiedad delete */
+          ws.delete(valor2);
+          console.log(ws);
+                    
+          ws.add(valor2);
+          console.log(ws);
+
+          /* Si asignamos null o undefined el recolector de basura los limpiará */
+          /* Lo verificamos con un intervalo para inspeccionar el WeakSet */
+          /* y un TimeOut a 3 segundos limpiando las propiedades */
+          setInterval(() => console.log(ws), 1000);
+          setTimeout(() => {
+            valor1 = null;
+            valor2 = null;
+            valor3 = null;
+          }, 3000); 
+      
+          /* Luego de los 3 segundos, cuando corra el recolector de basura, */
+          /* Vemos la limpieza del WeakSet */
+        </code>
+      </pre>
+
+      <figure>
+        <img src="/assets/images/js/js_22.png" alt="Utilización Tipo de dato WeakSet">
+        <figcaption>Utilización Tipo de dato WeakSet</figcaption>
+      </figure>
+
+      <pre>
+        <code class="language-javascript">
+          /* const wm = new WeakMap([
+            ["nombre", "kEnAi"],
+            ["edad", 7],
+            ["animal", "perro"],
+            [null, "nulo"]
+          ]); */
+          /* Arroja Error porque solo admite llaves de tipo objeto  */
+          /* que se encuentren referenciadas en variables */
+          
+          /* Creamos WeakMap */
+          const wm = new WeakMap();
+          
+          let llave1 = {};
+          let llave2 = {};
+          let llave3 = {};
+          /* Asinamos valores */
+          wm.set(llave1, 1);
+          wm.set(llave2, 2);
+          console.log(wm);
+
+          /* Porpiedad has */
+          console.log(wm.has(llave1));
+          console.log(wm.has(llave3));
+
+          /* Propiedad get */
+          console.log(wm.get(llave1));
+          console.log(wm.get(llave2));
+          console.log(wm.get(llave3));
+
+          /* Pripiedad delete */
+          wm.delete(llave2);
+          console.log(wm);
+
+          wm.set(llave2, 2)
+          wm.set(llave3, 3)
+          console.log(wm);
+
+          /* Si asignamos null o undefined el recolector de basura los limpiará */
+          /* Lo verificamos con un intervalo para inspeccionar el WeakSet */
+          /* y un TimeOut a 3 segundos limpiando las propiedades */
+          setInterval(() => console.log(wm), 1000);
+          setTimeout(() => {
+            llave1 = null;
+            llave2 = null;
+            llave3 = null;
+          }, 3000);         
+        </code>
+      </pre>
+
+      <figure>
+        <img src="/assets/images/js/js_22.png" alt="Utilización Tipo de dato WeakSet">
+        <figcaption>Utilización Tipo de dato WeakSet</figcaption>
+      </figure>
+
+    </section>
+
+    <hr>
+  </main>
+
+  <section class="pagination">
+    <article class="pagination-item">
+      <a href="/pages/js/asincronismo/async-await.html">
+        <i class="material-icons">arrow_back</i>Async - await
+      </a>
+    </article>
+    <article class="pagination-item">
+      <a href="/pages/js/index.html#indice">Tabla de contenido JS
+        <i class="material-icons">arrow_upward</i>
+      </a>
+    </article>
+    <article class="pagination-item">
+      <a href="/pages/js/iteradores-generadores.html">Iterables, Iteradores y Generadores
+        <i class="material-icons">arrow_forward</i>
+      </a>
+    </article>
+  </section>
+  <sergey-import src="footer" />
+  <script src="/js/prism.js"></script>
+</body>
+
+</html>

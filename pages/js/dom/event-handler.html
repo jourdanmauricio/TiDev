@@ -4,9 +4,9 @@
 <head>
   <sergey-import src="metas/statics" />
   <sergey-import src="metas/titles">Manejadores de eventos</sergey-import>
-  <link rel="stylesheet" href="/assets/css/styles.css">
-  <link rel="stylesheet" href="/assets/css/menu.css">
-  <link rel="stylesheet" href="/assets/css/prism.css" />
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/menu.css">
+  <link rel="stylesheet" href="/css/prism.css" />
 </head>
 
 <body>
@@ -34,7 +34,6 @@
       </ol>
 
       <hr>
-
       <h2>Evento con atributo HTML</h2>
 
       <p>No es buena práctica manejar los eventos de esta manera. Para que un evento funcione a manera de atributo
@@ -82,7 +81,6 @@
       </ul>
 
       <hr>
-
       <h2>Evento con manejador semántico</h2>
 
       <p>Lo llamamos con manejador amántico porque la semántica es la parte de la lengua que se dedica a estudiar el
@@ -154,7 +152,6 @@ Ejemplo: $eventoSemantico.onclick = holaMundo;
       </pre>
 
       <hr>
-
       <h2>Evento con manejador múltiple</h2>
 
       <p>Si tenemos que asignar diferentes funciones a un mismo elemento utilizamos los manejadores múltiples a través
@@ -209,7 +206,6 @@ Ejemplo: $eventoMultiple.addEventListener('click', holaMundo);
       </script>
 
       <hr>
-
       <h2>Paso de parámetros</h2>
 
       <p>Las funciones manejadoras de eventos no adminten parámetros mas que el evento en sí mismo. Si necesitamos pasar
@@ -241,7 +237,6 @@ Ejemplo: $eventoMultiple.addEventListener('click', holaMundo);
       </script>
 
       <hr>
-
       <h2>Remover eventos</h2>
 
       <p>A través del método removeEventListener() podemos remover los eventos de un elemento.</p>
@@ -289,28 +284,27 @@ Ejemplo: $eventoMultiple.addEventListener('click', holaMundo);
     </blockquote>
 
     <hr>
-
-    <section class="pagination">
-      <article class="pagination-item">
-        <a href="/pages/js/dom/update.html">
-          <i class="material-icons">arrow_back</i>Modificando elementos
-        </a>
-      </article>
-      <article class="pagination-item">
-        <a href="/pages/js/index.html#indice">Tabla de contenido JS
-          <i class="material-icons">arrow_upward</i>
-        </a>
-      </article>
-      <article class="pagination-item">
-        <a href="/pages/js/dom/flow-events.html">
-          <i class="material-icons">arrow_forward</i>Flujo de Eventos
-        </a>
-      </article>
-    </section>
-
   </main>
+
+  <section class="pagination">
+    <article class="pagination-item">
+      <a href="/pages/js/dom/update.html">
+        <i class="material-icons">arrow_back</i>Modificando elementos
+      </a>
+    </article>
+    <article class="pagination-item">
+      <a href="/pages/js/index.html#indice">Tabla de contenido JS
+        <i class="material-icons">arrow_upward</i>
+      </a>
+    </article>
+    <article class="pagination-item">
+      <a href="/pages/js/dom/flow-events.html">
+        <i class="material-icons">arrow_forward</i>Flujo de Eventos
+      </a>
+    </article>
+  </section>
   <sergey-import src="footer" />
-  <script src="/assets/js/prism.js"></script>
+  <script src="/js/prism.js"></script>
 </body>
 
 </html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <sergey-import src="metas/statics" />
+  <sergey-import src="metas/titles">Conversiones de tipos</sergey-import>
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/menu.css">
+  <link rel="stylesheet" href="/css/prism.css" />
+</head>
+
+<body>
+  <sergey-import src="header" />
+
+  <main class="container">
+
+    <h1>Conversiones de Tipos</h1>
+
+    <section id="conversions">
+
+      <p>Los operadores y funciones convierten automáticamente los valores que se les pasan al tipo correcto, pero
+        hay casos donde necesitamos convertir de manera explícita un valor al tipo esperado.</p>
+
+      <h3>ToString</h3>
+
+      <p>La conversión a string ocurre cuando necesitamos la representación en forma de texto de un valor.</p>
+
+      <pre>
+        <code class="language-javascript">
+          let value = true;
+          alert(typeof value); // boolean
+
+          value = String(value); // ahora value es el string "true"
+          alert(typeof value); // string
+        </code>
+      </pre>
+
+      <h3>ToNumber</h3>
+
+      <p>La conversión numérica ocurre automáticamente en funciones matemáticas y expresiones. Por ejemplo, cuando se
+        dividen valores no numéricos usando /: </p>
+
+      <pre>
+        <code class="language-javascript">
+          alert( "6" / "2" ); // 3, los strings son convertidos a números
+        </code>
+      </pre>
+
+      <p>Podemos usar la función Number(value) para convertir de forma explícita un valor a un número:</p>
+
+      <pre>
+        <code class="language-javascript">
+          let str = "123";
+          alert(typeof str); // string
+
+          let num = Number(str); // se convierte en 123
+          alert(typeof num); // number
+        </code>
+      </pre>
+
+      <p>Ejemplos</p>
+
+      <pre>
+        <code class="language-javascript">
+          alert( Number("   123   ") ); // 123
+          alert( Number("123z") );      // NaN (error al leer un número en "z")
+          alert( Number(true) );        // 1
+          alert( Number(false) );       // 0
+        </code>
+      </pre>
+
+      <p>Casi todas las operaciones matemáticas convierten valores a números. Una excepción notable es la suma +. Si
+        uno de los valores sumados es un string, el otro valor es convertido a string.</p>
+
+      <pre>
+        <code class="language-javascript">
+          alert( 1 + '2' ); // '12' (string)
+        </code>
+      </pre>
+
+      <h3>ToBoolean</h3>
+
+      <p>Ocurre en operaciones lógicas pero también puede realizarse de forma explícita llamando a la función
+        Boolean(value).</p>
+
+      <p>Las reglas de conversión:</p>
+      <ul>
+        <li>Los valores que son intuitivamente “vacíos”, como 0, "", null, undefined, y NaN, se convierten en false.
+        </li>
+        <li>Otros valores se convierten en true.</li>
+      </ul>
+
+      <p>Ejemplo:</p>
+      <pre>
+        <code class="language-javascript">
+          alert( Boolean(1) ); // true
+          alert( Boolean(0) ); // false
+
+          alert( Boolean("hola") ); // true
+          alert( Boolean("") ); // false
+        </code>
+      </pre>
+
+    </section>
+
+    <hr>
+  </main>
+
+  <section class="pagination">
+    <article class="pagination-item">
+      <a href="/pages/js/fundamentos/elementos-interactivos.html">
+        <i class="material-icons">arrow_back</i>Elementos interactivos
+      </a>
+    </article>
+    <article class="pagination-item">
+      <a href="/pages/js/index.html#indice">Tabla de contenido JS
+        <i class="material-icons">arrow_upward</i>
+      </a>
+    </article>
+    <article class="pagination-item">
+      <a href="/pages/js/fundamentos/operadores-basicos.html">Operadores básicos
+        <i class="material-icons">arrow_forward</i>
+      </a>
+    </article>
+  </section>
+  <sergey-import src="footer" />
+  <script src="/js/prism.js"></script>
+</body>
+
+</html>

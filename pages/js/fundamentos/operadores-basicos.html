@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <sergey-import src="metas/statics" />
+  <sergey-import src="metas/titles">Operadores básicos</sergey-import>
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/menu.css">
+  <link rel="stylesheet" href="/css/prism.css" />
+</head>
+
+<body>
+  <sergey-import src="header" />
+
+  <main class="container">
+
+    <h1>Operadores básicos</h1>
+
+    <section id="operadores-basicos">
+
+      <ul>
+        <li>Un operando es a lo que se aplican los operadores. Por ejemplo, en la multiplicación de 5 * 2 hay dos
+          operandos: el operando izquierdo es 5 y el operando derecho es 2.</li>
+        <li>Un operador es unario si tiene un solo operando. Por ejemplo, la negación unaria - invierte el signo de un
+          número</li>
+
+        <pre>
+          <code class="language-javascript">
+            let x = 1;
+            x = -x;
+            alert( x ); // -1, se aplicó negación unaria
+          </code>
+        </pre>
+
+        <li>Un operador es binario si tiene dos operandos. El mismo negativo también existe en forma binaria </li>
+
+        <pre>
+          <code class="language-javascript">
+            let x = 1, y = 3;
+            alert( y - x ); // 2, binario negativo resta valores
+          </code>
+        </pre>
+
+        <p>Estamos hablando de dos operadores distintos: la negación unaria (un operando: revierte el símbolo) y la
+          resta binaria (dos operandos: resta).</p>
+      </ul>
+
+      <hr>
+
+      <h2>Operadores matemáticos</h2>
+
+      <ul>
+        <li>Suma +</li>
+        <li>Resta -</li>
+        <li>Multiplicación *</li>
+        <li>División /</li>
+        <li>Resto %</li>
+        <li>Exponenciación **</li>
+      </ul>
+
+      <h3>Resto %</h3>
+
+      <p>El resultado de a % b es el resto de la división entera de a por b.</p>
+
+      <pre>
+        <code class="language-javascript">
+          alert( 5 % 2 ); // 1 es un resto de 5 dividido por 2
+          alert( 8 % 3 ); // 2 es un resto de 8 dividid
+        </code>
+      </pre>
+
+      <h3>Exponenciación **</h3>
+
+      <p>El operador exponenciación a ** b eleva a a la potencia de b. </p>
+
+      <pre>
+        <code class="language-javascript">
+          alert( 2 ** 2 ); // 2² = 4
+          alert( 2 ** 3 ); // 2³ = 8
+          alert( 2 ** 4 ); // 2⁴ = 16
+        </code>
+      </pre>
+
+      <p>Matemáticamente, la exponenciación es definida para números no enteros también. Por ejemplo, la raíz cuadrada
+        es el exponente ½:</p>
+
+      <pre>
+        <code class="language-javascript">
+          alert( 4 ** (1/2) ); // 2 (potencia de 1/2 es lo mismo que raíz cuadrada)
+          alert( 8 ** (1/3) ); // 2 (potencia de 1/3 es lo mismo que raíz cúbica)
+        </code>
+      </pre>
+
+      <h3>Concatenación de cadenas con el binario +</h3>
+
+      <p>Si aplicamos el + binario a cadenas, las une (concatena):</p>
+
+      <pre>
+        <code class="language-javascript">
+          let s = "my" + "string";
+          alert(s); // mystring
+        </code>
+      </pre>
+
+      <p>El binario + es el único operador que soporta cadenas en esa forma. Otros operadores matemáticos trabajan
+        solamente con números y siempre convierten sus operandos a números. Por ejemplo, resta y división:</p>
+
+      <pre>
+        <code class="language-javascript">
+          alert( 2 - '1' ); // 1
+          alert( '6' / '2' ); // 3
+        </code>
+      </pre>
+
+      <h3>Modificar en el lugar</h3>
+
+      <p>A menudo necesitamos aplicar un operador a una variable y guardar el nuevo resultado en esa misma variable.
+      </p>
+
+      <pre>
+        <code class="language-javascript">
+          let n = 2;
+          n = n + 5;
+          n = n * 2;
+
+          // Podemos utilizar los operadores += y -=
+          n += 5; // ahora n = 7 (lo mismo que n = n + 5)
+          n *= 2; // ahora n = 14 (lo mismo que n = n * 2)
+
+          alert( n ); // 14
+        </code>
+      </pre>
+
+      <h3>Incremento/decremento</h3>
+
+      <p>Aumentar o disminuir un número en uno es una de las operaciones numéricas más comunes. Puedes utilizar los
+        operadores ++ y --</p>
+
+      <pre>
+        <code class="language-javascript">
+          let counter = 2;
+          counter++;      // funciona igual que counter = counter + 1, pero es más corto
+          alert( counter ); // 3
+
+          ////////////////
+          
+          counter = 2;
+          counter--;      // funciona igual que counter = counter - 1, pero es más corto
+          alert( counter ); // 1
+        </code>
+      </pre>
+
+      <p>Los operadores ++ y -- pueden ser colocados antes o después de una variable.</p>
+
+      <ul>
+        <li>Cuando el operador va después de la variable, está en “forma de sufijo”: counter++.</li>
+        <li>La “forma de prefijo” es cuando el operador va antes de la variable: ++counter.</li>
+      </ul>
+
+      <p>La forma prefijo devuelve el nuevo valor mientras que la forma sufijo devuelve el valor anterior (antes del
+        incremento/decremento).</p>
+
+      <pre>
+        <code class="language-javascript">
+          let counter = 1;
+          let a = ++counter; 
+
+          alert(a); // 2
+
+          ////////////////////
+
+          counter = 1;
+          let a = counter++; 
+
+          alert(a); //  1
+        </code>
+      </pre>
+    </section>
+
+    <hr>
+  </main>
+
+  <section class="pagination">
+    <article class="pagination-item">
+      <a href="/pages/js/fundamentos/conversiones.html">
+        <i class="material-icons">arrow_back</i>Conversiones de tipos
+      </a>
+    </article>
+    <article class="pagination-item">
+      <a href="/pages/js/index.html#indice">Tabla de contenido JS
+        <i class="material-icons">arrow_upward</i>
+      </a>
+    </article>
+    <article class="pagination-item">
+      <a href="/pages/js/fundamentos/comparaciones.html">Comparaciones
+        <i class="material-icons">arrow_forward</i>
+      </a>
+    </article>
+  </section>
+  <sergey-import src="footer" />
+  <script src="/js/prism.js"></script>
+</body>
+
+</html>

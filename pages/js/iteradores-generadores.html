@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <sergey-import src="metas/statics" />
+  <sergey-import src="metas/titles">Iterables, Iteradores y Generadores</sergey-import>
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/menu.css">
+  <link rel="stylesheet" href="/css/prism.css" />
+</head>
+
+<body>
+  <sergey-import src="header" />
+
+  <main class="container">
+
+    <section id="iterators-generators">
+
+      <h1>Iterables, Iteradores y Generadores</h1>
+
+      <p>Procesar cada uno de los elementos en una colección es una operación muy común. JavaScript proporciona diversas
+        formas de iterar sobre una colección, desde simples bucles for hasta métodos como map() y filter(). Los
+        iteradores y los generadores traen el concepto de iteración al centro del lenguaje y proporcionan un mecanismo
+        para personalizar el comportamiento de los bucles for...of.</p>
+
+      <hr>
+
+      <section id="iterators">
+        <h2>Iterables e Iteradores</h2>
+
+        <p>Cuando decimos que una variable es iterable, indicamos que es una estructura lineal donde sus elementos son
+          públicos y se pueden recorrer.</p>
+
+        <p>En JavaScript, un iterador es un objeto que permite recorrer una colección y devolver un valor al terminar.
+          Es una interfaz (como una especie de apuntador), que va reccoriendo los elementos de la estructura de datos.
+        </p>
+
+        <p>Iterable es la estructura de datos (la variable) que vamos a recorrer. Iterador es el mecanismo que
+          utilizaremos para recorrerlo.</p>
+
+        <p>El método next del iterador nos permite pasar al siguente elemento de la estructura, y nos retorna un objeto
+          con dos propiedades: el valor (propiedad value) y la propiedad booleana done, que nos indica si aún quedan
+          elementos para iterar. </p>
+
+        <pre>
+          <code class="language-javascript">
+            const iterable = [1, 2, 3, 4, 5];
+            // const iterable = 'Hola mundo';
+            // const iterable = new Set([1, 2, 3, 3, 4, 5])
+            // const iterable = new Map([['nombre', 'Mauricio'], ['edad', 47]]);
+
+            /* Accedemos a la interfaz del iterador */
+            const iterador = iterable[Symbol.iterator]();
+
+            console.log(iterable);
+            console.log(iterador);
+
+            /* Recorrer los elementos */
+            console.log(iterador.next()); // 1, done: true
+            console.log(iterador.next()); // 2, done: true
+            console.log(iterador.next()); // 3, done: true
+            console.log(iterador.next()); // 4, done: true
+            console.log(iterador.next()); // 5, done: true
+            console.log(iterador.next()); // undefined, done: true
+
+            /* Recorrer los elementos */
+            const iterador2 = iterable[Symbol.iterator]();
+
+            let next = iterador2.next();
+            while (!next.done) {
+              console.log(next.value);
+              next = iterador2.next();
+            }
+          </code>
+        </pre>
+
+        <figure>
+          <img src="/assets/images/js/js_24.png" alt="Consola. Ejemplo de Iteradores">
+          <figcaption>Ejemplo de Iteradores</figcaption>
+        </figure>
+
+        <p>Podemos utilizar este mecanismo siempre que el elemento sea iterable. Lo podemos aplicar sobre Array, String,
+          Map, Set, etcétera.</p>
+
+      </section>
+
+      <hr>
+
+      <section id="generators">
+        <h2>Generadores</h2>
+
+        <p>La creación de iteradores personalizados require una programación meticulosa ya que necesitan mantener su
+          estado interno explícitamente. Los generadores son una alternativa más sencilla. Permiten definir un algoritmo
+          iterativo escribiendo una función que puede mantener su propio estado. </p>
+
+        <p>Una función generadora (constructor GeneratorFunction) es un tipo de función especial que sirve como una
+          fábrica de iteradores. Retorna un objeto Generador. Una función se convierte en una Función Generadora si
+          utiliza la sintáxis function*.</p>
+
+        <p>La palabra clave yield se usa para pausar y reanudar una función generadora. Cuando se invoque la función a
+          través de next, yield retornará el objeto y mantendrá la posición del cursor (iterador). De esta manera,
+          cuando se invoque nuevamente el next yield retornará el siguiente elemento.</p>
+
+        <p>El siguiente ejemplo convertimos el código de una función en iterable, durante la primera ejecución retornará
+          'Hola' y se detendrá. Cuando itere nuevamente impimirá en consola 'Hola consola', retornará 'Hola2' y se
+          detendrá. La tercera vez, imprimirá en consola 'Más instrucciones...', retornará 'Hola3' y se detendrá. Este
+          comportamiento se repetirá hasta el final.</p>
+
+        <pre>
+          <code class="language-javascript">
+            function* iterable() {
+              yield 'Hola';
+
+              console.log('Hola consola');
+              yield 'Hola2';
+
+              console.log('Más instrucciones...');
+              yield 'Hola3';
+              yield 'Hola4';
+            }
+
+            let iterador = itenrable();
+            console.log(iterador.next()); // 'Hola', done: false
+            console.log(iterador.next()); // 'Hola2', done: false
+            console.log(iterador.next()); // 'Hola3', done: false
+            console.log(iterador.next()); // 'Hola4', done: false
+            console.log(iterador.next()); // undefined, done: true
+            
+            let iterador2 = iterable();
+            for (let y of iterador2) {
+              console.log(y);
+            }
+          </code>
+        </pre>
+
+        <figure>
+          <img src="/assets/images/js/js_25.png" alt="Consola. Ejemplo de Generadores">
+          <figcaption>Ejemplo de Generadores</figcaption>
+        </figure>
+
+        <p>Hasta cierto punto los generadores nos permiten manejar comportamiento asíncrono. Podríamos almacenar los
+          yield en un array para trabajasrlos posteriormente. Pensemos en un proceso asíncrono donde leermos desde una
+          base de datos o consultando una API. Tendremos que esperar a que terminen todos los yields (que almacenamos en
+          un arrglo). </p>
+
+        <pre>
+          <code class="language-javascript">
+            function* iterable() {
+              yield 'Hola';
+
+              console.log('Hola consola');
+              yield 'Hola2';
+
+              console.log('Más instrucciones...');
+              yield 'Hola3';
+              yield 'Hola4';
+            }
+
+            // Spread operator. Por cada Yield almacena en una posición            
+            const arr = [...iterable()]; 
+            console.log(arr);
+          </code>
+        </pre>
+
+        <figure>
+          <img src="/assets/images/js/js_26.png" alt="Consola. Generadores - reultado en array">
+          <figcaption>Generadores - reultado en array</figcaption>
+        </figure>
+
+        <p>Repitamos el ejemplo (Elevar al cuadrado) que utilizamos con los mecanismos para trabajar asincronismo
+          (callbacks, promesas y async - await). </p>
+
+        <pre>
+          <code class="language-javascript">
+            function cuadrado(valor) {
+              // Simulamos asincronia
+              setTimeout(() => {
+                return console.log({ valor, resultado: valor * valor })
+              }, Math.random() * 1000);
+            }
+
+            function* generador() {
+              console.log("Inicia Generator");
+              yield cuadrado(0);
+              yield cuadrado(1);
+              yield cuadrado(2);
+              yield cuadrado(3);
+              yield cuadrado(4);
+              yield cuadrado(5);
+              console.log("Termina Generator");
+            }
+
+            let gen = generador();
+            for (let y of gen) {
+              console.log(y);
+            } 
+          </code>
+        </pre>
+
+        <figure>
+          <img src="/assets/images/js/js_27.png" alt="Consola. Manejando asincronismo">
+          <figcaption>Manejando asincronismo</figcaption>
+        </figure>
+
+        <blockquote>
+          Los métodos que vimos anteriormente para manejar la asincronía son bloqueantes, es decir, hasta que no
+          termina una ejecución no lanza la siguiente. En este caso tenemos una asincronía no bloqueante. La ejecución
+          de la función es asíncrona y se espera el resultado de la función, pero las ejecutamos todas juntas. Y como el
+          tiempo de espera es aleatorio (random) puede que obtengamos los resultados desordenados. A medida que las
+          funciones finalizan retornan el resultado.
+        </blockquote>
+
+        </script>
+      </section>
+    </section>
+
+    <hr>
+  </main>
+
+  <section class="pagination">
+    <article class="pagination-item">
+      <a href="/pages/js/nuevos-tipos.html">
+        <i class="material-icons">arrow_back</i>Nuevos tipos de datos
+      </a>
+    </article>
+    <article class="pagination-item">
+      <a href="/pages/js/index.html#indice">Tabla de contenido JS
+        <i class="material-icons">arrow_upward</i>
+      </a>
+    </article>
+    <article class="pagination-item">
+      <a href="/pages/js/proxies.html">Proxies
+        <i class="material-icons">arrow_forward</i>
+      </a>
+    </article>
+  </section>
+  <sergey-import src="footer" />
+  <script src="/js/prism.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <sergey-import src="metas/statics" />
+  <sergey-import src="metas/titles">Operadores lógicos o de cortocicuito</sergey-import>
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/menu.css">
+  <link rel="stylesheet" href="/css/prism.css" />
+</head>
+
+<body>
+  <sergey-import src="header" />
+
+  <main class="container">
+
+    <h1>Operadores lógicos o de cortocicuito</h1>
+
+    <section id="operadores-logicos">
+      <p>Hay cuatro operadores lógicos en JavaScript: || (o), && (y), ! (no), ?? (Fusión de nulos). Aquí cubrimos los
+        primeros tres, el operador ?? se verá en el siguiente artículo.</p>
+
+      <hr>
+
+      <h2>|| or</h2>
+
+      <p>Hay cuatro combinaciones lógicas posibles.</p>
+
+      <pre>
+        <code class="language-javascript">
+          alert(true || true); // true (verdadero)
+          alert(false || true); // true
+          alert(true || false); // true
+          alert(false || false); // false (falso)
+        </code>
+      </pre>
+
+      <p>Ejemplo en sentencia if</p>
+
+      <pre>
+        <code class="language-javascript">
+          let hour = 12;
+          let isWeekend = true;
+          
+          if (hour < 10 || hour > 18 || isWeekend) {
+            alert("La oficina esta cerrada."); // Es fin de semana
+          }
+        </code>
+      </pre>
+
+      <h3>Obtener el primer valor verdadero de una lista de variables o expresiones</h3>
+
+      <pre>
+        <code class="language-javascript"> 
+          let firstName = "";
+          let lastName = "";
+          let nickName = "SuperCoder";
+
+          alert( firstName || lastName || nickName || "Anonymous"); // SuperCoder
+        </code>
+      </pre>
+
+      <p>Si todas las variables fueran falsas, aparecería "Anonymous".</p>
+
+      <hr>
+
+      <h2>&& (AND)</h2>
+
+      <p>AND retorna true si ambos operandos son valores verdaderos y false en cualquier otro caso.</p>
+
+      <pre>
+        <code class="language-javascript">
+          alert(true && true); // true
+          alert(false && true); // false
+          alert(true && false); // false
+          alert(false && false); // false
+        </code>
+      </pre>
+
+      <p>Ejemplo con if</p>
+
+      <pre>
+        <code class="language-javascript">
+          let hour = 12;
+          let minute = 30;
+
+          if (hour == 12 && minute == 30) {
+            alert("La hora es 12:30");
+          }
+        </code>
+      </pre>
+
+      <blockquote>
+        La precedencia de AND && es mayor que la de OR ||<br>
+        Así que el código a && b || c && d es básicamente el mismo que si la expresiones && estuvieran entre
+        paréntesis: (a && b) || (c && d)
+      </blockquote>
+
+      <hr>
+
+      <h2>! (NOT)</h2>
+
+      <p>El operador acepta un solo argumento y convierte el operando al tipo booleano: true/false. Retorna el valor
+        contrario.</p>
+
+      <pre>
+          <code class="language-javascript">
+            alert(!true); // false
+            alert(!0); // true
+          </code>
+        </pre>
+
+      <blockquote>
+        La precedencia de NOT ! es la mayor de todos los operadores lógicos, así que siempre se ejecuta primero,
+        antes que && o ||
+      </blockquote>
+
+    </section>
+
+    <hr>
+  </main>
+
+  <section class="pagination">
+    <article class="pagination-item">
+      <a href="/pages/js/fundamentos/condicionales.html">
+        <i class="material-icons">arrow_back</i>Condicionales
+      </a>
+    </article>
+    <article class="pagination-item">
+      <a href="/pages/js/index.html#indice">Tabla de contenido JS
+        <i class="material-icons">arrow_upward</i>
+      </a>
+    </article>
+    <article class="pagination-item">
+      <a href="/pages/js/fundamentos/bucles.html">Bucles: while y for
+        <i class="material-icons">arrow_forward</i>
+      </a>
+    </article>
+  </section>
+  <sergey-import src="footer" />
+  <script src="/js/prism.js"></script>
+</body>
+
+</html>
