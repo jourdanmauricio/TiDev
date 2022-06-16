@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <sergey-import src="metas/statics" />
+  <sergey-import src="metas/titles">JSON Server</sergey-import>
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/menu.css">
+  <link rel="stylesheet" href="/css/prism.css" />
+</head>
+
+<body>
+  <sergey-import src="header" />
+
+  <main class="container">
+
+    <h1>JSON Server - API falsa local</h1>
+
+    <section id="json-server">
+
+      <p>Como aún no desarrollamos una aplicación backend que nos brinde una API utilizaremos una API falsa. Para ello
+        deberemos instalar el <a href="https://www.npmjs.com/package/json-server" target="_blank"
+          rel="noopener noreferrer">paquete JSON Server</a>.</p>
+
+      <blockquote>
+        Para utlizar JSON Server debemos tener instalado <a href="https://nodejs.org/es/" target="_blank"
+          rel="noopener noreferrer">Node js</a>. <br>
+        Para verificar si tenemos instalado nodejs abrimos una consola y ejecutamos: node -v.
+      </blockquote>
+
+      <h2>Instalación</h2>
+
+      <pre>
+        <code class="language-bash">
+          npm install -g json-server
+        </code>
+      </pre>
+
+
+    </section>
+    <hr>
+  </main>
+
+  <section class="pagination">
+    <article class="pagination-item">
+      <a href="/pages/js/api-rest/api-rest.html">
+        <i class="material-icons">arrow_back</i>API Rest
+      </a>
+    </article>
+    <article class="pagination-item">
+      <a href="/pages/js/index.html#indice">Tabla de contenido JS
+        <i class="material-icons">arrow_upward</i>
+      </a>
+    </article>
+    <article class="pagination-item">
+      <a href="/pages/js/api-rest/json-server.html">Json server
+        <i class="material-icons">arrow_forward</i>
+      </a>
+    </article>
+  </section>
+  <sergey-import src="footer" />
+  <script src="/js/prism.js"></script>
+</body>
+
+</html>

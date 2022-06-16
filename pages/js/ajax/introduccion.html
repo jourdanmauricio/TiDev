@@ -3,17 +3,10 @@
 
 <head>
   <sergey-import src="metas/statics" />
-  <sergey-import src="metas/titles">Ejercicios DOM - BOM</sergey-import>
+  <sergey-import src="metas/titles">Intoducción AJAX</sergey-import>
   <link rel="stylesheet" href="/css/styles.css">
   <link rel="stylesheet" href="/css/menu.css">
   <link rel="stylesheet" href="/css/prism.css" />
-  <style>
-    .indicators {
-      border: thin solid teal;
-      border-radius: 10px;
-      padding: 0 10px 0 10px;
-    }
-  </style>
 </head>
 
 <body>
@@ -21,11 +14,112 @@
 
   <main class="container">
 
-    <section id="objects">
-      <h1>Ejercicios DOM - BOM</h1>
+    <section id="ajax-intro">
+      <h1>Intoducción AJAX</h1>
 
+      <p>AJAX (JavaScript Asíncrono y XML) es un término que describe dos capacidades de los navegadores: la posibilidad
+        de hacer peticiones al servidor sin tener que volver a cargar la página y la posibilidad de analizar y trabajar
+        con documentos XML.</p>
 
+      <p>Aunque aún existen implementaciones para intercambio de datos en XML, actualmente utilizamos Json.
+        Inicialmente, XML era el formato de intercambio de información entre sistemas, ya que los distintos lenguajes de
+        programación poseen la capicidad de leer este formato. </p>
 
+      <p>JavaScript Asíncrono + XML (AJAX) no es una tecnología por sí misma, es un término que describe un nuevo modo
+        de utilizar conjuntamente varias tecnologías. Esto incluye: HTML, CSS, JavaScript, DOM, XML, XSLT, y el objeto
+        XMLHttpRequest. Cuando estas tecnologías se combinan en un modelo AJAX, es posible lograr aplicaciones web
+        capaces de actualizarse continuamente sin tener que volver a cargar la página completa. Esto crea aplicaciones
+        más rápidas y con mejor respuesta a las acciones del usuario.</p>
+
+      <figure>
+        <img src="/assets/images/js/js_47.png" alt="Intercambio de datos tradicional vs Ajax">
+        <figcaption>Intercambio de datos tradicional vs Ajax</figcaption>
+      </figure>
+
+      <p>Tadicionalmente, cuando solicitamos un recurso se genera un petición (request) desde el navegador al servidor
+        donde se encuentre alojado el recurso. De acuerdo al recurso solicitado, el servidor resuelve obteniendo datos
+        de una base de datos, consultando microservicios, etc; y envía la respuesta (response) compuesta por archivos
+        html, css, JavaScript, imágenes al navegador. </p>
+
+      <p>Esto quiere decir que cada vez que solicitamos un recurso (navegamos a una página), se recarga el navegador.
+      </p>
+
+      <p>Ajax nace para mejorar el rendimiento y la experiencia del usuario, ubicándose como un intermediario entre la
+        interfax del usuario y el servidor. De esta manera, no necesitamos recargar el recurso, solo se actualizan los
+        datos necesisarios.</p>
+
+      <p> Ajax no es una tecnología en sí mismo. Se trata de varias tecnologías independientes que se unen: </p>
+
+      <ul>
+        <li> <b>HTML y CSS</b>, para crear una presentación basada en estándares. </li>
+        <li> <b>DOM</b>, para la interacción y manipulación dinámica de la presentación. </li>
+        <li> <b>HTML, XML y JSON</b>, para el intercambio y la manipulación de información. </li>
+        <li> <b>XMLHttpRequest</b> o <b>Fetch</b>, para el intercambio asíncrono de información. </li>
+        <li> <b>JavaScript</b>, para unir todas las demás tecnologías. </li>
+      </ul>
+
+      <h2>Métodos nativos para implementar Ajax</h2>
+
+      <ul>
+        <li>ActiveXObject. Es para Internet Explorer 8. Está obsoleto. </li>
+        <li>XMLHttpRequest</li>
+        <li>API Fetch</li>
+      </ul>
+
+      <h3>XMLHttpRequest</h3>
+
+      <p>XMLHttpRequest es un objeto JavaScript que creado por Microsoft y adoptado por el resto de los navegadores.
+        Actualmente es un estándar de la W3C. Proporciona una forma fácil de obtener información de una URL sin tener
+        que recargar la página completa. Una página web puede actualizar sólo una parte de la página sin interrumpir lo
+        que el usuario está haciendo.</p>
+
+      <p>A pesar de su nombre, XMLHttpRequest puede ser usado para recibir cualquier tipo de dato, no solo XML</p>
+
+      <h3>API Fetch</h3>
+
+      <p>La API Fetch proporciona una interfaz para recuperar recursos. La nueva API fecth es más potente y flexible que
+        XMLHttpRequest.</p>
+
+      <p>Fetch ofrece una definición genérica de los objetos Request y Response (y otras cosas relacionadas con las
+        solicitudes de red). También proporciona una definición para conceptos relacionados, como CORS y la semántica de
+        encabezado HTTP origen</p>
+
+      <h2>Librerías externas para implementar ajax</h2>
+
+      <ul>
+        <li>jQuery.ajax. Fué una de las más utilizadas, pero a medida que el estandar JavaScript incorpora nuevas
+          características va quedando en desuso. Cuando los distintos navegadores trabajaban de distinta manera, jQuery
+          nos permitía abstraernos del navegador. jQuery.ajax se encargaba de detectar el navegador, si se trataba de IE
+          traducía la petición a ActiveXObject, y si era otro navegador traducía a XMLHttpRequest.</li>
+        <li>Axios. Es muy popular y se basa en promesas. Nos permite interceptar solicitudes y respuestas, transformar
+          datos de solicitud y respuesta, cancelar solicitudes, transformaciones automáticas para datos JSON,
+          compatibilidad del lado del cliente para protección contra XSRF.</li>
+        <li>etc</li>
+      </ul>
+
+      <h2>Estado de las peticiones</h2>
+
+      <p>Una petición Ajax tendrá 5 estados. </p>
+
+      <ul>
+        <li>READY_STATE_UNINITIALIZED = 0, el cliente se comunica con el servidor.</li>
+        <li>READY_STATE_LOADING = 1, se envían los datos al servidor.</li>
+        <li>READY_STATE_LOADED = 2, el servidor respondió al cliente pero el cliente aún no procesa la información.</li>
+        <li>READY_STATE_INTERACTIVE = 3, el motor de JavaScript accede a los datos recibidos desde el servidor.</li>
+        <li>READY_STATE_COMPLETE = 4, en este punto ya tenemos los datos disponibles para manipularlos.</li>
+      </ul>
+
+      <p>De la interacción entre el cliente y el servidor surgen distintos <a
+          href="https://developer.mozilla.org/es/docs/Web/HTTP/Status" target="_blank" rel="noopener">códigos de
+          estado de respuesta HTTP</a>.</p>
+
+      <ul>
+        <li>Respuestas informativas (100-199)</li>
+        <li>Respuestas satisfactorias (200-299)</li>
+        <li>Redirecciones (300-399)</li>
+        <li>Errores de los clientes (400-499)</li>
+        <li>y errores de los servidores (500-599)</li>
+      </ul>
     </section>
     <hr>
   </main>
@@ -42,8 +136,8 @@
       </a>
     </article>
     <article class="pagination-item">
-      <a href="/pages/js/bom/metodos.html">
-        <i class="material-icons">arrow_forward</i>Métodos
+      <a href="/pages/js/ajax/XMLHttpRequest.html">
+        <i class="material-icons">arrow_forward</i>El Objeto XMLHttpRequest
       </a>
     </article>
   </section>

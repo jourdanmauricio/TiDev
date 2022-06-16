@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <sergey-import src="metas/statics" />
+  <sergey-import src="metas/titles">API Fetch + Async-Await</sergey-import>
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/menu.css">
+  <link rel="stylesheet" href="/css/prism.css" />
+</head>
+
+<body>
+  <sergey-import src="header" />
+
+  <main class="container">
+
+    <section id="ajax-fetch-async-await">
+      <h1>AJAX: API Fetch + Async-Await</h1>
+
+      <p>El código utilizando promesas fetch es verboso. A través de asnyc y await podemos mejorar la legibiliad del
+        código.</p>
+
+      <pre>
+        <code class="language-html">
+          &lt;body>
+            ...
+            &lt;ol id="fetch-async"&gt;&lt;/ol&gt;
+            ...
+            &lt;script src="/js/fetch-async-await.js">&lt;/script&gt;
+          &lt;/body&gt;
+        </code>
+      </pre>
+
+      <ol id="fetch-async"></ol>
+
+      <pre>
+        <code class="language-javascript">
+          /* fetch-async-await.js */
+          (() => {
+            const $fetchAsync = document.getElementById("fetch-async");
+            const $fragment = document.createDocumentFragment();
+          
+            async function getData() {
+              try {
+                let res = await fetch("https://jsonplaceholder.typicode.com/users");
+                let json = await res.json();
+          
+                if (!res.ok) throw { status: res.status, statusText: res.statusText };
+          
+                json.forEach((el) => {
+                  const $li = document.createElement("li");
+                  $li.innerHTML = `${el.name} -- ${el.email} -- ${el.phone}`;
+                  $fragment.append($li);
+                });
+                $fetchAsync.appendChild($fragment);
+              } catch (err) {
+                let message = err.statusText || "Ocurrió un error";
+                $fetchAsync.innerHTML = `Error ${err.status}: ${message} `;
+              } finally {
+                console.log("Se ejecutará independiente de la promesa fetch");
+              }
+            }
+          
+            getData();
+          })();
+        </code>
+      </pre>
+
+      <p>El objeto error de JavaScript solo admite una cadena como parámetro, no acepta un objeto. Por ese motivo,
+        lanzamos un throw con un objeto y no utilizamos la sentencia throw new Error('').</p>
+
+      <p>Como vemos el código queda más limpio y fácil de leer.</p>
+
+    </section>
+    <hr>
+  </main>
+
+  <section class=" pagination">
+    <article class="pagination-item">
+      <a href="/pages/js/ajax/fetch.html">
+        <i class="material-icons">arrow_back</i>API Fetch
+      </a>
+    </article>
+    <article class="pagination-item">
+      <a href="/pages/js/index.html#indice">Tabla de contenido JS
+        <i class="material-icons">arrow_upward</i>
+      </a>
+    </article>
+    <article class="pagination-item">
+      <a href="/pages/js/ajax/axios.html">
+        <i class="material-icons">arrow_forward</i>Librería Axios
+      </a>
+    </article>
+  </section>
+  <sergey-import src="footer" />
+  <script src="/js/fetch-async-await.js"></script>
+  <script src="/js/prism.js"></script>
+</body>
+
+</html>
