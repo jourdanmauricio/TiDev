@@ -36,6 +36,126 @@
         </code>
       </pre>
 
+      <p>Tenemos que crear un archivo db.json con algunos datos. Podemos crearlo dentro de la carpeta /assets/json/</p>
+
+      <pre>
+        <code class="language-javascript">
+          {
+            "santos": [
+              {
+                "id": 1,
+                "nombre": "Seiya",
+                "constelacion": "Pegaso"
+              },
+              {
+                "id": 2,
+                "nombre": "Shiryu",
+                "constelacion": "Dragón"
+              },
+              {
+                "id": 3,
+                "nombre": "Hyoga",
+                "constelacion": "Cisne"
+              },
+              {
+                "id": 4,
+                "nombre": "Shun",
+                "constelacion": "Andrómeda"
+              },
+              {
+                "id": 5,
+                "nombre": "Ikki",
+                "constelacion": "Fénix"
+              },
+              {
+                "nombre": "Mü",
+                "constelacion": "Aries",
+                "id": 6
+              },
+              {
+                "nombre": "Aldebaran",
+                "constelacion": "Tauro",
+                "id": 7
+              },
+              {
+                "nombre": "Saga",
+                "constelacion": "Geminis",
+                "id": 8
+              },
+              {
+                "nombre": "Máscara de Muerte",
+                "constelacion": "Cancer",
+                "id": 9
+              },
+              {
+                "nombre": "Aioria",
+                "constelacion": "Leo",
+                "id": 10
+              },
+              {
+                "nombre": "Shaka",
+                "constelacion": "Virgo",
+                "id": 11
+              },
+              {
+                "nombre": "Dohko",
+                "constelacion": "Libra",
+                "id": 12
+              }
+            ],
+            "dioses": [
+              {
+                "id": 1,
+                "nombre": "Athena",
+                "de": "Tierra"
+              },
+              {
+                "id": 2,
+                "nombre": "Poseidón",
+                "de": "Mar"
+              },
+              {
+                "id": 3,
+                "nombre": "Hades",
+                "de": "Inframundo"
+              },
+              {
+                "id": 4,
+                "nombre": "Zeus",
+                "de": "Cielo"
+              }
+            ]
+          }
+        </code>
+      </pre>
+
+      <p>Para iniciar el servidor ejecutamos en consola la siguiente sentencia. Debemos estar ubicados en la carpeta
+        raíz del proyecto (para indicar la ruta relativa al archivo db.json).</p>
+
+      <pre>
+        <code class="language-bash">
+          json-server --watch ./assets/json/db.json
+        </code>
+      </pre>
+
+      <figure>
+        <img src="/assets/images/js/js_49.png" alt="Servidor iniciado">
+        <figcaption>Servidor iniciado</figcaption>
+      </figure>
+
+
+      <p>Ahora, si en nuestro navegador vamos a <a href="http://localhost:3000/dioses/1" target="_blank"
+          rel="noopener noreferrer">http://localhost:3000/dioses/1</a>, obtendremos</p>
+
+      <pre>
+        <code class="language-javascript">
+          {
+            "id": 1,
+            "nombre": "Athena",
+            "de": "Tierra"
+          }
+        </code>
+      </pre>
 
     </section>
     <hr>
@@ -53,7 +173,7 @@
       </a>
     </article>
     <article class="pagination-item">
-      <a href="/pages/js/api-rest/json-server.html">Json server
+      <a href="/pages/js/api-rest/crud-ajax.html">Crud Ajax
         <i class="material-icons">arrow_forward</i>
       </a>
     </article>
