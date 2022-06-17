@@ -1,0 +1,80 @@
+.pixels {
+  background-color: cadetblue;
+  width: 500px;
+  height: 150px;
+  padding: 20px;
+  border: 5px solid rebeccapurple;
+  font-size: 16px;
+}
+
+.ems {
+  background-color: cadetblue;
+  border: 5px solid rebeccapurple;
+  font-size: 20px;
+  padding: 1em 0.5em;
+}
+
+.ems-child {
+  background-color: salmon;
+  border: thick solid beige;
+  font-size: 2em;
+  margin: 0.5em;
+  padding: 1em;
+}
+
+.rems {
+  background-color: cadetblue;
+  border: 5px solid rebeccapurple;
+  font-size: 20px;
+  padding: 1em 0.5rem;
+}
+.rems-child {
+  background-color: salmon;
+  border: thick solid beige;
+  font-size: 2rem;
+  margin: 0.5rem;
+  padding: 1rem;
+}
+
+.chs {
+  background-color: cadetblue;
+  width: 10ch;
+}
+
+.percentages {
+  background-color: darkkhaki;
+  width: 50%;
+  height: 80%; /* No aplica */
+}
+
+.height-parent {
+  background-color: brown;
+  width: 400px;
+  height: 400px;
+}
+
+.height-child {
+  background-color: coral;
+  width: 50%;
+  height: 50%;
+}
+
+.viewport {
+  background-color: darkcyan;
+  width: 50vw;
+  /* Recuerda que la etiqueta body tiene margenes por defecto y recuerda que las barras de scroll del navegador también forman parte del viewport */
+  width: 100%;
+  width: 50vw;
+  height: 100vh;
+  height: 30vh;
+  font-size: 2vw;
+  padding: 2vh 2vw;
+}
+
+.vmin,
+.vmax {
+  background-color: darksalmon;
+  border: thick solid cyan;
+  width: 50vmax;
+  height: 50vmin;
+}

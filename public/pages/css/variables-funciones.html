@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="application-name" content="TiDev">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@jourdanmau">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#fb6d43">
+<meta name="msapplication-TitleColor" content="#fb6d43">
+<meta name="msapplication-TitleImage" content="">
+<link rel="apple-touch-icon" href="">
+<!-- <link rel="icon" type="image/png" href=""> -->
+<link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<link rel="author" type="text/plain" href="humans.txt">
+<!-- <link rel="manifest" href="manifest.json"> -->
+<!-- CDN Material+Icons -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  <title>
+  Variables y funciones en CSS
+</title>
+<meta name="twitter:title" property="og:title" content="Variables y funciones en CSS">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/menu.css">
+  <link rel="stylesheet" href="/css/prism.css" />
+  <link rel="stylesheet" href="/css/html/html.css">
+  <link rel="stylesheet" href="/css/css/variables-funciones.css">
+</head>
+
+<body>
+  <header>
+  <nav class="menu-nav">
+    <a href="/index.html" class="enlace">
+      <label class="logo">Aprende</label>
+    </a>
+    <input type="checkbox" id="check">
+    <label for="check" class="checkbtn">
+      <i class="material-icons">menu</i>
+    </label>
+    <ul class="menu">
+      <li>
+        <a href="/index.html" class="active menu-link">Home</a>
+      </li>
+      <li>
+        <a href="/pages/cursos/index.html" class="menu-link">Guias</a>
+      </li>
+      <li>
+        <a href="/pages/html/index.html" class="menu-link">HTML</a>
+      </li>
+      <li>
+        <a href="/pages/css/index.html" class="active menu-link">CSS</a>
+      </li>
+      <li>
+        <a href="/pages/js/index.html" class="menu-link">JavaScript</a>
+      </li>
+
+    </ul>
+  </nav>
+</header>
+
+  <main class="container">
+
+    <section>
+      <h1>Variables y funciones en CSS</h1>
+
+      <article>
+        <h2>Variables - Custom properties</h2>
+
+        <p>El nombre es técnico para las varables es custom properties (propiedades configurables). Son un espacio en
+          memoria que van a almecenar datos.</p>
+
+        <p>La variables tiene un alcance, un ámbito. Ese ámbito es el selector en donde declaremos la variable y todos
+          sus hijos. Las variables se deben definir dentro de un selector.</p>
+
+        <p>Las variables se definen comenzando con --. Ejemplo: --primary-color: grey; </p>
+
+        <p>Para utilizar la variable tenemos que usar la función var(). Ejemplo: backgroud-color: var(--primary-color);
+        </p>
+
+        <pre>
+          <code class="language-html">
+            &lt;p class="title-props"&gt;Párrafo fuera de alcance&lt;/p&gt;
+            &lt;article class="custom-props-1"&gt;
+              &lt;section class="custom-props-2" style="--boder-color: red;&gt;
+                &lt;div class="custom-props-3"&gt;
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia accusantium tempore aliquam, voluptate
+                  maiores quidem ducimus quae dolorem labore voluptatibus recusandae repellat mollitia fuga aspernatur error
+                  porro quisquam alias libero.
+                &lt;/div&gt;
+              &lt;/section&gt;
+            &lt;/article&gt;
+          </code>
+        </pre>
+        <pre>
+          <code class="language-css">
+            .custom-props-1 {
+              --primary-color: grey;
+              --font-size: 25px;
+              background-color: var(--primary-color);
+            }
+            .custom-props-2 {
+              border: thin solid var(--boder-color);
+              padding: 1rem;
+            }
+            .custom-props-3 {
+              font-size: var(--font-size);
+              border: thin solid var(--boder-color);
+            }
+            .title-props {
+              color: var(--primary-color, orange);
+            }
+          </code>
+        </pre>
+
+        <p class="title-props">Párrafo fuera de alcance</p>
+        <article class="custom-props-1">
+          <section class="custom-props-2" style="--boder-color: red;">
+            <div class="custom-props-3">
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia accusantium tempore aliquam, voluptate
+              maiores quidem ducimus quae dolorem labore voluptatibus recusandae repellat mollitia fuga aspernatur error
+              porro quisquam alias libero.
+            </div>
+          </section>
+        </article>
+
+        <p>En el Ejemplo vemos que el color del párrafo no se modifcó porque el elemento se encuentra fuera de alcance
+          de las variables.</p>
+
+        <p>Para solventar este error la función var() admite un segundo parámetro, que indica que si no se puede aplicar
+          el valor de la variable aplique el segundo parámetro. En el ejemplo, orange</p>
+
+        <p><mark>Si deseamos que todas las veriables estén disponibles para todos los elementos podemos utilizar una
+            pseudoclase llamada :root, que hace referencia a la etiqueta html pero posee mayor peso, más especificidad.
+            Lo ideal, es declarar las variables en el selector :root.</mark></p>
+
+        <pre>
+          <code class="language-css">
+            :root {
+              --default-bg-color: skyblue;
+            }
+          </code>
+        </pre>
+
+        <p>Otra forma de definir una varible es utlilizando el atributo html style. Definimos la variable en el archivo
+          html, y su alcance será para el elemento y sus hijos.</p>
+      </article>
+
+      <hr>
+      <article>
+        <h2>Funciones en CSS</h2>
+
+        <p>Ya hemos utilizado algunas funciones como var() y url() que se utiliza para llamar hojas de estilo en cascada
+        </p>
+
+        <ul>
+          <li>var()</li>
+          <li>url()</li>
+          <li>calc()</li>
+          <li>min()</li>
+          <li>max()</li>
+          <li>clamp()</li>
+        </ul>
+
+        <h3>calc()</h3>
+        <p>La función calc sirve para realizar cálculos aritméticos</p>
+
+        <pre>
+          <code class="language-html">
+            &lt;div class="ch-10"&gt;
+              0123456789
+            &lt;/div&gt;
+          </code>
+        </pre>
+        <pre>
+          <code class="language-css">
+            .ch-10 {
+              background-color: var(--default-bg-color);
+              font-size: 2rem;
+              padding: 2ch;
+              width: 10ch;
+            }
+          </code>
+        </pre>
+        <div class="ch-10">
+          0123456789
+        </div>
+
+        <p>El contenido desborda porque definimo 10 caracteres (10ch), pero agregamos 2 caracteres de padding. En total
+          nos quedan 14 caracteres. Para resolver este problema podemos utilizar la función calc sumando la cantidad de
+          caracteres del contenido más el padding.</p>
+
+        <p>Claro que podríamos realizar la cuenta e ingresar directamente 14ch, pero si luego tenemos que modificar el
+          padding (por ejemplo a 3ch), tendríamos que modificar manualmente todos los selectores donde se utilizó.</p>
+
+        <p>Finalmente, tenemos que mencionar que debe existir un espacio entre el operador (+) y operandos.</p>
+
+        <pre>
+          <code class="language-html">
+            &lt;div class="ch-10-calc"&gt;
+              0123456789
+            &lt;/div&gt;
+          </code>
+        </pre>
+        <pre>
+          <code class="language-css">
+            .ch-10-calc {
+              --padding-size: 3ch;
+              --num-ch: 10ch;
+              background-color: var(--default-bg-color);
+              font-size: 2rem;
+              padding: var(--padding-size);
+              width: calc(var(--num-ch) + var(--padding-size) * 2);
+            }
+          </code>
+        </pre>
+
+        <div class="ch-10-calc">
+          0123456789
+        </div>
+
+        <h3>min() y max()</h3>
+
+        <p>Son funciones a las que podemos pasarles valores seprados por comas y nos entregarán el mínimo o el máximo.
+        </p>
+
+        <pre>
+          <code class="language-html">
+            &lt;div class="min-max"&gt;Funciones min - max&lt;/div&gt;
+          </code>
+        </pre>
+        <pre>
+          <code class="language-css">
+            .min-max {
+              background-color: var(--default-bg-color);
+              margin-top: 1rem;
+              width: min(300px, 20vw, 20rem);
+              height: max(200px, 25vh);
+            }
+          </code>
+        </pre>
+
+        <div class="min-max">Funciones min - max</div>
+
+        <h3>Función clamp()</h3>
+
+        <p>Es un buen complemento a min - max. Es una función que recibe 3 valores y nos permite el diseño responsivo
+          sin utilizar media querys.</p>
+
+        <ul>
+          <li>Tamaño mínimo</li>
+          <li>Tamaño ideal</li>
+          <li>Tamaño máximo</li>
+        </ul>
+
+        <pre>
+          <code class="language-html">
+            &lt;p class="clamp"&gt;Función clamp&lt;/p&gt;
+          </code>
+        </pre>
+        <pre>
+          <code class="language-css">
+            .clamp {
+              font-size: clamp(2rem, 1rem + 3vw, 3rem);
+            }
+          </code>
+        </pre>
+
+        <p class="clamp">Función clamp</p>
+
+        <p>El tamaño del texto tomará como valor mínimo 2rem (32px), luego se moverá de acuerdo al ancho del viewport y
+          valor máximo 3rem (48px). La función clamp nos permite tener el texto responsivo.</p>
+
+      </article>
+    </section>
+
+    <hr>
+  </main>
+
+  <section class="pagination">
+    <article class="pagination-item">
+      <a href="/pages/css/unidades.html">
+        <i class="material-icons">arrow_back</i>Unidades en CSS
+      </a>
+    </article>
+    <article class="pagination-item">
+      <a href="/pages/css/index.html#indice">Tabla de contenido CSS
+        <i class="material-icons">arrow_upward</i>
+      </a>
+    </article>
+    <article class="pagination-item">
+      <a href="/pages/css/border-outline.html">Bordes y outlines
+        <i class="material-icons">arrow_forward</i>
+      </a>
+    </article>
+  </section>
+  <footer>
+  Copyright © 2022 TiDev. All rights reserved.
+</footer>
+  <script src="/js/prism.js"></script>
+</body>
+
+</html>

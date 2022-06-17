@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="application-name" content="TiDev">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@jourdanmau">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#fb6d43">
+<meta name="msapplication-TitleColor" content="#fb6d43">
+<meta name="msapplication-TitleImage" content="">
+<link rel="apple-touch-icon" href="">
+<!-- <link rel="icon" type="image/png" href=""> -->
+<link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<link rel="author" type="text/plain" href="humans.txt">
+<!-- <link rel="manifest" href="manifest.json"> -->
+<!-- CDN Material+Icons -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  <title>
+  Objetos Console, Date y Math
+</title>
+<meta name="twitter:title" property="og:title" content="Objetos Console, Date y Math">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/menu.css">
+  <link rel="stylesheet" href="/css/prism.css" />
+</head>
+
+<body>
+  <header>
+  <nav class="menu-nav">
+    <a href="/index.html" class="enlace">
+      <label class="logo">Aprende</label>
+    </a>
+    <input type="checkbox" id="check">
+    <label for="check" class="checkbtn">
+      <i class="material-icons">menu</i>
+    </label>
+    <ul class="menu">
+      <li>
+        <a href="/index.html" class="active menu-link">Home</a>
+      </li>
+      <li>
+        <a href="/pages/cursos/index.html" class="menu-link">Guias</a>
+      </li>
+      <li>
+        <a href="/pages/html/index.html" class="menu-link">HTML</a>
+      </li>
+      <li>
+        <a href="/pages/css/index.html" class="menu-link">CSS</a>
+      </li>
+      <li>
+        <a href="/pages/js/index.html" class="active menu-link">JavaScript</a>
+      </li>
+
+    </ul>
+  </nav>
+</header>
+
+  <main class="container">
+
+    <h1>Objetos Console, Date y Math</h1>
+
+    <section id="console-date-math">
+
+      <article id="console">
+        <h2>Objeto console</h2>
+
+        <p>El objeto Console provee acceso a la consola de depuración de los navegadores (ejemplo, la Consola Web en
+          Firefox o chrome). Los detalles de como funciona varían de navegador en navegador, pero hay un conjunto de
+          características que de facto son generalmente proporcionadas. </p>
+
+        <p>Durante esta guía ya hemos utilizado el objeto console. Como aún no hemos interactuado con el DOM, estamos
+          utilizando console para mostrar os resultados.</p>
+
+        <h3>Métodos</h3>
+
+        <ul>
+          <li>Console.assert(). Registra un mensaje y envía una traza de error a la consola si el primer argumento es
+            false.</li>
+          <li>Console.count(). Registra el numero de veces que esta línea ha sido llamada con etiqueta dada.</li>
+          <li>Console.error(). Muestra un mensaje de error. Se pueden utilizar sustituciones de cadena y argumentos
+            adicionales con este método.</li>
+          <li>Console._exception(). Es un alias de error().</li>
+          <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/console/group" target="_blank"
+              rel="noopener noreferrer">Console.group()</a>. Crea un nuevo grupo, indentando todos los mensajes
+            subsecuentes en un nuevo nivel. Para retroceder un nivel, se utiliza groupEnd(). </li>
+          <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/console/groupCollapsed" target="_blank"
+              rel="noopener noreferrer">Console.groupCollapsed()</a>. Crea un nuevo grupo, indentando todos los
+            mensajes subsecuentes en un nuevo nivel. A diferencia de group(), inicia con la línea de grupo colapsada,
+            requiriendo el uso de un botón de apertura para expandir el grupo. Para retroceder un nivel, se utiliza
+            groupEnd().</li>
+          <li>Console.groupEnd(). Finaliza el grupo actual.</li>
+          <li>Console.info(). Muestra un mensaje de información en la Consola Web. Se puede utilizar sustitución de
+            cadena y argumentos adicionales con este método.</li>
+          <li>Console.log(). Para mensajes generales de registro de información. Se puede utilizar sustitución de cadena
+            y argumentos adicionales con este método.</li>
+          <li><a href="https://developer.mozilla.org/es/docs/Web/API/Console/table" target="_blank"
+              rel="noopener noreferrer">Console.table()</a>. Muestra datos tabulares en forma de una tabla. </li>
+          <li>Console.time(). Inicia un temporizador con un nombre específico como parámetro. Hasta 10.000
+            temporizadores simultáneos pueden ejecutarse en una página determinada. </li>
+          <li> Console.timeEnd(). Detiene el temporizador especificado y registra el tiempo transcurrido, en segundos,
+            desde su inicio.</li>
+          <li>Console.warn(). Muestra un mensaje de advertencia. Se puede utilizar sustitución de cadena y argumentos
+            adicionales con este método.</li>
+        </ul>
+
+        <h3>Enviar texto a la consola</h3>
+
+        <p>La característica mas utilizada de la consola es la de mostrar texto y otro datos. Existen cuatro categorías
+          de salida que se pueden generar, utilizando los métodos console.log(), console.info(), console.warn() y
+          console.error(). Cada uno de estos muestran resultados que se lucen diferentes en el registro y se pueden
+          utilizar los controles de filtro proveidos por el navegador para ver únicamente los tipos de salida de
+          interés.</p>
+
+        <p>La manera mas simple de utilizar los métodos de registro es mostrar un texto u objeto.</p>
+
+        <pre>
+          <code class="language-javascript">
+            let nombre = "Mauricio"; 
+            let apellido = "Jourdan";
+
+            console.log(nombre, apellido);
+            // Interpolación
+            console.log( `Hola. Mi nombre es: ${nombre}` );
+            console.log("Este es un texto");
+            console.error("Este es un error");
+            console.warn("Este es una advertencia");
+            console.info("Este es un mensaje de información");
+          </code>
+        </pre>
+
+        <figure>
+          <img src="/js/assets/images/js_8.png" alt="Objeto Console. Utilización">
+          <figcaption>Objeto Console. Utilización</figcaption>
+        </figure>
+
+        <h3>Utilizando sustituciones de cadena</h3>
+
+        <pre>
+          <code class="language-javascript">
+            for (var i=0; i<5; i++) {
+              console.log('Hola, %s. Usted me ha llamado %d veces.', 'Bob', i+1);
+            }
+
+            // Hola, Bob. Usted me ha llamado 1 veces.
+            // Hola, Bob. Usted me ha llamado 2 veces.
+            // Hola, Bob. Usted me ha llamado 3 veces.
+            // Hola, Bob. Usted me ha llamado 4 veces.
+            // Hola, Bob. Usted me ha llamado 5 veces.
+          </code>
+        </pre>
+
+        <h3>Dando estilo a la salida de la consola.</h3>
+
+        <p>Puedes usar la directiva "%c" para aplicar un estilo CSS a la salida de la consola</p>
+
+        <pre>
+          <code class="language-javascript">
+            console.log("%cMy stylish message", "color: red; font-style: italic");
+          </code>
+        </pre>
+
+        <figure>
+          <img src="/assets/images/js/js_7.png" alt="Console con estilos">
+          <figcaption>Console con estilos</figcaption>
+        </figure>
+
+        <h3>Usando grupos en la consola</h3>
+
+        <p>Puedes usar grupos anidados para organizar la salida. Para crear un nuevo bloque anidado se utiliza
+          console.group(). El método console.groupCollapsed() es similar, pero requiere el uso de un "botón de mostrar"
+          para abrirlo.</p>
+
+        <pre>
+          <code class="language-javascript">
+            console.log("Fuera del grupo");
+            console.group();
+            console.log("Nivel 2");
+            console.group();
+            console.log("Nivel 3");
+            console.warn("Más en nivel 3");
+            console.groupEnd();
+            console.log("De vuelta en nivel 2");
+            console.groupEnd();
+            console.debug("Fuera del grupo");
+          </code>
+        </pre>
+
+        <figure>
+          <img src="/assets/images/js/js_9.png" alt="Console group">
+          <figcaption>Console group</figcaption>
+        </figure>
+
+        <h3>Usando tablas en la consola</h3>
+
+        <p>Muestra datos tabulares como una tabla. Esta función toma un argumento obligatorio: data, que debe ser un
+          array o un objeto, y un parámetro adicional: columns. </p>
+
+        <pre>
+          <code class="language-javascript">
+            const numeros = [1, 2, 3, 4, 5]
+            const vocales = ['a', 'e', 'i', 'o', 'u']
+            const gato = {
+              nombre: "Hermes",
+              raza: "Siames",
+              edad: 7
+            }
+  
+            console.table( numeros );
+            console.table( vocales );
+            console.table( gato );
+            </code>
+        </pre>
+
+        <figure>
+          <img src="/assets/images/js/js_10.png" alt="Mostrando tablas en consola">
+          <figcaption>Mostrando tablas en consola</figcaption>
+        </figure>
+
+        <h3>Timers</h3>
+
+        <p>Podeoms calcular la duración de una operación específica iniciando un contador (método console.time())
+          pasándole como parámetro un nombre. Para detener el contador, y obtener el tiempo transcurrido en
+          milisegúndos, se usa el método console.timeEnd(), nuevamente pasándole el nombre del contador como parámetro.
+        </p>
+
+        <pre>
+          <code class="languge-javascript">
+
+            console.time("Temporizando");
+
+            const arreglo = Array(1000000);
+            
+            for (let i = 0; i < arreglo.legth; i++) {
+              arreglo[i] = i;
+            }
+
+            console.timeEnd("Temporizando");
+          </code>
+        </pre>
+
+        <figure>
+          <img src="/assets/images/js/js_11.png" alt="Temporizador en consola">
+          <figcaption>Temporizador en consola</figcaption>
+        </figure>
+
+        <h3>Mostrando cuántas veces se ejecuta un bloque. console.count()</h3>
+
+        <p>Registra el número de veces que se llama a count(). Esta función toma como argumento opcional una etiqueta.
+        </p>
+
+        <p>Si la etiqueta es colocada, esta funcion muestra el numeros de veces que count() ha sido utilizada con la
+          misma etiqueta. Si la etiqueta es omitida, la funcion registra el numero de veces que count() fue llamada en
+          esta línea en particular.</p>
+
+        <pre>
+          <code class="language-javascript">
+            let user = "";
+
+            function greet() {
+              console.count(user);
+              return "hi " + user;
+            }
+            
+            user = "Juan";
+            greet();
+            user = "Alicia";
+            greet();
+            greet();
+            console.count("Alicia");
+          </code>
+        </pre>
+
+        <figure>
+          <img src="/assets/images/js/js_12.png" alt="Contando en consola">
+          <figcaption>Contando en consola</figcaption>
+        </figure>
+
+        <h3>Haciendo pruebas con assert</h3>
+
+        <p>En JavaScript existen varias librerías para realizar prubas unitarias, pero el método console.assert() nos
+          permite realizar pequeñas pruebas utilizando la consola.</p>
+
+        <p>Parámetros</p>
+        <ul>
+          <li>Condición. Cualquier expresión booleana.Si la afirmación es falsa, el mensaje aparecerá en consola.</li>
+          <li>obj1 ... objN. Salida de una lista de objetos de JavaScript. Las representaciones de cadena de cada uno de
+            estos objetos se añaden juntos en el orden y salida indicados.</li>
+          <li>msg. Una cadena de JavaScript que contiene cero o más cadenas de sustitución. </li>
+          <li>subst1 ... substN. Objetos de JavaScript con el que reemplaza las cadenas dentro de msg. Esto sno dará más
+            control sobre el formato de salida.</li>
+        </ul>
+
+        <pre>
+          <code class="language-javascript">
+            let x = 1;
+            let y = 2;
+            let pruebaXY = "esperamos que x siempre sea menor que y";
+  
+            console.assert( x < y, { x, y, pruebaXY } );
+  
+            x = 3;
+            console.assert( x < y, { x, y, pruebaXY } );
+          </code>
+        </pre>
+
+        <figure>
+          <img src="/assets/images/js/js_13.png" alt="Pruebas unitarias en consola">
+          <figcaption>Pruebas unitarias en consola</figcaption>
+        </figure>
+      </article>
+
+      <hr>
+
+      <article id="date">
+        <h2>Objeto Date</h2>
+
+        <p>Los objetos Date representan en JavaScript un momento fijo en el tiempo en un formato independiente. El
+          objeto Date contiene un Number que representa los milisegundos transcurridos desde el 1 de Enero de 1970 UTC.
+        </p>
+
+        <pre>
+          <code class="language-javascript">
+            console.log(Date()); // Sun Jun 05 2022 17:30:15 GMT-0300 (hora estándar de Argentina)
+          </code>
+        </pre>
+
+        <p>Hay muchos métodos disponibles para obtener una fecha en distintos formatos, también para representar
+          conversiones de zona horaria. Son particularmente útiles las funciones que retornan la fecha y la hora en
+          Tiempo Universal Coordinado (UTC), la hora estandar global definida por la Hora Mundial Estandar. Esta hora
+          tambien es conocida como Hora media de Greenwich.</p>
+
+        <blockquote>
+          Constructor <br>
+          Date(). Cuando es llamado como una función, retorna una cadena que representa la fecha y hora actual,
+          exactamente como lo hace new Date().toString(). <br>
+          new Date(). Cuando es llamado como un constructor, retorna un nuevo objeto Date.
+        </blockquote>
+
+        <h3>Métodos estáticos</h3>
+
+        <ul>
+          <li>Date.now(). Devuelve el valor númerico correspondiente al actual número de milisegundos transcurridos
+            desde el 1 de Enero de 1970, 00:00:00 UTC, ignorando los segundos intercalares.</li>
+          <li>Date.parse(). Transforma la cadena que representa una fecha y retorna el número de milisegundos
+            transcurridos desde el 1 de Enero de 1970, 00:00:00 UTC, ignorando los segundos intercalares.</li>
+          <li>Date.UTC(). Acepta los mismos parámetros de la forma extendida del constructor (por ejemplo: del 2 al 7 )
+            y retorna el número de milisegundos transcurridos desde el 1 de Enero de 1970, 00:00:00 UTC, ignorando los
+            segundos intercalares.</li>
+        </ul>
+
+        <pre>
+          <code class="language-javascript">
+            let fecha = new Date();
+            console.log( fecha );
+  
+            // Número de día del mes
+            console.log( 'Número de día: ' + fecha.getDate() );
+            // Día de la semana. Van de domingo (0) a sábado (6).
+            console.log( 'Día de la semana: ' + fecha.getDay() );
+            // Mes. Enero es 0, diciembre 11.
+            console.log( 'Mes: ' + fecha.getMonth() );
+            // Año.
+            console.log( 'Año: ' + fecha.getFullYear() );
+            // Hora - Munitos - Segundos - Milisegundos
+            console.log( 'Hora: ' + fecha.getHours() + '-' + fecha.getMinutes() + '-' + fecha.getSeconds() + '-' + fecha.getMilliseconds() );
+            // toString
+            console.log( 'toString:' + fecha.toString() );
+            // Solo la Fecha 
+            console.log( fecha.toDateString() );
+            // toLocaleString
+            console.log( 'toLocaleString: ' + fecha.toLocaleString() );
+            // toLocaleDateString
+            console.log( 'toLocaleDateString: ' + fecha.toLocaleDateString() );
+            // toLocaleTimeString
+            console.log( 'toLocaleTimeString: ' + fecha.toLocaleTimeString() );
+            // UTC. Fecha y hora mundial
+            console.log( 'getUTCDate: ' + fecha.getUTCDate() );
+            console.log( 'getUTCHours: ' + fecha.getUTCHours() );
+            // now. Timestamp. Generalmente utilizado en BD, milisegundos desde el 1 de Enero de 1970. 
+            console.log( 'now: ' + Date.now() );
+          </code>
+        </pre>
+
+        <figure>
+          <img src="/assets/images/js/js_14.png" alt="Métodos de Date">
+          <figcaption>Métodos del objeto Date</figcaption>
+        </figure>
+
+        <blockquote>
+          Si nuestra aplicación se ejecuta en un navegador (cliente), los métodos mostrarán la fecha y hora local por
+          más que nuestra web se aloje en un servidor desde Alemania.
+        </blockquote>
+
+        <p>Para realizar cálculos entre fechas podemos utilizar el formato Timestamp y luego formatear al tipo de
+          visualización que deseemos. </p>
+
+        <p>Una librería muy utilizada es <a href="https://momentjs.com/" target="_blank"
+            rel="noopener noreferrer">moment.js</a></p>
+
+      </article>
+
+      <hr>
+
+      <article id="math">
+        <h2>Objeto Math</h2>
+
+        <p>Math es un objeto incorporado que tiene propiedades y métodos para constantes y funciones matemáticas. No es
+          un objeto de función. Math funciona con el tipo Number. No funciona con BigInt.</p>
+
+        <p>Existen muchas porpiedades y métodos en el objeto Math, los podemos ver en la <a
+            href="https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Math#propiedades"
+            target="_blank" rel="noopener noreferrer">documentación de MDN</a>. También los podemos ver ejecutando
+          console.log(Math);</p>
+
+        <pre>
+          <code class="language-javascript">
+            console.log('PI: ', Math.PI);
+            // Valor absoluto de un número
+            console.log('Abs: ', Math.abs(-7.8));
+            // Redondeo
+            console.log('Ceil: ', Math.ceil(7.5));
+            console.log('Floor: ', Math.floor(7.5));
+            console.log('Round: ', Math.round(7.2));
+            console.log('Round: ', Math.round(7.8));
+            // Raiz cuadrada
+            console.log('Sqtr: ', Math.sqtr(81));
+            // Pontencias
+            console.log('Pow: ', Math.pow(2, 5));
+            // Signo
+            console.log('Sign: ', Math.sign(-7.8));
+            console.log('Sign: ', Math.sign(7.8));
+            console.log('Sign: ', Math.sign(0));
+            // Ramdom. Valores aleatorios entre 0 y 1
+            console.log('Ramdom: ', Math.random());
+            // Ramdom. Valores aleatorios entre 0 y 1000
+            console.log('Ramdom: ', math.round( Math.random() * 1000 ) );
+          </code>
+        </pre>
+
+        <figure>
+          <img src="/assets/images/js/js_15.png" alt="Métodos de Math">
+          <figcaption>Métodos del objeto Math</figcaption>
+        </figure>
+      </article>
+
+    </section>
+
+    <hr>
+  </main>
+
+  <section class="pagination">
+    <article class="pagination-item">
+      <a href="/pages/js/clases.html">
+        <i class="material-icons">arrow_back</i>Clases
+      </a>
+    </article>
+    <article class="pagination-item">
+      <a href="/pages/js/index.html#indice">Tabla de contenido JS
+        <i class="material-icons">arrow_upward</i>
+      </a>
+    </article>
+    <article class="pagination-item">
+      <a href="/pages/js/expresiones-regulares.html">Expresiones regulares
+        <i class="material-icons">arrow_forward</i>
+      </a>
+    </article>
+  </section>
+  <footer>
+  Copyright © 2022 TiDev. All rights reserved.
+</footer>
+  <script src="/js/prism.js"></script>
+</body>
+
+</html>

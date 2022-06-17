@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="application-name" content="TiDev">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@jourdanmau">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#fb6d43">
+<meta name="msapplication-TitleColor" content="#fb6d43">
+<meta name="msapplication-TitleImage" content="">
+<link rel="apple-touch-icon" href="">
+<!-- <link rel="icon" type="image/png" href=""> -->
+<link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<link rel="author" type="text/plain" href="humans.txt">
+<!-- <link rel="manifest" href="manifest.json"> -->
+<!-- CDN Material+Icons -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  <title>
+  TiDev prefijos CSS
+</title>
+<meta name="twitter:title" property="og:title" content="TiDev prefijos CSS">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/menu.css">
+  <link rel="stylesheet" href="/css/prism.css" />
+  <link rel="stylesheet" href="/css/html/html.css">
+</head>
+
+<body>
+  <header>
+  <nav class="menu-nav">
+    <a href="/index.html" class="enlace">
+      <label class="logo">Aprende</label>
+    </a>
+    <input type="checkbox" id="check">
+    <label for="check" class="checkbtn">
+      <i class="material-icons">menu</i>
+    </label>
+    <ul class="menu">
+      <li>
+        <a href="/index.html" class="active menu-link">Home</a>
+      </li>
+      <li>
+        <a href="/pages/cursos/index.html" class="menu-link">Guias</a>
+      </li>
+      <li>
+        <a href="/pages/html/index.html" class="menu-link">HTML</a>
+      </li>
+      <li>
+        <a href="/pages/css/index.html" class="active menu-link">CSS</a>
+      </li>
+      <li>
+        <a href="/pages/js/index.html" class="menu-link">JavaScript</a>
+      </li>
+
+    </ul>
+  </nav>
+</header>
+
+  <main class="container">
+
+    <section id="prefix">
+      <h1>Prefijos de los navegadores</h1>
+
+      <p>HTML, CSS y JavaScript son los estándares web, no los tenemos que descargar a nuestros dispositivos para que
+        funcionen. Son estándares que se encuentran en los navegadores web, que son las tecnologías que entienden. Por
+        ello es que no tendremos que instalar nada, el navegador será capaz de interpretar estas tecnologías.</p>
+      <p>Los navegadores web son desarollados por distintas empresas (Chrome - Google, Firefox - Fundación Mozilla, Edge
+        - Microsoft, Safari - Apple).</p>
+      <p>La <a href="https://www.w3.org/" rel="nofollow" target="_blank">W3C</a> indica cuáles son los siguientes pasos
+        en relación a los estándares HTML, CSS y JavaScript. Cuando una implementación aún no posee soporte al 100%
+        pero se encuentra en etapa experimental podemos utilizar los prefijos para utilizarlas.</p>
+      <p>Prefijos de los navegadores</p>
+      <ul>
+        <li>Microsoft: <code><b>-ms-</b></code></li>
+        <li>Firefox: <code><b>-moz-</b></code></li>
+        <li>Para el resto: <code><b>-webkit-</b></code></li>
+      </ul>
+
+      <p>Una herramienta que nos permite determinar los prefijos necesarios es <a href="https://autoprefixer.github.io/"
+          rel="nofollow" target="_blank">autoprefixer</a></p>
+      <p>Cuando utilizamos herramientas como webpack que nos ayudan a empaquetar nuestra aplicación, automáticamente
+        podemos minificar el código, agregar los prefijos, ofuscar el código, etc. Por eso no tenemos que hacernos
+        demasiados problemas por los prefijos.</p>
+    </section>
+
+    <hr>
+  </main>
+
+  <section class="pagination">
+    <article class="pagination-item">
+      <a href="/pages/css/reset-styles.html">
+        <i class="material-icons">arrow_back</i>Reseteo y normalización
+      </a>
+    </article>
+    <article class="pagination-item">
+      <a href="/pages/css/index.html#indice">Tabla de contenido CSS
+        <i class="material-icons">arrow_upward</i>
+      </a>
+    </article>
+    <article class="pagination-item">
+      <a href="/pages/css/box-model.html">Modelo de caja
+        <i class="material-icons">arrow_forward</i>
+      </a>
+    </article>
+  </section>
+  <footer>
+  Copyright © 2022 TiDev. All rights reserved.
+</footer>
+  <script src="/js/prism.js"></script>
+</body>
+
+</html>

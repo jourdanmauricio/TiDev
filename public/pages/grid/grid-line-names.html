@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="application-name" content="TiDev">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@jourdanmau">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#fb6d43">
+<meta name="msapplication-TitleColor" content="#fb6d43">
+<meta name="msapplication-TitleImage" content="">
+<link rel="apple-touch-icon" href="">
+<!-- <link rel="icon" type="image/png" href=""> -->
+<link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<link rel="author" type="text/plain" href="humans.txt">
+<!-- <link rel="manifest" href="manifest.json"> -->
+<!-- CDN Material+Icons -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  <title>
+  Grid con Nombres de Línea
+</title>
+<meta name="twitter:title" property="og:title" content="Grid con Nombres de Línea">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/menu.css">
+  <link rel="stylesheet" href="/css/prism.css" />
+  <link rel="stylesheet" href="/css/css/grid-css.css">
+</head>
+
+<body>
+  <header>
+  <nav class="menu-nav">
+    <a href="/index.html" class="enlace">
+      <label class="logo">Aprende</label>
+    </a>
+    <input type="checkbox" id="check">
+    <label for="check" class="checkbtn">
+      <i class="material-icons">menu</i>
+    </label>
+    <ul class="menu">
+      <li>
+        <a href="/index.html" class="active menu-link">Home</a>
+      </li>
+      <li>
+        <a href="/pages/cursos/index.html" class="menu-link">Guias</a>
+      </li>
+      <li>
+        <a href="/pages/html/index.html" class="menu-link">HTML</a>
+      </li>
+      <li>
+        <a href="/pages/css/index.html" class="menu-link">CSS</a>
+      </li>
+      <li>
+        <a href="/pages/js/index.html" class="menu-link">JavaScript</a>
+      </li>
+
+    </ul>
+  </nav>
+</header>
+
+  <main class="container">
+
+    <section id="grid-line-names">
+
+      <h1>Grid con Nombres de Línea</h1>
+
+      <p>Podemos nombrar las líneas del grid utilizando los corchetes []. La propiedad grid-area no funciona
+        correctamente con líneas nombradas.</p>
+
+      <pre>
+        <code class="language-html">
+          &lt;section class="grid-line-names"&gt;
+            &lt;article class="item"&gt;
+              &lt;p&gt;Grid Item 1&lt;/p&gt;
+            &lt;/article&gt;
+            &lt;article class="item"&gt;
+              &lt;p&gt;Grid Item 2&lt;/p&gt;
+            &lt;/article&gt;
+            &lt;article class="item"&gt;
+              &lt;p&gt;Grid Item 3&lt;/p&gt;
+            &lt;/article&gt;
+            &lt;article class="item"&gt;
+              &lt;p&gt;Grid Item 4&lt;/p&gt;
+            &lt;/article&gt;
+            &lt;article class="item"&gt;
+              &lt;p&gt;Grid Item 5&lt;/p&gt;
+            &lt;/article&gt;
+            &lt;article class="item"&gt;
+              &lt;p&gt;Grid Item 6&lt;/p&gt;
+            &lt;/article&gt;
+            &lt;article class="item"&gt;
+              &lt;p&gt;Grid Item 7&lt;/p&gt;
+            &lt;/article&gt;
+            &lt;article class="item"&gt;
+              &lt;p&gt;Grid Item 8&lt;/p&gt;
+            &lt;/article&gt;
+            &lt;article class="item"&gt;
+              &lt;p&gt;Grid Item 9&lt;/p&gt;
+            &lt;/article&gt;
+          &lt;/section&gt;
+        </code>
+      </pre>
+      <pre>
+        <code class="language-css">
+          .grid-line-names {
+            display: grid;
+            /* Grid 3x3 */
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(3, 1fr);
+            /* Líneas nombradas */
+            grid-template-columns: [linea-c1] 1fr [linea-c2] 1fr [linea-c3] 1fr [linea-c4];
+            grid-template-rows: [linea-r1] 1fr [linea-r2] 1fr [linea-r3] 1fr [linea-r4];
+          }
+          .grid-line-names .item:nth-child(3) {
+            color: aqua;
+            grid-row: linea-r3 / linea-r4;
+            grid-column: linea-c1 / linea-c4;
+          }
+        </code>
+      </pre>
+
+      <section class="grid-line-names">
+        <article class="item">
+          <p>Grid Item 1</p>
+        </article>
+        <article class="item">
+          <p>Grid Item 2</p>
+        </article>
+        <article class="item">
+          <p>Grid Item 3</p>
+        </article>
+        <article class="item">
+          <p>Grid Item 4</p>
+        </article>
+        <article class="item">
+          <p>Grid Item 5</p>
+        </article>
+        <article class="item">
+          <p>Grid Item 6</p>
+        </article>
+        <article class="item">
+          <p>Grid Item 7</p>
+        </article>
+        <article class="item">
+          <p>Grid Item 8</p>
+        </article>
+        <article class="item">
+          <p>Grid Item 9</p>
+        </article>
+      </section>
+    </section>
+
+    <hr>
+  </main>
+
+  <section class="pagination">
+    <article class="pagination-item">
+      <a href="/pages/grid/grid-explicit.html">
+        <i class="material-icons">arrow_back</i>Grid explícita
+      </a>
+    </article>
+    <article class="pagination-item">
+      <a href="/pages/grid/index.html#indice">Tabla de contenido Grid
+        <i class="material-icons">arrow_upward</i>
+      </a>
+    </article>
+    <article class="pagination-item">
+      <a href="/pages/grid/grid-areas.html">Grid con Áreas
+        <i class="material-icons">arrow_forward</i>
+      </a>
+    </article>
+  </section>
+  <footer>
+  Copyright © 2022 TiDev. All rights reserved.
+</footer>
+  <script src="/js/prism.js"></script>
+</body>
+
+</html>

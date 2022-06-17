@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="application-name" content="TiDev">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@jourdanmau">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#fb6d43">
+<meta name="msapplication-TitleColor" content="#fb6d43">
+<meta name="msapplication-TitleImage" content="">
+<link rel="apple-touch-icon" href="">
+<!-- <link rel="icon" type="image/png" href=""> -->
+<link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<link rel="author" type="text/plain" href="humans.txt">
+<!-- <link rel="manifest" href="manifest.json"> -->
+<!-- CDN Material+Icons -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  <title>
+  TiDev HTML head
+</title>
+<meta name="twitter:title" property="og:title" content="TiDev HTML head">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/menu.css">
+  <link rel="stylesheet" href="/css/prism.css" />
+  <link rel="stylesheet" href="/css/html/html.css">
+</head>
+
+<body>
+  <header>
+  <nav class="menu-nav">
+    <a href="/index.html" class="enlace">
+      <label class="logo">Aprende</label>
+    </a>
+    <input type="checkbox" id="check">
+    <label for="check" class="checkbtn">
+      <i class="material-icons">menu</i>
+    </label>
+    <ul class="menu">
+      <li>
+        <a href="/index.html" class="active menu-link">Home</a>
+      </li>
+      <li>
+        <a href="/pages/cursos/index.html" class="menu-link">Guias</a>
+      </li>
+      <li>
+        <a href="/pages/html/index.html" class="active menu-link">HTML</a>
+      </li>
+      <li>
+        <a href="/pages/css/index.html" class="menu-link">CSS</a>
+      </li>
+      <li>
+        <a href="/pages/js/index.html" class="menu-link">JavaScript</a>
+      </li>
+
+    </ul>
+  </nav>
+</header>
+
+  <main class="container">
+    <section id="tablas-html">
+      <h1>Tablas</h1>
+      <p>A finales de los 90 las tablas se utilizaban para maquetar. No existían sistemas como grid o flexbox (los
+        veremos en la <a href="/pages/css/css.html">sección CSS</a>). Se representa a con la etiqueta table. Las tablas
+        contienen filas y columnas. Las filas se definen con la etiqueta tr (table row) y las celdas que contiene la
+        fila se define con td (table data)</p>
+
+      <pre>
+        <code class="language-html">
+          &lt;table&gt;
+            &lt;tr&gt;
+              &lt;td&gt;Banda&lt;/td&gt;
+              &lt;td&gt;Tipo&lt;/td&gt;
+              &lt;td&gt;Año de formación&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+              &lt;td&gt;Queen&lt;/td&gt;
+              &lt;td&gt;Rock / Pop&lt;/td&gt;
+              &lt;td&gt;1970&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+              &lt;td&gt;Metallica&lt;/td&gt;
+              &lt;td&gt;Thrash metal&lt;/td&gt;
+              &lt;td&gt;1983&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+              &lt;td&gt;AC/DC&lt;/td&gt;
+              &lt;td&gt;Rock&lt;/td&gt;
+              &lt;td&gt;1973&lt;/td&gt;
+            &lt;/tr&gt;
+          &lt;/table&gt;
+        </code>
+      </pre>
+
+      <table class="tabla">
+        <tr>
+          <td>Banda</td>
+          <td>Tipo</td>
+          <td>Año de formación</td>
+        </tr>
+        <tr>
+          <td>Queen</td>
+          <td>Rock / Pop</td>
+          <td>1970</td>
+        </tr>
+        <tr>
+          <td>Metallica</td>
+          <td>Thrash metal</td>
+          <td>1983</td>
+        </tr>
+        <tr>
+          <td>AC/DC</td>
+          <td>Rock</td>
+          <td>1973</td>
+        </tr>
+      </table>
+
+      <p>Podemos agrupar las filas a través de 3 eqtiquetas: thead, tbody y tfoot. En caso de utilizar thead, la
+        etiqueta tr se reemplaza por th. También podemos combinar filas y columnas con las etiquetas colspan y rwospan
+      </p>
+
+      <pre>
+        <code class="language-html">
+          &lt;table&gt;
+            &lt;thead&gt;
+              &lt;tr&gt;
+                &lt;th colspan="3">Tabla de bandas históricas&lt;/th&gt;
+              &lt;/tr&gt;
+              &lt;tr&gt;
+                &lt;th>Banda&lt;/th&gt;
+                &lt;th>Tipo&lt;/th&gt;
+                &lt;th>Año de formación&lt;/th&gt;
+              &lt;/tr&gt;
+            &lt;/thead&gt;
+            &lt;tbody&gt;
+              &lt;tr&gt;
+                &lt;td&gt;Queen&lt;/td&gt;
+                &lt;td&gt;Rock / Pop&lt;/td&gt;
+                &lt;td&gt;1970&lt;/td&gt;
+              &lt;/tr&gt;
+              &lt;tr&gt;
+                &lt;td&gt;Metallica&lt;/td&gt;
+                &lt;td&gt;Thrash metal&lt;/td&gt;
+                &lt;td&gt;1983&lt;/td&gt;
+              &lt;/tr&gt;
+              &lt;tr&gt;
+                &lt;td&gt;AC/DC&lt;/td&gt;
+                &lt;td rowspan="2"&gt;Rock&lt;/td&gt;
+                &lt;td&gt;1973&lt;/td&gt;
+              &lt;/tr&gt;
+              &lt;tr&gt;
+                &lt;td&gt;Led Zeppelin&lt;/td&gt;
+                &lt;td&gt;1968&lt;/td&gt;
+              &lt;/tr&gt;
+            &lt;/tbody&gt;
+            &lt;tfoot&gt;
+              &lt;tr&gt;
+                &lt;th colspan="3"&gt;&lt;small&gt;La historia del Rock&lt;/small&gt;&lt;/th&gt;
+              &lt;/tr&gt;
+            &lt;/tfoot&gt;
+          &lt;/table&gt;  
+        </code>
+      </pre>
+
+      <table class="tabla">
+        <thead>
+          <tr>
+            <th colspan="3">Tabla de bandas históricas</th>
+          </tr>
+          <tr>
+            <th>Banda</th>
+            <th>Tipo</th>
+            <th>Año de formación</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Queen</td>
+            <td>Rock / Pop</td>
+            <td>1970</td>
+          </tr>
+          <tr>
+            <td>Metallica</td>
+            <td>Thrash metal</td>
+            <td>1983</td>
+          </tr>
+          <tr>
+            <td>AC/DC</td>
+            <td rowspan="2">Rock</td>
+            <td>1973</td>
+          </tr>
+          <tr>
+            <td>Led Zeppelin</td>
+            <td>1968</td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <th colspan="3"><small>La historia del Rock</small></th>
+          </tr>
+        </tfoot>
+      </table>
+    </section>
+
+    <hr>
+  </main>
+
+  <section class="pagination">
+    <article class="pagination-item">
+      <a href="/pages/html/listas-html.html#listas-html">
+        <i class="material-icons">arrow_back</i>Listas
+      </a>
+    </article>
+    <article class="pagination-item">
+      <a href="/pages/html/index.html#indice">Tabla de contenido HTML
+        <i class="material-icons">arrow_upward</i>
+      </a>
+    </article>
+    <article class="pagination-item">
+      <a href="/pages/html/enlaces.html">Enlaces
+        <i class="material-icons">arrow_forward</i>
+      </a>
+    </article>
+  </section>
+  <footer>
+  Copyright © 2022 TiDev. All rights reserved.
+</footer>
+  <script src="/js/prism.js"></script>
+</body>
+
+</html>

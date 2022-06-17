@@ -1,0 +1,14 @@
+.table {
+  font-size: 2rem;
+  border-collapse: collapse;
+  border-collapse: separate; /* Default */
+  empty-cells: show; /* Default */
+  empty-cells: hide;
+}
+
+.table,
+th,
+td {
+  border: medium solid teal;
+  border-spacing: 1rem;
+}

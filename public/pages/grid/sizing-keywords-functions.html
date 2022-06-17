@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="application-name" content="TiDev">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@jourdanmau">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#fb6d43">
+<meta name="msapplication-TitleColor" content="#fb6d43">
+<meta name="msapplication-TitleImage" content="">
+<link rel="apple-touch-icon" href="">
+<!-- <link rel="icon" type="image/png" href=""> -->
+<link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<link rel="author" type="text/plain" href="humans.txt">
+<!-- <link rel="manifest" href="manifest.json"> -->
+<!-- CDN Material+Icons -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  <title>
+  Keywords y funciones de tamaño
+</title>
+<meta name="twitter:title" property="og:title" content="Keywords y funciones de tamaño">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/menu.css">
+  <link rel="stylesheet" href="/css/css/grid-css.css">
+</head>
+
+<body>
+  <header>
+  <nav class="menu-nav">
+    <a href="/index.html" class="enlace">
+      <label class="logo">Aprende</label>
+    </a>
+    <input type="checkbox" id="check">
+    <label for="check" class="checkbtn">
+      <i class="material-icons">menu</i>
+    </label>
+    <ul class="menu">
+      <li>
+        <a href="/index.html" class="active menu-link">Home</a>
+      </li>
+      <li>
+        <a href="/pages/cursos/index.html" class="menu-link">Guias</a>
+      </li>
+      <li>
+        <a href="/pages/html/index.html" class="menu-link">HTML</a>
+      </li>
+      <li>
+        <a href="/pages/css/index.html" class="menu-link">CSS</a>
+      </li>
+      <li>
+        <a href="/pages/js/index.html" class="menu-link">JavaScript</a>
+      </li>
+
+    </ul>
+  </nav>
+</header>
+
+  <main class="container">
+
+    <h1>Keywords y funciones de tamaño</h1>
+    <section id="sizing-keywords">
+      <h2>Keywords de tamaño</h2>
+
+      <p>Al dimensionar filas y columnas, podemos usar todas las longitudes, como px, rem, %, etc., pero también tenemos
+        palabras clave:</p>
+
+      <ul>
+        <li>min-content: indica el tamaño mínimo del contenido. Imagine una línea de texto como "E pluribus unum", el
+          contenido mínimo es probablemente el ancho de la palabra "pluribus".</li>
+        <li>max-content: indica el tamaño máximo del contenido. Imagine la oración anterior, el contenido máximo es la
+          longitud de la oración completa.</li>
+        <li>auto: esta palabra clave se parece mucho a las unidades fr, excepto que "pierden" la batalla en el tamaño
+          contra las unidades fr al asignar el espacio restante.</li>
+        <li>fit-content: use el espacio disponible, pero nunca menos del contenido mínimo y nunca más del contenido
+          máximo.</li>
+        <li>fractional units: ver Unidades fr</li>
+      </ul>
+    </section>
+
+    <hr>
+
+    <section id="sizing-functions">
+      <h2>Funciones de tamaño</h2>
+
+      <ul>
+        <li>La función minmax() establece un valor mínimo y máximo para la longitud. Esto es útil en combinación con
+          unidades relativas. Es posible que desee que una columna solo pueda reducirse:</li>
+        <pre>grid-template-columns: minmax(100px, 1fr) 3fr;</pre>
+        <li>La función min()</li>
+        <li>La función max()</li>
+
+      </ul>
+    </section>
+
+    <hr>
+  </main>
+
+  <section class="pagination">
+    <article class="pagination-item">
+      <a href="/pages/grid/unidades-fr.html">
+        <i class="material-icons">arrow_back</i>Unidades fr
+      </a>
+    </article>
+    <article class="pagination-item">
+      <a href="/pages/grid/index.html#indice">Tabla de contenido Grid
+        <i class="material-icons">arrow_upward</i>
+      </a>
+    </article>
+    <article class="pagination-item">
+      <a href="/pages/grid/repeat.html">La función repeat()
+        <i class="material-icons">arrow_forward</i>
+      </a>
+    </article>
+  </section>
+  <footer>
+  Copyright © 2022 TiDev. All rights reserved.
+</footer>
+</body>
+
+</html>

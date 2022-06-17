@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="application-name" content="TiDev">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@jourdanmau">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#fb6d43">
+<meta name="msapplication-TitleColor" content="#fb6d43">
+<meta name="msapplication-TitleImage" content="">
+<link rel="apple-touch-icon" href="">
+<!-- <link rel="icon" type="image/png" href=""> -->
+<link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<link rel="author" type="text/plain" href="humans.txt">
+<!-- <link rel="manifest" href="manifest.json"> -->
+<!-- CDN Material+Icons -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  <title>
+  Flexbox propiedades parent
+</title>
+<meta name="twitter:title" property="og:title" content="Flexbox propiedades parent">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/menu.css">
+  <link rel="stylesheet" href="/css/prism.css" />
+  <link rel="stylesheet" href="/css/css/flexbox.css">
+</head>
+
+<body>
+  <header>
+  <nav class="menu-nav">
+    <a href="/index.html" class="enlace">
+      <label class="logo">Aprende</label>
+    </a>
+    <input type="checkbox" id="check">
+    <label for="check" class="checkbtn">
+      <i class="material-icons">menu</i>
+    </label>
+    <ul class="menu">
+      <li>
+        <a href="/index.html" class="active menu-link">Home</a>
+      </li>
+      <li>
+        <a href="/pages/cursos/index.html" class="menu-link">Guias</a>
+      </li>
+      <li>
+        <a href="/pages/html/index.html" class="menu-link">HTML</a>
+      </li>
+      <li>
+        <a href="/pages/css/index.html" class="menu-link">CSS</a>
+      </li>
+      <li>
+        <a href="/pages/js/index.html" class="menu-link">JavaScript</a>
+      </li>
+
+    </ul>
+  </nav>
+</header>
+
+  <main class="container">
+
+    <section id="parent-props">
+
+      <h1>Propiedades para el contendor padre</h1>
+
+      <h3>display</h3>
+
+      <p>Define un contenedor flexible en línea o bloque dependiendo del valor dado. Permite un contexto flexible
+        para todos sus hijos directos. Por default la alineación hacia afuera de la caja es block (valor flex). Si
+        necesitamos colocar cajas una al lado de otra utilizamos display inline-flex.</p>
+
+      <pre>
+        <code class="language-html">
+          &lt;section class="container-flex"&gt;
+            &lt;article class="item"&gt;Item 1&lt;/article&gt;
+            &lt;article class="item"&gt;Item 2&lt;/article&gt;
+            &lt;article class="item"&gt;Item 3&lt;/article&gt;
+          &lt;/section&gt;
+        </code>
+      </pre>
+      <pre>
+        <code class="language-css">
+          .container-flex {
+            display: flex; /* or inline-flex */
+            background-color: #888;
+          }
+          .item {
+            background-color: #666;
+          }
+        </code>
+      </pre>
+
+      <section class="container-flex">
+        <article class="item">Item 1</article>
+        <article class="item">Item 2</article>
+        <article class="item">Item 3</article>
+      </section>
+
+      <h3>flex-direction</h3>
+
+      <p>Establece el eje principal, definiendo así la dirección en que se colocan los items en el contenedor. Flexbox
+        es un concepto de diseño de una sola dirección.</p>
+
+      <pre>
+        <code class="language-css">
+          .container-flex-direction {
+            /* flex-direction: row | row-reverse | column | column-reverse; */ 
+            flex-direction: column-reverse;
+          }
+        </code>
+      </pre>
+
+      <section class="container-flex container-flex-direction">
+        <article class="item">Item 1</article>
+        <article class="item">Item 2</article>
+        <article class="item">Item 3</article>
+      </section>
+
+      <h3>flex-wrap</h3>
+      <p>De forma predeterminada, todos los elementos flexibles intentarán encajar en una línea. A través de esta
+        propiedad podemos cambiar este comportamiento permitiendo que los elementos se ajusten según sea necesario.</p>
+
+      <ul>
+        <li>nowrap (predeterminado): todos los elementos flexibles estarán en una línea</li>
+        <li>wrap: los elementos flexibles se envolverán en varias líneas, de arriba a abajo</li>
+        <li>wrap-reverse: los elementos flexibles se ajustarán a varias líneas de abajo hacia arriba</li>
+      </ul>
+
+      <p>El valor por defecto es nowrap, colocará los items en una sola línea. De acuerdo al tamaño de pantalla, si los
+        elementos no entran generará una barra de scroll.</p>
+
+      <p>Si los elementos poseen un ancho definido se respetará siempre que entren en el contenedor. Si no entran el
+        width será ignorado para intentar colocarlos en la misma línea.</p>
+
+      <pre>
+        <code class="language-html">
+          &lt;section class="container-flex container-flex-nowrap"&gt;
+            &lt;article class="item"&gt;NewItem 1&lt;/article&gt;
+            &lt;article class="item"&gt;NewItem 2&lt;/article&gt;
+            &lt;article class="item"&gt;NewItem 3&lt;/article&gt;
+            &lt;article class="item"&gt;NewItem 4&lt;/article&gt;
+            &lt;article class="item"&gt;NewItem 5&lt;/article&gt;
+            &lt;article class="item"&gt;NewItem 6&lt;/article&gt;
+            &lt;article class="item"&gt;NewItem 7&lt;/article&gt;
+            &lt;article class="item"&gt;NewItem 8&lt;/article&gt;
+            &lt;article class="item"&gt;NewItem 9&lt;/article&gt;
+            &lt;article class="item"&gt;NewItem 10&lt;/article&gt;
+            &lt;article class="item"&gt;NewItem 11&lt;/article&gt;
+            &lt;article class="item"&gt;NewItem 12&lt;/article&gt;
+            &lt;article class="item"&gt;NewItem 13&lt;/article&gt;
+            &lt;article class="item"&gt;NewItem 14&lt;/article&gt;
+            &lt;article class="item"&gt;NewItem 15&lt;/article&gt;
+            &lt;article class="item"&gt;NewItem 16&lt;/article&gt;
+            &lt;article class="item"&gt;NewItem 17&lt;/article&gt;
+            &lt;article class="item"&gt;NewItem 18&lt;/article&gt;
+            &lt;article class="item"&gt;NewItem 19&lt;/article&gt;
+          &lt;/section&gt;
+        </code>
+      </pre>
+      <pre>
+        <code class="language-css">
+          .container-flex .container-flex-nowrap {
+            /* flex-wrap: nowrap | wrap | wrap-reverse; */
+            flex-wrap: nowrap;
+          }
+        </code>
+      </pre>
+
+      <section class="container-flex container-flex-nowrap">
+        <article class="item">NewItem 1</article>
+        <article class="item">NewItem 2</article>
+        <article class="item">NewItem 3</article>
+        <article class="item">NewItem 4</article>
+        <article class="item">NewItem 5</article>
+        <article class="item">NewItem 6</article>
+        <article class="item">NewItem 7</article>
+        <article class="item">NewItem 8</article>
+        <article class="item">NewItem 9</article>
+        <article class="item">NewItem 10</article>
+        <article class="item">NewItem 11</article>
+        <article class="item">NewItem 12</article>
+        <article class="item">NewItem 13</article>
+        <article class="item">NewItem 14</article>
+        <article class="item">NewItem 15</article>
+        <article class="item">NewItem 16</article>
+        <article class="item">NewItem 17</article>
+        <article class="item">NewItem 18</article>
+        <article class="item">NewItem 19</article>
+      </section>
+
+      <p>El valor wrap colocará los elementos en la fila hasta y cuando no entren más generará una nueva fila. Siempre
+        respetará el valor width o el ancho definido por el contenido.</p>
+
+      <p>Si el valor de la propiedad flex-dirección es column considera el alto (height) para generar una nueva columna.
+      </p>
+
+      <pre>
+        <code class="language-css">
+          .container-flex .container-flex-wrap {
+            flex-wrap: wrap;
+          }
+        </code>
+      </pre>
+
+      <section class="container-flex container-flex-wrap">
+        <article class="item">NewItem 1</article>
+        <article class="item">NewItem 2</article>
+        <article class="item">NewItem 3</article>
+        <article class="item">NewItem 4</article>
+        <article class="item">NewItem 5</article>
+        <article class="item">NewItem 6</article>
+        <article class="item">NewItem 7</article>
+        <article class="item">NewItem 8</article>
+        <article class="item">NewItem 9</article>
+        <article class="item">NewItem 10</article>
+        <article class="item">NewItem 11</article>
+        <article class="item">NewItem 12</article>
+        <article class="item">NewItem 13</article>
+        <article class="item">NewItem 14</article>
+        <article class="item">NewItem 15</article>
+        <article class="item">NewItem 16</article>
+        <article class="item">NewItem 17</article>
+        <article class="item">NewItem 18</article>
+        <article class="item">NewItem 19</article>
+      </section>
+
+      <!--  TODO: hacer caja dinámica con opciones para wrap -->
+
+      <h3>flex-flow</h3>
+
+      <p>Esta es una abreviatura de las propiedades flex-direction y flex-wrap, que juntas definen los ejes principal y
+        transversal del contenedor flexible. El valor predeterminado es fila nowrap.</p>
+
+      <pre>
+        <code class="language-css">
+          .container {
+            flex-flow: column wrap;
+          }
+        </code>
+      </pre>
+
+      <h3>justify-content</h3>
+
+      <p>Define la alineación a lo largo del eje principal. Ayuda a distribuir el espacio libre adicional sobrante
+        cuando todos los elementos flexibles de una línea son inflexibles o son flexibles pero han alcanzado su tamaño
+        máximo.</p>
+
+      <p>También ejerce cierto control sobre la alineación de los elementos cuando desbordan la línea.</p>
+
+      <ul>
+        <li>flex-start (default): los elementos se empaquetan hacia el inicio de la dirección flexible.</li>
+        <li>flex-end: los items se empaquetan hacia el final de la dirección flexible.</li>
+        <li>start: los elementos se empaquetan hacia el comienzo de la dirección del modo de escritura.</li>
+        <li>end: los elementos se empaquetan hacia el final de la dirección del modo de escritura.</li>
+        <li>left: los items se empaquetan hacia el borde izquierdo del contenedor, a menos que no tenga sentido con
+          la dirección, entonces se comporta como start.</li>
+        <li>right: los items se empaquetan hacia el borde derecho del contenedor, a menos que no tenga sentido con
+          la dirección flexible, entonces se comporta como un inicio.</li>
+        <li>center: los items están centrados a lo largo de la línea.</li>
+        <li>space-between: los items se distribuyen uniformemente en la línea; el primer elemento está en la línea de
+          inicio, el último elemento en la línea final.</li>
+        <li>space-around: los items se distribuyen uniformemente en la línea con el mismo espacio alrededor de
+          ellos. Tenga en cuenta que visualmente los espacios no son iguales, ya que todos los elementos tienen el mismo
+          espacio en ambos lados. El primer elemento tendrá una unidad de espacio contra el borde del contenedor, pero
+          dos unidades de espacio entre el siguiente elemento.</li>
+        <li>space-evenly: los elementos se distribuyen de modo que el espacio entre dos elementos cualesquiera (y el
+          espacio hasta los bordes) sea igual.</li>
+      </ul>
+
+      <pre>
+        <code class="language-css">
+          .container-flex-justify {
+            /* justify-content: flex-start | flex-end | center | space-between | space-around | space-evenly | start | end | left | right */
+            justify-content: space-evenly;
+          }
+        </code>
+      </pre>
+
+      <section class="container-flex container-flex-justify">
+        <article class="item">Item 1</article>
+        <article class="item">Item 2</article>
+        <article class="item">Item 3</article>
+      </section>
+
+      <h3>align-items</h3>
+
+      <p>Define el comportamiento predeterminado de cómo se distribuyen los elementos flexibles a lo largo del eje
+        transversal en la línea actual. Piense en ello como la versión de contenido justificado para el eje transversal
+        (perpendicular al eje principal).</p>
+
+      <ul>
+        <li>stretch (default): estirar para llenar el contenedor (respeta el ancho mínimo/ancho máximo).</li>
+        <li>flex-start / start / self-start: los elementos se colocan al inicio del eje transversal. La diferencia entre
+          estos es sutil y se trata de respetar las reglas de dirección flexible o las reglas del modo de escritura.
+        </li>
+        <li>flex-end / end / self-end: los elementos se colocan al final del eje transversal. La diferencia nuevamente
+          es sutil y se trata de respetar las reglas de dirección flexible frente a las reglas del modo de escritura.
+        </li>
+        <li>center: los elementos están centrados en el eje transversal.</li>
+        <li>baseline: los elementos están alineados según sus líneas base.</li>
+      </ul>
+
+      <pre>
+        <code class="language-css"> 
+          .container-align {
+            align-items: center;
+          }
+        </code>
+      </pre>
+
+      <section class="container-flex container-align">
+        <article class="item">Item 1</article>
+        <article class="item">Item 2</article>
+        <article class="item">Item 3</article>
+      </section>
+
+      <h3>align-content</h3>
+
+      <p>Alinea las líneas de un contenedor flexible dentro cuando hay espacio adicional en el eje transversal, de forma
+        similar a como el contenido justificado alinea elementos individuales dentro del eje principal.</p>
+
+      <p>Nota: esta propiedad solo tiene efecto en contenedores flexibles de varias líneas, donde flex-wrap se establece
+        en wrap o wrap-reverse). Un contenedor flexible de una sola línea (es decir, donde el ajuste flexible se
+        establece en su valor predeterminado, sin ajuste) no reflejará el contenido de alineación.</p>
+
+      <ul>
+        <li>normal (default): los items se colocan en su posición predeterminada como si no se hubiera establecido
+          ningún valor.</li>
+        <li>flex-start / start: los items se colocan al inicio del contenedor. flex-start respeta la dirección,
+          mientras que start respeta la dirección del modo de escritura.</li>
+        <li>flex-end / end: los items se colocan al final del contenedor. flex-end respeta la dirección, mientras que
+          end respeta la dirección del modo de escritura.</li>
+        <li>center: items centrados en el contenedor.</li>
+        <li>space-between: items distribuidos uniformemente. La primera línea está al principio del contenedor
+          mientras que la última está al final.</li>
+        <li>space-around: items distribuidos uniformemente con el mismo espacio alrededor de cada línea.</li>
+        <li>space-evenly: los elementos se distribuyen uniformemente con el mismo espacio a su alrededor.</li>
+        <li>stretch: las líneas se estiran para ocupar el espacio restante.</li>
+      </ul>
+
+      <pre>
+        <code class="language-html">
+          &lt;section class="container-flex container-flex-wrap container-align-content"&gt;
+            &lt;article class="item"&gt;NewItemExtend 1&lt;/article&gt;
+            &lt;article class="item"&gt;NewItemExtend 2&lt;/article&gt;
+            &lt;article class="item"&gt;NewItemExtend 3&lt;/article&gt;
+            &lt;article class="item"&gt;NewItemExtend 4&lt;/article&gt;
+            &lt;article class="item"&gt;NewItemExtend 5&lt;/article&gt;
+            &lt;article class="item"&gt;NewItemExtend 6&lt;/article&gt;
+            &lt;article class="item"&gt;NewItemExtend 7&lt;/article&gt;
+            &lt;article class="item"&gt;NewItemExtend 8&lt;/article&gt;
+            &lt;article class="item"&gt;NewItemExtend 9&lt;/article&gt;
+            &lt;article class="item"&gt;NewItemExtend 10&lt;/article&gt;
+          &lt;/section&gt;
+        </code>
+      </pre>
+      <pre>
+        <code class="language-css">
+          .container-align-content {
+            align-content: space-between;
+          }
+        </code>
+      </pre>
+
+      <section class="container-flex container-flex-wrap container-align-content">
+        <article class="item">NewItemExtend 1</article>
+        <article class="item">NewItemExtend 2</article>
+        <article class="item">NewItemExtend 3</article>
+        <article class="item">NewItemExtend 4</article>
+        <article class="item">NewItemExtend 5</article>
+        <article class="item">NewItemExtend 6</article>
+        <article class="item">NewItemExtend 7</article>
+        <article class="item">NewItemExtend 8</article>
+        <article class="item">NewItemExtend 9</article>
+        <article class="item">NewItemExtend 10</article>
+      </section>
+
+      <h3>gap, row-gap, column-gap </h3>
+
+      <p>La propiedad gap controla el espacio entre elementos. El espacio se aplica solo a los elementos que no están
+        en los bordes exteriores del contenedor.</p>
+
+      <pre>
+        <code class="language-css">
+          .container {
+            display: flex;
+            ...
+            gap: 10px;
+            gap: 10px 20px; /* row-gap column gap */
+            row-gap: 10px;
+            column-gap: 20px;
+          }          
+        </code>
+      </pre>
+
+      <p>El comportamiento podría considerarse como un canalón mínimo, como si el canalón fuera más grande de alguna
+        manera (debido a algo como justificar contenido: espacio intermedio;) entonces la brecha solo tendrá efecto si
+        ese espacio termina siendo más pequeño.</p>
+
+    </section>
+
+    <hr>
+  </main>
+
+  <section class="pagination">
+    <article class="pagination-item">
+      <a href="/pages/flexbox/introduccion.html">
+        <i class="material-icons">arrow_back</i>Introducción
+      </a>
+    </article>
+    <article class="pagination-item">
+      <a href="/pages/flexbox/index.html#indice">Tabla de contenido Flexbox
+        <i class="material-icons">arrow_upward</i>
+      </a>
+    </article>
+    <article class="pagination-item">
+      <a href="/pages/flexbox/items-props.html">Propiedades de los items
+        <i class="material-icons">arrow_forward</i>
+      </a>
+    </article>
+  </section>
+
+  <footer>
+  Copyright © 2022 TiDev. All rights reserved.
+</footer>
+  <script src="/js/prism.js"></script>
+</body>
+
+</html>

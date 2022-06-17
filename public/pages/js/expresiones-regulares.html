@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="application-name" content="TiDev">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@jourdanmau">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#fb6d43">
+<meta name="msapplication-TitleColor" content="#fb6d43">
+<meta name="msapplication-TitleImage" content="">
+<link rel="apple-touch-icon" href="">
+<!-- <link rel="icon" type="image/png" href=""> -->
+<link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<link rel="author" type="text/plain" href="humans.txt">
+<!-- <link rel="manifest" href="manifest.json"> -->
+<!-- CDN Material+Icons -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  <title>
+  Expresiones regulares
+</title>
+<meta name="twitter:title" property="og:title" content="Expresiones regulares">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/menu.css">
+  <link rel="stylesheet" href="/css/prism.css" />
+</head>
+
+<body>
+  <header>
+  <nav class="menu-nav">
+    <a href="/index.html" class="enlace">
+      <label class="logo">Aprende</label>
+    </a>
+    <input type="checkbox" id="check">
+    <label for="check" class="checkbtn">
+      <i class="material-icons">menu</i>
+    </label>
+    <ul class="menu">
+      <li>
+        <a href="/index.html" class="active menu-link">Home</a>
+      </li>
+      <li>
+        <a href="/pages/cursos/index.html" class="menu-link">Guias</a>
+      </li>
+      <li>
+        <a href="/pages/html/index.html" class="menu-link">HTML</a>
+      </li>
+      <li>
+        <a href="/pages/css/index.html" class="menu-link">CSS</a>
+      </li>
+      <li>
+        <a href="/pages/js/index.html" class="active menu-link">JavaScript</a>
+      </li>
+
+    </ul>
+  </nav>
+</header>
+
+  <main class="container">
+
+    <h1>Expresiones regulares</h1>
+
+    <section id="regular-expressions">
+
+      <p>Son secuencias de caracteres que forman un patrón de búsqueda generalmente utilizada para la búsqueda en
+        cadenas de caracteres. </p>
+
+      <p>Documentación: <a href="https://es.wikipedia.org/wiki/Expresi%C3%B3n_regular" target="_blank"
+          rel="noopener noreferrer">wikipedia</a> - <a
+          href="https://developer.mozilla.org/es/docs/Web/JavaScript/Guide/Regular_Expressions" target="_blank"
+          rel="noopener noreferrer">mdn</a> </p>
+
+      <p>Las expresiones regulares no son propias de JavaScript, se encuentran implementadas en muchos lenguajes de
+        programación. </p>
+
+      <p>Uno de los usos más comunes son validaciones para el ingreso de datos, como una dirección de email (debería
+        contener un signo @, solo contendrá numeros, letras y guiones, etc), un número de documento, números de tarjetas
+        de crédito (16 dígitos, solo números).</p>
+
+      <p>No debemos aprender de memoria las reglas para expresiones regulares, muchas de ellas ya se encuentran
+        construidas y podemos googlearlas. Si es importante entender cómo funcionan.</p>
+
+      <hr>
+
+      <h2>Crear una expresión regular</h2>
+
+      <p>Existen dos formas para crear expresiones regulares, a través de la función constructora o a través de una
+        expresión literal. </p>
+
+      <p>Las expresiones regulares literales proporcionan la compilación de la expresión regular cuando se carga el
+        script. Si la expresión regular permanece constante, su uso puede mejorar el rendimiento.</p>
+
+      <p>El uso de la función constructora proporciona una compilación en tiempo de ejecución de la expresión regular.
+        Usa la función constructora cuando sepas que el patrón de la expresión regular cambiará, o no conoces el patrón
+        y lo obtienes de otra fuente, como la entrada del usuario.</p>
+
+      <p>Podemos utilizar flags como comodines en nuestra expresión regular. Ejemplo: 'g', busca todas las
+        coincidencias, sino frenará en la primera.</p>
+
+      <p>Para validar la expresión regular existen varios métodos. Veremos test y exec. El método test retorna true o
+        false, mientras que exec nos retorna más información como el texto de entrada, la posición donde ocurre la
+        coincidencia, etc.</p>
+
+      <pre>
+        <code class="language-javascript">
+          let cadena = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+          Iusto architecto ea voluptatum quaerat'. Lorem, quaerat"
+
+          // Literal
+          let re1 = /Lorem/;
+
+          // Utilizando la función constructora
+          let re2 = new RegExp('Lorem', 'gi');
+
+          console.log(re1.test(cadena)); 
+          // True
+          console.log(re1.exec(cadena)); 
+          // [0: "Lorem"
+          // groups: undefined
+          // index: 0
+          // input: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto architecto ea voluptatum quaerat. Lorem, quaerat"
+          // length: 1]
+          
+          let re3 = /\d/; // flag d -> números 0-9
+          console.log( "re3", re3.test( cadena ) ); // false
+          let re4 = /[0-9]/; // [] -> Carateres válidos 
+          console.log( "re4", re4.test( cadena ) ); // false
+        </code>
+      </pre>
+    </section>
+
+    <hr>
+  </main>
+
+  <section class="pagination">
+    <article class="pagination-item">
+      <a href="/pages/js/console-date-math.html">
+        <i class="material-icons">arrow_back</i>Console, Date y Math
+      </a>
+    </article>
+    <article class="pagination-item">
+      <a href="/pages/js/index.html#indice">Tabla de contenido JS
+        <i class="material-icons">arrow_upward</i>
+      </a>
+    </article>
+    <article class="pagination-item">
+      <a href="/pages/js/modulos.html">Módulos (import / export)
+        <i class="material-icons">arrow_forward</i>
+      </a>
+    </article>
+  </section>
+  <footer>
+  Copyright © 2022 TiDev. All rights reserved.
+</footer>
+  <script src="/js/prism.js"></script>
+</body>
+
+</html>

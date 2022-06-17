@@ -1,0 +1,35 @@
+.color-by-name {
+  background-color: coral;
+  color: rebeccapurple;
+  border: thick solid greenyellow;
+}
+
+.color-hex {
+  /* background-color: #ff6600; */
+  background-color: #0005;
+  color: #fff;
+  border: thick solid #000;
+}
+
+.color-rgb {
+  background-color: rgb(255, 127, 80);
+  color: rgb(102, 51, 153);
+  border: thick solid rgb(173, 255, 47);
+}
+
+.color-hsl {
+  background-color: hsl(17, 100%, 65%);
+  color: hsl(270, 50%, 40%);
+  border: thick solid hsl(84, 100%, 59%);
+}
+
+.color-transparent-current {
+  background-color: darkmagenta;
+}
+
+.opacity {
+  background-color: orchid;
+  color: navy;
+  border: thick solid black;
+  opacity: 0.5;
+}

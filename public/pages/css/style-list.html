@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="application-name" content="TiDev">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@jourdanmau">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#fb6d43">
+<meta name="msapplication-TitleColor" content="#fb6d43">
+<meta name="msapplication-TitleImage" content="">
+<link rel="apple-touch-icon" href="">
+<!-- <link rel="icon" type="image/png" href=""> -->
+<link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<link rel="author" type="text/plain" href="humans.txt">
+<!-- <link rel="manifest" href="manifest.json"> -->
+<!-- CDN Material+Icons -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  <title>
+  Estilos de Listas
+</title>
+<meta name="twitter:title" property="og:title" content="Estilos de Listas">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/menu.css">
+  <link rel="stylesheet" href="/css/prism.css" />
+  <link rel="stylesheet" href="/css/html/html.css">
+  <link rel="stylesheet" href="/css/css/style-list.css">
+</head>
+
+<body>
+  <header>
+  <nav class="menu-nav">
+    <a href="/index.html" class="enlace">
+      <label class="logo">Aprende</label>
+    </a>
+    <input type="checkbox" id="check">
+    <label for="check" class="checkbtn">
+      <i class="material-icons">menu</i>
+    </label>
+    <ul class="menu">
+      <li>
+        <a href="/index.html" class="active menu-link">Home</a>
+      </li>
+      <li>
+        <a href="/pages/cursos/index.html" class="menu-link">Guias</a>
+      </li>
+      <li>
+        <a href="/pages/html/index.html" class="menu-link">HTML</a>
+      </li>
+      <li>
+        <a href="/pages/css/index.html" class="active menu-link">CSS</a>
+      </li>
+      <li>
+        <a href="/pages/js/index.html" class="menu-link">JavaScript</a>
+      </li>
+
+    </ul>
+  </nav>
+</header>
+
+  <main class="container">
+
+    <h1>Estilos de Listas y Texto en columnas</h1>
+
+    <section>
+      <h2>Estilos en Listas</h2>
+
+      <p>Las propiedades que podemos utilizar para asignar estilos a las listas son: list-style-images,
+        list-style-position, list-style-type y list-style.</p>
+
+      <p>list-style es la propiedad abreviada para list-style-images, list-style-position y list-style-type.</p>
+
+      <article>
+        <h3>list-style-type</h3>
+
+        <p>Define el tipo de viñeta de un elemento de lista. También se puede realizar utilizando el atributo type del
+          elemento ul.</p>
+
+        <p>Existen muchos tipos de viñetas, veremos los más comunes. Podemos ver el listado completo en <a
+            href="https://developer.mozilla.org/es/docs/Web/CSS/list-style-type" rel="nofollow" target="_blank">lista de
+            tipos</a>.</p>
+
+        <ul>
+          <li>list-style-type: disc; Los elementos de la lista utilizarán un disco como viñeta.</li>
+          <li>list-style-type: circle; Los elementos de la lista usarán un círculo como viñeta.</li>
+          <li>list-style-type: square; Los elementos de la lista usarán un cuadrado como viñeta.</li>
+          <li>list-style-type: decimal; Los elementos de la lista usarán un decimal como viñeta.</li>
+          <li>list-style-type: none; Los elementos de la lista no tendrán viñetas.</li>
+        </ul>
+
+        <pre>
+          <code class="language-html">
+            &lt;ul class="list"&gt;
+              &lt;li&gt;Primavera&lt;/li&gt;
+              &lt;li&gt;Verano&lt;/li&gt;
+              &lt;li&gt;Otoño&lt;/li&gt;
+              &lt;li&gt;Invierno&lt;/li&gt;
+            &lt;/ul&gt;
+          </code>
+        </pre>
+        <pre>
+          <code class="language-css">
+            .list {
+              list-style-type: square;
+            }
+          </code>
+        </pre>
+
+        <ul class="list">
+          <li>Primavera</li>
+          <li>Verano</li>
+          <li>Otoño</li>
+          <li>Invierno</li>
+        </ul>
+
+      </article>
+      <article>
+        <h3>list-style-images</h3>
+        <p>Define la imagen que se utilizará como viñeta de un elemento de lista.</p>
+
+        <ul>
+          <li>list-style-image: none; Los elementos de la lista utilizarán la viñeta definida por el valor de tipo de
+            estilo de lista, que de forma predeterminada es un disco</li>
+          <li>list-style-image: url(/assets/images/list-style-image.png); Los elementos de la lista usarán la imagen
+            ubicada en
+            la URL especificada como su viñeta. La imagen no se puede cambiar de tamaño</li>
+        </ul>
+      </article>
+      <article>
+        <h3>list-style-position</h3>
+
+        <li>list-style-position: outside; La viñeta estará fuera del elemento de la lista, como si no fuera parte del
+          elemento de la lista. El inicio de cada línea de un elemento de la lista se alineará verticalmente</li>
+        <li>list-style-position: inside; La viñeta estará dentro del elemento de la lista. Como es parte del elemento de
+          la lista, será parte del texto y empujará el texto al principio.</li>
+
+        <pre>
+          <code class="language-html">
+            &lt;ul class="list-2"&gt;
+              &lt;li&gt;Primavera&lt;/li&gt;
+              &lt;li&gt;Verano&lt;/li&gt;
+              &lt;li&gt;Otoño&lt;/li&gt;
+              &lt;li&gt;Invierno&lt;/li&gt;
+            &lt;/ul&gt;
+          </code>
+        </pre>
+        <pre>
+          <code class="language-css">
+            .list-2 {
+              list-style-position: outside;
+              list-style-position: inside;
+            }
+            .list-2 li {
+              background-color: coral;
+            }
+          </code>
+        </pre>
+
+        <ul class="list-2">
+          <li>Primavera</li>
+          <li>Verano</li>
+          <li>Otoño</li>
+          <li>Invierno</li>
+        </ul>
+
+      </article>
+    </section>
+
+    <hr>
+    <section>
+      <h2>Texto en columnas</h2>
+
+      <blockquote>Las siguientes propiedades no sirven para maquetar una página. Para maquetar se utiliza Grid y
+        Flexbox. Esta técnica solo nos sirve para poner texto en columnas.</blockquote>
+
+      <article>
+        <h3>Columnas para párrafos y listas</h3>
+
+        <p>Propiedades: column-count, column-rule, column-width y column-gap.</p>
+
+        <pre>
+          <code class="language-html"> 
+            &lt;ol class="text-column-4"&gt;
+              &lt;li&gt;La Beriso&lt;/li&gt;
+              &lt;li&gt;Bersuit Vergarabat&lt;/li&gt;
+              &lt;li&gt;Las Blacanblus&lt;/li&gt;
+              &lt;li&gt;Callejeros&lt;/li&gt;
+              &lt;li&gt;Hermética&lt;/li&gt;
+              &lt;li&gt;Divididos&lt;/li&gt;
+              &lt;li&gt;La Mississippi&lt;/li&gt;
+              &lt;li&gt;Las Pelotas&lt;/li&gt;
+              &lt;li&gt;Pappo's Blues&lt;/li&gt;
+              &lt;li&gt;La Renga&lt;/li&gt;
+              &lt;li&gt;Los Piojos&lt;/li&gt;
+              &lt;li&gt;Catupecu Machu&lt;/li&gt;
+            &lt;/ol&gt;     
+          </code>
+        </pre>
+        <pre>
+          <code class="language-css">
+            .text-column-4 {
+              column-count: 4;
+              column-gap: 2rem;
+            }
+          </code>
+        </pre>
+
+        <ol class="text-column-4">
+          <li>La Beriso</li>
+          <li>Bersuit Vergarabat</li>
+          <li>Las Blacanblus</li>
+          <li>Callejeros</li>
+          <li>Hermética</li>
+          <li>Divididos</li>
+          <li>La Mississippi</li>
+          <li>Las Pelotas</li>
+          <li>Pappo's Blues</li>
+          <li>La Renga</li>
+          <li>Los Piojos</li>
+          <li>Catupecu Machu</li>
+        </ol>
+
+        <article class="text-column-3">
+          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam quam quos, dolore, sequi labore
+            suscipit ea ad similique quasi iste dolorem! Facilis a officiis quam et sapiente. Consequuntur, cupiditate
+            dolor!</p>
+          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam quam quos, dolore, sequi labore
+            suscipit ea ad similique quasi iste dolorem! Facilis a officiis quam et sapiente. Consequuntur, cupiditate
+            dolor!</p>
+          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam quam quos, dolore, sequi labore
+            suscipit ea ad similique quasi iste dolorem! Facilis a officiis quam et sapiente. Consequuntur, cupiditate
+            dolor!</p>
+        </article>
+      </article>
+
+    </section>
+
+    <hr>
+  </main>
+
+  <section class="pagination">
+    <article class="pagination-item">
+      <a href="/pages/css/imagenes.html">
+        <i class="material-icons">arrow_back</i>Estilos en imágenes
+      </a>
+    </article>
+    <article class="pagination-item">
+      <a href="/pages/css/index.html#indice">Tabla de contenido CSS
+        <i class="material-icons">arrow_upward</i>
+      </a>
+    </article>
+    <article class="pagination-item">
+      <a href="/pages/css/tables.html">Tablas en CSS
+        <i class="material-icons">arrow_forward</i>
+      </a>
+    </article>
+  </section>
+  <footer>
+  Copyright © 2022 TiDev. All rights reserved.
+</footer>
+  <script src="/js/prism.js"></script>
+</body>
+
+</html>

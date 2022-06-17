@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="application-name" content="TiDev">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@jourdanmau">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#fb6d43">
+<meta name="msapplication-TitleColor" content="#fb6d43">
+<meta name="msapplication-TitleImage" content="">
+<link rel="apple-touch-icon" href="">
+<!-- <link rel="icon" type="image/png" href=""> -->
+<link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<link rel="author" type="text/plain" href="humans.txt">
+<!-- <link rel="manifest" href="manifest.json"> -->
+<!-- CDN Material+Icons -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  <title>
+  Clases CSS
+</title>
+<meta name="twitter:title" property="og:title" content="Clases CSS">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/menu.css">
+  <link rel="stylesheet" href="/css/prism.css" />
+  <style>
+    .card {
+      display: inline-block;
+    }
+
+    .card figcaption {
+      padding: 1rem;
+    }
+
+    .rotate-45 {
+      transform: rotate(45deg);
+    }
+
+    .rotate-135 {
+      transform: rotate(135deg);
+    }
+
+    .opacity-80 {
+      opacity: .8;
+    }
+
+    .sepia {
+      filter: sepia(1);
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+  <nav class="menu-nav">
+    <a href="/index.html" class="enlace">
+      <label class="logo">Aprende</label>
+    </a>
+    <input type="checkbox" id="check">
+    <label for="check" class="checkbtn">
+      <i class="material-icons">menu</i>
+    </label>
+    <ul class="menu">
+      <li>
+        <a href="/index.html" class="active menu-link">Home</a>
+      </li>
+      <li>
+        <a href="/pages/cursos/index.html" class="menu-link">Guias</a>
+      </li>
+      <li>
+        <a href="/pages/html/index.html" class="menu-link">HTML</a>
+      </li>
+      <li>
+        <a href="/pages/css/index.html" class="menu-link">CSS</a>
+      </li>
+      <li>
+        <a href="/pages/js/index.html" class="active menu-link">JavaScript</a>
+      </li>
+
+    </ul>
+  </nav>
+</header>
+
+  <main class="container">
+
+    <h1>Clases CSS</h1>
+
+    <section id="clases">
+
+      <p>Para acceder a los atributos utilizamos document.querySelector('.nombre-clase').atributo; pero si queremos
+        acceder a las clases como atributo tendríamos que utilizar .class, y la palabra class es una palabra reservada
+        en los lenguajes de programación (relacionada a POO). </p>
+
+      <p> Entonces, accedemos a través de la <strong>propiedad className</strong> o a través de un objeto especial que
+        retorna las clases del elemento indicado (<strong>propiedad classList</strong>). </p>
+
+      <hr>
+
+      <p>Para ejemplificar la manipulación de clases utilizaremos algunas tarjetas.</p>
+
+      <pre>
+        <code class="language-html">
+          &lt;!-- En la etiqueta Head definmos algunos estilos --&gt;
+          &lt;style&gt;
+            .card{
+              display: inline-block;
+            }
+            .card figcaption{
+                padding: 1rem;
+            }
+            .rotate-45{
+                transform: rotate(45deg);
+            }
+            .rotate-135{
+                transform: rotate(135deg);
+            }
+            .opacity-80{
+                opacity: .8;
+            }
+            .sepia{
+                filter: sepia(1);
+            }
+        &lt;/style&gt;
+
+        &lt;!-- En el body --&gt;
+          &lt;section class="cards"&gt;
+            &lt;figure class="card"&gt;
+              &lt;img src="https://placeimg.com/200/200/tech" alt="Tech"&gt;
+              &lt;figcaption&gt;Tech&lt;/figcaption&gt;
+            &lt;/figure&gt;
+            &lt;figure class="card"&gt;
+              &lt;img src="https://placeimg.com/200/200/animals" alt="Animals"&gt;
+              &lt;figcaption&gt;Animals&lt;/figcaption&gt;
+            &lt;/figure&gt;
+            &lt;figure class="card"&gt;
+              &lt;img src="https://placeimg.com/200/200/arch" alt="Architecture"&gt;
+              &lt;figcaption&gt;Architecture&lt;/figcaption&gt;
+            &lt;/figure&gt;
+          &lt;/section&gt;
+        </code>
+      </pre>
+
+      <pre>
+        <code class="language-javascript">
+          /* Seleccionamos la primera de las card */
+          const $card = document.querySelector( '.card' );
+          console.log( $card );
+  
+          /* Accediendo al valor del atributo class */$card
+          console.log( $card.className ); // card
+          console.log( $card.classList );
+  
+          /* Verificar clase en elemento */
+          console.log( $card.classList.contains( 'rotate-45' ) ); // false
+  
+          /* Agramos clase */
+          $card.classList.add( 'rotate-45' );
+          console.log( $card.classList.contains( 'rotate-45' ) ); // true
+          console.log( $card.classList );
+  
+          /* Removiendo una clase */
+          $card.classList.remove( 'rotate-45' );
+          console.log( $card.classList.contains( 'rotate-45' ) ); // false
+  
+          /* Toggle - Palanca. Funciona a menara de interruptor, 
+          si tiene la clase la quita, si no la tiene la agrega */
+          $card.classList.toggle( 'rotate-45' );
+          console.log( $card.classList.contains( 'rotate-45' ) ); // true
+          $card.classList.toggle( 'rotate-45' );
+          console.log( $card.classList.contains( 'rotate-45' ) ); // false
+  
+          /* Reemplazando clases */
+          $card.classList.toggle( 'rotate-45' );
+          $card.classList.replace( 'rotate-45', 'rotate-135' );
+  
+          /* Trabajando varias clases de una vez */
+          $card.classList.add( 'opacity-80', 'sepia' );
+          $card.classList.remove( 'opacity-80', 'sepia' );
+          $card.classList.toggle( 'opacity-80', 'sepia' );
+        </code>
+      </pre>
+
+      <section class="cards">
+        <figure class="card">
+          <img src="https://placeimg.com/200/200/tech" alt="Tech">
+          <figcaption>Tech</figcaption>
+        </figure>
+        <figure class="card">
+          <img src="https://placeimg.com/200/200/animals" alt="Animals">
+          <figcaption>Animals</figcaption>
+        </figure>
+        <figure class="card">
+          <img src="https://placeimg.com/200/200/arch" alt="Architecture">
+          <figcaption>Architecture</figcaption>
+        </figure>
+      </section>
+
+
+      <script>
+        /* Seleccionamos la primera de las card */
+        const $card = document.querySelector( '.card' );
+        console.log( $card );
+
+        /* Accediendo al valor del atributo class */$card
+        console.log( $card.className ); // card
+        console.log( $card.classList );
+
+        /* Verificar clase en elemento */
+        console.log( $card.classList.contains( 'rotate-45' ) ); // false
+
+        /* Agramos clase */
+        $card.classList.add( 'rotate-45' );
+        console.log( $card.classList.contains( 'rotate-45' ) ); // true
+        console.log( $card.classList );
+
+        /* Removiendo una clase */
+        $card.classList.remove( 'rotate-45' );
+        console.log( $card.classList.contains( 'rotate-45' ) ); // false
+
+        /* Toggle - Palanca. Funciona a menara de interruptor, 
+        si tiene la clase la quita, si no la tiene la agrega */
+        $card.classList.toggle( 'rotate-45' );
+        console.log( $card.classList.contains( 'rotate-45' ) ); // true
+        $card.classList.toggle( 'rotate-45' );
+        console.log( $card.classList.contains( 'rotate-45' ) ); // false
+
+        /* Reemplazando clases */
+        $card.classList.toggle( 'rotate-45' );
+        $card.classList.replace( 'rotate-45', 'rotate-135' );
+
+        /* Trabajando varias clases de una vez */
+        $card.classList.add( 'opacity-80', 'sepia' );
+        $card.classList.remove( 'opacity-80', 'sepia' );
+        $card.classList.toggle( 'opacity-80', 'sepia' );
+      </script>
+    </section>
+
+    <hr>
+  </main>
+
+  <section class="pagination">
+    <article class="pagination-item">
+      <a href="/pages/js/dom/estilos.html">
+        <i class="material-icons">arrow_back</i>Estilos y Variables CSS
+      </a>
+    </article>
+    <article class="pagination-item">
+      <a href="/pages/js/index.html#indice">Tabla de contenido JS
+        <i class="material-icons">arrow_upward</i>
+      </a>
+    </article>
+    <article class="pagination-item">
+      <a href="/pages/js/dom/texto.html">
+        <i class="material-icons">arrow_forward</i>Texto y HTML
+      </a>
+    </article>
+  </section>
+  <footer>
+  Copyright © 2022 TiDev. All rights reserved.
+</footer>
+  <script src="/js/prism.js"></script>
+</body>
+
+</html>

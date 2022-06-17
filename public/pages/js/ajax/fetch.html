@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="application-name" content="TiDev">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@jourdanmau">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#fb6d43">
+<meta name="msapplication-TitleColor" content="#fb6d43">
+<meta name="msapplication-TitleImage" content="">
+<link rel="apple-touch-icon" href="">
+<!-- <link rel="icon" type="image/png" href=""> -->
+<link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<link rel="author" type="text/plain" href="humans.txt">
+<!-- <link rel="manifest" href="manifest.json"> -->
+<!-- CDN Material+Icons -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  <title>
+  AJAX: API Fetch
+</title>
+<meta name="twitter:title" property="og:title" content="AJAX: API Fetch">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/menu.css">
+  <link rel="stylesheet" href="/css/prism.css" />
+</head>
+
+<body>
+  <header>
+  <nav class="menu-nav">
+    <a href="/index.html" class="enlace">
+      <label class="logo">Aprende</label>
+    </a>
+    <input type="checkbox" id="check">
+    <label for="check" class="checkbtn">
+      <i class="material-icons">menu</i>
+    </label>
+    <ul class="menu">
+      <li>
+        <a href="/index.html" class="active menu-link">Home</a>
+      </li>
+      <li>
+        <a href="/pages/cursos/index.html" class="menu-link">Guias</a>
+      </li>
+      <li>
+        <a href="/pages/html/index.html" class="menu-link">HTML</a>
+      </li>
+      <li>
+        <a href="/pages/css/index.html" class="menu-link">CSS</a>
+      </li>
+      <li>
+        <a href="/pages/js/index.html" class="active menu-link">JavaScript</a>
+      </li>
+
+    </ul>
+  </nav>
+</header>
+
+  <main class="container">
+
+    <section id="intro">
+      <h1>AJAX: API Fetch</h1>
+
+      <p>A diferencia de jQuery.ajax() el objeto Promise devuelto desde fetch() no será rechazado con un estado de error
+        HTTP incluso si la respuesta es un error HTTP 404 o 500. En cambio, este se resolverá normalmente (con un estado
+        ok configurado a false), y este solo será rechazado ante un fallo de red o si algo impidió completar la
+        solicitud.</p>
+
+      <p>Para utilizar fetch no es necesario instanciar un objeto XMLHttpRequest.</p>
+
+      <p>El método por default para fetch es GET por lo que no tenemos que definirlo. Si utilizaramos otro método se
+        envía como segundo parámetro en forma de objeto donde, también podremos definir otras configuraciones como CORS,
+        cache, credenciales, etc. </p>
+
+      <pre>
+        <code class="language-html">
+          &lt;body>
+            ...
+            &lt;ol id="fetch"&gt;&lt;/ol&gt;
+            ...
+            &lt;script src="/js/fetch.js">&lt;/script&gt;
+          &lt;/body&gt;
+        </code>
+      </pre>
+
+      <ol id="fetch"></ol>
+
+      <pre>
+        <code class="language-javascript">
+          /* ftech.js */
+          (() => {
+            const $fetch = document.getElementById("fetch");
+            const $fragment = document.createDocumentFragment();
+          
+            fetch("https://jsonplaceholder.typicode.com/users")
+              .then((res) => (res.ok ? res.json() : Promise.reject(res)))
+              .then((json) => {
+                json.forEach((el) => {
+                  const $li = document.createElement("li");
+                  $li.innerHTML = `${el.name} -- ${el.email} -- ${el.phone}`;
+                  $fragment.append($li);
+                });
+                $fetch.appendChild($fragment);
+              })
+              .catch((err) => {
+                let message = err.statusText || "Ocurrió un error";
+                $xhr.innerHTML = `Error ${err.status}: ${message} `;
+              })
+              .finally(() =>
+                console.log("Se ejecutará independiente de la promesa fetch")
+              );
+          })();
+        </code>
+      </pre>
+
+
+
+      <p>El .then() se ejecutará si todo funconó correctamente, en cambió si hay un error se ejecutará el .catch(). Si,
+        además queremos ejecutar código independientemente del resultado (Ok o error) podemos utilizar .finally(). El
+        comportamiento es similar al try / catch / finally.</p>
+
+      <p>Recuerda que el .catch() se ejecutará ante errores de conexión o si algo impidió completar la solicitud. Cuando
+        la respuesta posee un error de tipo 400 o 500 se ejecuatará el .then(), pero la propiedad ok tendrá el valor
+        false. En el ejemplo hacemos un reject para ejecutar el .catch().</p>
+
+
+    </section>
+    <hr>
+  </main>
+
+  <section class=" pagination">
+    <article class="pagination-item">
+      <a href="/pages/js/ajax/XMLHttpRequest.html">
+        <i class="material-icons">arrow_back</i>El Objeto XMLHttpRequest
+      </a>
+    </article>
+    <article class="pagination-item">
+      <a href="/pages/js/index.html#indice">Tabla de contenido JS
+        <i class="material-icons">arrow_upward</i>
+      </a>
+    </article>
+    <article class="pagination-item">
+      <a href="/pages/js/ajax/fetch-async-await.html">
+        <i class="material-icons">arrow_forward</i>API Fetch + Async-Await
+      </a>
+    </article>
+  </section>
+  <footer>
+  Copyright © 2022 TiDev. All rights reserved.
+</footer>
+  <script src="/js/fetch.js"></script>
+  <script src="/js/prism.js"></script>
+</body>
+
+</html>

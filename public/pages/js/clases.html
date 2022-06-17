@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="application-name" content="TiDev">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@jourdanmau">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#fb6d43">
+<meta name="msapplication-TitleColor" content="#fb6d43">
+<meta name="msapplication-TitleImage" content="">
+<link rel="apple-touch-icon" href="">
+<!-- <link rel="icon" type="image/png" href=""> -->
+<link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<link rel="author" type="text/plain" href="humans.txt">
+<!-- <link rel="manifest" href="manifest.json"> -->
+<!-- CDN Material+Icons -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  <title>
+  Clases
+</title>
+<meta name="twitter:title" property="og:title" content="Clases">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/menu.css">
+  <link rel="stylesheet" href="/css/prism.css" />
+</head>
+
+<body>
+  <header>
+  <nav class="menu-nav">
+    <a href="/index.html" class="enlace">
+      <label class="logo">Aprende</label>
+    </a>
+    <input type="checkbox" id="check">
+    <label for="check" class="checkbtn">
+      <i class="material-icons">menu</i>
+    </label>
+    <ul class="menu">
+      <li>
+        <a href="/index.html" class="active menu-link">Home</a>
+      </li>
+      <li>
+        <a href="/pages/cursos/index.html" class="menu-link">Guias</a>
+      </li>
+      <li>
+        <a href="/pages/html/index.html" class="menu-link">HTML</a>
+      </li>
+      <li>
+        <a href="/pages/css/index.html" class="menu-link">CSS</a>
+      </li>
+      <li>
+        <a href="/pages/js/index.html" class="active menu-link">JavaScript</a>
+      </li>
+
+    </ul>
+  </nav>
+</header>
+
+  <main class="container">
+
+    <h1>Clases</h1>
+
+    <section id="clases">
+
+      <p>Las clases de javascript, introducidas en ECMAScript 2015, son una mejora sintáctica sobre la herencia basada
+        en prototipos de JavaScript. La sintaxis de las clases no introduce un nuevo modelo de herencia orientada a
+        objetos en JavaScript. Las clases de JavaScript proveen una sintaxis mucho más clara y simple para crear objetos
+        y lidiar con la herencia.</p>
+
+
+      <p>Una manera de definir una clase es mediante una <strong>declaración de clase</strong>. Para declarar una clase,
+        se utiliza la palabra reservada class y un nombre para la clase "Rectangulo".</p>
+
+
+      <p>Una diferencia entre la declaración de funciones y las declaración de clases es que la declaración de funciones
+        no necesariamente tiene que definirise encima de la llamada (ejecución). La declaración de clase debe definrse
+        antes de acceder a ella.</p>
+
+      <p>El <strong>contenido de una clase</strong> es la parte que se encuentra entre las llaves {}. Este es el lugar
+        se
+        definen los
+        miembros de clase, como los métodos o constructores. </p>
+
+      <p>El <strong>método constructor</strong> es un método especial para crear e inicializar un objeto instanciadp con
+        una clase. Solo puede un "constructor" por clase. Si contiene más de una ocurrencia del método constructor,
+        arrojará un Error SyntaxError</p>
+
+      <pre>
+        <code class="language-javascript">
+          class Animal {
+            constructor (nombre, genero) {
+              this.nombre = nombre;
+              this.genero = genero;
+            }
+          
+            sonar () {
+              console.log("Miau Miau");
+            }
+
+            saludar () {
+              console.log(`Hola me llamo ${this.nombre}`);
+            }
+          }
+          
+          const greta = new Animal("Greta", "Hembra");
+          greta.sonar(); // 'Miau Miau'
+          greta.saludar(); // 'Hola me llamo Greta'
+          console.log(cat);
+
+          const hermes = new Animal("Hermes", "Macho");
+          hermes.sonar(); // 'Miau Miau'
+          hermes.saludar(); // 'Hola me llamo Greta'
+          console.log(cat);
+          
+        </code>
+      </pre>
+
+      <figure>
+        <img src="/assets/images/js/js_5.png" alt="Clase en consola del navegador">
+        <figcaption>Clase en consola del navegador</figcaption>
+      </figure>
+
+      <p>Greta y Hermes son objetos, instancias de la clase Animal que hereda del objeto Object de JavaScript. Poseen
+        los atributos nombre y genero, el método constructor y los métodos sonar y saludar. </p>
+
+      <p>Los métodos se encuentran dntro del prototipo. Es decir, que no se repiten en cada objeto, realizando una
+        considerable reducción de recursos.</p>
+
+      <hr>
+
+      <h2>Herencia</h2>
+
+      <p>La palabra clave extends es usada en declaraciones de clase o expresiones de clase para crear una clase hija.
+      </p>
+
+      <p>Un constructor puede usar la <strong>palabra reservada super</strong> para llamar al constructor de una
+        superclase</p>
+
+      <pre>
+        <code class="language-javascript">
+          class Perro extends Animal {
+            constructor (nombre, genero, tamanio) {
+              super(nombre, genero);
+              this.tamanio = tamanio;
+            }
+            // Sbreescribimos el método sonar
+            sonar () {
+              console.log("Guau Guau");
+            }
+            ladrar () {
+              console.log("Ladrando...");
+            }
+          }
+
+          const scooby = new Perro("Scooby", "Macho", "Gigante");
+          scooby.sonar(); // 'Guau Guau'
+          scooby.saludar(); // 'Hola me llamo Scooby'
+          scooby.ladrar(); // 'Ladrando...'
+          console.log(scooby);
+        </code>
+      </pre>
+
+      <figure>
+        <img src="/assets/images/js/js_6.png" alt="Clase Perro en consola del navegador">
+        <figcaption>Clase Perro en consola del navegador</figcaption>
+      </figure>
+
+      <p>En otros lenguajes de programación existen características como: Clases abstractas, modificadores de acceso
+        (clase pública, privada, protegida). En JavaScript no podemos escribir una clase que posea métodos o atributos
+        privados (que solo sean accesibles desde la propia clase). </p>
+
+      <blockquote>
+        Todas las clases que generamos en JavaScript son públicas.
+      </blockquote>
+
+      <p>Existen otras características de la POO que si se encuentran implementadas en JavaScript. Ejemplo: los métodos
+        estáticos, getters y setters.</p>
+
+      <hr>
+
+      <h2>Métodos estáticos</h2>
+
+      <p>La <strong>palabra clave static</strong> define un método estático para una clase. Los métodos estáticos son
+        llamados sin instanciar su clase y no pueden ser llamados mediante una instancia de clase. Los métodos estáticos
+        son a menudo usados para crear funciones de utilidad para una aplicación.</p>
+
+      <pre>
+        <code class="language-javascript">
+          class Punto {
+            constructor ( x , y ){
+              this.x = x;
+              this.y = y;
+            }
+          
+            static distancia ( a , b) {
+              const dx = a.x - b.x;
+              const dy = a.y - b.y;
+            
+              return Math.sqrt ( dx * dx + dy * dy );
+            }
+          }
+
+          const p1 = new Punto(5, 5);
+          const p2 = new Punto(10, 10);
+
+          console.log (Punto.distancia(p1, p2)); // 7.0710678118654755
+        </code>
+      </pre>
+
+      <hr>
+
+      <h2>Getters y Setters</h2>
+
+      <p>Son métodos especiales que nos permiten establecer y obtener el valor de un atributo de la clase que no se
+        definimos al momento de crear la instancia.</p>
+
+      <p>En el siguiente ejemplo no utilizamos el parámetro raza en el constructor de la clase e inicialmente le
+        asignamos null. Luego, defimos los métodos getter y setter con las palabras clave get y set.</p>
+
+      <pre>
+        <code class="language-javascript">
+          class Perro extends Animal {
+            constructor (nombre, genero, tamanio) {
+              super(nombre, genero);
+              this.tamanio = tamanio;
+              this.raza = null;
+            }
+            // Sbreescribimos el método sonar
+            sonar () {
+              console.log("Guau Guau");
+            }
+            ladrar () {
+              console.log("Ladrando...");
+            }
+
+            get getRaza() {
+              return this.raza;
+            }
+            set setRaza(raza) {
+              this.raza = raza;
+            }
+          }
+
+          const scooby = new Perro("Scooby", "Macho", "Gigante");
+          scooby.sonar(); // 'Guau Guau'
+          scooby.saludar(); // 'Hola me llamo Scooby'
+          scooby.ladrar(); // 'Ladrando...'
+          console.log(scooby);
+
+          console.log(scooby.getRaza); // null
+          scooby.setRaza = "Gran Danés";
+          console.log(scooby.getRaza); // 'Gran Danés'
+        </code>
+      </pre>
+
+      <blockquote>Internamente JavaScript trabaja los getters y setters como propiedades y no como métodos. Entonces, al
+        momento de invocarlos no debemos incluir los paréntesis. Ejemplo: scooby.getRaza y scooby.setRaza = "Gran
+        Danés".
+      </blockquote>
+
+      <hr>
+  </main>
+
+  <section class="pagination">
+    <article class="pagination-item">
+      <a href="/pages/js/prototipos.html">
+        <i class="material-icons">arrow_back</i>Prototipos
+      </a>
+    </article>
+    <article class="pagination-item">
+      <a href="/pages/js/index.html#indice">Tabla de contenido JS
+        <i class="material-icons">arrow_upward</i>
+      </a>
+    </article>
+    <article class="pagination-item">
+      <a href="/pages/js/console-date-math.html">Console, Date y Math
+        <i class="material-icons">arrow_forward</i>
+      </a>
+    </article>
+  </section>
+  <footer>
+  Copyright © 2022 TiDev. All rights reserved.
+</footer>
+  <script src="/js/prism.js"></script>
+</body>
+
+</html>

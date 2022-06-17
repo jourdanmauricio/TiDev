@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="application-name" content="TiDev">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@jourdanmau">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#fb6d43">
+<meta name="msapplication-TitleColor" content="#fb6d43">
+<meta name="msapplication-TitleImage" content="">
+<link rel="apple-touch-icon" href="">
+<!-- <link rel="icon" type="image/png" href=""> -->
+<link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<link rel="author" type="text/plain" href="humans.txt">
+<!-- <link rel="manifest" href="manifest.json"> -->
+<!-- CDN Material+Icons -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  <title>
+  Operadores lógicos o de cortocicuito
+</title>
+<meta name="twitter:title" property="og:title" content="Operadores lógicos o de cortocicuito">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/menu.css">
+  <link rel="stylesheet" href="/css/prism.css" />
+</head>
+
+<body>
+  <header>
+  <nav class="menu-nav">
+    <a href="/index.html" class="enlace">
+      <label class="logo">Aprende</label>
+    </a>
+    <input type="checkbox" id="check">
+    <label for="check" class="checkbtn">
+      <i class="material-icons">menu</i>
+    </label>
+    <ul class="menu">
+      <li>
+        <a href="/index.html" class="active menu-link">Home</a>
+      </li>
+      <li>
+        <a href="/pages/cursos/index.html" class="menu-link">Guias</a>
+      </li>
+      <li>
+        <a href="/pages/html/index.html" class="menu-link">HTML</a>
+      </li>
+      <li>
+        <a href="/pages/css/index.html" class="menu-link">CSS</a>
+      </li>
+      <li>
+        <a href="/pages/js/index.html" class="active menu-link">JavaScript</a>
+      </li>
+
+    </ul>
+  </nav>
+</header>
+
+  <main class="container">
+
+    <h1>Operadores lógicos o de cortocicuito</h1>
+
+    <section id="operadores-logicos">
+      <p>Hay cuatro operadores lógicos en JavaScript: || (o), && (y), ! (no), ?? (Fusión de nulos). Aquí cubrimos los
+        primeros tres, el operador ?? se verá en el siguiente artículo.</p>
+
+      <hr>
+
+      <h2>|| or</h2>
+
+      <p>Hay cuatro combinaciones lógicas posibles.</p>
+
+      <pre>
+        <code class="language-javascript">
+          alert(true || true); // true (verdadero)
+          alert(false || true); // true
+          alert(true || false); // true
+          alert(false || false); // false (falso)
+        </code>
+      </pre>
+
+      <p>Ejemplo en sentencia if</p>
+
+      <pre>
+        <code class="language-javascript">
+          let hour = 12;
+          let isWeekend = true;
+          
+          if (hour < 10 || hour > 18 || isWeekend) {
+            alert("La oficina esta cerrada."); // Es fin de semana
+          }
+        </code>
+      </pre>
+
+      <h3>Obtener el primer valor verdadero de una lista de variables o expresiones</h3>
+
+      <pre>
+        <code class="language-javascript"> 
+          let firstName = "";
+          let lastName = "";
+          let nickName = "SuperCoder";
+
+          alert( firstName || lastName || nickName || "Anonymous"); // SuperCoder
+        </code>
+      </pre>
+
+      <p>Si todas las variables fueran falsas, aparecería "Anonymous".</p>
+
+      <hr>
+
+      <h2>&& (AND)</h2>
+
+      <p>AND retorna true si ambos operandos son valores verdaderos y false en cualquier otro caso.</p>
+
+      <pre>
+        <code class="language-javascript">
+          alert(true && true); // true
+          alert(false && true); // false
+          alert(true && false); // false
+          alert(false && false); // false
+        </code>
+      </pre>
+
+      <p>Ejemplo con if</p>
+
+      <pre>
+        <code class="language-javascript">
+          let hour = 12;
+          let minute = 30;
+
+          if (hour == 12 && minute == 30) {
+            alert("La hora es 12:30");
+          }
+        </code>
+      </pre>
+
+      <blockquote>
+        La precedencia de AND && es mayor que la de OR ||<br>
+        Así que el código a && b || c && d es básicamente el mismo que si la expresiones && estuvieran entre
+        paréntesis: (a && b) || (c && d)
+      </blockquote>
+
+      <hr>
+
+      <h2>! (NOT)</h2>
+
+      <p>El operador acepta un solo argumento y convierte el operando al tipo booleano: true/false. Retorna el valor
+        contrario.</p>
+
+      <pre>
+          <code class="language-javascript">
+            alert(!true); // false
+            alert(!0); // true
+          </code>
+        </pre>
+
+      <blockquote>
+        La precedencia de NOT ! es la mayor de todos los operadores lógicos, así que siempre se ejecuta primero,
+        antes que && o ||
+      </blockquote>
+
+    </section>
+
+    <hr>
+  </main>
+
+  <section class="pagination">
+    <article class="pagination-item">
+      <a href="/pages/js/fundamentos/condicionales.html">
+        <i class="material-icons">arrow_back</i>Condicionales
+      </a>
+    </article>
+    <article class="pagination-item">
+      <a href="/pages/js/index.html#indice">Tabla de contenido JS
+        <i class="material-icons">arrow_upward</i>
+      </a>
+    </article>
+    <article class="pagination-item">
+      <a href="/pages/js/fundamentos/bucles.html">Bucles: while y for
+        <i class="material-icons">arrow_forward</i>
+      </a>
+    </article>
+  </section>
+  <footer>
+  Copyright © 2022 TiDev. All rights reserved.
+</footer>
+  <script src="/js/prism.js"></script>
+</body>
+
+</html>

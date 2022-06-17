@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="application-name" content="TiDev">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@jourdanmau">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#fb6d43">
+<meta name="msapplication-TitleColor" content="#fb6d43">
+<meta name="msapplication-TitleImage" content="">
+<link rel="apple-touch-icon" href="">
+<!-- <link rel="icon" type="image/png" href=""> -->
+<link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<link rel="author" type="text/plain" href="humans.txt">
+<!-- <link rel="manifest" href="manifest.json"> -->
+<!-- CDN Material+Icons -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  <title>
+  Grid con Áreas
+</title>
+<meta name="twitter:title" property="og:title" content="Grid con Áreas">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/menu.css">
+  <link rel="stylesheet" href="/css/prism.css" />
+  <link rel="stylesheet" href="/css/css/grid-css.css">
+</head>
+
+<body>
+  <header>
+  <nav class="menu-nav">
+    <a href="/index.html" class="enlace">
+      <label class="logo">Aprende</label>
+    </a>
+    <input type="checkbox" id="check">
+    <label for="check" class="checkbtn">
+      <i class="material-icons">menu</i>
+    </label>
+    <ul class="menu">
+      <li>
+        <a href="/index.html" class="active menu-link">Home</a>
+      </li>
+      <li>
+        <a href="/pages/cursos/index.html" class="menu-link">Guias</a>
+      </li>
+      <li>
+        <a href="/pages/html/index.html" class="menu-link">HTML</a>
+      </li>
+      <li>
+        <a href="/pages/css/index.html" class="menu-link">CSS</a>
+      </li>
+      <li>
+        <a href="/pages/js/index.html" class="menu-link">JavaScript</a>
+      </li>
+
+    </ul>
+  </nav>
+</header>
+
+  <main class="container">
+
+    <section id="grid-areas">
+      <h1>Grid con Áreas</h1>
+
+      <p>Podemos asignar nombres de áreas.</p>
+
+      <pre>
+        <code class="language-html">
+          &lt;section class="container-grid container-grid-areas grid-areas"&gt;
+            &lt;header class="item header"&gt;
+              &lt;p&gt;Header&lt;/p&gt;
+            &lt;/header&gt;
+            &lt;article class="item content"&gt;
+              &lt;p&gt;Content&lt;/p&gt;
+            &lt;/article&gt;
+            &lt;aside class="item sidebar"&gt;
+              &lt;p&gt;SideBar&lt;/p&gt;
+            &lt;/aside&gt;
+            &lt;footer class="item footer"&gt;
+              &lt;p&gt;Footer&lt;/p&gt;
+            &lt;/footer&gt;
+          &lt;/section&gt;        
+        </code>
+      </pre>
+      <pre>
+        <code class="language-css">
+          .container-grid-areas {
+            height: 80vh;
+          }
+          .grid-areas {
+            display: grid;
+            /* Grid 2x4 */
+            grid-template-columns: 1fr 200px;
+            grid-template-rows: 100px 1fr 1fr 60px;
+            grid-template-areas:
+              "header header"
+              "content sidebar"
+              "content ."
+              "footer footer";
+          }
+          .header {
+            grid-area: header;
+          }
+          .content {
+            grid-area: content;
+          }
+          .sidebar {
+            grid-area: sidebar;
+          }
+          .footer {
+            grid-area: footer;
+          }
+        </code>
+      </pre>
+      <section class="container-grid container-grid-areas grid-areas">
+        <header class="item header">
+          <p>Header</p>
+        </header>
+        <article class="item content">
+          <p>Content</p>
+        </article>
+        <aside class="item sidebar">
+          <p>SideBar</p>
+        </aside>
+        <section class="item footer">
+          <p>Footer</p>
+          </footer>
+        </section>
+      </section>
+
+      <hr>
+  </main>
+
+  <section class="pagination">
+    <article class="pagination-item">
+      <a href="/pages/grid/grid-line-names.html">
+        <i class="material-icons">arrow_back</i>Grid con Nombres de Línea
+      </a>
+    </article>
+    <article class="pagination-item">
+      <a href="/pages/grid/index.html#indice">Tabla de contenido Grid
+        <i class="material-icons">arrow_upward</i>
+      </a>
+    </article>
+    <article class="pagination-item">
+      <a href="/pages/grid/grid-implicit.html">Grid implícita
+        <i class="material-icons">arrow_forward</i>
+      </a>
+    </article>
+  </section>
+  <footer>
+  Copyright © 2022 TiDev. All rights reserved.
+</footer>
+  <script src="/js/prism.js"></script>
+</body>
+
+</html>

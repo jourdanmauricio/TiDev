@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="application-name" content="TiDev">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@jourdanmau">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#fb6d43">
+<meta name="msapplication-TitleColor" content="#fb6d43">
+<meta name="msapplication-TitleImage" content="">
+<link rel="apple-touch-icon" href="">
+<!-- <link rel="icon" type="image/png" href=""> -->
+<link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<link rel="author" type="text/plain" href="humans.txt">
+<!-- <link rel="manifest" href="manifest.json"> -->
+<!-- CDN Material+Icons -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  <title>
+  Breakpoints
+</title>
+<meta name="twitter:title" property="og:title" content="Breakpoints">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/menu.css">
+  <link rel="stylesheet" href="/css/css/responsive-design.css">
+</head>
+
+<body>
+  <header>
+  <nav class="menu-nav">
+    <a href="/index.html" class="enlace">
+      <label class="logo">Aprende</label>
+    </a>
+    <input type="checkbox" id="check">
+    <label for="check" class="checkbtn">
+      <i class="material-icons">menu</i>
+    </label>
+    <ul class="menu">
+      <li>
+        <a href="/index.html" class="active menu-link">Home</a>
+      </li>
+      <li>
+        <a href="/pages/cursos/index.html" class="menu-link">Guias</a>
+      </li>
+      <li>
+        <a href="/pages/html/index.html" class="menu-link">HTML</a>
+      </li>
+      <li>
+        <a href="/pages/css/index.html" class="menu-link">CSS</a>
+      </li>
+      <li>
+        <a href="/pages/js/index.html" class="menu-link">JavaScript</a>
+      </li>
+
+    </ul>
+  </nav>
+</header>
+
+  <main class="container">
+
+    <section id="breakpoints">
+      <h1 id="breakpoints">Breakpoints</h1>
+
+      <p>El breakpoint es esa medida en la que decimos realizar un cambio de estilo.</p>
+      <table>
+        <tr>
+          <td><b><i>320px</i></b></td>
+          <td>
+            <p>Para dispositivos con pantallas pequeñas, como los teléfonos en modo vertical.</p>
+          </td>
+        </tr>
+        <tr>
+          <td><b><i>480px</i></b></td>
+          <td>
+            <p>Para dispositivos con pantallas pequeñas, como los teléfonos, en modo horizontal.</p>
+          </td>
+        </tr>
+        <tr>
+          <td><b><i>600px</i></b></td>
+          <td>
+            <p>Tabletas pequeñas, como el <i>Amazon Kindle</i> (600×800) y <i>Barnes & Noble Nook</i> (600×1024), en
+              modo
+              vertical.</p>
+          </td>
+        </tr>
+        <tr>
+          <td><b><i>768px</i></b></td>
+          <td>
+            <p>Tabletas de diez pulgadas como el <i>iPad</i> (768×1024), en modo vertical.</p>
+          </td>
+        </tr>
+        <tr>
+          <td><b><i>1024px</i></b></td>
+          <td>
+            <p>Tabletas como el <i>iPad</i> (1024×768), en modo horizontal, así como algunas pantallas de ordenador
+              portátil, <i>netbook</i>, y de
+              escritorio.</p>
+          </td>
+        </tr>
+        <tr>
+          <td><b><i>1200px</i></b></td>
+          <td>
+            <p>Para pantallas panorámicas, principalmente portátiles y de escritorio.</p>
+          </td>
+        </tr>
+      </table>
+      <p>
+        Con la tabla que <i>Ethan Marcotte</i> nos propone prácticamente están cubiertos teléfonos inteligentes,
+        tabletas,
+        phablets,
+        laptops,
+        netbooks, computadoras de escritorio y pantallas, tanto en modo vertical como horizontal, por lo que con estos 6
+        puntos
+        de interrupción sólo tendríamos que validar un solo atributo en las <i>media queries</i>: el <b>ancho</b>.
+      </p>
+      <p>
+        De cualquier forma en el sitio <a href="http://screensiz.es" target="_blank"><i>screensiz.es</i></a>, se puede
+        estar revisando
+        constantemente las características físicas con las que se fabrican los dispositivos.
+      </p>
+      <h3>¡Importante! Convierte tus <i>Breakpoints</i> a <i>EMs</i></h3>
+      <h4>¿Por qué?</h4>
+      <p>
+        Aunque los pixeles se consideran una unidad de medida absoluta, en realidad son unidades relativas a la
+        resolución
+        de
+        pantalla del dispositivo que lo visualiza, si dicho dispositivo tiene una densidad mayor a la normal, entonces
+        la
+        proporción de los pixeles cambiará, por ello es importante que los <i>breakpoints</i> de las <i>media
+          queries</i>
+        se conviertan a <i>ems</i>
+        que si son unidades relativas y proporcionales.
+      </p>
+      <h4>Más información</h4>
+      <ul>
+        <li><a href="http://blog.cloudfour.com/the-ems-have-it-proportional-media-queries-ftw/" target="_blank"><i>The
+              EMs
+              have it: Proportional Media Queries</i></a>.</li>
+        <li><a href="https://css-tricks.com/why-ems/" target="_blank"><i>Why Ems?</i></a>.</li>
+        <li><a href="http://inamidst.com/stuff/notes/csspx" target="_blank"><i>CSS px is an Angular Measurement</i>.</a>
+        </li>
+      </ul>
+      <h4>Entonces</h4>
+      <p>Objetivo en pixeles / Contexto en pixeles = Resultado en <i>Ems</i></p>
+      <p>320px / 16px = 20em</p>
+      <p>480px / 16px = 30em</p>
+      <p>600px / 16px = 37.5em</p>
+      <p>768px / 16px = 48em</p>
+      <p>1024px / 16px = 64em</p>
+      <p>1200px / 16px = 75em</p>
+    </section>
+
+    <hr>
+  </main>
+
+  <section class="pagination">
+    <article class="pagination-item">
+      <a href="/pages/responsive/media-queries.html">
+        <i class="material-icons">arrow_back</i>Media queries
+      </a>
+    </article>
+    <article class="pagination-item">
+      <a href="/pages/responsive/index.html#indice">Responsive Design
+        <i class="material-icons">arrow_upward</i>
+      </a>
+    </article>
+    <article class="pagination-item">
+      <a href="/pages/responsive/viewport.html">Viewport
+        <i class="material-icons">arrow_forward</i>
+      </a>
+    </article>
+  </section>
+  <footer>
+  Copyright © 2022 TiDev. All rights reserved.
+</footer>
+</body>
+
+</html>

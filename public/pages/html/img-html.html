@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="application-name" content="TiDev">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@jourdanmau">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#fb6d43">
+<meta name="msapplication-TitleColor" content="#fb6d43">
+<meta name="msapplication-TitleImage" content="">
+<link rel="apple-touch-icon" href="">
+<!-- <link rel="icon" type="image/png" href=""> -->
+<link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<link rel="author" type="text/plain" href="humans.txt">
+<!-- <link rel="manifest" href="manifest.json"> -->
+<!-- CDN Material+Icons -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  <title>
+  TiDev HTML head
+</title>
+<meta name="twitter:title" property="og:title" content="TiDev HTML head">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/menu.css">
+  <link rel="stylesheet" href="/css/prism.css" />
+  <link rel="stylesheet" href="/css/html/html.css">
+</head>
+
+<body>
+  <header>
+  <nav class="menu-nav">
+    <a href="/index.html" class="enlace">
+      <label class="logo">Aprende</label>
+    </a>
+    <input type="checkbox" id="check">
+    <label for="check" class="checkbtn">
+      <i class="material-icons">menu</i>
+    </label>
+    <ul class="menu">
+      <li>
+        <a href="/index.html" class="active menu-link">Home</a>
+      </li>
+      <li>
+        <a href="/pages/cursos/index.html" class="menu-link">Guias</a>
+      </li>
+      <li>
+        <a href="/pages/html/index.html" class="active menu-link">HTML</a>
+      </li>
+      <li>
+        <a href="/pages/css/index.html" class="menu-link">CSS</a>
+      </li>
+      <li>
+        <a href="/pages/js/index.html" class="menu-link">JavaScript</a>
+      </li>
+
+    </ul>
+  </nav>
+</header>
+
+  <main class="container">
+
+    <section id="img-html">
+      <h1>Agregando imágenes</h1>
+      <p>La etiqueta para agregar una imagen es IMG</p>
+
+      <hr>
+      <article>
+        <h2 id="img-formatos">Imágenes: jpg, png, gif, svg</h1>
+          <pre>
+            <code class="language-html">
+              &lt;img src="" alt=""&gt;
+            </code>
+          </pre>
+
+          <p>El atributo source (scr) contiene la ruta (path) y el nombre de archivo de la imágen. El contenido del
+            atributo
+            alt es texto que se mostrará en el caso que el navegador tenga algún problema al intentar renderizar la
+            imágen.
+            Es importante incluir un texto en el atributo alt para los screen readers (software para personas con
+            discapacidad visual). Por otro lado, los robots también utilizan esta información para el SEO.
+          </p>
+
+          <p>Los formatos más populares soportados por los navegadores web son: .jpg, .png, .gif animado, y el .svg.
+            Incluiremos una imágen de cada uno de los tipos</p>
+
+          <pre>
+            <code class="language-html">
+              &lt;img src="/assets/images/imagen-jpg.jpg" height="200"  width="200" alt="Imágen de pinguino en formato jpg"&gt;
+              &lt;img src="/assets/images/imagen-png.png" height="200"  width="200" alt="Imágen de pinguino en formato png"&gt;
+              &lt;img src="/assets/images/imagen-gif.gif" height="200"  width="200" alt="Imágen de pinguino en formato gif"&gt;
+              &lt;img src="/assets/images/imagen-svg.svg" height="200"  width="200" alt="Imágen de pinguino en formato svg"&gt;
+            </code>
+          </pre>
+
+          <img class="redu" src="/assets/images/imagen-jpg.jpg" height="200" width="200"
+            alt="Imágen de pinguino en formato jpg">
+          <img class="redu" src="/assets/images/imagen-png.png" height="200" width="200"
+            alt="Imágen de pinguino en formato png">
+          <img class="redu" src="/assets/images/imagen-gif.gif" height="200" width="200"
+            alt="Imágen de pinguino en formato gif">
+          <img class="redu" src="/assets/images/imagen-svg.svg" height="200" width="200"
+            alt="Imágen de pinguino en formato svg">
+
+          <p>La etiqueta img admite los atributos height y width para indicar alto y ancho de la imágen en pixeles. No
+            es
+            recomendable definir los tamaños con estos atributos. Lo ideal es realizarlo a través de css</p>
+
+          <p>Podemos agregar una regla css que indique:</p>
+
+          <pre>
+            <code class="language-css">
+              img {
+                max-width: 100%; /*aunque la imagen sea más grande se reducirá al ancho de pantalla*/
+                          height: auto: /*de esta manra no se deformará. Mantiene la relación alto-ancho*/
+              }         
+            </code>
+          </pre>
+
+      </article>
+
+      <hr>
+      <article>
+        <h2 id="img-svg">Vectores</h2>
+        <p>Como vimos, podemos agregar los vectores svg a etiquetas img, pero son código xml. Quiere decir que podemos
+          incluir el código directamente en el html. Una característica de los svg es que podemos redimensionarlos sin
+          perder calidad. Se utiliza mucho en logos</p>
+        <p>Existen muchas páginas para descargar íconos vectioriales, como: <a href="https://css.gg/" rel="nofollow"
+            target="_blank">https://css.gg</a> o <a href="https://www.svgrepo.com/" rel="nofollow"
+            target="_blank">https://www.svgrepo.com</a></p>
+        <img class="redu" src="/assets/images/facebook-svgrepo-com.svg" alt="Logo facebook">
+      </article>
+
+      <hr>
+      <article>
+        <h2 id="figure-tag">Etiqueta figure</h2>
+        <p>Es una etqueta semántica. Nos permite agregar imágenes, videos, etc con una nota al pie (es opcional)</p>
+
+        <pre>
+          <code class="language-html">
+            &lt;figure&gt;
+              &lt;img src="/assets/images/table_elements_tags.png" alt="Tabla de elementos html"&gt;
+              &lt;figcaption&gt;Tabla de elementos html&lt;/figcaption&gt;
+            &lt;/figure&gt;
+          </code>
+        </pre>
+
+        <figure>
+          <img class="image" src="/assets/images/table_elements_tags.png" alt="Tabla de elementos html">
+          <figcaption>Tabla de elementos html</figcaption>
+        </figure>
+
+      </article>
+    </section>
+
+    <hr>
+  </main>
+
+  <section class="pagination">
+    <article class="pagination-item">
+      <a href="/pages/html/tec-style-js.html#rel-html">
+        <i class="material-icons">arrow_back</i>Relacionando otras tecnologías</a>
+    </article>
+    <article class="pagination-item">
+      <a href="/pages/html/index.html#indice">Tabla de contenido HTML
+        <i class="material-icons">arrow_upward</i>
+      </a>
+    </article>
+    <article class="pagination-item">
+      <a href="/pages/html/listas-html.html">Listas
+        <i class="material-icons">arrow_forward</i>
+      </a>
+    </article>
+  </section>
+  <footer>
+  Copyright © 2022 TiDev. All rights reserved.
+</footer>
+  <script src="/js/prism.js"></script>
+</body>
+
+</html>

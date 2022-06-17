@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="application-name" content="TiDev">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@jourdanmau">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#fb6d43">
+<meta name="msapplication-TitleColor" content="#fb6d43">
+<meta name="msapplication-TitleImage" content="">
+<link rel="apple-touch-icon" href="">
+<!-- <link rel="icon" type="image/png" href=""> -->
+<link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<link rel="author" type="text/plain" href="humans.txt">
+<!-- <link rel="manifest" href="manifest.json"> -->
+<!-- CDN Material+Icons -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  <title>
+  Modelo de caja
+</title>
+<meta name="twitter:title" property="og:title" content="Modelo de caja">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/menu.css">
+  <link rel="stylesheet" href="/css/prism.css" />
+  <link rel="stylesheet" href="/css/html/html.css">
+  <link rel="stylesheet" href="/css/css/box-model.css">
+</head>
+
+<body>
+  <header>
+  <nav class="menu-nav">
+    <a href="/index.html" class="enlace">
+      <label class="logo">Aprende</label>
+    </a>
+    <input type="checkbox" id="check">
+    <label for="check" class="checkbtn">
+      <i class="material-icons">menu</i>
+    </label>
+    <ul class="menu">
+      <li>
+        <a href="/index.html" class="active menu-link">Home</a>
+      </li>
+      <li>
+        <a href="/pages/cursos/index.html" class="menu-link">Guias</a>
+      </li>
+      <li>
+        <a href="/pages/html/index.html" class="menu-link">HTML</a>
+      </li>
+      <li>
+        <a href="/pages/css/index.html" class="active menu-link">CSS</a>
+      </li>
+      <li>
+        <a href="/pages/js/index.html" class="menu-link">JavaScript</a>
+      </li>
+
+    </ul>
+  </nav>
+</header>
+
+  <main class="container">
+
+    <section id="box-model">
+      <h1>Modelo de caja en CSS</h1>
+
+      <section class="indice" id="indice">
+        <h2>Tabla de contenidos</h2>
+        <ol>
+          <li><a href="#intro">Introducción</a></li>
+          <li><a href="#width_height">Width & Height</a></li>
+          <li><a href="#border">Border</a></li>
+          <li><a href="#padding-margin">Padding y margin</a></li>
+          <li><a href="#block-inline">Cajas en bloque y en línea</a></li>
+          <li><a href="#display">Propiedad display</a></li>
+          <li><a href="#visibility">Propiedad visibility</a></li>
+          <li><a href="#overflow">Propiedad overflow</a></li>
+          <li><a href="#box-sizing">Tamaño de caja</a></li>
+          <li><a href="#float-clear">Propiedades float & clear</a></li>
+          <li><a href="#collapse">Colapso de mágenes verticales</a></li>
+          <li><a href="#center-box">Centrado de Cajas</a></li>
+        </ol>
+      </section>
+
+      <hr>
+      <article id="intro">
+        <h2>El modelo de caja</h2>
+
+        <p>El modelo de caja es la forma en que CSS interpreta las etiquetas HTML. Para CSS caja uno los elementos
+          HTML es una caja. Pueden ser cajas de línea o de bloque. Todas las cajas poseen un borde, padding (distancia
+          entre el borde la caja y el contenido), y el contenido. Los márgenes son las distancias externas con otros
+          elementos o su contenedor.</p>
+
+        <p>Documentación: <a href="https://developer.mozilla.org/es/docs/Learn/CSS/Building_blocks/The_box_model"
+            rel="nofollow" target="_blank">Modelo de caja</a></p>
+
+        <p>Propiedades del model-box</p>
+
+        <ol>
+          <li>El contenido (content). Contenido del elemento HTML tomando en cuenta su ancho y alto.</li>
+          <li>El relleno (padding). Distancia interna entre el contenido y el borde.</li>
+          <li>Borde (border). Delimita cada elemento HTML. La frontera.</li>
+          <li>Margen (margin). Distancia externa entre el elemento HTML y su contendor o elementos hermanos.</li>
+        </ol>
+
+        <figure>
+          <img class="redu" src="/assets/images/css-box-model.png" alt="Modelo de caja">
+          <figcaption>Modelo de caja - navegador</figcaption>
+        </figure>
+
+        <p>En la imagen anterior vemos el modelo de caja del navegador para un elemento h1. Las medidas que nos
+          muestra el modelo de caja del navegador se encuentra en pixeles. Vemos que el navegador por defecto asigna un
+          margen superior e inferior de 21,44 pixeles y el contenido posee un alto de 37 pixeles. El guión significa que
+          no posee una medida asignada.</p>
+
+        <p>Cada caja posee 4 lados. En adelante nos referiremos a las posiciones basados en las agujas del reloj</p>
+
+        <ol>
+          <li>Arriba (Top)</li>
+          <li>Derecha (Right)</li>
+          <li>Abajo (Bottom)</li>
+          <li>Izquierda (Left)</li>
+        </ol>
+
+        <p>Si utilizamos la propiedad border se aplicará a los 4 lados por igual, pero podemos diferenciar cada uno
+          de los lados y aplicar los estilos solo a ese lado.</p>
+
+        <p>Antes de continuar veremos un ejemplo de box model sobre la etiqueta p. Asignamos la clase box-model para
+          que los estilos no impacten sobre todas las etiquetas p de la página. La primera imagen es el box model del
+          navegador sin aplicar estilos, la segunda imagen contiene los siguientes estilos.</p>
+
+        <pre>
+            <code class="language-html">
+              &lt;p&gt;Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ut quod eos delectus harum sapiente
+              vitae voluptatibus sequi recusandae quasi nihil perspiciatis nobis velit quia, doloremque praesentium amet fuga in
+              facilis!&lt;/p&gt;
+            </code>
+          </pre>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ut quod eos delectus harum
+          sapiente vitae voluptatibus sequi recusandae quasi nihil perspiciatis nobis velit quia, doloremque
+          praesentium amet fuga in facilis!</p>
+        <pre>
+            <code class="language-html">
+              &lt;p class="box-model"&gt;Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ut quod eos delectus harum sapiente
+              vitae voluptatibus sequi recusandae quasi nihil perspiciatis nobis velit quia, doloremque praesentium amet fuga in
+              facilis!&lt;/p&gt;
+            </code>
+          </pre>
+        <pre>
+            <code class="language-css">
+              p.box-model {
+                border-width: 5px;
+                border-style: solid;
+                border-color: green;
+                padding: 10px;
+              }
+            </code>
+          </pre>
+
+        <p class="box-model">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ut quod eos
+          delectus harum sapiente vitae voluptatibus sequi recusandae quasi nihil perspiciatis nobis velit quia,
+          doloremque praesentium amet fuga in facilis!</p>
+
+        <figure>
+          <img class="redu" src="/assets/images/css-box-model_2.png" alt="Box model sin estilos">
+          <figcaption>Model box - p sin estilos</figcaption>
+        </figure>
+
+        <figure>
+          <img class="redu" src="/assets/images/css-box-model_3.png" alt="Box model con estilos">
+          <figcaption>Model box - p con estilos</figcaption>
+        </figure>
+
+        <p>Vemos como el modelo de caja del navegador nos muestra las dimensiones en pixeles.</p>
+      </article>
+
+      <hr>
+
+      <article id="width_height" class="width_height">
+        <h2>Width & Height</h2>
+
+        <p>Utilizando las propiedades width y height podemos establecer el alto y ancho de un elemento.</p>
+
+        <pre>
+          <code class="language-html">
+            &lt;p&gt;Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione, voluptate non dolore quo veniam recusandae
+            assumenda doloribus labore minus eum quidem earum cumque, tenetur sunt quod atque fugiat laboriosam minima!&lt;/p&gt;
+          </code>
+        </pre>
+        <pre>
+          <code class="language-css">
+            p {
+              width: 400px;
+              height: 200px;
+              border-width: 1px;
+              border-style: solid;
+            }
+          </code>
+        </pre>
+        <p class="aplica-wh">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione, voluptate non dolore
+          quo veniam recusandae assumenda doloribus labore minus eum quidem earum cumque, tenetur sunt quod atque fugiat
+          laboriosam minima!
+        </p>
+      </article>
+
+      <hr>
+
+      <article id="border" class="border">
+        <h2>Border</h2>
+
+        <p>El borde posee tres propiedades. <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/border-style"
+            rel="nofollow" target="_blank">Ejemplos</a></p>
+
+        <ul>
+          <li>border-color (color del borde)</li>
+          <li>border-width (ancho del borde). Hasta el momento solo utilizamos px, pero podemos otras unidades de
+            medida como thin (delgado = 1px), medium (medio = 3px) y thick (grueso = 5px)</li>
+          <li>border-style (estilo del borde). Valores: none, hidden, dotted, dashed, solid, double, groove, ridge,
+            inset, outset</li>
+        </ul>
+
+        <p>Estas tres propiedades, son de tipo shorthand. Cada una está compuesta por 4 propiedade. Por ejemplo,
+          border-color posee border-top-color, border-right-color, border-bottom-color y border-left-color. En
+          realidad el borde no posee 3 propiedades, posee 12. Una para cada lado, pero al escribir el shorthand
+          aplicamos la misma unidad a los 4 lados. Cuando necesitemos aplicar diferentes medidas, colores o estilos a
+          los lados tendremos que ser más específicos y no utilizar el shorthand.</p>
+        <p>También, existe un shorthand (border) que sintetiza las propiedades border-width, border-style y
+          border-color. En lugar de 12 o 3 propiedades, podemos sintetizar solo en 1. Ejemplo: border: 2px solid
+          green; </p>
+
+        <pre>
+          <code class="language-html">
+            &lt;p&gt;Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione, voluptate non dolore quo veniam recusandae
+            assumenda doloribus labore minus eum quidem earum cumque, tenetur sunt quod atque fugiat laboriosam minima!&lt;/p&gt;
+          </code>
+        </pre>
+        <pre>
+          <code class="language-css">
+            p {
+              width: 400px;
+              height: 200px;
+              border-width: thick;
+              border-style: solid;
+              border-color: green;
+              border-bottom-color: red;
+              /* border: 2px solid green; */
+              padding: 10px;
+            }
+          </code>
+        </pre>
+
+        <p class="aplica-border">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione, voluptate non
+          dolore
+          quo veniam recusandae assumenda doloribus labore minus eum quidem earum cumque, tenetur sunt quod atque
+          fugiat
+          laboriosam minima!</p>
+      </article>
+
+      <hr>
+
+      <article id="padding-margin" class="padding-margin">
+        <h2>Padding y margin</h2>
+
+        <p>Padding se refiere a distancias internas (del contenido al borde), mientras que el margin hace referencia
+          a las distancias externas (del borde a los elementos hermanos o su padre-contendedor).</p>
+        <p>El navegador no asigna medidas de margin ni padding por defecto a los elemenos div ya que no son
+          semánticos como los encabezados.</p>
+        <p>Los valores para margin y padding se pueden aplicar con:</p>
+
+        <ul>
+          <li>1 valor: aplica a los 4 lados</li>
+          <li>2 valores: el primer valor para arriba y abajo, el segundo valor para izquierda y derecha</li>
+          <li>3 valores: el primer valor para arriba, el segundo valor para izquierda y derecha y el tercer valor
+            para abajo</li>
+          <li>4 valores: aplican a los cuatro lados siguiendo las agujas del reloj: arriba, derecha, abajo e
+            izquierda </li>
+        </ul>
+
+        <pre>
+          <code class="language-html">
+            &LT;div class="caja-uno"&GT;Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, officia et. Laudantium,
+              quasi pariatur beatae repudiandae voluptatibus sed mollitia ex iste quis itaque vitae optio fugiat numquam
+              quam ut magni.&LT;/div&GT;
+            &LT;div class="caja-dos"&GT;Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, officia et. Laudantium,
+              quasi pariatur beatae repudiandae voluptatibus sed mollitia ex iste quis itaque vitae optio fugiat numquam
+              quam ut magni.&LT;/div&GT;          
+          </code>
+        </pre>
+        <pre>
+          <code class="language-css">
+            .padding-margin .caja-uno,
+            .padding-margin .caja-dos {
+              background-color: chocolate;
+              border: medium solid orange;
+            }
+            .padding-margin .caja-dos {
+              padding: 20px;
+              margin: 20px;
+            }
+          </code>
+        </pre>
+
+        <div class="caja-uno">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, officia et.
+          Laudantium, quasi pariatur beatae repudiandae voluptatibus sed mollitia ex iste quis itaque vitae optio fugiat
+          numquam quam ut magni.</div>
+        <div class="caja-dos">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, officia et.
+          Laudantium, quasi pariatur beatae repudiandae voluptatibus sed mollitia ex iste quis itaque vitae optio fugiat
+          numquam quam ut magni.</div>
+      </article>
+
+      <hr>
+
+      <article id="block-inline" class="block-inline">
+        <h2>Cajas en bloque y en línea</h2>
+
+        <p>Existen dos tipos de cajas. En general podemos decir que las etiquetas para texto y las de elelemtos de
+          formulario son de tipo en línea, el resto son de tipo en bloque.</p>
+
+        <ul>
+          <li>Caja de línea:
+            <ul class="list">
+              <li>Ocupan el espacio necesario para mostrar su contenido</li>
+              <li>No se puede modificar su alto o ancho (width y height)</li>
+              <li>Permiten otros elementos a su lado</li>
+              <li>Padding y margin solo aplican horizontalmente, no empujan ni arriba ni abajo</li>
+            </ul>
+          </li>
+          <li>Caja de bloque:
+            <ul class="list">
+              <li>Ocupan todo el ancho disponible</li>
+              <li>Se puede modificar ancho y alto</li>
+              <li>No permiten otros elementos a su lado (aunque modifiquemos sus domensiones siguen ocupando todo el
+                ancho)
+              </li>
+            </ul>
+        </ul>
+
+        <pre>
+          <code class="language-html">
+            &lt;span class="caja-linea"&gt;Este es un span - inline&lt;/span&gt;&lt;span&gt;Este es otro span - inline&lt;/span&gt;
+            &lt;div class="caja-bloque"&gt;Este es un div - block&lt;/div&gt;
+          </code>
+        </pre>
+        <pre>
+          <code class="language-css">
+            .caja-linea,
+            .caja-bloque {
+              background-color: darkcyan;
+              color: white;
+              width: 500px;
+              height: 250px;
+              border: medium solid black;
+              padding: 20px;
+            }
+            .block-inline .caja-linea {
+              margin: 48px;  /* Solo aplica a los lados */
+            }
+          </code>
+        </pre>
+        <br>
+        <span class="caja-linea">Este es un span - inline</span><span>Este es otro span - inline</span>
+        <div class="caja-bloque">Este es un div - block</div>
+
+        <p>Vemos que al aplicar un padding a los elementos de línea, si bien se renderiza NO EMPUJA a otros
+          elementos ni
+          arriba ni abajo. Por eso no se recomienda utilizar padding ni margin vertical para elementos de línea.</p>
+
+      </article>
+
+      <hr>
+
+      <article id="display" class="display">
+        <h2>Propiedad display</h2>
+
+        <p>Le indica al elemento como se va a comportar</p>
+
+        <ul>
+          <li>none: remueve el elemento del documento. No se vé. Que se oculte no significa que su contenido no se
+            cargue. Se debe tener cuidado cuando queremos que un video no se renderice en la vista movil pero si en
+            vistas de escritorio. Podemos pensar que al aplicar el none para moviles resolvemos el problema pero en
+            realidad el video continua cargando.</li>
+          <li>inline: compotamiento de línea</li>
+          <li>block: comportamiente de bloque</li>
+          <li>inline-block: posee características de línea y de bloque</li>
+          <li>list-item: para listas ordenadas o desordenadas</li>
+          <li>table: para tablas</li>
+          <li>table-cell: para celdas de tabla</li>
+          <li>table-row: para filas de tabla</li>
+          <li>flex: el elemento se convierte en un contenedor flexbox. Hacia afuera se comporta como un elemento de
+            bloque, mientras que sus elementos hijos (hacia adentro) se convertirán en elementos de flexbox.</li>
+          <li>inline-flex: Hacia afuera se comporta como un elemento de línea, mientras que sus elementos hijos
+            (hacia adentro) se convertirán en elementos de flexbox.</li>
+          <li>grid: el elemento se convierte en un contenedor de rejilla. Hacia afuera se comporta como un elemento
+            de bloque. Sus elementos hijos se convertirán en elementos de cuadrícula.</li>
+          <li>inline-grid: Hacia afuera se comporta como un elemento de línea, mientras que sus elementos hijos
+            (hacia adentro) se convertirán en elementos de cuadrícula.</li>
+        </ul>
+
+        <p>Los valores flex y grid se verán en artículos separados. Ahora nos ocuparemos de los tipos none, de línea
+          y de bloque, e inline-block. También veremos los de tipo lista y de tipo tabla.</p>
+
+        <h3>display: inline-block</h3>
+
+        <p><mark>El valor inline-block se comporta como un elemento de línea pero permite modificar sus dimensiones
+            alto
+            y ancho.</mark></p>
+
+        <p>Para ejemplificar el valor inline-block tomaremos el ejemplo anterior (de línea) y aplicaremos el
+          display:
+          inline-block;</p>
+
+        <pre>
+          <code class="language-html">
+            &lt;span class="caja-lineabloque"&gt;Este es un span - inline&lt;/span&gt;&lt;span&gt;Este es otro span - inline&lt;/span&gt;
+            &lt;div class="caja-bloque"&gt;Este es un div - block&lt;/div&gt;
+        </code>
+        </pre>
+        <pre>
+          <code class="language-css">
+            .caja-lineabloque,
+            .caja-bloque {
+              background-color: darkcyan;
+              color: white;
+              width: 500px;
+              height: 250px;
+              border: medium solid black;
+              padding: 20px;
+            }
+            .block-inline .caja-lineabloque {
+              display: inline-block;
+              margin: 48px;  /* Ahora aplica a todos lados */
+            }
+          </code>
+        </pre>
+        <br>
+        <span class="caja-lineabloque">Este es un span - inline</span><span>Este es otro span - inline</span>
+        <div class="caja-bloque">Este es un div - block</div>
+
+        <p>En el ejemplo vemos como al modificar el comportamiento de la primer caja a inline-block el elemento
+          contnúa comportándose como en línea (permite el span a su lado), pero si aplican las propiedades de
+          dimensiones y desplazamientos.</p>
+
+        <h3>display: list-item</h3>
+
+        <p>Por defecto el navegador aplica el valor list-item a la propiedidad display de los elelemtos li. Este
+          valor asigna margin-left y la viñeta.</p>
+
+        <ul>
+          <li>item 1</li>
+          <li>item 2</li>
+          <li>item 3</li>
+          <li>item 4</li>
+        </ul>
+
+        <h3>display: table</h3>
+
+        <p>De la misma manera que con list-item, el navegador aplica por defecto los display table, row, y cell a
+          los elementos de tablas.</p>
+        <table class="tabla">
+          <tr>
+            <td>Celda 1</td>
+            <td>Celda 2</td>
+            <td>Celda 3</td>
+          </tr>
+          <tr>
+            <td>Celda 4</td>
+            <td>Celda 5</td>
+            <td>Celda 6</td>
+          </tr>
+          <tr>
+            <td>Celda 7</td>
+            <td>Celda 8</td>
+            <td>Celda 9</td>
+          </tr>
+        </table>
+
+        <p>En la práctica no se suele aplicar los display item-list, table, table-cell y table-row.</p>
+      </article>
+
+      <hr>
+
+      <article id="visibility" class="visibility">
+        <h2>Propiedad visibility</h2>
+
+        <p>Se puede confundir con el display: none, pero difieren porque display:none pierde el espacio que ocupaba
+          en el documento, miestras que visivity oculta el elemento pero conserva el espacio.</p>
+
+        <ul>
+          <li>visibility: visible; es el valor por defecto que tiene la propiedad</li>
+          <li>visibility: hidden; oculta el elemento pero conserva el espacio</li>
+        </ul>
+
+        <blockquote>Cuando queremos ocutar un elemento y no queremos que se respete su espacio (ancho/alto) en el
+          documento utilizamos dispay:none;. Pero si deseamos mantener el espacio utilizamos visibility: hidden;
+        </blockquote>
+
+      </article>
+
+      <hr>
+
+      <article id="overflow" class="overflow">
+        <h2>Propiedad overflow</h2>
+
+        <p>Permite controlar que ocurrirá cuando el contenido de una caja desborde las dimensiones de la caja. Es
+          útil cuando desconocemos la magnitud del contenido.</p>
+
+        <ul>
+          <li>overflow: visible; El contenido desbordado es visible, mientras que el elemento en sí permanece en la
+            altura especificada. Valor por defecto.</li>
+          <li>overflow: hidden; El contenido desbordado está oculto y no se puede acceder a él</li>
+          <li>overflow: scroll; Se puede acceder al contenido desbordado gracias a una barra de desplazamiento
+            vertical
+          </li>
+          <li>overflow: auto; El navegador decide si mostrar una barra de desplazamiento vertical o no</li>
+        </ul>
+
+        <pre>
+          <code class="language-html">
+            &lt;p class="p-overflow"&gt;Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint incidunt recusandae in
+            reprehenderit omnis consectetur maiores impedit accusamus beatae mollitia dolore possimus voluptas ut, ratione
+            quos dolorem laudantium assumenda. Perferendis.&lt;/p&gt;
+            &lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+          </code>
+        </pre>
+        <pre>
+          <code class="language-css">
+            .p-overflow {
+              background-color: darkturquoise;
+              width: 200px;
+              height: 100px;
+              border: thin solid black;
+            }
+          </code>
+        </pre>
+
+        <p class="p-overflow">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint incidunt recusandae in
+          reprehenderit omnis consectetur maiores impedit accusamus beatae mollitia dolore possimus voluptas ut,
+          ratione quos dolorem laudantium assumenda. Perferendis.</p>
+        <br><br><br><br><br><br><br><br>
+        <p>El contenido intentó adaptarse a la caja pero al no entrar desbordó hacia abajo. Es el comportamiento por
+          defecto. No solo desborda al contenedor sino que se superpone sobre los elementos posterires. En este
+          caso, colocamos algunos saltos de línea para evitar ese efecto.</p>
+
+        <pre>
+          <code class="language-html">
+            &lt;p class="p-hidden"&gt;Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint incidunt recusandae in
+            reprehenderit omnis consectetur maiores impedit accusamus beatae mollitia dolore possimus voluptas ut, ratione
+            quos dolorem laudantium assumenda. Perferendis.&lt;/p&gt;
+          </code>
+        </pre>
+        <pre>
+          <code class="language-css">
+            .p-hidden {
+              background-color: darkturquoise;
+              width: 200px;
+              height: 100px;
+              border: thin solid black;
+              overflow: hidden;
+            }
+          </code>
+        
+        </pre>
+        <p class="p-hidden">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint incidunt recusandae in
+          reprehenderit omnis consectetur maiores impedit accusamus beatae mollitia dolore possimus voluptas ut,
+          ratione quos dolorem laudantium assumenda. Perferendis.</p>
+        <p>Utilizando el valor hidden oculta el contenido que desborda. Ya no es accesible.</p>
+
+        <pre>
+          <code class="language-html">
+            &lt;p class="p-scroll"&gt;Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint incidunt recusandae in
+            reprehenderit omnis consectetur maiores impedit accusamus beatae mollitia dolore possimus voluptas ut, ratione
+            quos dolorem laudantium assumenda. Perferendis.&lt;/p&gt;
+          </code>
+        </pre>
+        <pre>
+          <code class="language-css">
+            .p-scroll {
+              background-color: darkturquoise;
+              width: 200px;
+              height: 100px;
+              border: thin solid black;
+              overflow: scroll;
+            }
+          </code>
+        </pre>
+
+        <p class="p-scroll">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint incidunt recusandae in
+          reprehenderit omnis consectetur maiores impedit accusamus beatae mollitia dolore possimus voluptas ut,
+          ratione quos dolorem laudantium assumenda. Perferendis.</p>
+        <p>Utilizando el valor scroll aparecerá una barra de desplazamiento para poder leer el contenido. En este
+          caso solo aparece la barra veritica porque de ancho no se está desbordando.</p>
+
+        <pre>
+          <code class="language-html">
+            &lt;p class="p-auto"&gt;Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint incidunt recusandae in
+            reprehenderit omnis consectetur maiores impedit accusamus beatae mollitia dolore possimus voluptas ut, ratione
+            quos dolorem laudantium assumenda. Perferendis.&lt;/p&gt;
+          </code>
+        </pre>
+        <pre>
+          <code class="language-css">
+            .p-auto {
+              background-color: darkturquoise;
+              width: 200px;
+              height: 100px;
+              border: thin solid black;
+              overflow: auto;
+            }
+          </code>
+        </pre>
+
+        <p class="p-auto">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint incidunt recusandae in
+          reprehenderit omnis consectetur maiores impedit accusamus beatae mollitia dolore possimus voluptas ut,
+          ratione quos dolorem laudantium assumenda. Perferendis.</p>
+        <p>Utilizando el valor auto aparecerá una barra de desplazamiento inteligentemente. Si desborda solo hacia
+          abajo aparecerá la barra vertical; si desborda hacia el costado aparecerá la barra horizontal; y si desborda
+          hacia ambos lados aparecerán las dos barras de scroll.</p>
+
+        <p>Adicionalmente existen los valores overflow-x y overflow-y.</p>
+      </article>
+
+      <hr>
+
+      <article id="box-sizing" class="box-sizing">
+        <h2>Tamaño de caja</h2>
+
+        <p>Define cómo se calculan el ancho y el alto del elemento: si incluyen el relleno y los bordes o no.</p>
+
+        <ul>
+          <li>box-sizing: content-box; El ancho y la altura del elemento solo se aplican al contenido del elemento.
+            Valor por defecto.
+          </li>
+          <li>box-sizing: border-box; El ancho y la altura del elemento se aplican a todas las partes del elemento:
+            el contenido, el relleno y los bordes</li>
+        </ul>
+
+        <pre>
+          <code class="language-html">
+            &lt;div class="content-box"&gt;
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti facere tenetur est natus, nostrum deserunt
+            quos, laborum aperiam fugit labore obcaecati odit? Id in corrupti sunt? Quae labore sequi quod.
+            &lt;/div&gt;
+          </code>
+        </pre>
+        <pre>
+          <code class="language-css">
+            .content-box {
+              background-color: deepskyblue;
+              width: 500px;
+              height: 150px;
+              padding: 10px;
+              border: 10px solid black;
+              box-sizing: content-box;
+            }
+          </code>
+        </pre>
+
+        <div class="content-box">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti facere tenetur est natus, nostrum
+          deserunt quos, laborum aperiam fugit labore obcaecati odit? Id in corrupti sunt? Quae labore sequi quod.
+        </div>
+        <br>
+
+        <img class="redu" src="/assets/images/css-box-sizing_1.png" alt="Propiedad bos-sizing con valor content-box">
+
+        <p>Como vemos en el modelo de caja del inspector de elementos, el tamaño de la caja final es de 540px por
+          190px; (10+10+500+10+10 por 10+10+150+10+10). El valor content-box le indica al navegador que el padding, el
+          borde no se encuentran en el width y height indicados. No modifica las dimensiones indicadas para el contenido
+          y suma el padding y el border.</p>
+
+        <pre>
+          <code class="language-html">
+            &lt;div class="border-box"&gt;
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti facere tenetur est natus, nostrum deserunt
+            quos, laborum aperiam fugit labore obcaecati odit? Id in corrupti sunt? Quae labore sequi quod.
+            &lt;/div&gt;
+          </code>
+        </pre>
+        <pre>
+          <code class="language-css">
+            .border-box {
+              background-color: deepskyblue;
+              width: 500px;
+              height: 150px;
+              padding: 10px;
+              border: 10px solid black;
+              box-sizing: border-box;
+            }
+          </code>
+        </pre>
+
+        <div class="border-box">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti facere tenetur est natus, nostrum
+          deserunt quos, laborum aperiam fugit labore obcaecati odit? Id in corrupti sunt? Quae labore sequi quod.
+        </div>
+        <br>
+        <img class="redu" src="/assets/images/css-box-sizing_1.png" alt="Propiedad bos-sizing con valor content-box">
+
+        <p>Como vemos en el modelo de caja del inspector de elementos el tamaño de la caja es de 500px por 150px;.
+          El valor border-box le indica al navegador que incluya el padding, el borde y el contenido como parte de los
+          500x150 px. Reduce el contenido de la caja para que las dimensiones finales sean las indicadas por width y
+          height.</p>
+
+        <blockquote>Resetear el tamaño de las cajas del documento a border-box es una buena idea porque no tendremos
+          que realizar calculos cada vez que incluyamos un eleemento con padding y magin a la página. Seteando la
+          propiedad a border-box sabremos que las dimensiones que indiquemos serán las que finalmente contenga el
+          elemento.
+        </blockquote>
+
+        <p>Hace algunos años no existía la propiedad box-sizing y por defecto se aplicaba el valor border-content.
+          Esto ocasionaba muchos conflictos al maquetar. Teníamos que considerar los paddings y los bordes de cada caja,
+          y realizar las cuentas para evitar que los elementos pasen a la línea de abajo. Un pixel puede generar que
+          el contenido no entre y se desplace hacia abajo.</p>
+        <p>Este problema se solucionó con la propedad box-sizing: border-box;. El valor por defecto de la propiedad
+          es content-box. La solución es aplicar a todas las cajas del documento el valor border-box pero es muy
+          verboso tener que incluir la propiedad en cada elemento. Por ello, Paul Irish propone una <a
+            href="https://www.paulirish.com/2012/box-sizing-border-box-ftw/" rel="nofollow" target="_blank">técnica</a>
+          sencilla para aplicar a todos los elementos de una vez.</p>
+
+        <pre>
+          <code class="language-css">
+            /* apply a natural box layout model to all elements, but allowing components to change */
+            html {
+              box-sizing: border-box;
+            }
+            *, *:before, *:after {
+              box-sizing: inherit;
+            }
+          </code>
+        </pre>
+
+        <p>Este código se debe incorporar al inicio de la hoja de estilos.</p>
+
+      </article>
+
+      <hr>
+
+      <article id="float-clear">
+        <h2>Propiedades float & clear</h2>
+
+        <p>La propiedad float nos va a permitir flotar elementos a izquierda o a derecha. Al utilizarla sacamos los
+          elementos del flujo natural t los "flotamos". Es una de las primeras técnicas de maquetación, recordemos
+          que no existía ni flexbox, ni grid. Hoy, ya se considera mala práctica maquetar con esta propiedad.</p>
+        <ul>
+          <li>float: none; Valor por defecto. Elimina cualquier valor flotante definido previamente. El elemento
+            permanecerá en el flujo natural de la página</li>
+          <li>float: left; Mueve el elemento al lado izquierdo de su contenedor. Los siguientes elementos lo
+            envolverán y llenarán el espacio restante a la derecha</li>
+          <li>float: right; Mueve el elemento al lado derecho de su contenedor. Los siguientes elementos lo
+            envolverán y llenarán el espacio restante a la izquierda</li>
+        </ul>
+
+        <p>La propidad clear mueve el elemento después de todos los elementos flotantes anteriores.</p>
+
+        <ul>
+          <li>clear: none; La propiedad clear solo es relevante cuando se usa con hermanos que tienen un valor
+            flotante. El elemento se posicionará junto a cualquier elemento flotante que lo preceda.</li>
+          <li>clear: left; El elemento borrado se moverá después de cualquier elemento flotante izquierdo que lo
+            preceda, pero permanecerá junto a los elementos flotantes derechos.</li>
+          <li>clear: right; El elemento borrado se moverá después de cualquier elemento flotante derecho que lo
+            preceda, pero permanecerá junto a los elementos flotantes izquierdos.</li>
+          <li>clear: both; El elemento borrado se moverá después de cualquier elemento flotante que lo preceda. Esto
+            incluye tanto elementos flotantes izquierdos como flotantes derechos.</li>
+        </ul>
+
+        <p>Cuando se maquetaba a través de float y luego deseabamos volver al flujo natural teniamos que generar un
+          elemento div vacio con una clase que llamábamos clearfix con la propiedad clear:both; </p>
+        <p>Era un truco que se utilizaba para limpiar las flotaciones a izquierda y a derecha, pero no es buena
+          práctica usar divs sin contenido.</p>
+
+        <blockquote>Intentar evitar el uso de floats. Hoy existen modelos de maquetación muy completos como grid y
+          flexbox.</blockquote>
+      </article>
+
+      <hr>
+
+      <article id="collapse" class="collapse">
+        <h2>Colapso de mágenes verticales</h2>
+
+        <p>Hay una regla del modelo de caja que indica que los márgenes verticales de un elemento con otro se
+          acoplan, se enciman.</p>
+
+        <pre>
+          <code class="language-html">
+            &lt;article class="margin-collapse"&gt;
+              &lt;p&gt;INICO&lt;/p&gt;
+              &lt;section&gt;Seccion 1&lt;/section&gt;
+              &lt;section&gt;Seccion 2&lt;/section&gt;
+              &lt;p&gt;FIN&lt;/p&gt;
+            &lt;/article&gt;
+          </code>
+        </pre>
+        <pre>
+          <code class="language-css">
+            .margin-collapse {
+              background-color: skyblue;
+            }
+            .margin-collapse section {
+              border: thin solid black;
+              margin-top: 16px;
+              margin-bottom: 16px;
+            }
+          </code>
+        </pre>
+
+        <article class="margin-collapse">
+          <p>INICO</p>
+          <section>Seccion 1</section>
+          <section>Seccion 2</section>
+          <p>FIN</p>
+        </article>
+
+        <p>Como vemos la Seccion 1 y la Seccion 2 poseen 16px de margenes superior e inferior. Entonces, podemos
+          decir que entre las dos secciones debería haber un espacio de 32px. 16px correspondientes al margen inferior
+          de la sección 1 y 16px del margen superior de la sección 2. Pero vemos que los márgenes se colapsan y solo se
+          renderizan 16px. En los márgenes horizontales no existe este problema.</p>
+
+        <blockquote>Una solución a este problema es maquetar utilizando en todos los elementos margen bottom o en
+          todos los elementos margen top.</blockquote>
+      </article>
+
+      <hr>
+
+      <article id="center-box">
+        <h2>Centrado de Cajas</h2>
+
+        <p>Los dispositivos poseen distintas resoluciones, desde algunos muy pequeños hasta los ultra HD. Entonces
+          ¿Cómo podemos desarrollar nuestro sitio para que en dispositivos grandes no se deforme? Una alternativa es
+          centrar nuestro contenido y que queden dos espacios laterales.</p>
+
+        <p>En ocasiones confundimos el centrado del contenido de la caja con el centrado de la caja con respecto a
+          su contenedor. La propiedad text-align: center; centra el contenido en la caja.</p>
+        <p>La manera de centrar una caja es a través de los márgenes. Tenemos que dar el valor auto al margen
+          izquierdo y al derecho. El valor auto le indica al navegador que ajuste lo automáticamente. El navegador,
+          conociendo el ancho de la caja, tomará la cantidad de pixeles restantes y los repartirá automáticamente a
+          izquierda y a derecha de nuestra caja.</p>
+
+        <p>Vamos a presentar el esquema básico de una página web para ver cómo realizar el centrado de las cajas. </p>
+
+        <pre>
+          <code class="language-html">
+            &lt;article class="sitio-web"&gt;
+              &lt;header&gt;Cabecera&lt;/header&gt;
+              &lt;main&gt;Cuerpo principal&lt;/main&gt;
+              &lt;footer&gt;Pie del la página&lt;/footer&gt;
+            &lt;/article&gt;
+          </code>
+        </pre>
+        <pre>
+          <code class="language-css">
+            .sitio-web {
+              border: thin solid black;
+              background-color: thistle;
+              width: 600px;
+              height: 500px;
+              padding: 16px;
+              text-align: center;
+              margin-left: auto;
+              margin-right: auto;
+            }
+          </code>
+        </pre>
+
+        <article class="sitio-web">
+          <header>Cabecera</header>
+          <main>Cuerpo principal</main>
+          <article>Pie del la página</article>
+        </article>
+
+        <p>Erróneamente algunos sitios web poseen la sentencia <mark>margin: 0 auto;</mark> para centrar las cajas,
+          pero en estaríamos sobreescribiendo el margen superior e inferior a 0. Es recomendable aplicar el valor auto a
+          los márgenes izquierdo y derecho sin tocar el superior e inferior.</p>
+      </article>
+    </section>
+
+    <button class="scroll-top-btn hidden">&#11014;</button>
+
+    <hr>
+  </main>
+
+  <section class="pagination">
+    <article class="pagination-item">
+      <a href="/pages/css/prefijos.html">
+        <i class="material-icons">arrow_back</i>Prefijos CSS
+      </a>
+    </article>
+    <article class="pagination-item">
+      <a href="/pages/css/index.html#indice">Tabla de contenido CSS
+        <i class="material-icons">arrow_upward</i>
+      </a>
+    </article>
+    <article class="pagination-item">
+      <a href="/pages/css/posicionamiento.html">Posicionamiento
+        <i class="material-icons">arrow_forward</i>
+      </a>
+    </article>
+  </section>
+  <footer>
+  Copyright © 2022 TiDev. All rights reserved.
+</footer>
+
+  <script src="/js/index_dom.js" type="module"></script>
+  <script src="/js/prism.js"></script>
+</body>
+
+</html>

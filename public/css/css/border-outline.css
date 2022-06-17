@@ -1,0 +1,42 @@
+.box {
+  background-color: black;
+  width: 400px;
+  height: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  border: thick solid red;
+}
+
+.border-radius-1 {
+  /* Apicando 4 valores */
+  border-top-left-radius: 4rem;
+  border-top-right-radius: 4rem;
+  border-bottom-right-radius: 4rem;
+  border-bottom-right-radius: 4rem;
+  /* Aplicando 2 valores */
+  border-radius: 2rem 4rem; /* (sup izq - inf der / sup der - inf izq) */
+  /* Aplicando 3 valores */
+  border-radius: 2rem 4rem 0rem; /* (sup izq / sup der - inf izq / inf der) */
+  /* Aplicando 4 valores */
+  border-radius: 4rem 3rem 2rem 1rem; /* Empieza sup izq y sigue las agujas del reloj */
+  border-radius: 2rem; /* Shorthand */
+}
+
+.border-radius-2 {
+  border-radius: 2rem / 4rem;
+  border-radius: 2rem 4rem 0 / 4rem 8rem 0;
+}
+
+.border-radius-3 {
+  border-radius: 50%;
+}
+
+.outline {
+  outline-width: 5px;
+  outline-style: dotted;
+  outline-color: aquamarine;
+  outline: thick solid yellowgreen;
+  color: white;
+  text-align: center;
+  outline-offset: -2rem;
+}

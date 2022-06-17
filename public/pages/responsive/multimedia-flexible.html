@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="application-name" content="TiDev">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@jourdanmau">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#fb6d43">
+<meta name="msapplication-TitleColor" content="#fb6d43">
+<meta name="msapplication-TitleImage" content="">
+<link rel="apple-touch-icon" href="">
+<!-- <link rel="icon" type="image/png" href=""> -->
+<link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<link rel="author" type="text/plain" href="humans.txt">
+<!-- <link rel="manifest" href="manifest.json"> -->
+<!-- CDN Material+Icons -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  <title>
+  Contenedores flexibles
+</title>
+<meta name="twitter:title" property="og:title" content="Contenedores flexibles">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/menu.css">
+  <link rel="stylesheet" href="/css/prism.css" />
+  <link rel="stylesheet" href="/css/css/responsive-design.css">
+</head>
+
+<body>
+  <header>
+  <nav class="menu-nav">
+    <a href="/index.html" class="enlace">
+      <label class="logo">Aprende</label>
+    </a>
+    <input type="checkbox" id="check">
+    <label for="check" class="checkbtn">
+      <i class="material-icons">menu</i>
+    </label>
+    <ul class="menu">
+      <li>
+        <a href="/index.html" class="active menu-link">Home</a>
+      </li>
+      <li>
+        <a href="/pages/cursos/index.html" class="menu-link">Guias</a>
+      </li>
+      <li>
+        <a href="/pages/html/index.html" class="menu-link">HTML</a>
+      </li>
+      <li>
+        <a href="/pages/css/index.html" class="menu-link">CSS</a>
+      </li>
+      <li>
+        <a href="/pages/js/index.html" class="menu-link">JavaScript</a>
+      </li>
+
+    </ul>
+  </nav>
+</header>
+
+  <main class="container">
+
+    <section id="multimedia-flexible">
+
+      <h1>Multimedia Flexible</h1>
+
+      <p>Los elementos multimedia es todo aquello que no sea texto:</p>
+
+      <ul>
+        <li>img</li>
+        <li>audio</li>
+        <li>video</li>
+        <li>iframe</li>
+        <li>canvas</li>
+        <li>svg</li>
+        <li>picture</li>
+        <li>object</li>
+        <li>embed</li>
+        <li>map</li>
+        <li>area</li>
+      </ul>
+
+      <p>Los contenidos multemedia deben ser flexibles y adaptarse al tamaño de su contendor. Lo logramos con la
+        siguiente regla:</p>
+
+      <pre>
+        <code class="language-css"> 
+          img, audio, video, iframe, canvas, svg, picture {
+            max-width: 100%;
+            height: auto;
+          }
+        </code>
+      </pre>
+
+      <h3 id="responsive-img">Imágenes responsivas</h3>
+
+      <p>Adaptamos la imagen al tamaño del contenedor. Al asignar la propiedad max-width al 100% no desbordadrá en su
+        ancho, y al asignar auto en height logramos que la imagen no se deforme.</p>
+
+      <pre>
+        <code class="language-html">
+          &lt;img src="/assets/images/puesta-sol.jpg" alt="Puesta del sol"&gt;
+        </code>
+      </pre>
+      <pre>
+        <code class="language-css">
+          img {
+            max-width: 100%;
+            height: auto;
+          }
+        </code>
+      </pre>
+
+      <img src="/assets/images/puesta-sol.jpg" alt="Puesta del sol">
+
+      <h4>Etiqueta <i>srcset</i> y <i>sizes</i></h4>
+
+      <p>Estos atributos mejoran el rendimiento de la carga al colocar la misma imágen pero en diferentes tamaños y
+        pesos dependiendo de la resolución de pantalla. En el ejemplo, se aplicaron filtros a los distintos tamaños
+        para identificarlos visualmente, pero tendríamos que utilizar la misma imagen con distintos tamaños.</p>
+
+      <p>No es necesario incrustar imágenes grandes en la página si se está viendo en una pantalla móvil. Y, a la
+        inversa, una imagen pequeña comienza a verse más pixelada cuando se muestra mayor que su tamaño original.</p>
+
+      <p>Algunos dispositivos tienen pantallas de alta resolución que necesitan imágenes más grandes de las que se
+        espera para que luzcan bien.</p>
+
+      <p>Las imágenes vectoriales resolverían estos problemas, y lo hacen hasta cierto punto: son pequeñas en tamaño de
+        archivo y escalan bien, y deberías usarlos siempre que sea posible.</p>
+
+      <p>Utilizando la resolución de pantalla (aspect ratio):</p>
+
+      <pre>
+        <code class="language-html">
+          &lt;img src="/assets/images/html5-3d-600.png"
+          srcset="/assets/images/html5-3d-600.png 1x, /assets/images/html5-3d-900.png 1.5x, /assets/images/html5-3d-1200.png 2x"
+          alt="HTML5"&gt;
+        </code>
+      </pre>
+
+      <img src="/assets/images/html5-3d-600.png"
+        srcset="/assets/images/html5-3d-600.png 1x, /assets/images/html5-3d-900.png 1.5x, /assets/images/html5-3d-1200.png 2x"
+        alt="HTML5">
+
+      <p>Utilizando el ancho de la pantalla:</p>
+
+      <pre>
+        <code class="language-html">
+          &lt;img src="/assets/images/html5-3d-600.png"
+          srcset="/assets/images/html5-3d-600.png 600w, /assets/images/html5-3d-900.png 900w, /assets/images/html5-3d-1200.png 1200w"
+          alt="HTML5"&gt;
+        </code>
+      </pre>
+
+      <img src="/assets/images/html5-3d-600.png"
+        srcset="/assets/images/html5-3d-600.png 600w, /assets/images/html5-3d-900.png 900w, /assets/images/html5-3d-1200.png 1200w"
+        alt="HTML5">
+
+      <p>El atributo size nos permite trabajar con media queries dentro de las imágenes. En el siguiente ejemplo, cuando
+        el tamaño de pantalla sea menor a 480px la imagen se renderizará en 300px, entre 480px y 600px se mostrará en
+        480px, y así sucesivamente </p>
+
+      <pre>
+        <code class="language-html">
+          &lt;img src="/assets/images/html5-3d-600.png"
+          srcset="/assets/images/html5-3d-600.png 600w, /assets/images/html5-3d-900.png 900w, /assets/images/html5-3d-1200.png 1200w"
+          sizes="(max-width:480px) 300px, (max-width:600px) 480px, (max-width:768px) 600px, (max-width:1024px) 900px, (max-width:1200) 1200px"
+          alt="HTML5"&gt;
+        </code>        
+      </pre>
+
+      <img src="/assets/images/html5-3d-600.png"
+        srcset="/assets/images/html5-3d-600.png 600w, /assets/images/html5-3d-900.png 900w, /assets/images/html5-3d-1200.png 1200w"
+        sizes="(max-width:480px) 300px, (max-width:600px) 480px, (max-width:768px) 600px, (max-width:1024px) 900px, (max-width:1200) 1200px"
+        alt="HTML5">
+
+      <p>Mientras el atributo srcset nos permite cambiar la imágen a la misma de menor tamaño (mejora de rendimiento),
+        el atributo sizes nos permite redimencionar un tamaño específico.</p>
+
+      <h4>Etiqueta picture</h4>
+
+      <p>El objetivo de esta etiqueta, no es solo mostrar diferentes tamaños de la misma imagen, sino también mostrar
+        imágenes diferentes. Por ejemplo, recortar una imagen de forma diferente según el tamaño de la pantalla y las
+        diferencias en el diseño. Esto se conoce como "dirección de arte".</p>
+
+      <p>Un ejemplo es el logotipo, en dispositivos pequeños se utiliza una versión minificada del logo, y en desktop se
+        visualiza el logo con el nombre de la empresa.</p>
+
+      <pre>
+        <code class="language-html">
+          &lt;picture&gt;
+            &lt;source srcset="/assets/images/kitten-large.png" media="(min-width:1024px)"&gt;
+            &lt;source srcset="/assets/images/kitten-medium.png" media="(min-width:600px)"&gt;
+            &lt;img src="/assets/images/kitten-small.png" alt="Kitten"&gt;
+          &lt;/picture&gt;
+        </code>
+      </pre>
+
+      <picture>
+        <source srcset="/assets/images/kitten-large.png" media="(min-width:1024px)">
+        <source srcset="/assets/images/kitten-medium.png" media="(min-width:600px)">
+        <img src="/assets/images/kitten-small.png" alt="Kitten">
+      </picture>
+
+      <p>Con la etiqueta picture también podemos aplicar otro tipo de cambios responsivos. Ejemplo: imágenes con formato
+        webp que no son soportadas por algunos navegadores.</p>
+
+      <pre>
+        <code class="language-html">
+          &lt;picture&gt;
+          &lt;source srcset="/assets/images/butterfly.webp" type="image/webp"&gt;
+          &lt;img src="/assets/images/butterfly.jpg" alt="Mariposa"&gt;
+          &lt;/picture&gt;          
+        </code>
+      </pre>
+
+      <picture>
+        <source srcset="/assets/images/butterfly.webp" type="image/webp">
+        <img src="/assets/images/butterfly.jpg" alt="Mariposa">
+      </picture>
+
+      <h3 id="responsive-video">Videos Responsivos</h3>
+
+      <pre>
+        <code class="language-html">
+          &lt;video src="/assets/media/sunset_evening_deck_877.mp4" controls&gt;&lt;/video&gt;
+        </code>
+      </pre>
+
+      <video src="/assets/media/sunset_evening_deck_877.mp4" controls></video>
+
+      <p>El video del ejemplo anterior posee un formato widescreen (16:9), pero si tuviera otro formato podemos hacerlo
+        responsivo a través de una técnica que ya posee cierta antigüedad:</p>
+
+      <pre>
+        <code class="language-html">
+          &lt;div class="responsive-media"&gt;
+            &lt;video src="/assets/media/sunset_evening_deck_877.mp4" controls&gt;&lt;/video&gt;
+          &lt;/div&gt;
+        </code>
+      </pre>
+      <pre>
+        <code class="language-css">
+          .responsive-media {
+            position: relative;
+            width: 100%;
+            height: 0;
+            /*************************
+             Fromato widescreen 16:9
+             16 -> 100%
+             9 -> 56.25%
+            *************************/
+            padding-bottom: 56.25%;
+          }
+          .responsive-media > * {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+          }
+        </code>
+      </pre>
+
+      <div class="responsive-media">
+        <video src="/assets/media/sunset_evening_deck_877.mp4" controls></video>
+      </div>
+
+      <p>Finalmente, podemos obtener el mismo resultado colocando la resolución de pantalla o aspect ratio que deseemos
+        con una nueva técnica en CSS:</p>
+
+      <pre>
+        <code class="language-html">
+          &lt;div class="aspect-ratio-16-9"&gt;
+            &lt;video src="/assets/media/sunset_evening_deck_877.mp4" controls&gt;&lt;/video&gt;
+          &lt;/div&gt;
+        </code>
+      </pre>
+      <pre>
+        <code class="language-css">
+          .aspect-ratio-16-9 {
+            /* aspect-ratio: 4/3; */
+            /* border: thick solid coral; */
+            aspect-ratio: 16/9;
+          }
+        </code>
+      </pre>
+
+      <div class="aspect-ratio-16-9">
+        <video src="/assets/media/sunset_evening_deck_877.mp4" controls></video>
+      </div>
+
+      <h3 id="responsive-iframe">Iframes responsivos</h3>
+
+      <pre>
+        <code class="language-html">
+          &lt;div class="responsive-media"&gt;
+            &lt;iframe width="560" height="315" src="https://www.youtube.com/embed/ymrnENDEmWw" title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen&gt;
+            &lt;/iframe&gt;
+          &lt;/div&gt;
+        </code>
+      </pre>
+
+      <div class="responsive-media">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/ymrnENDEmWw" title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
+      </div>
+
+      <pre>
+        <code class="language-html">
+          &lt;iframe class="aspect-ratio-16-9" width="560" height="315" src="https://www.youtube.com/embed/ymrnENDEmWw"
+            title="YouTube video player" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen&gt;
+          &lt;/iframe&gt;
+        </code>
+      </pre>
+
+      <iframe class="aspect-ratio-16-9" width="560" height="315" src="https://www.youtube.com/embed/ymrnENDEmWw"
+        title="YouTube video player" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+
+      <pre>
+        <code class="language-html">
+          &lt;div class="responsive-media"&gt;
+            &lt;iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26276.306670478272!2d-58.4234457577608!3d-34.59054639139653!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcb588f4af5d17%3A0x560fe6ff3f099abf!2sPlaza%20Serrano!5e0!3m2!1ses-419!2sar!4v1652577734077!5m2!1ses-419!2sar"
+              width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"&gt;&lt;/iframe&gt;
+          &lt;/div&gt;  
+        </code>
+      </pre>
+
+      <div class="responsive-media">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26276.306670478272!2d-58.4234457577608!3d-34.59054639139653!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcb588f4af5d17%3A0x560fe6ff3f099abf!2sPlaza%20Serrano!5e0!3m2!1ses-419!2sar!4v1652577734077!5m2!1ses-419!2sar"
+          width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+
+      <pre>
+        <code class="language-html">
+          &lt;iframe class="aspect-ratio-1-1"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26276.306670478272!2d-58.4234457577608!3d-34.59054639139653!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcb588f4af5d17%3A0x560fe6ff3f099abf!2sPlaza%20Serrano!5e0!3m2!1ses-419!2sar!4v1652577734077!5m2!1ses-419!2sar"
+            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"&gt;
+          &lt;/iframe&gt;
+        </code>
+      </pre>
+
+      <iframe class="aspect-ratio-1-1"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26276.306670478272!2d-58.4234457577608!3d-34.59054639139653!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcb588f4af5d17%3A0x560fe6ff3f099abf!2sPlaza%20Serrano!5e0!3m2!1ses-419!2sar!4v1652577734077!5m2!1ses-419!2sar"
+        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+    </section>
+
+    <hr>
+  </main>
+
+  <section class="pagination">
+    <article class="pagination-item">
+      <a href="/pages/responsive/contenedores-flexibles.html">
+        <i class="material-icons">arrow_back</i>Contenedores flexibles
+      </a>
+    </article>
+    <article class="pagination-item">
+      <a href="/pages/responsive/index.html#indice">Responsive Design
+        <i class="material-icons">arrow_upward</i>
+      </a>
+    </article>
+    <article class="pagination-item">
+      <a href="/pages/responsive/media-queries.html">Media queries
+        <i class="material-icons">arrow_forward</i>
+      </a>
+    </article>
+  </section>
+  <footer>
+  Copyright © 2022 TiDev. All rights reserved.
+</footer>
+  <script src="/js/prism.js"></script>
+</body>
+
+</html>

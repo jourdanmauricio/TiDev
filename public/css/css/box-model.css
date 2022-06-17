@@ -1,0 +1,134 @@
+p.box-model {
+  border-width: 5px;
+  border-style: solid;
+  border-color: green;
+  padding: 10px;
+}
+
+.p-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+/* .p-container pre,
+.p-container p {
+  max-width: 45%;
+  min-width: 350px;
+} */
+
+.width_height p.aplica-wh {
+  width: 400px;
+  height: 200px;
+  border-width: 1px;
+  border-style: solid;
+}
+
+.border p.aplica-border {
+  width: 400px;
+  height: 200px;
+  border-width: thick;
+  border-style: solid;
+  border-color: green;
+  border-bottom-color: red;
+  padding: 10px;
+}
+
+.padding-margin .caja-uno,
+.padding-margin .caja-dos {
+  background-color: chocolate;
+  border: medium solid orange;
+}
+.padding-margin .caja-dos {
+  padding: 20px;
+  margin: 20px;
+}
+
+.block-inline .caja-linea,
+.block-inline .caja-bloque {
+  background-color: darkcyan;
+  color: white;
+  width: 500px;
+  height: 250px;
+  border: medium solid black;
+  padding: 20px;
+}
+
+.block-inline .caja-linea {
+  margin: 48px;
+}
+
+.display .caja-lineabloque,
+.display .caja-bloque {
+  background-color: darkcyan;
+  color: white;
+  width: 500px;
+  height: 250px;
+  border: medium solid black;
+  padding: 20px;
+}
+
+.display .caja-lineabloque {
+  display: inline-block;
+  margin: 48px;
+}
+
+.overflow .p-overflow,
+.overflow .p-hidden,
+.overflow .p-scroll,
+.overflow .p-auto {
+  background-color: darkturquoise;
+  width: 200px;
+  height: 100px;
+  border: thin solid black;
+}
+
+.overflow .p-hidden {
+  overflow: hidden;
+}
+
+.overflow .p-scroll {
+  overflow: scroll;
+}
+
+.overflow .p-auto {
+  overflow: auto;
+}
+
+.box-sizing .content-box,
+.box-sizing .border-box {
+  background-color: deepskyblue;
+  width: 500px;
+  height: 150px;
+  padding: 10px;
+  border: 10px solid black;
+}
+
+.box-sizing .content-box {
+  box-sizing: content-box;
+}
+
+.box-sizing .border-box {
+  box-sizing: border-box;
+}
+
+.margin-collapse {
+  background-color: skyblue;
+}
+
+.margin-collapse section {
+  border: thin solid black;
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+.sitio-web {
+  border: thin solid black;
+  background-color: thistle;
+  width: 600px;
+  height: 500px;
+  padding: 16px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}

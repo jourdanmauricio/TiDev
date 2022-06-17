@@ -1,0 +1,42 @@
+.image-image {
+  max-width: 100%;
+  height: auto;
+}
+
+.card {
+  border: medium solid black;
+  width: 400px;
+  height: 400px;
+}
+
+.card img {
+  height: 300px;
+}
+
+.card2 {
+  border: medium solid black;
+  width: 400px;
+  height: 400px;
+}
+
+.card2 img {
+  height: 300px;
+  background-color: aquamarine;
+  /* la imagen se deforma */
+  object-fit: fill;
+  /* cover no deforma la imagen pero se recorta centrando la imagen */
+  object-fit: cover;
+  /* porque activa la propiedad object-position que por defecto tiene el valor: 50% 50% */
+  /* hacemos que desborde por derecha y abajo, ya que seteamos inicio arriba e izquierda */
+  object-position: left top;
+  /* el valor contain ajusta la imagen y no la deforma, pero no respeta la altura definida en height */
+  object-fit: contain;
+  /* Respetamos las dimensiones de la imagen. Se recorta. */
+  object-fit: none;
+  object-position: -40px 50%;
+  /* Si agregamos object-position: 50% 50%; centramos la imagen */
+  object-position: 50% 50%;
+  /* scale-down toma el menor valor entre none y contain */
+  /* si none es menos que contain toma none; si contain es menor que none toma contain */
+  object-fit: scale-down;
+}

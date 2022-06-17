@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="application-name" content="TiDev">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@jourdanmau">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#fb6d43">
+<meta name="msapplication-TitleColor" content="#fb6d43">
+<meta name="msapplication-TitleImage" content="">
+<link rel="apple-touch-icon" href="">
+<!-- <link rel="icon" type="image/png" href=""> -->
+<link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<link rel="author" type="text/plain" href="humans.txt">
+<!-- <link rel="manifest" href="manifest.json"> -->
+<!-- CDN Material+Icons -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  <title>
+  TiDev HTML head
+</title>
+<meta name="twitter:title" property="og:title" content="TiDev HTML head">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/menu.css">
+  <link rel="stylesheet" href="/css/prism.css" />
+  <link rel="stylesheet" href="/css/html/html.css">
+</head>
+
+<body>
+  <header>
+  <nav class="menu-nav">
+    <a href="/index.html" class="enlace">
+      <label class="logo">Aprende</label>
+    </a>
+    <input type="checkbox" id="check">
+    <label for="check" class="checkbtn">
+      <i class="material-icons">menu</i>
+    </label>
+    <ul class="menu">
+      <li>
+        <a href="/index.html" class="active menu-link">Home</a>
+      </li>
+      <li>
+        <a href="/pages/cursos/index.html" class="menu-link">Guias</a>
+      </li>
+      <li>
+        <a href="/pages/html/index.html" class="active menu-link">HTML</a>
+      </li>
+      <li>
+        <a href="/pages/css/index.html" class="menu-link">CSS</a>
+      </li>
+      <li>
+        <a href="/pages/js/index.html" class="menu-link">JavaScript</a>
+      </li>
+
+    </ul>
+  </nav>
+</header>
+  <main class="container">
+    <h1>Elementos del cuerpo Body</h1>
+    <section>
+      <section id="indice">
+        <h2>Tabla de contenidos</h2>
+        <ol>
+          <li><a href="#elementos-body">Elementos del cuerpo Body</a>
+            <ul>
+              <li><a href="#text-tags">Etiquetas de texto (p, h1, h2, h3, h4, h5, h6)</a></li>
+              <li><a href="#break-tags">Etiquetas de agrupación de contenido (br, hr, pre, ol, ul,
+                  li)</a>
+              </li>
+              <li><a href="#semantic-tags">Etiquetas semánticas estructurales</a></li>
+              <li><a href="#inline-block-tags">Etiquetas de bloque vs etiquetas de línea</a></li>
+            </ul>
+          </li>
+        </ol>
+      </section>
+
+      <hr>
+      <section id="elementos-body">
+        <h2>Elementos del cuerpo Body</h2>
+
+        <p>El cuerpo es la segunda sección de la estructura del documento HTML y se delimita por las etiquetas
+          &lt;BODY&gt;...&lt;/BODY&gt;. Dentro de estas etiquetas se encuentra toda la información que se renderizará en
+          el navegador. Contiene elementos como: encabezados, textos, tablas, imágenes, animaciones, etc; que contienen
+          sus propios atributos.</p>
+
+        <p>El elemento head de un documento HTML es la parte que no se muestra en el navegador cuando se carga la
+          página. La función de la cabecera es contener los metadatos del documento.</p>
+
+        <hr>
+        <article id="text-tags">
+          <h3>Etiquetas de texto (p, h1, h2, h3, h4, h5, h6)</h3>
+
+          <pre><code class="language-html">&lt;p&gt;...&lt;/p&gt;</code></pre>
+          <p>Formatea un texto en forma de párrafo, posee márgenes arriba, abajo y a los lados. No es lo
+            mismo que colocar texto solo en el body. Siempre debemos envolver los textos en alguna etiqueta.</p>
+
+          <hr>
+          <pre><code class="language-html">&lt;h1&gt; &lt;h2&gt; &lt;h3&gt; &lt;h4&gt; &lt;h5&gt; &lt;h6&gt;</code></pre>
+          <p>Definen encabezados que nos permiten titularizar nuestra página</p>
+
+          <pre>
+            <!-- line-numbers language-markup -->
+            <code class="language-html">
+              &lt;h1&gt;Encabezado de nivel 1&lt;/h1&gt;
+              &lt;h2&gt;Encabezado de nivel 2&lt;/h2&gt;
+              &lt;h3&gt;Encabezado de nivel 3&lt;/h3&gt;
+              &lt;h4&gt;Encabezado de nivel 4&lt;/h4&gt;
+              &lt;h5&gt;Encabezado de nivel 5&lt;/h5&gt;
+              &lt;h6&gt;Encabezado de nivel 6&lt;/h6&gt;
+            </code>
+          </pre>
+
+          <h1 class="without-styles">Encabezado de nivel 1</h1>
+          <h2 class="without-styles">Encabezado de nivel 2</h2>
+          <h3 class="without-styles">Encabezado de nivel 3</h3>
+          <h4 class="without-styles">Encabezado de nivel 4</h4>
+          <h5 class="without-styles">Encabezado de nivel 5</h5>
+          <h6 class="without-styles">Encabezado de nivel 6</h6>
+
+          <blockquote>
+            <p>SEO: Solo se debe definir un elemento h1 por página. Los robots de los buscadores buscan un título
+              principal
+              por cada página. Podemos incluir tantos h2, h3, h4, h5 o h6 como deseemos pero debemos respetar el orden.
+              Para definir correctamente la titulación considiremos la redacción de un artículo o de un capítulo de un
+              libro.</p>
+          </blockquote>
+          <hr>
+          <table class="tabla">
+            <caption>Etiquetas comunes</caption>
+            <thead>
+              <th>Etiqueta</th>
+              <th>Sintaxis</th>
+              <th>Acción</th>
+              <th>Resultado</th>
+            </thead>
+            <tbody>
+              <tr>
+                <td>&lt;u&gt;</td>
+                <td>Este es un &lt;u&gt;ejemplo&lt;/u&gt;</td>
+                <td>Subrayado</td>
+                <td>Este es un <u class="without-styles">ejemplo</u></td>
+              </tr>
+              <tr>
+                <td>&lt;i&gt;</td>
+                <td>Este es un &lt;i&gt;ejemplo&lt;/i&gt;</td>
+                <td>Itálica / cursiva</td>
+                <td>Este es un <i>ejemplo</i></td>
+              </tr>
+              <tr>
+                <td>&lt;b&gt;</td>
+                <td>Este es un &lt;b&gt;ejemplo&lt;/b&gt;</td>
+                <td>Negrita</td>
+                <td>Este es un <b>ejemplo</b></td>
+              </tr>
+              <tr>
+                <td>&lt;sup&gt;</td>
+                <td>e = mc&lt;sup&gt;2&lt;/sup&gt;</td>
+                <td>Texto más arriba</td>
+                <td>e = mc<sup>2</sup></td>
+              </tr>
+              <tr>
+                <td>&lt;sub&gt;</td>
+                <td>H&lt;sub&gt;2&lt;/sub&gt;O</td>
+                <td>Texto más abajo</td>
+                <td>H<sub>2</sub>O</td>
+              </tr>
+              <tr>
+                <td>&lt;mark&gt;</td>
+                <td>Este es un &lt;mark&gt;ejemplo&lt;/mark&gt;</td>
+                <td>Texto resaltado</td>
+                <td>Este es un <mark>ejemplo</mark></td>
+              </tr>
+              <tr>
+                <td>&lt;small&gt;</td>
+                <td>Este es un &lt;small&gt;ejemplo&lt;/small&gt;</td>
+                <td>Letras pequeñas</td>
+                <td>Este es un <small>ejemplo</small></td>
+              </tr>
+              <tr>
+                <td>&lt;del&gt;</td>
+                <td>Este es un &lt;del&gt;ejemplo&lt;/del&gt;</td>
+                <td>Texto tachado</td>
+                <td>Este es un <del>ejemplo</del></td>
+              </tr>
+              <tr>
+                <td>&lt;abbr&gt;</td>
+                <td>Este es un ejemplo &lt;abbr&gt; title="Cascading Style Sheets"&gt;CSS&lt;/abbr&gt;</td>
+                <td>Abreviación o acrónimo</td>
+                <td>Este es un ejemplo <abbr title="Cascading Style Sheets">CSS</abbr></td>
+              </tr>
+              <tr>
+                <td>&lt;strong&gt;</td>
+                <td>Este es un &lt;strong&gt;ejemplo&lt;/strong&gt;</td>
+                <td>Texto importante</td>
+                <td>Este es un <strong>ejemplo</strong></td>
+              </tr>
+              <tr>
+                <td>&lt;em&gt;</td>
+                <td>Este es un &lt;em&gt;ejemplo&lt;/em&gt;</td>
+                <td>Texto con énfasis</td>
+                <td>Este es un <em>ejemplo</em></td>
+              </tr>
+              <tr>
+                <td>&lt;blockquote&gt; &lt;cite&gt;</td>
+                <td>&lt;blockquote&gt;Solo se que no se nada&lt;/blockquote&gt;&lt;cite&gt;Socrates&lt;/cite&gt;</td>
+                <td>Cita larga</td>
+                <td>
+                  <blockquote>Solo se que no se nada</blockquote>
+                  <cite>Socrates</cite>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <p>Existen muchas etiquetas, podemos verla en <a href="https://htmlreference.io/" rel="nofollow"
+              target="_blank">htmlreference.io</a></p>
+
+        </article>
+
+        <hr>
+        <article id="break-tags">
+          <h3>Etiquetas de agrupación de contenido (br, hr, pre, ol, ul, li)</h3>
+
+          <pre><code class="language-html">&lt;br&gt;</code></pre>
+          <p>Define un salto de línea dentro de un texto.</p>
+
+          <pre><code class="language-html">Lorem ipsum dolor sit&lt;br&gt;amet, consectetur adipiscing elit.</code></pre>
+          <p>Lorem ipsum dolor sit<br>amet, consectetur adipiscing elit.</p>
+
+          <hr>
+
+          <pre><code class="language-html">&lt;hr&gt;</code></pre>
+          <p>Define una ruptura semántica entre bloques de texto. Se representa como una regla horizontal.</p>
+
+          <pre><code class="language-html">Lorem ipsum dolor sit&lt;hr&gt;amet, consectetur adipiscing elit.</code></pre>
+          <p>Lorem ipsum dolor sit
+            <hr>amet, consectetur adipiscing elit.
+          </p>
+
+          <hr>
+
+          <pre>
+            <code class="language-html">
+              &lt;ol&gt;&lt;li&gt;...&lt;/li&gt;&lt;/ol&gt;
+              &lt;ul&gt;&lt;li&gt;...&lt;/li&gt;&lt;/ul&gt;
+            </code>
+          </pre>
+
+          <p>Lista de tareas: pueden ser ordenadas (order list) o desordenadas (unorder list).</p>
+
+          <pre>
+            <code class="language-html">
+              &lt;ul&gt;
+                &lt;li&gt;Definir secciones de contenido&lt;/li&gt;
+                &lt;li&gt;Establecer orden&lt;/li&gt;
+                &lt;li&gt;Tipo de encabezados&lt;/li&gt;
+                &lt;li&gt;Incluir la referencia en Indice&lt;/li&gt;
+              &lt;/ul&gt;
+            </code>
+          </pre>
+
+          <ul>
+            <li>Definir secciones de contenido</li>
+            <li>Establecer orden</li>
+            <li>Tipo de encabezados</li>
+            <li>Incluir la referencia en Indice</li>
+          </ul>
+
+          <hr>
+
+          <pre><code class="language-html">&lt;pre&gt;&lt;/pre&gt;</code></pre>
+          <p>Define texto preformateado.</p>
+
+          <hr>
+
+          <pre><code class="language-html">&lt;code&gt;&lt;/code&gt;</code></pre>
+          <p>Define un fragmento de código dentro de un bloque de texto.</p>
+
+          <pre><code class="language-html">&lt;code&gt;Este es un bloque de código en etiqueta code&lt;/code&gt;</code></pre>
+          <code>Este es un bloque de código en etiqueta code</code>
+        </article>
+
+        <hr>
+        <article id="semantic-tags">
+          <h3>Etiquetas semánticas estructurales</h3>
+
+          <p>Una de las ventajas de HTML5 son las etiquetas semánticos, que nos permiten definir las distintas
+            divisiones
+            de una página web.</p>
+
+          <p>En las versiones anteriores se utilizaba la etiqueta &lt;div&gt; para realizar las divisiones de las
+            distintas secciones de una página web, pero se recomienda utilizar los elementos semánticos ya que describen
+            su propósito. Siempre que podamos debemos intentar utilizar las etiquetas smanicas en lugar de DIV.
+          </p>
+
+          <figure>
+            <img class="image" src="/assets/images/estructura-semantica-html5.jpg"
+              alt="Etiquetas semánticas estructurales">
+            <figcaption>Etiquetas semánticas estructurales</figcaption>
+          </figure>
+
+          <pre><code class="language-html">&lt;header&gt;</code></pre>
+          <p>Define el encabezado de una página web o sección.</p>
+
+          <hr>
+
+          <pre><code class="language-html">&lt;nav&gt;</code></pre>
+          <p>Define una sección con enlaces de navegación.</p>
+
+          <hr>
+
+          <pre><code class="language-html">
+  &lt;header&gt;
+  &lt;h1&gt;HTML Reference&lt;/h1&gt;
+  &lt;nav&gt;
+      &lt;a&gt;Home&lt;/a&gt;
+      &lt;a&gt;About&lt;/a&gt;
+      &lt;a&gt;Contact&lt;/a&gt;
+    &lt;/nav&gt;
+  &lt;/header&gt;
+  </code></pre>
+
+          <hr>
+
+          <pre><code class="language-html">&lt;section&gt;</code></pre>
+          <p>Define una sección dentro de una página web.</p>
+
+          <pre><code class="language-html">
+  &lt;section&gt;
+    &lt;h2&gt;Section title&lt;/h2&gt;
+    &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec viverra nec nulla vitae mollis.&lt;/p&gt;
+  &lt;/section&gt;
+  </code></pre>
+
+          <hr>
+
+          <pre><code class="language-html">&lt;aside&gt;</code></pre>
+          <p>Define un bloque de contenido relacionado con el contenido principal. Generalmente se muestra como una
+            barra
+            lateral.</p>
+
+          <hr>
+
+          <pre><code class="language-html">&lt;footer&gt;</code></pre>
+          <p>Define el pie de página de una página web o sección.</p>
+        </article>
+
+        <hr>
+
+        <article id="inline-block-tags">
+          <h3>Etiquetas de bloque vs etiquetas de línea</h3>
+
+          <p>En Html existen eqtiquetas que de acuerdo a su comportamiento son de bloque o de línea. La etiqueta de
+            bloque
+            más respresentativa es la etiqueta DIV y la etiqueta de línea mas utilizada es la etiqueta SPAN. </p>
+
+          <pre><code class="language-html">&lt;div&gt;</code></pre>
+          <p>Define un <mark>bloque genérico de contenido</mark>, que no tiene ningún valor semántico. Se utiliza para
+            elementos de diseño como contenedores.</p>
+
+          <hr>
+
+          <pre><code class="language-html">&lt;span&gt;</code></pre>
+          <p>Define un <mark>genérico de contenido en línea</mark>, que no tiene ningún valor semántico.</p>
+
+          <hr>
+
+          <p>Una etiqueta de bloque genera un salto de línea con sus etiquetas hermanas, tanto arriba como abajo. Es
+            decir, ocupa todo el ancho disponible.</p>
+
+          <pre><code class="language-html">&lt;div style="background-color:pink;"&gt; 
+    Este es un bloque DIV. Pintamos el fondo de amarillo para que se vea su magnitud real. Vemos como ocupa el 100% del ancho aunque no lo necesite. 
+  &lt;/div&gt;
+  </code></pre>
+
+          <div style="background-color:pink;">
+            Este es un bloque DIV. Pintamos el fondo de amarillo para que se vea su magnitud real. Vemos como ocupa el
+            100% del ancho aunque no lo necesite.
+          </div>
+
+          <pre><code class="language-html">&lt;span style="background-color:cyan;"&gt;
+    Este es un bloque SPAN. Pintamos el fondo de amarillo para que se vea su magnitud real. Vemos que solo ocupa su contenido.
+  &lt;/span&gt;
+  &lt;span&gt;
+    Soy otro span y comparto línea.
+  &lt;/span&gt;</code></pre>
+
+          <span style="background-color:cyan;">
+            Este es un bloque SPAN. Pintamos el fondo de amarillo para que se vea su magnitud real. Vemos que solo ocupa
+            su contenido.
+          </span>
+          <span>
+            Soy otro span y comparto línea.
+          </span>
+
+          <p><mark>Son etiquetas de bloque</mark>: los encabezados, los párrafos, div, header, main, footer, etc. Son
+            etiquetas de línea: em, etrong, i, mark, b, blockout, las que aplican a texto, a, etc</p>
+        </article>
+      </section>
+    </section>
+    <hr>
+  </main>
+
+  <section class="pagination">
+    <article class="pagination-item">
+      <a href="/pages/html/elementos-cabecera.html">
+        <i class="material-icons">arrow_back</i>Elementos de la cabecera HEAD</a>
+    </article>
+    <article class="pagination-item">
+      <a href="/pages/html/index.html#indice">Tabla de contenido HTML
+        <i class="material-icons">arrow_upward</i>
+      </a>
+    </article>
+    <article class="pagination-item">
+      <a href="/pages/html/tec-style-js.html">Relacionando otras tecnologías
+        <i class="material-icons">arrow_forward</i>
+      </a>
+    </article>
+  </section>
+  <footer>
+  Copyright © 2022 TiDev. All rights reserved.
+</footer>
+  <script src="/js/prism.js"></script>
+</body>
+
+</html>

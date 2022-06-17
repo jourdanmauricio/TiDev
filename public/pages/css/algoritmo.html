@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="application-name" content="TiDev">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@jourdanmau">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#fb6d43">
+<meta name="msapplication-TitleColor" content="#fb6d43">
+<meta name="msapplication-TitleImage" content="">
+<link rel="apple-touch-icon" href="">
+<!-- <link rel="icon" type="image/png" href=""> -->
+<link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<link rel="author" type="text/plain" href="humans.txt">
+<!-- <link rel="manifest" href="manifest.json"> -->
+<!-- CDN Material+Icons -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  <title>
+  Algoritmo CSS
+</title>
+<meta name="twitter:title" property="og:title" content="Algoritmo CSS">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/menu.css">
+  <link rel="stylesheet" href="/css/prism.css" />
+  <link rel="stylesheet" href="/css/html/html.css">
+</head>
+
+<body>
+  <header>
+  <nav class="menu-nav">
+    <a href="/index.html" class="enlace">
+      <label class="logo">Aprende</label>
+    </a>
+    <input type="checkbox" id="check">
+    <label for="check" class="checkbtn">
+      <i class="material-icons">menu</i>
+    </label>
+    <ul class="menu">
+      <li>
+        <a href="/index.html" class="active menu-link">Home</a>
+      </li>
+      <li>
+        <a href="/pages/cursos/index.html" class="menu-link">Guias</a>
+      </li>
+      <li>
+        <a href="/pages/html/index.html" class="menu-link">HTML</a>
+      </li>
+      <li>
+        <a href="/pages/css/index.html" class="active menu-link">CSS</a>
+      </li>
+      <li>
+        <a href="/pages/js/index.html" class="menu-link">JavaScript</a>
+      </li>
+
+    </ul>
+  </nav>
+</header>
+
+  <main class="container">
+
+    <section id="algoritmo">
+      <h1>El Algoritmo de CSS</h1>
+      <p><mark>El algoritmo de CSS</mark>: es la forma en que el navegador aplica los estilos la documeto HTML. Podemos
+        dividir el tema en tres</p>
+      <ul>
+        <li>La cascada</li>
+        <li>La especificidad</li>
+        <li>La herencia</li>
+      </ul>
+
+      <hr>
+      <article id="algoritmo-cascada">
+        <h2>La cascada</h2>
+
+        <p>Mecanismo que tiene el navegador para aplicar los estilos. Considera tres aspectos.</p>
+        <ol>
+          <li>Origen del código.</li>
+          <ul class="list">
+            <li>User-agent. Son los estilos que por defecto aplica el navegador a las etiquetas. Si
+              observamos el
+              inpector de elementos vemos estilos que no definimos pero que el navegador carga "por defecto". Para abrir
+              el inspector de elementos podemos presionar la tecla F12 o con el botón derecho del mouse seleccionar
+              Inspeccionar.
+              <figure>
+                <img class="image" src="/assets/images/css-cascada_1.png"
+                  alt="Inspector de elementos mostrando los estilos definidos por user-agent">
+                <figcaption>Inspector de elementos - Estilos user-agent</figcaption>
+              </figure>
+
+              Como vemos en la imagen el navegador aplicó estilos al encabezado h3 y a la derecha nos indica "Hoja de
+              estilo del usuario-agente"
+            </li>
+            <li>Configuración del usuario sobre el navegador o sistema operativo. El usuario puede
+              configurar que el
+              navegador muestre los textos un 25% más grande. Entonces despúes de los estilos del user-agent, el
+              navegador aplica las configuraciones particulares del usuario</li>
+            <li>Código CSS - Estilos del autor. Finalmente el navegador aplica el código CSS relacionado al
+              documento
+              HTML.</li>
+          </ul>
+          <li>La especificidad del selector. En el siguiente capítulo veremos la especificidad en profundidad</li>
+          <li>Orden de aparición</li>
+        </ol>
+        <p>Para especificar el orden en que el navegador aplica los estilos podemos ver un ejemplo de un documento que
+          solo posee un elemento encabezado de tipo h1 dentro de su body. Consideraciones sobre los estilos:</p>
+        <ul>
+          <li>El h1 posee un estilo en línea asignando el colo de texto a violet</li>
+          <li>El documento posee estilos integrados en el head indicando que el color del h1 debe ser orange</li>
+          <li>El documento incorpora estilos desde una hoja de estilos donde se indica que el color del h1 debe ser
+            skyblue</li>
+        </ul>
+
+        <img class="image" src="/assets/images/css_cascada_2.png" alt="Documento html">
+        <img class="image" src="/assets/images/css_cascada_3.png" alt="Documento css">
+
+        <p><mark>¿De qué color será el h1?</mark>Veamos la respuesta en la solopa estilos del inspector de elementos.
+        </p>
+
+        <img class="image" src="/assets/images/css_cascada_4.png" alt="Documento css">
+
+        <p><b>El color será violet</b> porque como vemos (comenzando desde abajo) en la solapa estilos del inspector de
+          elementos, el navegador carga sus estilos (usuario-agente. En este caso no asigna color al h1), luego aplica
+          los estilos de la hoja de estilos externa, llamada styles2.css, donde se indica que el color debe ser skyblue.
+          El inspector nos indica que la sentencia proviene de la línea 1 del archivo llamado styles2.css.</p>
+        <p>Al leer en head de nuestro documeto HTML aplica el color orange. En el inspector vemos que tacha el color
+          anterior (skybkue) y genera una nueva sección donde nos indica que la sentencia corresponde a la línea 11 del
+          archivo index2.html. </p>
+        <p>Finalmente, al pintar el elemento h1 aplica el color violeta. En el inspector tacha el color anterior
+          (orange) y genera una nueva sección llamada element.style (estilos en línea) con el color violet. </p>
+        <p><u>Conclusión</u>: el navegador aplicó los estilos en el siguietne orden:</p>
+        <ol>
+          <li>Estilos del navegador: user-agent</li>
+          <li>Estilos externos vinculados a través de la etiqueta link</li>
+          <li>Estilos internos definidos en la etiqueta head de nuestro documento</li>
+          <li>Estilos en línea definidos dentro de la etiqueta</li>
+        </ol>
+        <p>También podemos ver un resumen en la solapa calculados del inspector.</p>
+        <img class="image" src="/assets/images/css_cascada_5.png" alt="Documento css">
+
+      </article>
+
+      <hr>
+
+      <article id="algoritmo-especifidad">
+        <h2>La especificidad</h2>
+
+        <p>La especificidad es el peso que tiene un selector cuando ocurren conflictos de estilos. El navegador asigna
+          mayor importancia a la especifidad que a la cascada. Cada selector posee un puntaje (peso específico) y el
+          navegador aplicará el que mayor peso tenga sobreescribiendo los estilos anteriores. </p>
+        <p>Suponiendo que tenemos dos definiciones de estilo para un elemento h1. Primero utilizando el id y luego
+          utilizando una clase. Lógicamente pensaremos que se aplicará el estilo de la clase porque es el último que
+          encontró en navegador, pero como el peso de los identificadores es mayor al peso de las clases se aplicará el
+          estilo definido a través del id dejando sin efecto la regla de la cascada.</p>
+        <p>El navegador calcula los pesos utilizando la siguiente tabla.</p>
+        <table class="tabla">
+          <thead>
+            <caption>Peso de los selectores</caption>
+            <th>Selector</th>
+            <th>Valor</th>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Etiquetas y pseudoelementos</td>
+              <td>0,0,0,1</td>
+            </tr>
+            <tr>
+              <td>Clases, atributos y pseudoclases</td>
+              <td>0,0,1,0</td>
+            </tr>
+            <tr>
+              <td>Identificadores</td>
+              <td>0,1,0,0</td>
+            </tr>
+            <tr>
+              <td>Estilos en línea</td>
+              <td>1,0,0,0</td>
+            </tr>
+            <tr>
+              <td>!Important</td>
+              <td>Rompe la especificidad</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p>Si el estilo se aplica a través de una etiqueta y una clase se sumarán los valores.</p>
+        <pre>
+          <code class="language-css">
+            /* caso 1 */
+            .container h1 {
+              color: red;
+            }
+            /* caso 2 */
+            .form-agrupar input[type="email"] {
+              color: orange;
+            }
+          </code>
+        </pre>
+
+        <p>En el primer caso del ejemplo anterior encontramos el selector de clase (.container) y el de etiqueta (h1).
+          El peso
+          resultante de la regla es:</p>
+        <p></p><b>0,0,1,0 (clase) + 0,0,0,1 (etiqueta) = 0,0,1,1</b></p>
+
+        <p>En el segundo caso encontramos el selector de clase (.form-agrupar), el de etiqueta (input) y el de atributo
+          ([type="email"]). El peso resultante de la regla es:</p>
+        <p></p><b>0,0,1,0 (clase) + 0,0,0,1 (etiqueta) + 0,0,1,0 (atributo) = 0,0,2,1</b></p>
+
+        <p><u>Recomendaciones</u>:</p>
+        <ul>
+          <li>Evitar la utilización de identificadores para aplicar estilos: si asignamos estilos a través de
+            identificadores no podremos retulizar el código css porque cada identificador es único. Y por otro lado, el
+            peso de los identificadores es superior al de las clases por lo que ante situaciones de conflicto no
+            podremos desempatar por medio de clases.</li>
+          <li>Evitar el uso de !important: agregando la palabra !important a la declaración de la regla rompemos la
+            especificidad y asignamos la mayor prioridad posible. Pero es una mala práctica porque ya no podremos
+            sobreescribir el estilo. En ocasiones definimos un estilo y no se aplica, y en lugar de analizar en
+            profundidad la espeficidad para analizar dónde debemos realizar el cambio, colocamos !important. Es más
+            fácil pero es una mala práctica. </li>
+          <li>Maquetar mediante clases y evitar utilizar más de dos niveles.</li>
+        </ul>
+      </article>
+
+      <hr>
+
+      <article id="algoritmo-herencia">
+        <h2>La herencia</h2>
+
+        <p>Es la capacidad de un selector de obtener (heredar) los valores de sus ancestros. Para aplicarla se utiliza
+          el valor inherit y para evitarla podemos asignar otro valor (sobreescribiendo) o colocando el valor initial
+          (que establece el valor por defecto).</p>
+
+        <p>Hay propiedades que no se heredan. Ejemplo: los bordes, el color de fondo, etc. Las propiedades que si se
+          heredan son
+          las relacionadas a la tipografía, el tamaño, la familia, etc.</p>
+
+        <p>Como mencionamos, la propiedad background-color no es heredable. En el siguiente ejemplo veremos como heredar
+          la propiedad. La propiedad font-size si se hereda, y veremos como al asignarla al elemento padre (div) el
+          elemento hijo (span) la hereda. No es necesario utilizar el valor inherit ya que se hereda por defecto.</p>
+
+
+        <pre>
+          <code class="language-html">
+            &lt;div class="herencia-container"&gt;
+              Texto en elemento div. &lt;span&gt;Ayer deseo, hoy realidad&lt;/span&gt;
+            &lt;/div&gt;
+          </code>
+        </pre>
+        <pre>
+          <code class="language-css">
+            .herencia-container {
+              background-color: greenyellow;
+              font-size: 25px;
+            }
+            .herencia-container span {
+              background-color: pink;
+            }
+          </code>
+        </pre>
+
+        <div class="herencia-container">
+          Texto en elemento div. <span>Ayer deseo, hoy realidad</span>
+        </div>
+
+        <p>Si queremos evitar la herencia de la propiedad font-size podemos asignar un nuevo valor o establacer el valor
+          initial, que por defecto es de 16px.</p>
+
+        <pre>
+          <code class="language-html">
+            &lt;div class="herencia-container"&gt;
+              Texto en elemento div. &lt;span&gt;Ayer deseo, hoy realidad&lt;/span&gt;
+            &lt;/div&gt;
+          </code>
+        </pre>
+        <pre>
+          <code class="language-css">
+            .herencia-container {
+              background-color: greenyellow;
+              font-size: 25px;
+            }
+            .herencia-container span {
+              background-color: inherit;
+              /* font-size: 10px; */
+              font-size: initial;
+            }
+          </code>
+        </pre>
+
+        <div class="herencia-container">
+          Texto en elemento div. <span style="background-color: inherit; font-size: initial;">Ayer deseo, hoy
+            realidad</span>
+        </div>
+
+        <p>Para saber qué propiedades son heredables podemos consultar <a
+            href="https://web.dev/learn/css/inheritance/#which-properties-are-inheritable" rel="nofollow"
+            target="_blank"> propiedades heredables</a></p>
+      </article>
+    </section>
+
+    <hr>
+  </main>
+
+  <section class="pagination">
+    <article class="pagination-item">
+      <a href="/pages/css/selectores.html">
+        <i class="material-icons">arrow_back</i>Selectores
+      </a>
+    </article>
+    <article class="pagination-item">
+      <a href="/pages/css/index.html#indice">Tabla de contenido CSS
+        <i class="material-icons">arrow_upward</i>
+      </a>
+    </article>
+    <article class="pagination-item">
+      <a href="/pages/css/reset-styles.html">Reseteo y normalización
+        <i class="material-icons">arrow_forward</i>
+      </a>
+    </article>
+  </section>
+  <footer>
+  Copyright © 2022 TiDev. All rights reserved.
+</footer>
+  <script src="/js/prism.js"></script>
+</body>
+
+</html>

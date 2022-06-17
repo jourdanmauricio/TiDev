@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="application-name" content="TiDev">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@jourdanmau">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#fb6d43">
+<meta name="msapplication-TitleColor" content="#fb6d43">
+<meta name="msapplication-TitleImage" content="">
+<link rel="apple-touch-icon" href="">
+<!-- <link rel="icon" type="image/png" href=""> -->
+<link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<link rel="author" type="text/plain" href="humans.txt">
+<!-- <link rel="manifest" href="manifest.json"> -->
+<!-- CDN Material+Icons -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  <title>
+  TiDev Audio y video
+</title>
+<meta name="twitter:title" property="og:title" content="TiDev Audio y video">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/menu.css">
+  <link rel="stylesheet" href="/css/prism.css" />
+  <link rel="stylesheet" href="/css/html/html.css">
+</head>
+
+<body>
+  <header>
+  <nav class="menu-nav">
+    <a href="/index.html" class="enlace">
+      <label class="logo">Aprende</label>
+    </a>
+    <input type="checkbox" id="check">
+    <label for="check" class="checkbtn">
+      <i class="material-icons">menu</i>
+    </label>
+    <ul class="menu">
+      <li>
+        <a href="/index.html" class="active menu-link">Home</a>
+      </li>
+      <li>
+        <a href="/pages/cursos/index.html" class="menu-link">Guias</a>
+      </li>
+      <li>
+        <a href="/pages/html/index.html" class="active menu-link">HTML</a>
+      </li>
+      <li>
+        <a href="/pages/css/index.html" class="menu-link">CSS</a>
+      </li>
+      <li>
+        <a href="/pages/js/index.html" class="menu-link">JavaScript</a>
+      </li>
+
+    </ul>
+  </nav>
+</header>
+
+  <main class="container">
+
+    <section id="audio-video">
+
+      <h1>Audio y Video</h1>
+
+      <p>Desde la llegada de Html5 tenemos soporte a audio y video. Los formatos más utilizados son mp3 y mp4 pero se
+        podría utilizar ogg, webm, etc. Existe un atributo llamado autoplay (no recomendado por experiencia de usuario).
+        El atributo loop repite la reproducción. El atributo mute mutea el sonido. Y el atributo preload comienza a
+        precargar en caché el audio, entonces al momento que el usuario ejecute el play comience la reproducción, este
+        atributo es recomendado.</p>
+
+      <pre>
+        <code class="language-html">
+          &lt;audio src="/media/Uncle Waffles and Tony Duardo - Tanzania.mp3" controls preload&gt;&lt;/audio&gt;
+        </code>
+      </pre>
+
+      <audio src="/media/Uncle Waffles and Tony Duardo - Tanzania.mp3" controls preload></audio>
+
+      <p>La etiqueta video posee las mismas características que audio: loop, autoplay, preload, controls. Adicionalmente
+        tiene el atributo poster para configurar una miniatura</p>
+
+      <pre>
+        <code class="language-html">
+          &lt;video width="400" src="/media/Uncle Waffles and Tony Duardo - Tanzania.mp3" controls preload&gt;&lt;/audio&gt;
+        </code>
+      </pre>
+
+      <video class="redu" src="/media/sunset_evening_deck_877.mp4" poster="/assets/images/fondo.jpg" controls
+        preload></video>
+    </section>
+
+    <hr>
+  </main>
+
+  <section class="pagination">
+    <article class="pagination-item">
+      <a href="/pages/html/elementos-interactivos.html">
+        <i class="material-icons">arrow_back</i>Elementos interactivos
+      </a>
+    </article>
+    <article class="pagination-item">
+      <a href="/pages/html/index.html#indice">Tabla de contenido HTML
+        <i class="material-icons">arrow_upward</i>
+      </a>
+    </article>
+    <article class="pagination-item">
+      <a href="/pages/html/iframes.html">Iframes
+        <i class="material-icons">arrow_forward</i>
+      </a>
+    </article>
+  </section>
+  <footer>
+  Copyright © 2022 TiDev. All rights reserved.
+</footer>
+  <script src="/js/prism.js"></script>
+</body>
+
+</html>

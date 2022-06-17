@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="application-name" content="TiDev">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@jourdanmau">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#fb6d43">
+<meta name="msapplication-TitleColor" content="#fb6d43">
+<meta name="msapplication-TitleImage" content="">
+<link rel="apple-touch-icon" href="">
+<!-- <link rel="icon" type="image/png" href=""> -->
+<link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<link rel="author" type="text/plain" href="humans.txt">
+<!-- <link rel="manifest" href="manifest.json"> -->
+<!-- CDN Material+Icons -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  <title>
+  TiDev HTML tablas
+</title>
+<meta name="twitter:title" property="og:title" content="TiDev HTML tablas">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/menu.css">
+  <link rel="stylesheet" href="/css/prism.css" />
+  <link rel="stylesheet" href="/css/html/html.css">
+</head>
+
+<body>
+  <header>
+  <nav class="menu-nav">
+    <a href="/index.html" class="enlace">
+      <label class="logo">Aprende</label>
+    </a>
+    <input type="checkbox" id="check">
+    <label for="check" class="checkbtn">
+      <i class="material-icons">menu</i>
+    </label>
+    <ul class="menu">
+      <li>
+        <a href="/index.html" class="active menu-link">Home</a>
+      </li>
+      <li>
+        <a href="/pages/cursos/index.html" class="menu-link">Guias</a>
+      </li>
+      <li>
+        <a href="/pages/html/index.html" class="active menu-link">HTML</a>
+      </li>
+      <li>
+        <a href="/pages/css/index.html" class="menu-link">CSS</a>
+      </li>
+      <li>
+        <a href="/pages/js/index.html" class="menu-link">JavaScript</a>
+      </li>
+
+    </ul>
+  </nav>
+</header>
+
+  <main class="container">
+
+    <section id="enlaces-html">
+      <h1>Enlaces</h1>
+
+      <article id="enlaces-externos">
+
+        <h2>Enlaces a otro documento de nuestra web y externos</h2>
+
+        <p>Son elementos (textos, imágenes) que nos permiten navegar a otras rutas. Nos dá interactividad entre los
+          distintos documentos html que tiene nuestra web. Se representan a través de la etiqueta a (anchor). El
+          atributo href es el que determina ir a otro documento o a una sección del propio documento (enlace relativo).
+        </p>
+        <pre>
+          <code class="language-html">
+            &lt;a href="./about.html"&gt;Sobre nosotros&lt;/a&gt;
+          </code>
+        </pre>
+
+        <p>Este enlace nos llevará a una página de nuestra web llamada about.html, pero si relaizamos un enlace a un
+          sitio externo tendremos que considerar dos atributos.</p>
+
+        <ul>
+          <li>target: utilizando el valor "_blank" le indicamos al navegador que la página se renderice en otra pestaña.
+            Nuestro sitio no se cerrará.</li>
+          <li>rel: a través de este atributo le indicamos a las arañas de los buscadores que no persigan el enlace ya
+            que no pertenece a nuestro sitio. </li>
+        </ul>
+
+        <pre>
+          <code class="language-html">
+            &lt;a href="https://google.com" target="_blank" rel="nofollow"&gt;Google&lt;/a&gt;
+          </code>
+        </pre>
+      </article>
+
+      <hr>
+
+      <article id="enlaces-internos">
+        <h2>Enlaces internos</h2>
+        <p>Podemos generar enlaces dentro del mismo documento utilizando el atributo id. Veamos un ejemplo:</p>
+
+        <pre>
+          <code class="language-html">
+            &lt;!-- index.html --&gt;        
+            &lt;!DOCTYPE html&gt;
+            &lt;html lang="en"&gt;
+            &lt;head&gt;
+              &lt;meta charset="UTF-8"&gt;
+              &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+              &lt;title&gt;Enlaces internos&lt;/title&gt;
+            &lt;/head&gt;
+
+            &lt;body&gt;
+              &lt;h2 id="indice"&gt;Indice&lt;/h2&gt;
+              &lt;a href="index.html#tema_1"&gt;Tema 1&lt;/a&gt; 
+              &lt;a href="index.html#tema_2"&gt;Tema 2&lt;/a&gt; 
+              &lt;a href="index.html#tema_3"&gt;Tema 3&lt;/a&gt; 
+              ...
+              &lt;h3 id="tema_1"&gt;Tema 1&lt;/h3&gt;
+              ...
+              &lt;h3 id="tema_2"&gt;Tema 2&lt;/h3&gt;
+              ...
+              &lt;h3 id="tema_3"&gt;Tema 3&lt;/h3&gt;
+              ...
+              &lt;a href="index.html#indice"&gt;Volver al índice 👆&lt;/a&gt; 
+            &lt;/body&gt;
+            &lt;/html&gt;
+          </code>
+        </pre>
+
+        <p>El desplazamiento tiene un efecto brusco. Para evitarlo podemos agregar una regla css para suavizarlo.</p>
+
+        <pre>
+          <code class="language-css">
+            html {
+              scroll-behavior: smooth;
+            }
+          </code>
+        </pre>
+      </article>
+
+      <hr>
+
+      <article id="enlaces-protocolos">
+
+        <h2>Enlaces y Protocolos especiales</h2>
+
+        <p>Los enlaces también nos permiten interactuar con otros protocolos. Por ejemplo podemos definir un enlace para
+          que abra la aplicación que se encuentra configurada en el dispositivo para enviar mails o para realizar una
+          llamada telefónica. Ejemplo: </p>
+
+        <pre>
+          <code class="language-html">
+            &lt;a href="mailto:jourdanmauricio@gmail.com"&gt;Enviar email&lt;/a&gt;
+            &lt;br&gt;
+            &lt;a href="tel:541145232145">Teléfono&lt;/a&gt;
+          </code>
+        </pre>
+
+        <a href="mailto:jourdanmauricio@gmail.com">Enviar email</a>
+        <br>
+        <a href="tel:541145232145">Teléfono</a>
+
+        <p>El dispositivo del usuario tiene que tener una aplicación configurada para mails, llamadas, etc. También las
+          aplicaciones como Facebook, Whatsapp poseen sus propios protocolos. Ejemplo:</p>
+
+        <a href="https://api.whatsapp.com/send?phone=541158046525&Hola" target="_blank">Whatsapp</a>
+      </article>
+    </section>
+
+    <hr>
+  </main>
+
+  <section class="pagination">
+    <article class="pagination-item">
+      <a href="/pages/html/tables.html">
+        <i class="material-icons">arrow_back</i>Tablas
+      </a>
+    </article>
+    <article class="pagination-item">
+      <a href="/pages/html/index.html#indice">Tabla de contenido HTML
+        <i class="material-icons">arrow_upward</i>
+      </a>
+    </article>
+    <article class="pagination-item">
+      <a href="/pages/html/elementos-interactivos.html">Elementos interactivos
+        <i class="material-icons">arrow_forward</i>
+      </a>
+    </article>
+  </section>
+  <footer>
+  Copyright © 2022 TiDev. All rights reserved.
+</footer>
+  <script src="/js/prism.js"></script>
+</body>
+
+</html>

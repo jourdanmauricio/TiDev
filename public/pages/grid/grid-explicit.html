@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="application-name" content="TiDev">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@jourdanmau">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#fb6d43">
+<meta name="msapplication-TitleColor" content="#fb6d43">
+<meta name="msapplication-TitleImage" content="">
+<link rel="apple-touch-icon" href="">
+<!-- <link rel="icon" type="image/png" href=""> -->
+<link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<link rel="author" type="text/plain" href="humans.txt">
+<!-- <link rel="manifest" href="manifest.json"> -->
+<!-- CDN Material+Icons -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  <title>
+  Grid explícita
+</title>
+<meta name="twitter:title" property="og:title" content="Grid explícita">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/menu.css">
+  <link rel="stylesheet" href="/css/prism.css" />
+  <link rel="stylesheet" href="/css/css/grid-css.css">
+</head>
+
+<body>
+  <header>
+  <nav class="menu-nav">
+    <a href="/index.html" class="enlace">
+      <label class="logo">Aprende</label>
+    </a>
+    <input type="checkbox" id="check">
+    <label for="check" class="checkbtn">
+      <i class="material-icons">menu</i>
+    </label>
+    <ul class="menu">
+      <li>
+        <a href="/index.html" class="active menu-link">Home</a>
+      </li>
+      <li>
+        <a href="/pages/cursos/index.html" class="menu-link">Guias</a>
+      </li>
+      <li>
+        <a href="/pages/html/index.html" class="menu-link">HTML</a>
+      </li>
+      <li>
+        <a href="/pages/css/index.html" class="menu-link">CSS</a>
+      </li>
+      <li>
+        <a href="/pages/js/index.html" class="menu-link">JavaScript</a>
+      </li>
+
+    </ul>
+  </nav>
+</header>
+
+  <main class="container">
+
+    <section id="grid-explicit">
+
+      <h1>Grid Explícita</h1>
+
+      <p>Indicamos explícitamente las filas y columnas de la grilla. Aunque inicialmente definamos una determinada
+        cantidad de filas, si se incorporan más elementos en la grilla se posicionarán creando nuevas filas.</p>
+      <pre>
+        <code class="language-html">
+          &lt;section class="container-grid grid-explicit"&gt;
+            &lt;article class="item"&gt;
+              &lt;p&gt;Grid Item 1&lt;/p&gt;
+            &lt;/article&gt;
+            &lt;article class="item"&gt;
+              &lt;p&gt;Grid Item 2&lt;/p&gt;
+            &lt;/article&gt;
+            &lt;article class="item"&gt;
+              &lt;p&gt;Grid Item 3&lt;/p&gt;
+            &lt;/article&gt;
+            &lt;article class="item"&gt;
+              &lt;p&gt;Grid Item 4&lt;/p&gt;
+            &lt;/article&gt;
+            &lt;article class="item"&gt;
+              &lt;p&gt;Grid Item 5&lt;/p&gt;
+            &lt;/article&gt;
+            &lt;article class="item"&gt;
+              &lt;p&gt;Grid Item 6&lt;/p&gt;
+            &lt;/article&gt;
+            &lt;article class="item"&gt;
+              &lt;p&gt;Grid Item 7&lt;/p&gt;
+            &lt;/article&gt;
+            &lt;article class="item"&gt;
+              &lt;p&gt;Grid Item 8&lt;/p&gt;
+            &lt;/article&gt;
+            &lt;article class="item"&gt;
+              &lt;p&gt;Grid Item 9&lt;/p&gt;
+            &lt;/article&gt;
+            &lt;article class="item"&gt;
+              &lt;p&gt;Grid Item 10&lt;/p&gt;
+            &lt;/article&gt;
+            &lt;article class="item"&gt;
+              &lt;p&gt;Grid Item 11&lt;/p&gt;
+            &lt;/article&gt;
+            &lt;article class="item"&gt;
+              &lt;p&gt;Grid Item 12&lt;/p&gt;
+              &lt;p&gt;Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officiis, cumque magnam unde consequatur id
+                laudantium dolorem repellat sapiente ut similique, laboriosam provident deserunt assumenda? Optio autem
+                quisquam maxime similique omnis.&lt;/p&gt;
+            &lt;/article&gt;
+            &lt;article class="item"&gt;
+              &lt;p&gt;Grid Item 13&lt;/p&gt;
+            &lt;/article&gt;
+            &lt;article class="item"&gt;
+              &lt;p&gt;Grid Item 14&lt;/p&gt;
+            &lt;/article&gt;
+            &lt;article class="item"&gt;
+              &lt;p&gt;Grid Item 15&lt;/p&gt;
+            &lt;/article&gt;
+            &lt;article class="item"&gt;
+              &lt;p&gt;Grid Item 16&lt;/p&gt;
+            &lt;/article&gt;
+            &lt;article class="item"&gt;
+              &lt;p&gt;Grid Item 17&lt;/p&gt;
+            &lt;/article&gt;
+            &lt;article class="item"&gt;
+              &lt;p&gt;Grid Item 18&lt;/p&gt;
+            &lt;/article&gt;
+            &lt;article class="item"&gt;
+              &lt;p&gt;Grid Item 19&lt;/p&gt;
+            &lt;/article&gt;
+          &lt;/section&gt;   
+        </code>
+      </pre>
+      <pre>
+        <code class="language-css">
+          .container-grid {
+            margin: 0 auto;
+            /* width: 80%; */
+            /* height: 80vh; */
+            background-color: #222;
+            border: medium solid #000;
+          }
+          .item {
+            padding: 1rem;
+            font-size: 1.25rem;
+            background-color: #666;
+            border: medium solid #999;
+          }
+          .grid-explicit {
+            display: grid;
+            /* grid 3x3 */
+            grid-template-columns: 50% 100px 1fr;
+            grid-template-rows: 3rem 20vh 30%;
+            /* grid 5x4 */
+            /* grid-template-columns: repeat(5, 20%); */
+            grid-template-columns: repeat(5, 1fr);
+            grid-template-rows: repeat(4, auto);
+            /* Gaps */
+            /* row-gap: 10px;
+            column-gap: 10px; */
+            gap: 10px 20px;
+          }
+        </code>
+      </pre>
+
+      <section class="container-grid grid-explicit">
+        <article class="item">
+          <p>Grid Item 1</p>
+        </article>
+        <article class="item">
+          <p>Grid Item 2</p>
+        </article>
+        <article class="item">
+          <p>Grid Item 3</p>
+        </article>
+        <article class="item">
+          <p>Grid Item 4</p>
+        </article>
+        <article class="item">
+          <p>Grid Item 5</p>
+        </article>
+        <article class="item">
+          <p>Grid Item 6</p>
+        </article>
+        <article class="item">
+          <p>Grid Item 7</p>
+        </article>
+        <article class="item">
+          <p>Grid Item 8</p>
+        </article>
+        <article class="item">
+          <p>Grid Item 9</p>
+        </article>
+        <article class="item">
+          <p>Grid Item 10</p>
+        </article>
+        <article class="item">
+          <p>Grid Item 11</p>
+        </article>
+        <article class="item">
+          <p>Grid Item 12</p>
+          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officiis, cumque magnam unde consequatur id
+            laudantium dolorem repellat sapiente ut similique.</p>
+        </article>
+        <article class="item">
+          <p>Grid Item 13</p>
+        </article>
+        <article class="item">
+          <p>Grid Item 14</p>
+        </article>
+        <article class="item">
+          <p>Grid Item 15</p>
+        </article>
+        <article class="item">
+          <p>Grid Item 16</p>
+        </article>
+        <article class="item">
+          <p>Grid Item 17</p>
+        </article>
+        <article class="item">
+          <p>Grid Item 18</p>
+        </article>
+        <article class="item">
+          <p>Grid Item 19</p>
+        </article>
+      </section>
+
+      <p>Si queremos posicionar un elemento en determinadas celdas podemos utilizar las propiedades
+        grid-row-start/grid-row-end y grid-column-start/grid-column-end.</p>
+
+      <p>Colocaremos el elemento 10 ente las líneas 2 y 3, tanto en filas como en columnas. Donde inicialmente se
+        encuentra el item 6, que será desplazado respetando el flujo.</p>
+
+      <p>A través de estas propiedades también podemos combinar celdas y crear áreas.</p>
+
+      <p>Otra forma es utilizar la <strong>palabra clave span</strong>.</p>
+
+      <pre>
+        <code class="language-css">
+          .grid-combination .item:nth-child(10) {
+            color: red;
+            grid-row-start: 2;
+            grid-row-end: 3;
+            grid-column-start: 2;
+            grid-column-end: 3;
+            /* Shortcut */
+            grid-row: 2 / 3;
+            grid-column: 2 / 3;
+          }
+          .grid-combination .item:nth-child(2) {
+            background-color: cyan;
+            /* Combinar celdas */
+            grid-row: 1 / 2;
+            grid-column: 3 / 5;
+          }
+          .grid-combination .item:nth-child(13) {
+            background-color: orangered;
+            /* Area - Shortcut de grid-row y grid-column */
+            /* grid-area: grid-row-start / grid-column-start / grid-row-end / grid-column-end; */
+            grid-area: 3 / 4 / 5 / 6;
+          }
+          .grid-combination .item:nth-child(14) {
+            background-color: greenyellow;
+            /* Abarca 2 filas  */
+            grid-row: span 2;
+            grid-column: span 2;
+          }
+        </code>
+      </pre>
+
+      <section class="container-grid grid-explicit grid-combination">
+        <article class="item">
+          <p>Grid Item 1</p>
+        </article>
+        <article class="item">
+          <p>Grid Item 2</p>
+        </article>
+        <article class="item">
+          <p>Grid Item 3</p>
+        </article>
+        <article class="item">
+          <p>Grid Item 4</p>
+        </article>
+        <article class="item">
+          <p>Grid Item 5</p>
+        </article>
+        <article class="item">
+          <p>Grid Item 6</p>
+        </article>
+        <article class="item">
+          <p>Grid Item 7</p>
+        </article>
+        <article class="item">
+          <p>Grid Item 8</p>
+        </article>
+        <article class="item">
+          <p>Grid Item 9</p>
+        </article>
+        <article class="item">
+          <p>Grid Item 10</p>
+        </article>
+        <article class="item">
+          <p>Grid Item 11</p>
+        </article>
+        <article class="item">
+          <p>Grid Item 12</p>
+          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officiis, cumque magnam unde consequatur id
+            laudantium dolorem repellat sapiente ut similique.</p>
+        </article>
+        <article class="item">
+          <p>Grid Item 13</p>
+        </article>
+        <article class="item">
+          <p>Grid Item 14</p>
+        </article>
+        <article class="item">
+          <p>Grid Item 15</p>
+        </article>
+        <article class="item">
+          <p>Grid Item 16</p>
+        </article>
+        <article class="item">
+          <p>Grid Item 17</p>
+        </article>
+        <article class="item">
+          <p>Grid Item 18</p>
+        </article>
+        <article class="item">
+          <p>Grid Item 19</p>
+        </article>
+      </section>
+    </section>
+
+    <hr>
+  </main>
+
+  <section class="pagination">
+    <article class="pagination-item">
+      <a href="/pages/grid/repeat.html">
+        <i class="material-icons">arrow_back</i>La función repeat
+      </a>
+    </article>
+    <article class="pagination-item">
+      <a href="/pages/grid/index.html#indice">Tabla de contenido Grid
+        <i class="material-icons">arrow_upward</i>
+      </a>
+    </article>
+    <article class="pagination-item">
+      <a href="/pages/grid/grid-line-names.html">Grid con Nombres de Línea
+        <i class="material-icons">arrow_forward</i>
+      </a>
+    </article>
+  </section>
+  <footer>
+  Copyright © 2022 TiDev. All rights reserved.
+</footer>
+  <script src="/js/prism.js"></script>
+</body>
+
+</html>

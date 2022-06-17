@@ -1,0 +1,1185 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="application-name" content="TiDev">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@jourdanmau">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#fb6d43">
+<meta name="msapplication-TitleColor" content="#fb6d43">
+<meta name="msapplication-TitleImage" content="">
+<link rel="apple-touch-icon" href="">
+<!-- <link rel="icon" type="image/png" href=""> -->
+<link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<link rel="author" type="text/plain" href="humans.txt">
+<!-- <link rel="manifest" href="manifest.json"> -->
+<!-- CDN Material+Icons -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  <title>
+  Efectos visuales en CSS
+</title>
+<meta name="twitter:title" property="og:title" content="Efectos visuales en CSS">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/menu.css">
+  <link rel="stylesheet" href="/css/prism.css" />
+  <link rel="stylesheet" href="/css/html/html.css">
+  <link rel="stylesheet" href="/css/css/efectos-visuales.css">
+</head>
+
+<body>
+  <header>
+  <nav class="menu-nav">
+    <a href="/index.html" class="enlace">
+      <label class="logo">Aprende</label>
+    </a>
+    <input type="checkbox" id="check">
+    <label for="check" class="checkbtn">
+      <i class="material-icons">menu</i>
+    </label>
+    <ul class="menu">
+      <li>
+        <a href="/index.html" class="active menu-link">Home</a>
+      </li>
+      <li>
+        <a href="/pages/cursos/index.html" class="menu-link">Guias</a>
+      </li>
+      <li>
+        <a href="/pages/html/index.html" class="menu-link">HTML</a>
+      </li>
+      <li>
+        <a href="/pages/css/index.html" class="active menu-link">CSS</a>
+      </li>
+      <li>
+        <a href="/pages/js/index.html" class="menu-link">JavaScript</a>
+      </li>
+
+    </ul>
+  </nav>
+</header>
+
+  <main class="container">
+
+    <h1>Efectos visuales en CSS</h1>
+
+    <section id="sombras">
+      <h2>Sombras</h2>
+
+      <p>Podemos aplicar tres tipos de sombras: al texto, a la caja y existe un filtro llamado drop-shadow.</p>
+
+      <h3>box-shadow</h3>
+
+      <p>Define la sombra del elemento.</p>
+
+      <p>box-shadow: mov-x mov-y radio spread(propagación) color inset/outset(interna/externa)</p>
+
+      <ul>
+        <li>box-shadow: none; Elimina cualquier sombra de cuadro que se haya aplicado al elemento</li>
+        <li>box-shadow: 2px 6px; Necesitamos al menos dos valores: el primero es el desplazamiento horizontal el segundo
+          es el desplazamiento vertical. El color de la sombra se heredará del color del texto</li>
+        <li>box-shadow: 2px 6px red; Puede definir un color como último valor. Al igual que con el color, puede usar
+          nombres de color, hexadecimal, rgb, hsl...</li>
+        <li>box-shadow: 2px 4px 10px red; El tercer valor opcional define el desenfoque de la sombra. El color se
+          difundirá a través de 10px en este ejemplo, de opaco a transparente</li>
+        <li>box-shadow: 2px 4px 10px 4px red; El cuarto valor opcional define la extensión de la sombra. La extensión
+          define cuánto debe crecer la sombra: realza la sombra</li>
+      </ul>
+
+      <article>
+        <h3>text-shadow</h3>
+        <p>Define la sombra del contenido del texto.</p>
+
+        <ul>
+          <li>text-shadow: none; El contenido del texto no tiene sombra</li>
+          <li>text-shadow: 2px 6px; Necesitamos al menos dos valores: el primero es el desplazamiento horizontal el
+            segundo es el desplazamiento vertical El color de la sombra se heredará del color del texto</li>
+          <li>text-shadow: 2px 6px red; Podemos definir un color como último valor. Al igual que con el color, puede
+            usar nombres de color, hexadecimal, rgb, hsl...</li>
+          <li>text-shadow: 2px 4px 10px red; El tercer valor opcional define el desenfoque de la sombra. El color se
+            difundirá a través de 10px en este ejemplo, de opaco a transparente</li>
+        </ul>
+
+        <pre>
+          <code class="language-html">
+            &lt;div class="box box-shadow"&gt;Sombras&lt;/div&gt;
+          </code>
+        </pre>
+        <pre>
+          <code class="language-css">
+            .box {
+              width: 200px;
+              height: 200px;
+              border: thick solid black;
+              margin-left: auto;
+              margin-right: auto;
+            }
+            .box-shadow {
+              color: navy;
+              font-size: 2rem;
+              text-align: center;
+              box-shadow: 1rem 1rem 1rem 1rem black;
+              box-shadow: -1rem -1rem 1rem 1rem black;
+              box-shadow: 1rem 1rem 1rem 1rem #0005;
+              box-shadow: 1rem 1rem 1rem 1rem #0005 inset;
+              box-shadow: 1rem 1rem 1rem 1rem #0005;
+              text-shadow: 1rem 1rem 0.3rem hotpink;
+            }
+          </code>
+        </pre>
+
+        <div class="box box-shadow">Sombras</div>
+
+        <p>Se pueden definir mútiples sombras. Las distintas sombres que queremos aplicar se separan por comas.</p>
+
+        <pre>
+          <code class="language-html">
+            &lt;div class="box shadows-multiple"&gt;Sombras&lt;/div&gt;
+          </code>
+        </pre>
+        <pre>
+          <code class="language-css">
+            .shadows-multiple {
+              box-shadow: 1rem 1rem 1rem 1rem #0005, 1rem 1rem 1rem 1rem red inset;
+              font-size: 2rem;
+              text-align: center;
+              text-shadow: -0.5rem -0.5rem 0.5rem navy, 0.5rem 0.5rem 0.5rem black;
+              padding-top: 25px;
+            }
+          </code>
+        </pre>
+
+        <div class="box shadows-multiple">Sombras</div>
+
+      </article>
+
+      <hr>
+
+      <article>
+        <h3>Propiedad filter</h3>
+
+        <p>La propiedad CSS filter dota de efectos gráficos como el desenfoque o cambio de color en la representación
+          antes de que se muestre el elemento. Los filtros se utilizan comúnmente para ajustar la representación de
+          imágenes, fondos o bordes.</p>
+
+        <p>Para utilizar la propiedad CSS filter, hay que especificar un valor para una de las siguientes funciones. Si
+          el valor no es válido, la función se ejecutará de la misma manera que si se le aplicara "none"</p>
+
+        <h4>Función drop-shadow</h4>
+
+        <p>Aplica un efecto de sombra a la imagen. Una sombra es realmente una versión desenfocada y separada de la
+          máscara alfa de la imagen, dibujada en un color particular, debajo de la misma. La función acepta: mov-x mov-y
+          blur-radius color.</p>
+
+        <p>Como vemos la sombra aplica sobre el contenido de la imágen, pero debe tener transparencia.</p>
+
+        <pre>
+          <code class="language-html">
+            &lt;div class="box drop-shadow"&gt;
+              &lt;img src="/assets/images/arbol.png" alt="Niño y arbol"&gt;
+            &lt;/div&gt;
+          </code>
+        </pre>
+        <pre>
+          <code class="language-css">
+            .drop-shadow {
+              width: 600px;
+              height: auto;
+            }
+            .drop-shadow img {
+              max-width: 100%;
+              height: auto;
+              box-shadow: 1rem 1rem 1rem 1rem #f00;
+              filter: drop-shadow(1rem 1rem 1rem orangered);
+              filter: drop-shadow(1rem 1rem 1rem skyblue);
+            }
+          </code>
+        </pre>
+
+        <div class="box drop-shadow">
+          <img src="/assets/images/arbol.png" alt="El niño y el árbol">
+        </div>
+      </article>
+
+      <hr>
+      <article id="degradados">
+        <h2>Degradados</h2>
+
+        <p>Los gradientes trabajan sobre la propiedad backgorund pero es una buena práctica realizarlo sobre la
+          propiedad background-image.</p>
+
+        <h3>Lineales</h3>
+
+        <p>La función linear-gradient admite los siguientes parámetros.</p>
+
+        <ul>
+          <li>linear-gradient(color, color, ...); Gradiente de colores dirección hacia abajo</li>
+          <li>linear-gradient(direction, color, color); Gradiente con dirección específica</li>
+          <li>linear-gradient(direction, color, size, color, size); Gradiente indicando donde comienza a cambiar el
+            color</li>
+          <li>linear-gradient(direction, color, size, size, color, size, size); Gradiente indicando inicio y fin de cada
+            color</li>
+        </ul>
+
+        <p>La dirección se puede expresar a través de palabras clave o de grados.</p>
+
+        <p>Podemos definir la proporción de cada uno de los colores asignado porcentajes</p>
+
+        <table>
+          <tr>
+            <th>Dirección</th>
+            <th>Grados</th>
+          </tr>
+          <tr>
+            <td>to top</td>
+            <td>0 o 360deg</td>
+          </tr>
+          <tr>
+            <td>to top right</td>
+            <td>45deg</td>
+          </tr>
+          <tr>
+            <td>to right</td>
+            <td>90deg</td>
+          </tr>
+          <tr>
+            <td>to bottom right</td>
+            <td>145deg</td>
+          </tr>
+          <tr>
+            <td>to bottom</td>
+            <td>180deg</td>
+          </tr>
+          <tr>
+            <td>to bottom left</td>
+            <td>215deg</td>
+          </tr>
+          <tr>
+            <td>to left</td>
+            <td>270deg</td>
+          </tr>
+          <tr>
+            <td>to top left</td>
+            <td>325deg</td>
+          </tr>
+        </table>
+
+        <p>Las distancias entre colores se ajustan automáticamente con el mismo tamaño. Pero, podemos asignar un tamaño
+          justo después del color en cuestión.</p>
+
+        <p>También podemos definir un punto de inicio y de fin para cada color.</p>
+
+        <pre>
+          <code class="language-html">
+            &lt;div class="box linear-gradient"&gt;&lt;/div&gt;
+          </code>
+        </pre>
+        <pre>
+          <code class="language-css">
+            .linear-gradient {
+              background-image: linear-gradient(red, green);
+              background-image: linear-gradient(20deg, red, green, blue);
+              background-image: linear-gradient(45deg, red, green, blue);
+              background-image: linear-gradient(to top left, red, green, blue);
+              background-image: linear-gradient(90deg, red 30%, green 31% 60%, blue 61%);
+              background-image: linear-gradient(90deg, red 20%, green 60%, blue);
+            }
+          </code>
+        </pre>
+
+        <div class="box linear-gradient"></div>
+
+        <h3>Radiales</h3>
+
+        <p>El gradiente radial nos permite crear degradados con formas circulares. El formato para los gradientes
+          radiales es muy parecido al anterior. En este caso, debemos usar la función radial-gradient() y un nuevo
+          atributo para la forma.</p>
+
+        <ul>
+          <li>background: radial-gradient(forma, color, color, color...);</li>
+          <li>background: radial-gradient(forma tamaño, color, color, color...);</li>
+          <li>background: radial-gradient(forma, color tamaño, color tamaño, color tamaño...);</li>
+          <li>background: radial-gradient(color, color, color...);</li>
+        </ul>
+
+        <p>Existen dos valores para la forma: </p>
+        <p>forma: existen dos tipos de forma: circle y ellipse (por defecto ellipse). Opcionalmente podemos indicar el
+          tamaño de la forma.</p>
+        <p>color: permite crear una lista para ir cambiando el color del gradiente. Podemos definir tantos colores como
+          deseemos.</p>
+        <p>tamaño: para cada color se puede indicar la posición en la que comienzan las transiciones.</p>
+
+        <pre>
+          <code class="language-html">
+            &lt;div class="box readial-gradient"&gt;&lt;/div&gt;
+          </code> 
+        </pre>
+
+        <pre>
+          <code class="language-css">
+            .radial-gradient {
+              background-image: radial-gradient(cyan, magenta);
+              background-image: radial-gradient(cyan, magenta, yellow);
+              background-image: radial-gradient(circle 4rem, cyan, magenta, yellow);
+              background-image: radial-gradient(circle 4rem, cyan 30%, magenta 80%, yellow);
+              background-image: radial-gradient(
+                circle 100px,
+                cyan 30%,
+                magenta 60%,
+                yellow 90%
+              );
+              background-image: radial-gradient(
+                circle 100px at top,
+                cyan 30%,
+                magenta 60%,
+                yellow 90%
+              );
+            }
+          </code>
+        </pre>
+
+        <div class="box radial-gradient"></div>
+
+        <h3>Cónicos</h3>
+
+        <p>La función conic-gradient crea una imagen que consta de un degradado de color giradas alrededor de un punto
+          central (en lugar de irradiar desde el centro). Ejemplos de degradados cónicos incluyen gráficos circulares y
+          ruedas de colores.</p>
+
+        <pre>
+          <code class="language-html">
+            &lt;div class="box conic-gradient"&gt;&lt;/div&gt;
+          </code>
+        </pre>
+        <pre>
+          <code class="language-css">
+            .conic-gradient {
+              background-image: conic-gradient(red, green);
+              background-image: conic-gradient(red, green, blue);
+              background-image: conic-gradient(red 0% 50%, green 60%, blue 80%);
+              background-image: conic-gradient(
+                red 0deg 90deg,
+                green 120deg 240deg,
+                blue 270deg
+              );
+              background-image: conic-gradient(
+                from 90deg,
+                red 0deg 90deg,
+                green 120deg 240deg,
+                blue 270deg
+              );
+              background-image: conic-gradient(
+                from 180deg,
+                red 0deg 90deg,
+                green 120deg 240deg,
+                blue 270deg
+              );
+              background-image: conic-gradient(
+                from 270deg,
+                red 0deg 90deg,
+                green 120deg 240deg,
+                blue 270deg
+              );
+              background-image: conic-gradient(
+                from 90deg,
+                red 0deg 120deg,
+                white 120deg 240deg,
+                blue 240deg
+              );
+            }
+          </code>
+        </pre>
+
+        <div class="box conic-gradient"></div>
+
+      </article>
+
+      <hr>
+
+      <h3>repeat-gradient-linear</h3>
+
+      <pre>
+        <code class="language-html">
+          &lt;div class="box repeat-gradient-linear"&gt;&lt;/div&gt;
+        </code>
+      </pre>
+      <pre>
+        <code class="language-css">
+          .repeat-gradient-linear {
+            background-image: repeating-linear-gradient(
+              red 0 10px,
+              green 10px 20px,
+              blue 20px 30px
+            );
+            background-image: repeating-linear-gradient(
+              90deg,
+              red 0 10px,
+              green 10px 20px,
+              blue 20px 30px
+            );
+            background-image: repeating-linear-gradient(
+              45deg,
+              red 0 10px,
+              green 10px 20px,
+              blue 20px 30px
+            );
+          }
+        </code>
+      </pre>
+
+      <div class="box repeat-gradient-linear"></div>
+
+      <h3>repeat-gradient-radial</h3>
+
+      <pre>
+        <code class="language-html">
+          &lt;div class="box repeat-gradient-radial"&gt;&lt;/div&gt;
+        </code>
+      </pre>
+      <pre>
+        <code class="language-css">
+          .repeat-gradient-radial {
+            background-image: repeating-radial-gradient(
+              circle 4rem,
+              cyan 0 10px,
+              magenta 10px 20px,
+              yellow 20px 30px
+            );
+          }  
+        </code>
+      </pre>
+
+      <div class="box repeat-gradient-radial"></div>
+
+      <h3>repeat-gradient-conic</h3>
+
+      <pre>
+        <code class="language-html">
+          &lt;div class="box repeat-gradient-conic"&gt;&lt;/div&gt;
+        </code>
+      </pre>
+      <pre>
+        <code class="language-css">
+          .repeat-gradient-conic {
+            background-image: repeating-conic-gradient(
+              red 0 8%,
+              yellow 8% 16%,
+              black 16% 24%
+            );
+          }
+        </code>
+      </pre>
+
+      <div class="box repeat-gradient-conic"></div>
+
+    </section>
+
+    <hr>
+    <section id="graf-degradados">
+      <h2>Gráficas con degradados</h2>
+
+      <p>Podemos redondear la imagen con un border-radius: 50% para lograr una gráfica de pastel.</p>
+
+      <pre>
+        <code class="language-html">
+          &lt;div class="box chart-gradient"&gt;&lt;/div&gt;
+        </code>
+      </pre>
+      <pre>
+        <code class="language-css">
+          .chart-gradient {
+            background-image: conic-gradient(cyan 0% 50%, magenta 50% 80%, yellow 80%);
+            border-radius: 50%;
+          }
+        </code>
+      </pre>
+
+      <div class="box chart-gradient"></div>
+
+      <pre>
+        <code class="language-html">
+          &lt;div class="box donut-gradient"&gt;&lt;/div&gt;
+        </code>
+      </pre>
+      <pre>
+        <code class="language-css">
+          .donut-gradient {
+            background-image: radial-gradient(white 30%, black 31%, transparent 33%),
+              conic-gradient(cyan 0% 50%, magenta 50% 80%, yellow 80%);
+            border-radius: 50%;
+          }
+        </code>
+      </pre>
+
+      <div class="box donut-gradient"></div>
+
+    </section>
+
+    <hr>
+    <section id="filtros">
+      <h2>Filtros</h2>
+
+      <p>La propiedad filter permite efectos gráficos como el desenfoque o cambio de color en la representación
+        antes de que se muestre el elemento. Los filtros se utilizan comúnmente para ajustar la representación de
+        imágenes, fondos o bordes.</p>
+
+      <h3>blur()</h3>
+
+      <p>Permite realizar un desenfoque o difuminado, generalmente medido en pixels, a nuestros elementos HTML
+        -Imágenes, texto, contenedores, entre otros.</p>
+
+      <pre><code class="language-css">filter: blur(6px);</code></pre>
+
+      <blockquote>
+        <p>Un posible uso consiste en activar el desenfoque al pasar el cursor por encima utilizando el selector
+          :hover</p>
+        <pre>
+          <code class="language-css">
+            img:hover {
+              filter: blur(6px);
+            }
+          </code>
+        </pre>
+      </blockquote>
+
+      <h3>brightness()</h3>
+
+      <p>Se utiliza para configurar el brillo de una imagen, toma como parámetro un número o porcentaje. Si el valor de
+        este parámetro es 1 (o 100%) la imagen no cambiará. Si el valor es más pequeño que 1 la imagen se oscurecerá.
+        El valor por defecto de del parámetro de brightness() es 0, y por tanto filter:brightness() produce una imagen
+        completamente negra.</p>
+
+      <h3>constrast()</h3>
+
+      <p>Modifica el contraste de la imágen. Un valor de 0% mostrará la imagen gris y 100% muestra la imagen sin
+        cambios. Acepta valores superiores a 100%, mostrando más contraste.</p>
+
+      <h3>grayscale()</h3>
+
+      <p>Nos permite mostrar la imagen en escala de grises. El parámetro define la proporción de la conversión. 100%
+        mostrará completamente en escala de grises. 0% mostrará la imagen sin cambios. Los valores entre 0% y 100% son
+        multiplicadores lineales del efecto. Por defecto el valor es 100%.</p>
+
+      <h3>sepia()</h3>
+
+      <p>Mostrará la imagen como sepia. El parámetro define la proporción de conversión. 100% es completamente sepia. 0%
+        mostrará la imagen sin cambios. Los valores entre 0% y 100% son multiplicadores del efecto. Por defecto el
+        parámetro es 100%.</p>
+
+      <h3>hue-rotate()</h3>
+
+      <p>Mostrará la imagen con una rotación de tono. El parámetro define el número de grados. 0 grados no mostrará
+        cambios en la imagen, también es el valor por defecto. El valor máximo es 360 grados.</p>
+
+      <h3>invert()</h3>
+      <p>Mostrará la negativa de la imagen. El parámetro define la proporción. Un valor de 100% invierte completamente.
+        Un valor de 0% no plaica cambios. El valor por defecto es 100%.</p>
+
+      <blockquote>
+        <p>Si lo combinamos con grayscale, podemos conseguir el negativo de la imagen en blanco y negro.</p>
+        <pre>
+          <code class="language-css">
+            .filter {
+              filter: grayscale(1) invert(1);
+            }
+          </code>
+        </pre>
+      </blockquote>
+
+      <h3>opacity()</h3>
+
+      <p>Podemos modificar la opacidad utilizando la propiedad opacity. Pero también podemos utilizar el filtro opacity.
+        El parámetro define la proporcionalidad opacidad. El parámetro 1 o 100% mostrará la imagen completamente opaca.
+        A valores más pequeños, la imagen se vuelve más transparente.</p>
+
+      <h3>saturate()</h3>
+
+      <p>Modifica la saturación de la imagen. El parámetro define en qué proporción se modificará. Hace lo mismo que la
+        función grayscale(), pero al revés. 0% será completamente desaturado (escalade grises). 100% no cambiará la
+        entrada. Pero también podemos aplicar valores más grandes que 1 o 100%. El resultado será una imagen de colores
+        intensos, saturados.</p>
+
+      <h3>Ejemplos</h3>
+
+      <pre>
+        <code class="language-html">
+          &lt;article class="card"&gt;
+            &lt;img class="filter" src="/assets/images/puesta-sol.jpg" alt="Puesta del sol"&gt;
+          &lt;/article&gt;
+        </code>
+      </pre>
+      <pre>
+        <code class="language-css">
+          .card {
+            border: thick solid #000;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 5rem;
+            width: 600px;
+            height: 400px;
+          }
+          .card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: 0 50%;
+          }
+          .filter {
+            /* Desenfoque. valores: 0rem-1rem*/
+            /* filter: blur(0.1rem);   */
+            /* Intensidad de luz. valores: 0-1 */
+            /* filter: brightness(0.9); */
+            /* filter: brightness(2); */
+            /* Contraste. valores 0-1 */
+            /* filter: contrast(0.5); */
+            /* filter: contrast(2); */
+            /* Escalla de grises. valores: 0-1 */
+            /* filter: grayscale(0.8); */
+            /* filter: grayscale(1); */
+            /* Sepia. Valores: 0-1 */
+            /* filter: sepia(0.8); */
+            /* filter: sepia(1); */
+            /* hue-rotate: aplica colore escala hsl. valores 0-360*/
+            /* filter: hue-rotate(30deg); */
+            /* filter: hue-rotate(240deg); */
+            /* invert. valores: 0-1 */
+            /* filter: invert(0); */
+            /* filter: invert(1); */
+            /* opacidad. valores: 0-1 */
+            /* filter: opacity(0); */
+            filter: opacity(0.8);
+            /* saturación. valores 0-1 */
+            /* filter: saturate(0); */
+            /* filter: saturate(0.75); */
+            /* filter: saturate(2); */
+            /* filter: drop-shadow(1rem 1rem 1rem steelblue); */
+          }
+        </code>
+      </pre>
+
+      <article class="card">
+        <img class="filter" src="/assets/images/puesta-sol.jpg" alt="Puesta del sol">
+      </article>
+
+      <hr>
+
+      <article>
+        <h3>Filtros múltiples</h3>
+
+        <p>Podemos aplicar múltiples filtros a través de la sentencia filter y asignar los distintos filtros separados
+          por espacios en blanco.</p>
+
+        <article class="card">
+          <img class="filters-multiple" src="/assets/images/puesta-sol.jpg" alt="Puesta del sol">
+        </article>
+      </article>
+
+      <hr>
+
+      <article>
+        <h3>Filtros a fondos (backdrop-filter)</h3>
+
+        <p>Podemos aplicar flitros a los fondos, al área detrás de los elementos. Debido a que se aplica a todo lo que
+          está detrás del elemento, para ver el efecto debe hacer que el elemento o su fondo sean al menos parcialmente
+          transparentes.</p>
+
+        <p>De la misma manera que podemos aplicar filtros múltiples, también podemos apicarlos sobre el fondo.</p>
+
+        <pre><code class="language-css">backdrop-filter: blur(1rem) hue-rotate(240deg) opacity(0.75) invert(1);</code></pre>
+
+        <pre>
+          <code class="language-html">
+            &lt;article class="card relative"&gt;
+              &lt;img src="/assets/images/puesta-sol.jpg" alt="Puesta del sol"&gt;
+              &lt;div class="backdrop-filter"&gt;
+                &lt;h4&gt;Puesta del sol&lt;/h4&gt;
+              &lt;/div&gt;
+            &lt;/article&gt;
+          </code>
+        </pre>
+        <pre>
+          <code class="language-css">
+            .relative {
+              position: relative;
+            }
+            .backdrop-filter {
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              text-align: center;
+            }
+          </code>
+        </pre>
+
+        <article class="card relative">
+          <img src="/assets/images/puesta-sol.jpg" alt="Puesta del sol">
+          <div class="backdrop-filter">
+            <h4>Puesta del sol</h4>
+          </div>
+        </article>
+      </article>
+    </section>
+
+    <hr>
+    <section id="mezcla">
+      <h2>Modos de Mezcla</h2>
+
+      <p>Los modos de fusión se usan comúnmente en herramientas de diseño como Photoshop para crear un efecto de
+        composición mezclando colores de dos o más capas.</p>
+
+      <article>
+        <h3>mix-blend-mode</h3>
+
+        <p>La propiedad mix-blend-mode define cómo el contenido de un elemento debe combinarse con su fondo.</p>
+
+        <ul>
+          <li>initial: valor por defecto. No establece un modo de fusión.</li>
+          <li>inherit: heredará el modo de fusión de su padre</li>
+          <li>unset: elimina el modo de fusión actual</li>
+          <li>&lt;blend-mode&gt;: indica el modo de fusión</li>
+          <ul class="list">
+            <li>normal: no aplica mezcla alguna</li>
+            <li>multiply: es como apilar varias transparencias una encima de la otra. Los píxeles blancos
+              aparecerán transparentes y los píxeles negros aparecerán negros. Los intermedios multiplicarán sus valores
+              de luminosidad. Las luces se vuelven mucho más claras y las oscuras, más oscuras</li>
+            <li>screen: multiplica los valores de luz, un efecto inverso a la multiplicación y, en la
+              mayoría de los casos, producirá un resultado más brillante</li>
+            <li>overlay: combina multiply y screen. Los colores oscuros se volverán más oscuros y los
+              colores claros se volverán más claros. Los intermedios no se ven afectados.</li>
+            <li>darken: compara la luminosidad del color oscuro de la imagen de origen y la imagen de fondo
+              y selecciona el más oscuro de los dos. Lo hace comparando los valores rgb en lugar de la luminosidad (como
+              multiply y screen), para cada canal de color. Con darken y lighten, a menudo se crean nuevos valores de
+              color a partir de este proceso de comparación</li>
+            <li>lighten: hace lo contrario que darken</li>
+            <li>color-dodge: aclara el color de fondo para reflejar el color de origen. Los colores negros
+              puros no ven ningún efecto en este modo</li>
+            <li>color-burn: es muy similar al modo de fusión multiply, pero aumenta el contraste, da como
+              resultado tonos medios más saturados y reflejos reducidos</li>
+            <li>hard-light: crea un contraste vívido. Filtra o multiplica los valores de luminosidad. Si el
+              valor del píxel es más claro que un 50 % de gris, la imagen se aclara, como si estuviera tramada. Si es
+              más oscuro, se multiplica</li>
+            <li>soft-light: es una versión menos dura de la superposición. Funciona de la misma manera con
+              menos contraste.</li>
+            <li>difference: es como funciona un negativo fotográfico. Toma el valor de diferencia de cada
+              píxel, invirtiendo los colores claros. Si los valores de color son idénticos, se vuelven negros. Las
+              diferencias en los valores se invertirán</li>
+            <li>exclusion: es similar a difference, pero en lugar de devolver el negro para píxeles
+              idénticos, devolverá un 50 % de gris, lo que dará como resultado una salida más suave con menos contraste
+            </li>
+            <li>hue: toma el tono del color de origen y lo aplica a la saturación y luminosidad del color de
+              fondo</li>
+            <li>saturation: funciona como el tono, pero al usar la saturación como modo de fusión, se aplica
+              la saturación del color de origen al tono y la luminosidad del color de fondo</li>
+            <li>color: creará un color a partir del tono y la saturación del color de origen y la
+              luminosidad del color de fondo</li>
+            <li>luminosity: es lo inverso del color. Crea un color con la luminosidad del color de origen y
+              el matiz y la saturación del color de fondo</li>
+          </ul>
+        </ul>
+
+        <pre>
+          <code class="language-html">
+            &lt;article class="card relative blend-modes"&gt;
+              &lt;img src="/assets/images/puesta-sol.jpg" alt="Puesta del sol"&gt;
+              &lt;img class="absolute" src="/assets/images/BuenosDias.jpg" alt="Buenos días"&gt;
+            &lt;/article&gt;
+          </code>
+        </pre>
+        <pre>
+          <code class="language-css">
+            .blend-modes img {
+              /* mix-blend-mode: normal;
+              mix-blend-mode: color;
+              mix-blend-mode: color-dodge;
+              mix-blend-mode: color-burn;
+              mix-blend-mode: screen;
+              mix-blend-mode: saturation;
+              mix-blend-mode: luminosity;
+              mix-blend-mode: hue;
+              mix-blend-mode: exclusion;
+              mix-blend-mode: hard-light;
+              mix-blend-mode: soft-light;
+              mix-blend-mode: lighten;
+              mix-blend-mode: darken;
+              mix-blend-mode: overlay; */
+              mix-blend-mode: multiply;
+            }
+          </code>
+        </pre>
+
+        <article class="card relative blend-modes">
+          <img src="/assets/images/puesta-sol.jpg" alt="Puesta del sol">
+          <img class="absolute" src="/assets/images/BuenosDias.jpg" alt="Buenos días">
+        </article>
+
+      </article>
+
+      <hr>
+
+      <article>
+        <h3>background-blend-mode</h3>
+
+        <p>La propiedad background-blend-mode describe cómo las imágenes de fondo y el color de fondo del elemento
+          se deben mezclar entre sí.</p>
+
+        <p>Los valores que puede tomar la propiedad son las mismas que para la propiedad mix-blend-mode, pero en lugar
+          de mix utiliza la palabra backgroun-blend-mode.</p>
+
+        <pre>
+          <code class="language-html">
+            &lt;article class="card bg-blend-modes"&gt;&lt;/article&gt;
+          </code>
+        </pre>
+        <pre>
+          <code class="language-css">
+            .bg-blend-modes {
+              background-size: cover;
+              background-image: url(/assets/images/puesta-sol.jpg),
+                url(/assets/images/BuenosDias.jpg);
+              background-blend-mode: multiply;
+            }
+          </code>
+        </pre>
+
+        <article class="card bg-blend-modes"></article>
+      </article>
+    </section>
+
+    <hr>
+    <section id="mascaras">
+      <h2>Máscaras</h2>
+
+      <article>
+        <h3>clip-path</h3>
+
+        <p>La propiedad clip-path nos permite establecer un área específica de un elemento a mostrar. Crea una región de
+          recorte que establece qué parte de un elemento debe mostrarse. Se muestran las partes que están dentro de la
+          región, mientras que las que están fuera están ocultas.</p>
+
+        <p>La propiedad clip-path Utiliza 4 funciones (círcilo, elipse, rectangular y polígonos)</p>
+
+        <ol>
+          <li>clip-path: circle(); A través del parámetro podemos especificar un radio. El enmascaramiento comienza
+            desde el centro y podemos utilizar valores como 100px at top (realizará el recorte del centro hacia arriba),
+            at left, at right, at bottom, y podemos combinarlas como at left bottom. También podemos indicar coordenadas
+            indicando donde realizar el recorte o a través de un porcentaje que aplicará en eje x y en eje y. Si se
+            epecifican dos valores, el primero será para x y el segundo para y.</li>
+
+          <pre>
+            <code class="language-css">
+              clip-path: circle();
+              clip-path: circle(150px);
+              clip-path: circle(150px at bottom right);
+              clip-path: circle(150px at 0 0);
+              clip-path: circle(150px at 30%);
+              clip-path: circle(150px at 30% 20%);
+            </code>
+          </pre>
+
+          <li>clip-path: ellipse(); Para elipses necesitamos indicar un radio para x y un radio para y. Aplican los
+            mismo valores para posicionamiento del recorte.</li>
+
+          <pre>
+            <code class="language-css">
+              clip-path: ellipse();
+              clip-path: ellipse(100px 50px);
+              clip-path: ellipse(100px 50px at top left);
+              clip-path: ellipse(100px 50px at 0 0);
+              clip-path: ellipse(100px 50px at 30%);
+              clip-path: ellipse(100px 50px at 30% 20%);
+            </code>
+          </pre>
+
+          <li>clip-path: inset(2rem); Requiere al menos un parámetro que funciona como si fuera padding. A mayor tamaño
+            mayor será el recorte.
+          </li>
+
+          <p>Parámetros:</p>
+
+          <ul type="circle">
+            <li>1 valor, aplica el mismo padding a los 4 lados</li>
+            <li>2 valores, el primero para arriba y abajo y el segundo para los lados</li>
+            <li>3 valores, el primero para arriba, el segundo para los laterale y el tercero para abajo</li>
+            <li>4 valores, indicamos los cuatro lados comenzando desde arriba y siguiendo las agujas del
+              reloj</li>
+          </ul>
+
+          <p>También podemos redondear las esquinas de la máscara a través de la palabra clave round. Rpound acepta
+            desde 1 a 4 parámetros.</p>
+
+          <ul type="circle">
+            <li>1 valor, aplicará el mismo redondeo a las 4 esquinas</li>
+            <li>2 valores, el primer valor aplica a la diagonal (superior izquierda e inferior derecha) y el
+              segundo para la otra diagonal</li>
+            <li>3 valores, el primer valor es para la esquina superior izquierda, el segundo es para la
+              diagonal (superior derecha e inferior izquierda) y el tercer valor es para la esquina inferior derecha
+            </li>
+            <li>4 valores, indicamos las 4 esquinas comenzando desde la esquina superior izquierda y
+              siguiendo las agujas del reloj</li>
+          </ul>
+
+          <pre>
+            <code class="language-css">
+              clip-path: inset(2rem);
+              clip-path: inset(1rem 2rem);
+              clip-path: inset(3rem 2rem 1rem);
+              clip-path: inset(1rem 3rem 2rem 1rem);
+              clip-path: inset(1rem round 1rem);
+            </code>            
+          </pre>
+
+          <li>clip-path: polygon(); A través de los parámetros definiremos los distintos nodos. A través de 3 modos
+            podemos generar un recorte en forma de triángulo. Agregando un cuarto nodo formaremos un rectángulo. Podemos
+            agregar tantos nodos como deseemos. Existen herramientas on-line como <a
+              href="https://bennettfeely.com/clippy/" rel="nofollow" target="_bank">clippy</a> para generar el código
+          </li>
+
+          <pre>
+            <code class="language-css">
+              clip-path: polygon(0 0, 100% 0, 50% 100%);
+              clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);          
+            </code>
+          </pre>
+        </ol>
+
+        <pre>
+          <code class="language-html">
+            &lt;article class="card clip-path"&gt;
+              &lt;img src="/assets/images/puesta-sol.jpg" alt="Puesta del sol"&gt;
+              &lt;img class="absolute" src="/assets/images/BuenosDias.jpg" alt="Buenos días"&gt;
+            &lt;/article&gt;
+          </code>        
+        </pre>
+        <pre>
+          <code class="language-css">
+            .clip-path {
+              /* clip-path: circle(150px at left);
+              clip-path: circle(150px at 20% 50%);
+              clip-path: ellipse();
+              clip-path: inset(2rem);
+              clip-path: inset(1rem round 1rem);
+              clip-path: polygon(0 0, 100% 0, 50% 100%); */
+              clip-path: polygon(
+                50% 0%,
+                61% 35%,
+                98% 35%,
+                68% 57%,
+                79% 91%,
+                50% 70%,
+                21% 91%,
+                32% 57%,
+                2% 35%,
+                39% 35%
+              );
+            }
+          </code>
+        </pre>
+
+        <article class="card">
+          <img src="/assets/images/puesta-sol.jpg" alt="Puesta del sol" class="">
+          <img class="absolute" src="/assets/images/BuenosDias.jpg" alt="Buenos días">
+        </article>
+      </article>
+
+      <hr>
+
+      <article>
+        <h3>shape-outside</h3>
+
+        <h4>Ejemplos de formas y siluetas entre textos e imágenes</h4>
+
+        <p>Sabemos que el texto situado en una caja flotante se adapta para que fluya alrededor del elemento
+          posicionado.</p>
+
+        <p>La propiedad shape-outside define como se ajusta el texto alrededor del elemento flotante. Para utilizarla
+          el elemento debe ser flotante ( elemento{float:left;} - por ejemplo ) y tener dimensiones definidas ( width,
+          height ).</p>
+
+        <pre>
+          <code class="language-html">
+            &lt;article class="shapes"&gt;
+              &lt;img class="float-left shape-1" src="/assets/images/puesta-sol.jpg" alt="Puesta de sol"&gt;
+              &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam minima, cum non natus praesentium laborum
+                dolor ipsum rem assumenda explicabo, repellat doloribus unde placeat perspiciatis dignissimos nostrum
+                incidunt fuga nobis?&lt;/p&gt;
+              &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam minima, cum non natus praesentium laborum
+                dolor ipsum rem assumenda explicabo, repellat doloribus unde placeat perspiciatis dignissimos nostrum
+                incidunt fuga nobis?&lt;/p&gt;
+              &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam minima, cum non natus praesentium laborum
+                dolor ipsum rem assumenda explicabo, repellat doloribus unde placeat perspiciatis dignissimos nostrum
+                incidunt fuga nobis?&lt;/p&gt;
+              &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam minima, cum non natus praesentium laborum
+                dolor ipsum rem assumenda explicabo, repellat doloribus unde placeat perspiciatis dignissimos nostrum incidunt
+                fuga nobis?&lt;/p&gt;
+              &lt;img class="float-right shape-2" src="/assets/images/puesta-sol.jpg" alt="Puesta de sol"&gt;
+
+              &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam minima, cum non natus praesentium laborum
+                dolor ipsum rem assumenda explicabo, repellat doloribus unde placeat perspiciatis dignissimos nostrum incidunt
+                fuga nobis?&lt;/p&gt;
+              &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam minima, cum non natus praesentium laborum
+                dolor ipsum rem assumenda explicabo, repellat doloribus unde placeat perspiciatis dignissimos nostrum
+                incidunt fuga nobis?&lt;/p&gt;
+              &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam minima, cum non natus praesentium laborum
+                dolor ipsum rem assumenda explicabo, repellat doloribus unde placeat perspiciatis dignissimos nostrum
+                incidunt fuga nobis?&lt;/p&gt;
+              &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam minima, cum non natus praesentium laborum
+                dolor ipsum rem assumenda explicabo, repellat doloribus unde placeat perspiciatis dignissimos nostrum
+                incidunt fuga nobis?&lt;/p&gt;
+              &lt;img class="float-left shape-3" src="/assets/images/puesta-sol.jpg" alt="Puesta de sol"&gt;
+
+              &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam minima, cum non natus praesentium laborum
+                dolor ipsum rem assumenda explicabo, repellat doloribus unde placeat perspiciatis dignissimos nostrum
+                incidunt fuga nobis?&lt;/p&gt;
+              &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam minima, cum non natus praesentium laborum
+                dolor ipsum rem assumenda explicabo, repellat doloribus unde placeat perspiciatis dignissimos nostrum
+                incidunt fuga nobis?&lt;/p&gt;
+              &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam minima, cum non natus praesentium laborum
+                dolor ipsum rem assumenda explicabo, repellat doloribus unde placeat perspiciatis dignissimos nostrum
+                incidunt fuga nobis?&lt;/p&gt;
+              &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam minima, cum non natus praesentium laborum
+                dolor ipsum rem assumenda explicabo, repellat doloribus unde placeat perspiciatis dignissimos nostrum
+                incidunt fuga nobis?&lt;/p&gt;
+            &lt;/article&gt;
+          </code>
+        </pre>
+        <pre>
+          <code class="language-css">
+            .shape-1 {
+              margin: 4rem 2rem 4rem 0;
+              shape-outside: circle();
+              /* shape-outside: ellipse();
+              shape-outside: polygon(
+                50% 0%,
+                61% 35%,
+                98% 35%,
+                68% 57%,
+                79% 91%,
+                50% 70%,
+                21% 91%,
+                32% 57%,
+                2% 35%,
+                39% 35%
+              ); */
+            }
+            .shape-2 {
+              margin: 4rem 0 4rem 2rem;
+              shape-outside: ellipse();
+            }
+            .shape-3 {
+              margin: 2rem 8rem 0 0;
+              shape-outside: polygon(
+                1% 19%,
+                25% 4%,
+                52% 4%,
+                59% 16%,
+                69% 37%,
+                66% 53%,
+                63% 67%,
+                72% 77%,
+                83% 84%,
+                98% 99%,
+                1% 99%
+              );
+            }
+          </code>
+        </pre>
+
+        <article class="shapes">
+          <img class="float-left shape-1" src="/assets/images/puesta-sol.jpg" alt="Puesta de sol">
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam minima, cum non natus praesentium laborum
+            dolor ipsum rem assumenda explicabo, repellat doloribus unde placeat perspiciatis dignissimos nostrum
+            incidunt
+            fuga nobis?</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam minima, cum non natus praesentium laborum
+            dolor ipsum rem assumenda explicabo, repellat doloribus unde placeat perspiciatis dignissimos nostrum
+            incidunt
+            fuga nobis?</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam minima, cum non natus praesentium laborum
+            dolor ipsum rem assumenda explicabo, repellat doloribus unde placeat perspiciatis dignissimos nostrum
+            incidunt
+            fuga nobis?</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam minima, cum non natus praesentium laborum
+            dolor ipsum rem assumenda explicabo, repellat doloribus unde placeat perspiciatis dignissimos nostrum
+            incidunt
+            fuga nobis?</p>
+
+          <img class="float-right shape-2" src="/assets/images/puesta-sol.jpg" alt="Puesta de sol">
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam minima, cum non natus praesentium laborum
+            dolor ipsum rem assumenda explicabo, repellat doloribus unde placeat perspiciatis dignissimos nostrum
+            incidunt
+            fuga nobis?</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam minima, cum non natus praesentium laborum
+            dolor ipsum rem assumenda explicabo, repellat doloribus unde placeat perspiciatis dignissimos nostrum
+            incidunt
+            fuga nobis?</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam minima, cum non natus praesentium laborum
+            dolor ipsum rem assumenda explicabo, repellat doloribus unde placeat perspiciatis dignissimos nostrum
+            incidunt
+            fuga nobis?</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam minima, cum non natus praesentium laborum
+            dolor ipsum rem assumenda explicabo, repellat doloribus unde placeat perspiciatis dignissimos nostrum
+            incidunt
+            fuga nobis?</p>
+
+          <img class="float-left shape-3" src="/assets/images/puesta-sol.jpg" alt="Puesta de sol">
+
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam minima, cum non natus praesentium laborum
+            dolor ipsum rem assumenda explicabo, repellat doloribus unde placeat perspiciatis dignissimos nostrum
+            incidunt
+            fuga nobis?</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam minima, cum non natus praesentium laborum
+            dolor ipsum rem assumenda explicabo, repellat doloribus unde placeat perspiciatis dignissimos nostrum
+            incidunt
+            fuga nobis?</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam minima, cum non natus praesentium laborum
+            dolor ipsum rem assumenda explicabo, repellat doloribus unde placeat perspiciatis dignissimos nostrum
+            incidunt
+            fuga nobis?</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam minima, cum non natus praesentium laborum
+            dolor ipsum rem assumenda explicabo, repellat doloribus unde placeat perspiciatis dignissimos nostrum
+            incidunt
+            fuga nobis?</p>
+        </article>
+      </article>
+    </section>
+
+    <button class="scroll-top-btn hidden">&#11014;</button>
+    <hr>
+  </main>
+
+  <section class="pagination">
+    <article class="pagination-item">
+      <a href="/pages/css/formularios-contacto.html">
+        <i class="material-icons">arrow_back</i>Formularios en CSS
+      </a>
+    </article>
+    <article class="pagination-item">
+      <a href="/pages/css/index.html#indice">Tabla de contenido CSS
+        <i class="material-icons">arrow_upward</i>
+      </a>
+    </article>
+    <article class="pagination-item">
+      <a href="/pages/css/scroll-one-page.html">Efectos de scroll
+        <i class="material-icons">arrow_forward</i>
+      </a>
+    </article>
+  </section>
+  <footer>
+  Copyright © 2022 TiDev. All rights reserved.
+</footer>
+
+  <script src="/js/index_dom.js" type="module"></script>
+  <script src="/js/prism.js"></script>
+</body>
+
+</html>

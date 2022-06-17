@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="application-name" content="TiDev">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@jourdanmau">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#fb6d43">
+<meta name="msapplication-TitleColor" content="#fb6d43">
+<meta name="msapplication-TitleImage" content="">
+<link rel="apple-touch-icon" href="">
+<!-- <link rel="icon" type="image/png" href=""> -->
+<link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<link rel="author" type="text/plain" href="humans.txt">
+<!-- <link rel="manifest" href="manifest.json"> -->
+<!-- CDN Material+Icons -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  <title>
+  DOM: Texto y HTML
+</title>
+<meta name="twitter:title" property="og:title" content="DOM: Texto y HTML">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/menu.css">
+  <link rel="stylesheet" href="/css/prism.css" />
+</head>
+
+<body>
+  <header>
+  <nav class="menu-nav">
+    <a href="/index.html" class="enlace">
+      <label class="logo">Aprende</label>
+    </a>
+    <input type="checkbox" id="check">
+    <label for="check" class="checkbtn">
+      <i class="material-icons">menu</i>
+    </label>
+    <ul class="menu">
+      <li>
+        <a href="/index.html" class="active menu-link">Home</a>
+      </li>
+      <li>
+        <a href="/pages/cursos/index.html" class="menu-link">Guias</a>
+      </li>
+      <li>
+        <a href="/pages/html/index.html" class="menu-link">HTML</a>
+      </li>
+      <li>
+        <a href="/pages/css/index.html" class="menu-link">CSS</a>
+      </li>
+      <li>
+        <a href="/pages/js/index.html" class="active menu-link">JavaScript</a>
+      </li>
+
+    </ul>
+  </nav>
+</header>
+
+  <main class="container">
+
+    <h1>Texto y HTML</h1>
+
+    <section id="text">
+
+      <p>Las propiedades innerText e textContent agregan contenido textual a un elemento html.</p>
+
+      <p>La propiedad innerHTML agrega el contenido textual pero reconoce e interpreta las etiquetas html.</p>
+
+      <p>Finalmente, la propiedad outerHTML reemplaza la etiqueta seleccionada por el contenido seleccionado.</p>
+
+      <pre>
+        <code class="language-html">
+          &lt;p id="que-es"&gt;
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem, laboriosam cum quod, perferendis eveniet
+            pariatur facere doloribus adipisci consequatur totam est dolorum vero nisi voluptate porro explicabo quo
+            necessitatibus blanditiis. &lt;/p&gt;
+        </code>
+      </pre>
+
+      <p id="que-es">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem, laboriosam cum quod, perferendis eveniet
+        pariatur facere doloribus adipisci consequatur totam est dolorum vero nisi voluptate porro explicabo quo
+        necessitatibus blanditiis. </p>
+
+      <pre>
+          <code class="language-javascript">
+            const $whatIsDOM = document.getElementById( "que-es" );
+            let text = `
+              &lt;p&gt;
+                El Modelo de Objetos del Documento (&lt;b&gt;&lt;i&gt;DOM - Document Object Model&lt;/i&gt;&lt;/b&gt;) es un API para documentos HTML y XML.
+              &lt;/p&gt;
+              &lt;p&gt;
+                Éste proveé una representación estructural del documento, permitiendo modificar su contenido y presentación visual mediante código JS.
+              &lt;/p&gt;
+              &lt;p&gt;
+                &lt;mark&gt;El DOM no es parte de la especificación de JavaScript, es una API para los navegadores.&lt;/mark&gt;
+              &lt;/p&gt;
+              `;
+            // $whatIsDOM.innerText = text; 
+            /* innerText no es parte del estandar, se creó para Internet Explorer y */
+            /* agrega el contenido pero no reconoce las etiquetas html, las incluye como texto */
+            $whatIsDOM.textContent = text;
+            /* Tampoco reconoce las etiquetas html, ni los salto de línea del template */
+            $whatIsDOM.innerHTML = text;
+            /* innerText agrega el contenido pero reconoce e interpreta las etiquetas html */
+            $whatIsDOM.outerHTML = text;
+            /* outerHTML reemplaza la etiqueta seleccionada por el contenido seleccionado */     
+          </code>
+        </pre>
+
+      <script>
+        const $whatIsDOM = document.getElementById( "que-es" );
+        let text = `
+    <p>
+      El Modelo de Objetos del Documento (<b><i>DOM - Document Object Model</i></b>) es un API para documentos HTML y XML.
+    </p>
+    <p>
+      Éste proveé una representación estructural del documento, permitiendo modificar su contenido y presentación visual mediante código JS.
+    </p>
+    <p>
+      <mark>El DOM no es parte de la especificación de JavaScript, es una API para los navegadores.</mark>
+    </p>
+  `;
+        $whatIsDOM.textContent = text;
+        $whatIsDOM.innerHTML = text;
+        $whatIsDOM.outerHTML = text;
+      </script>
+    </section>
+
+    <hr>
+  </main>
+
+  <section class="pagination">
+    <article class="pagination-item">
+      <a href="/pages/js/dom/clases.html">
+        <i class="material-icons">arrow_back</i>Clases CSS
+      </a>
+    </article>
+    <article class="pagination-item">
+      <a href="/pages/js/index.html#indice">Tabla de contenido JS
+        <i class="material-icons">arrow_upward</i>
+      </a>
+    </article>
+    <article class="pagination-item">
+      <a href="/pages/js/dom/traversing.html">
+        <i class="material-icons">arrow_forward</i>Recorriendo el DOM
+      </a>
+    </article>
+  </section>
+  <footer>
+  Copyright © 2022 TiDev. All rights reserved.
+</footer>
+  <script src="/js/prism.js"></script>
+</body>
+
+</html>

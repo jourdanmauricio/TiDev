@@ -1,0 +1,174 @@
+caption {
+  padding: 0.3em;
+  color: #fff;
+  background: #000;
+}
+
+img.image {
+  width: 80%;
+  height: auto;
+}
+img.redu {
+  width: 200px;
+  height: auto;
+}
+
+video.redu {
+  width: 50%;
+}
+
+iframe {
+  width: 80%;
+  height: 400px;
+}
+
+.text-32 {
+  font-size: 32px;
+}
+
+.bg-skyblue {
+  background-color: skyblue;
+}
+
+#parrafo-dos {
+  background-color: pink;
+}
+
+.hijos-directos > li {
+  background-color: thistle;
+}
+
+.hijos-descendientes b {
+  background-color: thistle;
+}
+
+.hermanos-general ~ li {
+  background-color: thistle;
+}
+
+.hermanos-adyacentes + li {
+  background-color: thistle;
+}
+
+.seletores-atributos a[href] {
+  color: orangered;
+}
+
+.form-pseudoclase *:required {
+  /* border-color: yellow; */
+  border: 2px solid yellow;
+}
+
+.form-pseudoclase *:valid {
+  border-color: green;
+}
+
+.form-pseudoclase *:invalid {
+  border-color: red;
+}
+
+.form-pseudoclase *:focus {
+  background-color: skyblue;
+}
+.form-pseudoclase *:disabled {
+  background-color: pink;
+}
+
+.menu-pseudoclases a:link {
+  color: skyblue;
+}
+
+.menu-pseudoclases a:active {
+  color: red;
+}
+.menu-pseudoclases a:visited {
+  color: olive;
+}
+.menu-pseudoclases a:hover {
+  color: orange;
+}
+
+/* Selects an element with an ID matching the current URL's fragment */
+.indice:target {
+  background-color: var(--bg-gray-light);
+  border: 10px solid var(--bg-gray-light);
+}
+
+.lista-pseudoclases li:first-child {
+  color: green;
+}
+.lista-pseudoclases li:last-child {
+  color: violet;
+}
+.lista-pseudoclases li:nth-child(3) {
+  color: navy;
+}
+.lista-pseudoclases li:nth-child(4n) {
+  font-size: 20px;
+}
+.lista-pseudoclases li:nth-child(3n + 1) {
+  font-weight: bold;
+}
+.lista-pseudoclases li:nth-child(even) {
+  background-color: yellow;
+}
+.lista-pseudoclases li:nth-child(odd) {
+  background-color: orange;
+}
+.articulo-pseudoclases p:first-of-type {
+  background-color: pink;
+}
+.articulo-pseudoclases p:last-of-type {
+  background-color: violet;
+}
+.articulo-pseudoclases p:nth-of-type(3) {
+  background-color: fuchsia;
+}
+.articulo-pseudoclases *:not(p) {
+  background-color: beige;
+}
+.saga-geminis::before {
+  content: "👾";
+}
+.saga-geminis::after {
+  content: "😎";
+}
+.saga-precio::before {
+  content: "$";
+  font-weight: bold;
+}
+.saga-precio::after {
+  content: "USD";
+  font-weight: bold;
+}
+.p-seudoelementos::first-line {
+  color: coral;
+}
+.p-seudoelementos::selection {
+  color: greenyellow;
+  background-color: black;
+}
+.input-pseudoelementos::placeholder {
+  color: green;
+}
+
+.form-agrupar-selectores input[type="text"],
+.form-agrupar-selectores input[type="email"],
+.form-agrupar-selectores textarea {
+  display: block;
+  border-color: yellow;
+  border-width: 2px;
+  background-color: black;
+  font-size: 20px;
+  width: 300px;
+}
+
+.herencia-container {
+  background-color: greenyellow;
+  font-size: 25px;
+}
+
+.herencia-container span {
+  background-color: pink;
+  /* font-size: 10px; */
+}

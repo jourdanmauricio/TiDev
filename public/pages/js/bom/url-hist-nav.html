@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="application-name" content="TiDev">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@jourdanmau">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#fb6d43">
+<meta name="msapplication-TitleColor" content="#fb6d43">
+<meta name="msapplication-TitleImage" content="">
+<link rel="apple-touch-icon" href="">
+<!-- <link rel="icon" type="image/png" href=""> -->
+<link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<link rel="author" type="text/plain" href="humans.txt">
+<!-- <link rel="manifest" href="manifest.json"> -->
+<!-- CDN Material+Icons -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  <title>
+  BOM Objetos: URL, Historial y Navegador
+</title>
+<meta name="twitter:title" property="og:title" content="BOM Objetos: URL, Historial y Navegador">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/menu.css">
+  <link rel="stylesheet" href="/css/prism.css" />
+  <style>
+    .indicators {
+      border: thin solid teal;
+      border-radius: 10px;
+      padding: 0 10px 0 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+  <nav class="menu-nav">
+    <a href="/index.html" class="enlace">
+      <label class="logo">Aprende</label>
+    </a>
+    <input type="checkbox" id="check">
+    <label for="check" class="checkbtn">
+      <i class="material-icons">menu</i>
+    </label>
+    <ul class="menu">
+      <li>
+        <a href="/index.html" class="active menu-link">Home</a>
+      </li>
+      <li>
+        <a href="/pages/cursos/index.html" class="menu-link">Guias</a>
+      </li>
+      <li>
+        <a href="/pages/html/index.html" class="menu-link">HTML</a>
+      </li>
+      <li>
+        <a href="/pages/css/index.html" class="menu-link">CSS</a>
+      </li>
+      <li>
+        <a href="/pages/js/index.html" class="active menu-link">JavaScript</a>
+      </li>
+
+    </ul>
+  </nav>
+</header>
+
+  <main class="container">
+
+    <section id="objects">
+      <h1>BOM Objetos: URL, Historial y Navegador</h1>
+
+      <section id="url">
+        <h2>El objeto url (location)</h2>
+
+        <p>Propiedades</p>
+        <ul>
+          <li>location.origin, retorna la ruta de origen. Retorna hasta el puerto.</li>
+          <li>location.protocol, es una cadena que representa el esquema de protocolo de la URL, incluido el ':' final.
+          </li>
+          <li>location.host, es una cadena que contiene el host y luego, si el puerto de la URL no está vacío, un ':' y
+            el puerto de la URL. </li>
+          <li>location.hostname, es una cadena que contiene el dominio de la URL.</li>
+          <li>location.port, es una cadena que contiene el número de puerto de la URL. Si la URL no contiene un número
+            de puerto explícito, se establecerá en ''.</li>
+          <li>location.href, devuelve una cadena que contiene la URL completa </li>
+          <li>location.hash, devuelve una cadena que contiene un '#', es un Id que contiene la página a la que la URL
+            intenta acceder.</li>
+          <li>location.search, es una cadena de búsqueda, también denominada cadena de consulta; es decir, una cadena
+            que contiene un '?' seguido de los parámetros de la URL.</li>
+          <li>location.pathname, es una cadena que contiene la ruta de la URL, será la cadena vacía si no hay ruta.
+          </li>
+        </ul>
+
+
+        <pre>
+          <code class="language-javascript">
+            console.log( "##### El objeto url (location) #####" );
+            console.log( location );
+            console.log( location.origin );
+            console.log( location.protocol );
+            console.log( location.host );
+            console.log( location.hostname );
+            console.log( location.port );
+            console.log( location.href );
+            console.log( location.hash );
+            console.log( location.search );
+            console.log( location.pathname );
+            //location.reload();
+          </code>
+        </pre>
+
+        <figure>
+          <img src="/assets/images/js/js_44.png" alt="Consola. Objeto url">
+          <figcaption>Objeto url</figcaption>
+        </figure>
+
+        <script>
+//          console.log( "##### El objeto url (location) #####" );
+//          console.log( location );
+//          console.log( location.origin );
+//          console.log( location.protocol );
+//          console.log( location.host );
+//          console.log( location.hostname );
+//          console.log( location.port );
+//          console.log( location.href );
+//          console.log( location.hash );
+//          console.log( location.search );
+//          console.log( location.pathname );
+//          //location.reload();
+        </script>
+
+      </section>
+
+      <hr>
+      <section id="history">
+        <h2>El objeto history</h2>
+
+        <p>A medida que navegamos, el navegar almacena las páginas visitadas durante la sesión en el objeto history. A
+          través de esta propiedad es que el navegar nos permite retoceder y volver a las url vistadas. </p>
+
+        <ul>
+          <li>history.length, esta propiedad retorna un entero representando el número de elementos en el historial de
+            la sesión,
+            incluyendo la página cargada actualmente. Por ejemplo, para una página cargada en una nueva pestaña esta
+            propiedad retorna 1.</li>
+          <li>history.back(), el método history.back hace que el navegador retroceda una página en el historial de la
+            sesión. Tiene el mismo efecto que llamar a history.go(-1). Si no hay una página anterior, esta llamada al
+            método no hace nada.</li>
+          <li>history.forward(), el método history.forward() hace que el navegador avance una página en el historial de
+            la sesión. Tiene el mismo efecto que llamar a history.go(1).</li>
+          <li>history.go(), el método history.go() carga una página específica del historial de la sesión. Puede usarlo
+            para avanzar y retroceder en el historial según el valor de un parámetro.</li>
+        </ul>
+
+        <pre>
+          <code class="language-javascript">
+            console.log( "##### El objeto history #####" );
+            console.log( history );
+            console.log( history.length );
+            // history.forward( 1 );
+            // history.go(-3);
+            // history.back(2);
+          </code>
+        </pre>
+
+        <figure>
+          <img src="/assets/images/js/js_45.png" alt="Consola. Objeto history">
+          <figcaption>Objeto history</figcaption>
+        </figure>
+
+        <script>
+        //  console.log( "##### El objeto history #####" );
+        //  console.log( history );
+        //  console.log( history.length );
+        //  // history.forward( 1 );
+        //  // history.go(-3);
+        //  // history.back(2);
+        </script>
+      </section>
+
+      <hr>
+      <section id="navigator">
+        <h2>El ojbeto navigator</h2>
+
+        <ul>
+          <li>navigator.connection, la propiedad connection devuelve un objeto NetworkInformation que contiene
+            información sobre la conexión del sistema, como el ancho de banda actual del dispositivo del usuario.</li>
+          <li>navigator.geolocation, la API de geolocalización permite al usuario compartir su ubicación a las
+            aplicaciones web si así lo desea. Por razones de privacidad, al usuario se le pide que confirme el permiso
+            para proporcionar información de ubicación. </li>
+          <li>navigator.mediaDevices, la propiedad mediaDevices devuelve un objeto MediaDevices, que brinda acceso a los
+            dispositivos de entrada de medios conectados, como cámaras y micrófonos, así como a la pantalla compartida.
+          </li>
+          <li>navigator.mimeTypes, devuelve un objeto MimeTypeArray, que contiene una lista de objetos MimeType que
+            representan los tipos MIME reconocidos y admitidos por el navegador.</li>
+          <li>navigator.onLine, devuelve el estado en línea del navegador. La propiedad devuelve un valor booleano, con
+            significado verdadero en línea y significado falso fuera de línea. La propiedad envía actualizaciones cada
+            vez que cambia la capacidad del navegador para conectarse a la red. La actualización ocurre cuando el
+            usuario sigue enlaces o cuando un script solicita una página remota. </li>
+        </ul>
+
+
+        <pre>
+          <code class="language-javascript">
+            console.log( "********** El objeto navigator **********" );
+            console.log( navigator );
+            console.log( navigator.connection );
+            console.log( navigator.geolocation );
+            console.log( navigator.mediaDevices );
+            console.log( navigator.mimeTypes );
+            console.log( navigator.onLine );
+            console.log( navigator.serviceWorker );
+            console.log( navigator.storage );
+            console.log( navigator.usb );
+            console.log( navigator.userAgent ); 
+          </code>
+        </pre>
+
+        <figure>
+          <img src="/assets/images/js/js_46.png" alt="Consola. El objeto navigator">
+          <figcaption>El objeto navigator</figcaption>
+        </figure>
+
+
+        <script>
+          console.log( "********** Objeto Navegador (navigator) **********" );
+          console.log( navigator );
+          console.log( navigator.connection );
+          console.log( navigator.geolocation );
+          console.log( navigator.mediaDevices );
+          console.log( navigator.mimeTypes );
+          console.log( navigator.onLine );
+          console.log( navigator.serviceWorker );
+          console.log( navigator.storage );
+          console.log( navigator.usb );
+          console.log( navigator.userAgent ); 
+        </script>
+
+      </section>
+
+
+    </section>
+
+    <hr>
+  </main>
+
+  <section class=" pagination">
+    <article class="pagination-item">
+      <a href="/pages/js/bom/metodos.html">
+        <i class="material-icons">arrow_back</i>BOM: Métodos
+      </a>
+    </article>
+    <article class="pagination-item">
+      <a href="/pages/js/index.html#indice">Tabla de contenido JS
+        <i class="material-icons">arrow_upward</i>
+      </a>
+    </article>
+    <article class="pagination-item">
+      <a href="/pages/js/practicas_dom_bom.html">
+        <i class="material-icons">arrow_forward</i>Ejercicios DOM - BOM
+      </a>
+    </article>
+  </section>
+  <footer>
+  Copyright © 2022 TiDev. All rights reserved.
+</footer>
+  <script src="/js/prism.js"></script>
+</body>
+
+</html>

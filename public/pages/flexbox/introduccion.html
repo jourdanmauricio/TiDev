@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="application-name" content="TiDev">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@jourdanmau">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#fb6d43">
+<meta name="msapplication-TitleColor" content="#fb6d43">
+<meta name="msapplication-TitleImage" content="">
+<link rel="apple-touch-icon" href="">
+<!-- <link rel="icon" type="image/png" href=""> -->
+<link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<link rel="author" type="text/plain" href="humans.txt">
+<!-- <link rel="manifest" href="manifest.json"> -->
+<!-- CDN Material+Icons -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  <title>
+  Flexbox Introducción
+</title>
+<meta name="twitter:title" property="og:title" content="Flexbox Introducción">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/menu.css">
+  <link rel="stylesheet" href="/css/css/flexbox.css">
+</head>
+
+<body>
+  <header>
+  <nav class="menu-nav">
+    <a href="/index.html" class="enlace">
+      <label class="logo">Aprende</label>
+    </a>
+    <input type="checkbox" id="check">
+    <label for="check" class="checkbtn">
+      <i class="material-icons">menu</i>
+    </label>
+    <ul class="menu">
+      <li>
+        <a href="/index.html" class="active menu-link">Home</a>
+      </li>
+      <li>
+        <a href="/pages/cursos/index.html" class="menu-link">Guias</a>
+      </li>
+      <li>
+        <a href="/pages/html/index.html" class="menu-link">HTML</a>
+      </li>
+      <li>
+        <a href="/pages/css/index.html" class="menu-link">CSS</a>
+      </li>
+      <li>
+        <a href="/pages/js/index.html" class="menu-link">JavaScript</a>
+      </li>
+
+    </ul>
+  </nav>
+</header>
+
+  <main class="container">
+
+    <section id="introduction">
+
+      <h2>Introducción</h2>
+
+      <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" rel="nofollow" target="_blank">Guía
+        CSS-tricks</a>
+
+      <p>Extensión recomendada para visual studio code: Flexbox cheatsheet. en windows/linux se activa con shift +
+        control + p. En Mac con cmd + shift + p. Posee un breve detalle de todas las propiedades.</p>
+
+      <img src="/assets/images/flexbox-2.png" alt="Principios Flexbox">
+
+      <p>El módulo Flexbox Layout tiene como objetivo proporcionar una forma más eficiente de diseñar, alinear y
+        distribuir el espacio entre los elementos en un contenedor, incluso cuando su tamaño es desconocido y/o
+        dinámico. Es un sistema unidireccional.</p>
+      <p>La idea principal detrás del diseño flexible es darle al contenedor la capacidad de modificar el ancho/alto (y
+        el orden) de sus elementos para llenar mejor el espacio disponible (principalmente para adaptarse a todo tipo de
+        dispositivos de visualización y tamaños de pantalla). Un contenedor flexible expande los elementos para llenar
+        el espacio libre disponible o los reduce para evitar el desbordamiento.</p>
+
+      <blockquote>Nota: el diseño de Flexbox es más apropiado para los componentes de una aplicación y diseños de
+        pequeña escala, mientras que el diseño de cuadrícula está diseñado para diseños de mayor escala.</blockquote>
+
+      <p>Flexbox posee propiedades que aplican en el contenedor (elemento principal), mientras que otras aplican en los
+        elementos secundarios.</p>
+
+      <p>Si el diseño "regular" se basa en direcciones de flujo en bloque y en línea, el diseño flexible se basa en
+        "direcciones de flujo flexible".</p>
+
+      <img src="/assets/images/flexbox-1.png" alt="Principios Flexbox">
+
+      <p>Los elementos se distribuirán siguiendo el eje principal (desde el inicio principal hasta el final principal) o
+        el eje transversal (desde el inicio transversal hasta el final transversal).</p>
+
+      <ul>
+        <li>main axis: el eje principal de un contenedor flexible es el eje a lo largo del cual se disponen los
+          elementos. No necesariamente es el horizontal, depende de la propiedad flex-direction.</li>
+        <li>main-start | main-end: los elementos se colocan dentro del contenedor comenzando desde el inicio y hasta el
+          final principal.</li>
+        <li>main size: indica el ancho o la altura de un elemento flexible que esté en la dimensión principal, es el
+          tamaño principal del elemento.</li>
+        <li>cross axis: es el eje perpendicular al eje principal. Su dirección depende de la dirección del eje
+          principal.</li>
+        <li>cross-start | cross-end: las filas se llenan con elementos comenzando en el lado de inicio cross del
+          contenedor flexible.</li>
+        <li>cross size: el ancho o la altura de un elemento flexible que se encuentre en la dimensión transversal,
+          es el tamaño transversal del elemento.</li>
+      </ul>
+    </section>
+
+    <hr>
+  </main>
+
+  <section class="pagination">
+    <!-- <article class="pagination-item">
+      <a href="/pages/css/index.html">
+        <i class="material-icons">arrow_back</i>Guia CSS
+      </a>
+    </article> -->
+    <article class="pagination-item">
+      <a href="/pages/flexbox/index.html#indice">Tabla de contenido Flexbox
+        <i class="material-icons">arrow_upward</i>
+      </a>
+    </article>
+    <article class="pagination-item">
+      <a href="/pages/flexbox/parent-props.html#intro">Propiedades del contenedor
+        <i class="material-icons">arrow_forward</i>
+      </a>
+    </article>
+  </section>
+  <footer>
+  Copyright © 2022 TiDev. All rights reserved.
+</footer>
+
+</body>
+
+</html>

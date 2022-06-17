@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="application-name" content="TiDev">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@jourdanmau">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#fb6d43">
+<meta name="msapplication-TitleColor" content="#fb6d43">
+<meta name="msapplication-TitleImage" content="">
+<link rel="apple-touch-icon" href="">
+<!-- <link rel="icon" type="image/png" href=""> -->
+<link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<link rel="author" type="text/plain" href="humans.txt">
+<!-- <link rel="manifest" href="manifest.json"> -->
+<!-- CDN Material+Icons -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  <title>
+  Conversiones de tipos
+</title>
+<meta name="twitter:title" property="og:title" content="Conversiones de tipos">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/menu.css">
+  <link rel="stylesheet" href="/css/prism.css" />
+</head>
+
+<body>
+  <header>
+  <nav class="menu-nav">
+    <a href="/index.html" class="enlace">
+      <label class="logo">Aprende</label>
+    </a>
+    <input type="checkbox" id="check">
+    <label for="check" class="checkbtn">
+      <i class="material-icons">menu</i>
+    </label>
+    <ul class="menu">
+      <li>
+        <a href="/index.html" class="active menu-link">Home</a>
+      </li>
+      <li>
+        <a href="/pages/cursos/index.html" class="menu-link">Guias</a>
+      </li>
+      <li>
+        <a href="/pages/html/index.html" class="menu-link">HTML</a>
+      </li>
+      <li>
+        <a href="/pages/css/index.html" class="menu-link">CSS</a>
+      </li>
+      <li>
+        <a href="/pages/js/index.html" class="active menu-link">JavaScript</a>
+      </li>
+
+    </ul>
+  </nav>
+</header>
+
+  <main class="container">
+
+    <h1>Conversiones de Tipos</h1>
+
+    <section id="conversions">
+
+      <p>Los operadores y funciones convierten automáticamente los valores que se les pasan al tipo correcto, pero
+        hay casos donde necesitamos convertir de manera explícita un valor al tipo esperado.</p>
+
+      <h3>ToString</h3>
+
+      <p>La conversión a string ocurre cuando necesitamos la representación en forma de texto de un valor.</p>
+
+      <pre>
+        <code class="language-javascript">
+          let value = true;
+          alert(typeof value); // boolean
+
+          value = String(value); // ahora value es el string "true"
+          alert(typeof value); // string
+        </code>
+      </pre>
+
+      <h3>ToNumber</h3>
+
+      <p>La conversión numérica ocurre automáticamente en funciones matemáticas y expresiones. Por ejemplo, cuando se
+        dividen valores no numéricos usando /: </p>
+
+      <pre>
+        <code class="language-javascript">
+          alert( "6" / "2" ); // 3, los strings son convertidos a números
+        </code>
+      </pre>
+
+      <p>Podemos usar la función Number(value) para convertir de forma explícita un valor a un número:</p>
+
+      <pre>
+        <code class="language-javascript">
+          let str = "123";
+          alert(typeof str); // string
+
+          let num = Number(str); // se convierte en 123
+          alert(typeof num); // number
+        </code>
+      </pre>
+
+      <p>Ejemplos</p>
+
+      <pre>
+        <code class="language-javascript">
+          alert( Number("   123   ") ); // 123
+          alert( Number("123z") );      // NaN (error al leer un número en "z")
+          alert( Number(true) );        // 1
+          alert( Number(false) );       // 0
+        </code>
+      </pre>
+
+      <p>Casi todas las operaciones matemáticas convierten valores a números. Una excepción notable es la suma +. Si
+        uno de los valores sumados es un string, el otro valor es convertido a string.</p>
+
+      <pre>
+        <code class="language-javascript">
+          alert( 1 + '2' ); // '12' (string)
+        </code>
+      </pre>
+
+      <h3>ToBoolean</h3>
+
+      <p>Ocurre en operaciones lógicas pero también puede realizarse de forma explícita llamando a la función
+        Boolean(value).</p>
+
+      <p>Las reglas de conversión:</p>
+      <ul>
+        <li>Los valores que son intuitivamente “vacíos”, como 0, "", null, undefined, y NaN, se convierten en false.
+        </li>
+        <li>Otros valores se convierten en true.</li>
+      </ul>
+
+      <p>Ejemplo:</p>
+      <pre>
+        <code class="language-javascript">
+          alert( Boolean(1) ); // true
+          alert( Boolean(0) ); // false
+
+          alert( Boolean("hola") ); // true
+          alert( Boolean("") ); // false
+        </code>
+      </pre>
+
+    </section>
+
+    <hr>
+  </main>
+
+  <section class="pagination">
+    <article class="pagination-item">
+      <a href="/pages/js/fundamentos/elementos-interactivos.html">
+        <i class="material-icons">arrow_back</i>Elementos interactivos
+      </a>
+    </article>
+    <article class="pagination-item">
+      <a href="/pages/js/index.html#indice">Tabla de contenido JS
+        <i class="material-icons">arrow_upward</i>
+      </a>
+    </article>
+    <article class="pagination-item">
+      <a href="/pages/js/fundamentos/operadores-basicos.html">Operadores básicos
+        <i class="material-icons">arrow_forward</i>
+      </a>
+    </article>
+  </section>
+  <footer>
+  Copyright © 2022 TiDev. All rights reserved.
+</footer>
+  <script src="/js/prism.js"></script>
+</body>
+
+</html>

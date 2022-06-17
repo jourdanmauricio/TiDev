@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="application-name" content="TiDev">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@jourdanmau">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#fb6d43">
+<meta name="msapplication-TitleColor" content="#fb6d43">
+<meta name="msapplication-TitleImage" content="">
+<link rel="apple-touch-icon" href="">
+<!-- <link rel="icon" type="image/png" href=""> -->
+<link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<link rel="author" type="text/plain" href="humans.txt">
+<!-- <link rel="manifest" href="manifest.json"> -->
+<!-- CDN Material+Icons -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  <title>
+  Asincronismo - Promesas
+</title>
+<meta name="twitter:title" property="og:title" content="Asincronismo - Promesas">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/menu.css">
+  <link rel="stylesheet" href="/css/prism.css" />
+</head>
+
+<body>
+  <header>
+  <nav class="menu-nav">
+    <a href="/index.html" class="enlace">
+      <label class="logo">Aprende</label>
+    </a>
+    <input type="checkbox" id="check">
+    <label for="check" class="checkbtn">
+      <i class="material-icons">menu</i>
+    </label>
+    <ul class="menu">
+      <li>
+        <a href="/index.html" class="active menu-link">Home</a>
+      </li>
+      <li>
+        <a href="/pages/cursos/index.html" class="menu-link">Guias</a>
+      </li>
+      <li>
+        <a href="/pages/html/index.html" class="menu-link">HTML</a>
+      </li>
+      <li>
+        <a href="/pages/css/index.html" class="menu-link">CSS</a>
+      </li>
+      <li>
+        <a href="/pages/js/index.html" class="active menu-link">JavaScript</a>
+      </li>
+
+    </ul>
+  </nav>
+</header>
+
+  <main class="container">
+
+    <h1>Asincronismo en JavaScript - Promesas</h1>
+
+    <section id="promises">
+
+      <h2>Promesas</h2>
+
+      <p>Una promesa (promise) es un objeto que representa la terminación o el fracaso de una operación asíncrona. </p>
+
+      <p>Para crear una promesa utilizamos la palabra reservada new seguida de la palabra Promise que es el constructor
+        de la promesa. Este constructor recibe un único parámetro que es una función, la cuál a su vez, recibe otros dos
+        parámetros, resolve y reject. El parámetro resolve se utiliza para cuando la promesa devuelve el valor
+        correctamente mientras que reject, se usa en el que caso de que no funcione.</p>
+
+      <pre>
+        <code class="language-javascript">
+          function cuadradoPromise(value) {
+            if (typeof value !== "number") {
+              return Promise.reject(`Error, el valor " ${value} " ingresado no es un número`);
+            }
+            return new Promise((resolve, reject) => {
+              setTimeout(() => {
+                resolve({
+                  value,
+                  result: value * value
+                });
+              }, 0 || Math.random() * 1000);
+            });
+          }
+
+          cuadradoPromise(0)
+            .then(obj => {
+              //console.log(obj);
+              console.log('Inicio Promise');
+              console.log(`Promise: ${obj.value}, ${obj.result}`);
+              return cuadradoPromise(1);
+            })
+            .then(obj => {
+              console.log(`Promise: ${obj.value}, ${obj.result}`);
+              return cuadradoPromise(2);
+            })
+            .then(obj => {
+              console.log(`Promise: ${obj.value}, ${obj.result}`);
+              return cuadradoPromise(3);
+            })
+            .then(obj => {
+              console.log(`Promise: ${obj.value}, ${obj.result}`);
+              return cuadradoPromise("4");
+            })
+            .then(obj => {
+              console.log(`Promise: ${obj.value}, ${obj.result}`);
+              return cuadradoPromise(5);
+            })
+            .then(obj => {
+              console.log(`Promise: ${obj.value}, ${obj.result}`);
+              console.log('Fin Promise');
+            })
+            .catch(err => console.error(err));           
+        </code>
+      </pre>
+
+      <ul>
+        <li>No es necesario pasar la función (callback) como parámetro.</li>
+        <li>El código se vuelve mucho más legible al utilizar la palabra clave then, que indica siguiente paso.</li>
+        <li>Aunque en la sección de callbacks no incluimos el manejo de errores porque sería demasiado engorroso, con
+          promesas se resuelve elegantemente a través de la palabra clave catch, que captura el error generado por el
+          reject.</li>
+      </ul>
+
+      <p>Así como el catch captura el error el then captaura el resolve. De la misma manera que con las callbacks,
+        utilizamos el resultado de la función anterior para ejecutar la siguiente acción. En el ejemplo solo lo enviamos
+        a consola pero podría ser información indispensable y que sin ella no podemos continuar la ejecución. Este es el
+        nivel de control sobre las funciones asíncronas que nos aportan las promesas.</p>
+
+    </section>
+
+    <hr>
+  </main>
+
+  <section class="pagination">
+    <article class="pagination-item">
+      <a href="/pages/js/asincronismo/callbacks.html">
+        <i class="material-icons">arrow_back</i>Callbacks
+      </a>
+    </article>
+    <article class="pagination-item">
+      <a href="/pages/js/index.html#indice">Tabla de contenido JS
+        <i class="material-icons">arrow_upward</i>
+      </a>
+    </article>
+    <article class="pagination-item">
+      <a href="/pages/js/asincronismo/async-await.html">Async - Await
+        <i class="material-icons">arrow_forward</i>
+      </a>
+    </article>
+  </section>
+  <footer>
+  Copyright © 2022 TiDev. All rights reserved.
+</footer>
+  <script src="/js/prism.js"></script>
+</body>
+
+</html>

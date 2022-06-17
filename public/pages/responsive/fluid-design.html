@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="application-name" content="TiDev">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@jourdanmau">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#fb6d43">
+<meta name="msapplication-TitleColor" content="#fb6d43">
+<meta name="msapplication-TitleImage" content="">
+<link rel="apple-touch-icon" href="">
+<!-- <link rel="icon" type="image/png" href=""> -->
+<link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<link rel="author" type="text/plain" href="humans.txt">
+<!-- <link rel="manifest" href="manifest.json"> -->
+<!-- CDN Material+Icons -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  <title>
+  Fluid design
+</title>
+<meta name="twitter:title" property="og:title" content="Fluid design">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/menu.css">
+  <link rel="stylesheet" href="/css/prism.css" />
+  <link rel="stylesheet" href="/css/css/responsive-design.css">
+</head>
+
+<body>
+  <header>
+  <nav class="menu-nav">
+    <a href="/index.html" class="enlace">
+      <label class="logo">Aprende</label>
+    </a>
+    <input type="checkbox" id="check">
+    <label for="check" class="checkbtn">
+      <i class="material-icons">menu</i>
+    </label>
+    <ul class="menu">
+      <li>
+        <a href="/index.html" class="active menu-link">Home</a>
+      </li>
+      <li>
+        <a href="/pages/cursos/index.html" class="menu-link">Guias</a>
+      </li>
+      <li>
+        <a href="/pages/html/index.html" class="menu-link">HTML</a>
+      </li>
+      <li>
+        <a href="/pages/css/index.html" class="menu-link">CSS</a>
+      </li>
+      <li>
+        <a href="/pages/js/index.html" class="menu-link">JavaScript</a>
+      </li>
+
+    </ul>
+  </nav>
+</header>
+
+  <main class="container">
+
+    <section id="fluid-design">
+
+      <h1>Fluid Design</h1>
+
+      <p>El <i>Fluid Design</i> es una técnica de <i>Responsive Design</i> que trata de escalar y adaptar el contenido
+        al tamaño de la pantalla, sin la necesidad de ocupar <i>media queries</i>. </p>
+      <p>En lugar de diseñar para un determinado número de <i>breakpoints</i>, el <i>Fluid Design</i> crea un sistema
+        dentro del cual los elementos escalan de manera proporcional y fluida. </p>
+      <p>Utiliza características y funciones modernas de <i>CSS</i> para hacer fluir las interfaces, por ejemplo: </p>
+
+      <ul>
+        <li>Contenedores fluidos</li>
+        <li>Textos fluidos</li>
+        <li><a href="https://youtu.be/inVlqjPNmD8?list=PLvq-jIkSeTUY628cyd9LVbXSXi2xG9mUl&t=858"
+            target="_blank"><i>Grids</i> responsivas sin <i>media queries</i></a></li>
+        <li>
+          Uso de funciones como:
+          <ul>
+            <li><a href="https://www.youtube.com/watch?v=p_lT7AgpEMU&t=13261s" target="_blank"><i>calc</i></a></li>
+            <li><a href="https://www.youtube.com/watch?v=p_lT7AgpEMU&t=13796s" target="_blank"><i>min, max</i></a></li>
+            <li><a href="https://www.youtube.com/watch?v=p_lT7AgpEMU&t=14123s" target="_blank"><i>clamp</i></a></li>
+          </ul>
+        </li>
+        <li>
+          Uso de unidades relativas como:
+        </li>
+        <li><a href="https://www.youtube.com/watch?v=p_lT7AgpEMU&t=6194s" target="_blank"><i>EMS</i></a></li>
+        <li><a href="https://www.youtube.com/watch?v=p_lT7AgpEMU&t=7070s" target="_blank"><i>REMs</i></a></li>
+        <li><a href="https://www.youtube.com/watch?v=p_lT7AgpEMU&t=7793s" target="_blank"><i>EXs</i></a></li>
+        <li><a href="https://www.youtube.com/watch?v=p_lT7AgpEMU&t=8158s" target="_blank"><i>CHs</i></a></li>
+        <li><a href="https://www.youtube.com/watch?v=p_lT7AgpEMU&t=8751s" target="_blank">Porcentajes</a></li>
+        <li><a href="https://www.youtube.com/watch?v=p_lT7AgpEMU&t=9764s" target="_blank">Unidades del
+            <i>Viewport</i></a></li>
+      </ul>
+
+      <p> Fue propuesto por <a href="https://www.trysmudford.com/" target="_blank"><i>Trys Mudford</i></a> en 2020.
+      </p>
+
+      <h3>Más información</h3>
+
+      <ul>
+        <li><a href="https://utopia.fyi/" target="_blank"><i>Utopia. Fluid Responsive Design</i></a></li>
+        <li><a href="https://utopia.fyi/blog" target="_blank"><i>Utopia Blog</i></a></li>
+        <li><a href="https://utopia.fyi/blog/designing-with-fluid-type-scales/" target="_blank"><i>Designing with fluid
+              type scales</i></a></li>
+        <li><a href="https://utopia.fyi/blog/css-modular-scales/" target="_blank"><i>CSS-only fluid modular type
+              scales</i></a></li>
+        <li><a href="https://utopia.fyi/type/calculator/" target="_blank"><i>Fluid type calculator</i></a></li>
+      </ul>
+
+      <aside>
+
+        <h3>Ejemplos con Fluid Design</h3>
+
+        <h4>Grid Fluida</h4>
+
+        <pre>
+          <code class="language-html">
+            &lt;section class="fluid-grid"&gt;
+              &lt;article class="fluid-item"&gt;Elemento 1&lt;/article&gt;
+              &lt;article class="fluid-item"&gt;Elemento 2&lt;/article&gt;
+              &lt;article class="fluid-item"&gt;Elemento 3&lt;/article&gt;
+              &lt;article class="fluid-item"&gt;Elemento 4&lt;/article&gt;
+              &lt;article class="fluid-item"&gt;Elemento 5&lt;/article&gt;
+              &lt;article class="fluid-item"&gt;Elemento 6&lt;/article&gt;
+              &lt;article class="fluid-item"&gt;Elemento 7&lt;/article&gt;
+              &lt;article class="fluid-item"&gt;Elemento 8&lt;/article&gt;
+              &lt;article class="fluid-item"&gt;Elemento 9&lt;/article&gt;
+              &lt;article class="fluid-item"&gt;Elemento 10&lt;/article&gt;
+              &lt;article class="fluid-item"&gt;Elemento 11&lt;/article&gt;
+              &lt;article class="fluid-item"&gt;Elemento 12&lt;/article&gt;
+              &lt;article class="fluid-item"&gt;Elemento 13&lt;/article&gt;
+              &lt;article class="fluid-item"&gt;Elemento 14&lt;/article&gt;
+              &lt;article class="fluid-item"&gt;Elemento 15&lt;/article&gt;
+              &lt;article class="fluid-item"&gt;Elemento 16&lt;/article&gt;
+              &lt;article class="fluid-item"&gt;Elemento 17&lt;/article&gt;
+              &lt;article class="fluid-item"&gt;Elemento 18&lt;/article&gt;
+              &lt;article class="fluid-item"&gt;Elemento 19&lt;/article&gt;
+            &lt;/section&gt;
+          </code>
+        </pre>
+        <pre>
+          <code class="language-css">
+            .fluid-grid {
+              display: grid;
+              grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
+            .fluid-item {
+              border: thin solid gray;
+              padding: 1rem;
+            }
+          </code>
+        </pre>
+
+        <section class="fluid-grid">
+          <article class="fluid-item">Elemento 1</article>
+          <article class="fluid-item">Elemento 2</article>
+          <article class="fluid-item">Elemento 3</article>
+          <article class="fluid-item">Elemento 4</article>
+          <article class="fluid-item">Elemento 5</article>
+          <article class="fluid-item">Elemento 6</article>
+          <article class="fluid-item">Elemento 7</article>
+          <article class="fluid-item">Elemento 8</article>
+          <article class="fluid-item">Elemento 9</article>
+          <article class="fluid-item">Elemento 10</article>
+          <article class="fluid-item">Elemento 11</article>
+          <article class="fluid-item">Elemento 12</article>
+          <article class="fluid-item">Elemento 13</article>
+          <article class="fluid-item">Elemento 14</article>
+          <article class="fluid-item">Elemento 15</article>
+          <article class="fluid-item">Elemento 16</article>
+          <article class="fluid-item">Elemento 17</article>
+          <article class="fluid-item">Elemento 18</article>
+          <article class="fluid-item">Elemento 19</article>
+        </section>
+
+        <h4>Textos Fluidos</h4>
+
+        <pre>
+          <code class="language-html">
+            &lt;p class="step--2"&gt;Step -2&lt;/p&gt;
+            &lt;p class="step--1"&gt;Step -1&lt;/p&gt;
+            &lt;p class="step-0"&gt;Step 0&lt;/p&gt;
+            &lt;p class="step-1"&gt;Step 1&lt;/p&gt;
+            &lt;p class="step-2"&gt;Step 2&lt;/p&gt;
+            &lt;p class="step-3"&gt;Step 3&lt;/p&gt;
+            &lt;p class="step-4"&gt;Step 4&lt;/p&gt;
+            &lt;p class="step-5"&gt;Step 5&lt;/p&gt;
+          </code>
+        </pre>
+        <pre>
+          <code class="language-css">
+            :root {
+            --step--2: clamp(0.91rem, 0.89rem + 0.1vw, 0.96rem);
+            --step--1: clamp(1.09rem, 1.05rem + 0.21vw, 1.2rem);
+            --step-0: clamp(1.31rem, 1.24rem + 0.37vw, 1.5rem);
+            --step-1: clamp(1.58rem, 1.46rem + 0.59vw, 1.88rem);
+            --step-2: clamp(1.89rem, 1.71rem + 0.89vw, 2.34rem);
+            --step-3: clamp(2.27rem, 2.01rem + 1.29vw, 2.93rem);
+            --step-4: clamp(2.72rem, 2.36rem + 1.83vw, 3.66rem);
+            --step-5: clamp(3.27rem, 2.75rem + 2.56vw, 4.58rem);
+            }
+            .step--2 {
+            font-size: var(--step--2);
+            }
+            .step--1 {
+            font-size: var(--step--1);
+            }
+            .step-0 {
+            font-size: var(--step-0);
+            }
+            .step-1 {
+            font-size: var(--step-1);
+            }
+            .step-2 {
+            font-size: var(--step-2);
+            }
+            .step-3 {
+            font-size: var(--step-3);
+            }
+            .step-4 {
+            font-size: var(--step-4);
+            }
+            .step-5 {
+            font-size: var(--step-5);
+            }
+          </code>
+        </pre>
+
+        <p class="step--2">Step -2</p>
+        <p class="step--1">Step -1</p>
+        <p class="step-0">Step 0</p>
+        <p class="step-1">Step 1</p>
+        <p class="step-2">Step 2</p>
+        <p class="step-3">Step 3</p>
+        <p class="step-4">Step 4</p>
+        <p class="step-5">Step 5</p>
+
+        <p>También podemos configurar el texto responsive en el body.</p>
+
+        <ul>
+          <li>14 = tamaño de letra más pequeño</li>
+          <li>18 = tamaño de letra más grande</li>
+          <li>300 = tamaño de viewport más pequeño</li>
+          <li>1400 = tamaño de viewport más grande</li>
+        </ul>
+
+        <pre>
+          <code class="language-css">
+            body {
+              font-size: calc(14px + (18 -14) * ((100vw - 300px) / (1400 - 300)));
+              font-size: calc(12px + (24 -12) * ((100vw - 200px) / (1600 - 200)));
+            }
+          </code>
+        </pre>
+
+        <h4>Contenedores Fluidos</h4>
+
+        <p>La función clamp() es un buen complemento a min - max. Es una función que recibe 3 valores y nos permite el
+          diseño responsivo sin utilizar media querys.</p>
+
+        <ul>
+          <li>Tamaño mínimo</li>
+          <li>Tamaño ideal</li>
+          <li>Tamaño máximo</li>
+        </ul>
+
+        <pre>
+          <code class="language-html">
+            &lt;div class="box-fluid"&gt;&lt;/div&gt;          
+          </code>
+        </pre>
+        <pre>
+          <code class="language-css">
+            .box-fluid {
+              width: clamp(400px, 60vw, 600px);
+              height: clamp(200px, 30vh, 300px);
+            }
+          </code>
+        </pre>
+
+        <div class="box-fluid"></div>
+      </aside>
+    </section>
+
+    <hr>
+  </main>
+
+  <section class="pagination">
+    <article class="pagination-item">
+      <a href="/pages/responsive/responsible-design.html">
+        <i class="material-icons">arrow_back</i>Responsible Design
+      </a>
+    </article>
+    <article class="pagination-item">
+      <a href="/pages/responsive/index.html#indice">Responsive Design
+        <i class="material-icons">arrow_upward</i>
+      </a>
+    </article>
+    <!-- <article class="pagination-item">
+      <a href="/pages/responsive/efectos-visuales.html">Efectos visuales
+        <i class="material-icons">arrow_forward</i>
+      </a>
+    </article> -->
+  </section>
+  <footer>
+  Copyright © 2022 TiDev. All rights reserved.
+</footer>
+  <script src="/js/prism.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="application-name" content="TiDev">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@jourdanmau">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#fb6d43">
+<meta name="msapplication-TitleColor" content="#fb6d43">
+<meta name="msapplication-TitleImage" content="">
+<link rel="apple-touch-icon" href="">
+<!-- <link rel="icon" type="image/png" href=""> -->
+<link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<link rel="author" type="text/plain" href="humans.txt">
+<!-- <link rel="manifest" href="manifest.json"> -->
+<!-- CDN Material+Icons -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  <title>
+  DOM: Delegación de eventos
+</title>
+<meta name="twitter:title" property="og:title" content="DOM: Delegación de eventos">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/menu.css">
+  <link rel="stylesheet" href="/css/prism.css" />
+  <style>
+    .eventos-flujo div {
+      padding: 4rem;
+      font-size: 2rem;
+      text-align: center;
+    }
+
+    .uno {
+      background-color: yellow;
+    }
+
+    .dos {
+      background-color: gold;
+    }
+
+    .tres {
+      background-color: lightyellow;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+  <nav class="menu-nav">
+    <a href="/index.html" class="enlace">
+      <label class="logo">Aprende</label>
+    </a>
+    <input type="checkbox" id="check">
+    <label for="check" class="checkbtn">
+      <i class="material-icons">menu</i>
+    </label>
+    <ul class="menu">
+      <li>
+        <a href="/index.html" class="active menu-link">Home</a>
+      </li>
+      <li>
+        <a href="/pages/cursos/index.html" class="menu-link">Guias</a>
+      </li>
+      <li>
+        <a href="/pages/html/index.html" class="menu-link">HTML</a>
+      </li>
+      <li>
+        <a href="/pages/css/index.html" class="menu-link">CSS</a>
+      </li>
+      <li>
+        <a href="/pages/js/index.html" class="active menu-link">JavaScript</a>
+      </li>
+
+    </ul>
+  </nav>
+</header>
+
+  <main class="container">
+
+    <h1>DOM: Delegación de eventos</h1>
+
+    <section id="delegation">
+
+      <p>Delegación de eventos es un mecanismo a través del cual evitamos asignar event listeners a múltiples nodos
+        específicos del DOM, asignando un event listener a solo un nodo padre que contiene el resto de estos nodos.</p>
+
+      <p>La ventaja de usar delegación de eventos es que si tenemos n botones, solo registramos un event listener para
+        todos los elementos, mientras que sin delegación de eventos debemos registrar n event listeners, uno pora cada
+        boton. Este mecanismo optimiza recursos de memoria.</p>
+
+      <hr>
+
+      <p>Para ejemplificar la delegación de eventos volveremos a la estructura de divs anidados que utilizamos en la
+        sección anterior.</p>
+
+      <pre>
+        <code class="language-html">
+          &lt;!-- En el head --&gt;
+            &lt;style&gt;
+              .eventos-flujo div {
+                padding: 4rem;
+                font-size: 2rem;
+                text-align: center;
+              }
+              .uno {
+                background-color: yellow;
+              }
+              .dos {
+                background-color: gold;
+              }
+              .tres {
+                background-color: lightyellow;
+              }
+            &lt;/style&gt;
+            &lt;!-- En el body --&gt;
+          &lt;section class="eventos-flujo"&gt;
+            &lt;div class="uno"&gt;
+                1
+                &lt;div class="dos"&gt;
+                  2
+                  &lt;div class="tres"&gt;
+                    3
+                  &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/section&gt;
+        </code>
+      </pre>
+
+      <section class="eventos-flujo">
+        <div class="uno">
+          Click 1
+          <div class="dos">
+            Click 2
+            <div class="tres">
+              Click 3
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <p>Agregar el método addEventListener('click') al objeto document, capturará todos los clicks que se realicen en
+        la página. Y, dentro de la función handle del evento identificamos el elemento que generó el evento para tomar
+        la acción que corresponda.</p>
+
+      <p>El método element.matches(selector) comprueba si el element sería seleccionable por el selector CSS
+        especificado en la cadena; en caso contrario, retorna false.</p>
+
+      <p>De esta manera, nos evitamos generar muchos manejadores de eventos. Y ya no es necesario realizar el stop de la
+        propagación de eventos (estamos en el document). </p>
+
+
+      <p>Frmaeworks como Vue, React, Angular trabajan de esta manera, activando eventos como clicks, submit, blur,
+        focus, etc en el objeto document.</p>
+
+      <pre>
+        <code class="language-javascript">
+          function flujoEventos( e ) {
+            alert(
+              `Hola te saluda Mau, el click lo originó ${e.target.className}`
+            );
+          }
+          document.addEventListener( "click", ( e ) => {
+            console.log( 'Click en: ', e.target )
+            if ( e.target.matches( ".eventos-flujo div" ) ) {
+              flujoEventos( e );
+            }
+          } );
+        </code>
+      </pre>
+
+      <blockquote>
+        Este mecanismo es importante al realizar peticiones asíncronas (ajax, fetch) para generar elementos dinámicos y
+        aún no se ha cargado el DOM. No podremos asignar event listeners a elementos que aún no existen en el DOM.
+        Entonces podríamos invocar una API, con el resultado preparamos elementos html dinámicos y asignamos los eventos
+        al document mediante la delegación de eventos.
+      </blockquote>
+
+      <script>
+        function flujoEventos( e ) {
+          alert(
+            `Hola te saluda Mau, el click lo originó ${e.target.className}`
+          );
+        }
+        document.addEventListener( "click", ( e ) => {
+          console.log( 'Click en: ', e.target )
+          if ( e.target.matches( ".eventos-flujo div" ) ) {
+            flujoEventos( e );
+          }
+        } );
+      </script>
+
+    </section>
+
+    <hr>
+  </main>
+
+  <section class="pagination">
+    <article class="pagination-item">
+      <a href="/pages/js/dom/flow-events.html">
+        <i class="material-icons">arrow_back</i>Flujo de Eventos
+      </a>
+    </article>
+    <article class="pagination-item">
+      <a href="/pages/js/index.html#indice">Tabla de contenido JS
+        <i class="material-icons">arrow_upward</i>
+      </a>
+    </article>
+    <article class="pagination-item">
+      <a href="/pages/js/bom/propiedades-eventos.html">
+        <i class="material-icons">arrow_forward</i>BOM: propiedades y eventos
+      </a>
+    </article>
+  </section>
+  <footer>
+  Copyright © 2022 TiDev. All rights reserved.
+</footer>
+  <script src="/js/prism.js"></script>
+</body>
+
+</html>

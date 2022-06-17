@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="application-name" content="TiDev">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@jourdanmau">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#fb6d43">
+<meta name="msapplication-TitleColor" content="#fb6d43">
+<meta name="msapplication-TitleImage" content="">
+<link rel="apple-touch-icon" href="">
+<!-- <link rel="icon" type="image/png" href=""> -->
+<link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<link rel="author" type="text/plain" href="humans.txt">
+<!-- <link rel="manifest" href="manifest.json"> -->
+<!-- CDN Material+Icons -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  <title>
+  Grids anidados
+</title>
+<meta name="twitter:title" property="og:title" content="Grids anidados">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/menu.css">
+  <link rel="stylesheet" href="/css/prism.css" />
+  <link rel="stylesheet" href="/css/css/grid-css.css">
+</head>
+
+<body>
+  <header>
+  <nav class="menu-nav">
+    <a href="/index.html" class="enlace">
+      <label class="logo">Aprende</label>
+    </a>
+    <input type="checkbox" id="check">
+    <label for="check" class="checkbtn">
+      <i class="material-icons">menu</i>
+    </label>
+    <ul class="menu">
+      <li>
+        <a href="/index.html" class="active menu-link">Home</a>
+      </li>
+      <li>
+        <a href="/pages/cursos/index.html" class="menu-link">Guias</a>
+      </li>
+      <li>
+        <a href="/pages/html/index.html" class="menu-link">HTML</a>
+      </li>
+      <li>
+        <a href="/pages/css/index.html" class="menu-link">CSS</a>
+      </li>
+      <li>
+        <a href="/pages/js/index.html" class="menu-link">JavaScript</a>
+      </li>
+
+    </ul>
+  </nav>
+</header>
+
+  <main class="container">
+
+    <section id="grid-nested">
+      <h1>Grids Anidados</h1>
+
+      <pre>
+        <code class="language-html">
+          &lt;section class="container-grid grid-nested"&gt;
+            &lt;article class="item grid-nested"&gt;
+              &lt;div class="sub-item"&gt;
+                &lt;p&gt;Grid Subitem Anidado 1&lt;/p&gt;
+              &lt;/div&gt;
+              &lt;div class="sub-item"&gt;
+                &lt;p&gt;Grid Subitem Anidado 2&lt;/p&gt;
+              &lt;/div&gt;
+              &lt;div class="sub-item"&gt;
+                &lt;p&gt;Grid Subitem Anidado 3&lt;/p&gt;
+              &lt;/div&gt;
+              &lt;div class="sub-item"&gt;
+                &lt;p&gt;Grid Subitem Anidado 4&lt;/p&gt;
+              &lt;/div&gt;
+              &lt;div class="sub-item"&gt;
+                &lt;p&gt;Grid Subitem Anidado 5&lt;/p&gt;
+              &lt;/div&gt;
+            &lt;/article&gt;
+            &lt;article class="item"&gt;
+              &lt;p&gt;Grid Item 2&lt;/p&gt;
+            &lt;/article&gt;
+            &lt;article class="item"&gt;
+              &lt;p&gt;Grid Item 3&lt;/p&gt;
+            &lt;/article&gt;
+            &lt;article class="item"&gt;
+              &lt;p&gt;Grid Item 4&lt;/p&gt;
+            &lt;/article&gt;
+            &lt;article class="item"&gt;
+              &lt;p&gt;Grid Item 5&lt;/p&gt;
+            &lt;/article&gt;
+          &lt;/section&gt;
+        </code>
+      </pre>
+      <pre>
+        <code class="language-css">
+          .grid-nested {
+            display: grid;
+            /* Grid 4cols x ?  No definimos filas */
+            grid-template-columns: repeat(3, 1fr);
+          }
+          .sub-item {
+            padding: 1rem;
+            background-color: #ddd;
+            border: medium solid #ccc;
+          }
+        </code>
+      </pre>
+
+      <section class="container-grid grid-nested">
+        <article class="item grid-nested">
+          <div class="sub-item">
+            <p>Grid Subitem Anidado 1</p>
+          </div>
+          <div class="sub-item">
+            <p>Grid Subitem Anidado 2</p>
+          </div>
+          <div class="sub-item">
+            <p>Grid Subitem Anidado 3</p>
+          </div>
+          <div class="sub-item">
+            <p>Grid Subitem Anidado 4</p>
+          </div>
+          <div class="sub-item">
+            <p>Grid Subitem Anidado 5</p>
+          </div>
+        </article>
+        <article class="item">
+          <p>Grid Item 2</p>
+        </article>
+        <article class="item">
+          <p>Grid Item 3</p>
+        </article>
+        <article class="item">
+          <p>Grid Item 4</p>
+        </article>
+        <article class="item">
+          <p>Grid Item 5</p>
+        </article>
+      </section>
+    </section>
+
+    <hr>
+  </main>
+
+  <section class="pagination">
+    <article class="pagination-item">
+      <a href="/pages/grid/grid-responsive.html">
+        <i class="material-icons">arrow_back</i>Responsive sin media queries
+      </a>
+    </article>
+    <article class="pagination-item">
+      <a href="/pages/grid/index.html#indice">Tabla de contenido Grid
+        <i class="material-icons">arrow_upward</i>
+      </a>
+    </article>
+    <article class="pagination-item">
+      <a href="/pages/grid/subgrid.html">Subgrids
+        <i class="material-icons">arrow_forward</i>
+      </a>
+    </article>
+  </section>
+  <footer>
+  Copyright © 2022 TiDev. All rights reserved.
+</footer>
+  <script src="/js/prism.js"></script>
+</body>
+
+</html>

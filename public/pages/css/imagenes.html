@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="application-name" content="TiDev">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@jourdanmau">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#fb6d43">
+<meta name="msapplication-TitleColor" content="#fb6d43">
+<meta name="msapplication-TitleImage" content="">
+<link rel="apple-touch-icon" href="">
+<!-- <link rel="icon" type="image/png" href=""> -->
+<link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<link rel="author" type="text/plain" href="humans.txt">
+<!-- <link rel="manifest" href="manifest.json"> -->
+<!-- CDN Material+Icons -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  <title>
+  Estilos en Imágenes
+</title>
+<meta name="twitter:title" property="og:title" content="Estilos en Imágenes">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/menu.css">
+  <link rel="stylesheet" href="/css/prism.css" />
+  <link rel="stylesheet" href="/css/html/html.css">
+  <link rel="stylesheet" href="/css/css/imagenes.css">
+</head>
+
+<body>
+  <header>
+  <nav class="menu-nav">
+    <a href="/index.html" class="enlace">
+      <label class="logo">Aprende</label>
+    </a>
+    <input type="checkbox" id="check">
+    <label for="check" class="checkbtn">
+      <i class="material-icons">menu</i>
+    </label>
+    <ul class="menu">
+      <li>
+        <a href="/index.html" class="active menu-link">Home</a>
+      </li>
+      <li>
+        <a href="/pages/cursos/index.html" class="menu-link">Guias</a>
+      </li>
+      <li>
+        <a href="/pages/html/index.html" class="menu-link">HTML</a>
+      </li>
+      <li>
+        <a href="/pages/css/index.html" class="active menu-link">CSS</a>
+      </li>
+      <li>
+        <a href="/pages/js/index.html" class="menu-link">JavaScript</a>
+      </li>
+
+    </ul>
+  </nav>
+</header>
+
+  <main class="container">
+
+    <section>
+      <h1>Estilos de Imágenes</h1>
+
+      <article>
+        <h2>Imágenes resṕonsivas</h2>
+
+        <p>Una de las principales características de las imágenes es que pueden adaptarse al tamaño de la pantalla.
+          Si la imagen es más grande que el contenedor se desbordará.</p>
+
+        <p>Si deseamos que la imagen sea recursiva tenemos que setear la propidad de las imagenes max-width en 100%.
+        </p>
+
+        <p>La etiqueta img es una etiqueta con comportamiento en línea. Si la imagen es menor al tamaño del
+          contenedor otros elementos se colocarán a su lado.</p>
+
+        <pre>
+          <code class="language-html">
+            &lt;img src="/assets/images/puesta-sol.jpg" alt="La puesta del sol"&gt;
+          </code>
+        </pre>
+        <pre>
+          <code class="language-css">
+            .img {
+              max-width: 100%;
+              height: auto;
+            }
+          </code>
+        </pre>
+        <img class="image-image" src="/assets/images/puesta-sol.jpg" alt="La puesta del sol">
+      </article>
+
+      <hr>
+
+      <article>
+        <h2>Imágenes con tamaño específico</h2>
+
+        <p>Si necesitamos que un imagen tenga dimensiones específicas podemos incluirla dentro de un contenedor y
+          dar dimensiones al contendor.</p>
+
+        <pre>
+          <code class="language-html">
+            &lt;article class="card"&gt;
+              &lt;img class="image-image" src="/assets/images/puesta-sol.jpg" alt="La puesta del sol"&gt;
+              &lt;h4&gt;Puesta del sol&lt;/h4&gt;
+            &lt;/article&gt;
+          </code>
+        </pre>
+        <pre>
+          <code class="language-css">
+            .card {
+              border: medium solid black;
+              width: 400px;
+              height: 400px;
+            }
+            .card img {
+              height: 300px;
+            }
+          </code>
+        </pre>
+
+        <article class="card">
+          <img class="image-image" src="/assets/images/puesta-sol.jpg" alt="La puesta del sol">
+          <h4>Puesta del sol</h4>
+        </article>
+
+        <p>Los problemas empiezan cuando queremos que la imagen ocupe un alto particular. Si las dimensiones de la
+          imagen con respecto al contendor no son proporcionales se deformará. Para solucionar este problema existen
+          dos propiedades: object-fit y object-position.</p>
+
+        <p>La propiedad object-fit define cómo responde un elemento a la altura y el ancho de su contenedor. Está
+          diseñado para imágenes, videos y otros formatos de medios junto con la propiedad object-position. Usado
+          solo, object-fit nos permite recortar una imagen en línea brindándonos un control detallado sobre cómo se
+          aplasta y se estira dentro de su caja.</p>
+
+        <p>object-fit admite cinco valores:</p>
+
+        <ul>
+          <li>fill: este es el valor predeterminado. Estira la imagen para que se ajuste al contenedor,
+            independientemente de su aspect-ratio</li>
+          <li>contain: aumenta o disminuye el tamaño de la imagen para llenar el cuadro conservando su aspect-ratio
+          </li>
+          <li>cover: la imagen llenará la altura y el ancho del contendor, una vez más manteniendo su relación de
+            aspecto, pero a menudo recortando la imagen en el proceso</li>
+          <li>none: la imagen ignorará el alto y el ancho del padre y conservará su tamaño original</li>
+          <li>scale-down: la imagen comparará la diferencia entre none y contain para encontrar el tamaño de objeto
+            concreto más pequeño</li>
+        </ul>
+
+        <p>La propiedad object-position determina el alineamiento del elemento dentro de la caja.</p>
+
+        <pre>
+          <code class="language-html">
+            &lt;article class="card2"&gt;
+              &lt;img src="/assets/images/puesta-sol.jpg" alt="La puesta del sol"&gt;
+              &lt;h4&gt;Puesta del sol&lt;/h4&gt;
+            &lt;/article&gt;
+          </code>
+        </pre>
+        <pre>
+          <code class="language-css">
+            .card2 {
+              border: medium solid black;
+              width: 400px;
+              height: 400px;
+            }
+            .card2 img {
+              height: 300px;
+              background-color: aquamarine;
+              /* la imagen se deforma */
+              object-fit: fill;
+              /* cover no deforma la imagen pero se recorta centrando la imagen */
+              object-fit: cover;
+              /* porque activa la propiedad object-position que por defecto tiene el valor: 50% 50% */
+              /* hacemos que desborde por derecha y abajo, ya que seteamos inicio arriba e izquierda */
+              object-position: left top;
+              /* el valor contain ajusta la imagen y no la deforma, pero no respeta la altura definida en height */
+              object-fit: contain;
+              /* Respetamos las dimensiones de la imagen. Se recorta. */
+              object-fit: none;
+              object-position: -40px 50%;
+              /* Si agregamos object-position: 50% 50%; centramos la imagen */
+              object-position: 50% 50%;
+              /* scale-down toma el menor valor entre none y contain */
+              /* si none es menos que contain toma none; si contain es menor que none toma contain */
+              object-fit: scale-down;
+            }
+          </code>
+        </pre>
+        <article class="card2">
+          <img class="image-image" src="/assets/images/puesta-sol.jpg" alt="La puesta del sol">
+          <h4>Puesta del sol</h4>
+        </article>
+      </article>
+    </section>
+
+    <hr>
+  </main>
+
+  <section class="pagination">
+    <article class="pagination-item">
+      <a href="/pages/css/backgrounds.html">
+        <i class="material-icons">arrow_back</i>Estilos background
+      </a>
+    </article>
+    <article class="pagination-item">
+      <a href="/pages/css/index.html#indice">Tabla de contenido CSS
+        <i class="material-icons">arrow_upward</i>
+      </a>
+    </article>
+    <article class="pagination-item">
+      <a href="/pages/css/style-list.html">Estilos en listas
+        <i class="material-icons">arrow_forward</i>
+      </a>
+    </article>
+  </section>
+  <footer>
+  Copyright © 2022 TiDev. All rights reserved.
+</footer>
+  <script src="/js/prism.js"></script>
+</body>
+
+</html>

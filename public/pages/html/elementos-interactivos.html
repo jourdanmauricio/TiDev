@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="application-name" content="TiDev">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@jourdanmau">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#fb6d43">
+<meta name="msapplication-TitleColor" content="#fb6d43">
+<meta name="msapplication-TitleImage" content="">
+<link rel="apple-touch-icon" href="">
+<!-- <link rel="icon" type="image/png" href=""> -->
+<link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<link rel="author" type="text/plain" href="humans.txt">
+<!-- <link rel="manifest" href="manifest.json"> -->
+<!-- CDN Material+Icons -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  <title>
+  TiDev HTML interactividad
+</title>
+<meta name="twitter:title" property="og:title" content="TiDev HTML interactividad">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/menu.css">
+  <link rel="stylesheet" href="/css/prism.css" />
+  <link rel="stylesheet" href="/css/html/html.css">
+</head>
+
+<body>
+  <header>
+  <nav class="menu-nav">
+    <a href="/index.html" class="enlace">
+      <label class="logo">Aprende</label>
+    </a>
+    <input type="checkbox" id="check">
+    <label for="check" class="checkbtn">
+      <i class="material-icons">menu</i>
+    </label>
+    <ul class="menu">
+      <li>
+        <a href="/index.html" class="active menu-link">Home</a>
+      </li>
+      <li>
+        <a href="/pages/cursos/index.html" class="menu-link">Guias</a>
+      </li>
+      <li>
+        <a href="/pages/html/index.html" class="active menu-link">HTML</a>
+      </li>
+      <li>
+        <a href="/pages/css/index.html" class="menu-link">CSS</a>
+      </li>
+      <li>
+        <a href="/pages/js/index.html" class="menu-link">JavaScript</a>
+      </li>
+
+    </ul>
+  </nav>
+</header>
+
+  <main class="container">
+
+    <section id="interactive-tags">
+
+      <h1>Elementos interactivos</h1>
+
+      <article id="button-tag">
+        <h2>Button</h2>
+        <p>Aunque aún no nos adentramos en JavaScript utilizaremos algunas sentencias para ver el comportamiento de los
+          elementos interactivos. Esta es una mala práctica, en la <a href="/pages/js/javascript.html">sección
+            JavaScript</a>
+          veremos en profundidad cómo interactuar con JavaScript</p>
+        <pre>
+          <code class="language-html">
+            &lt;button onclick="alert('Has presionado el botón!')"&gt;Este es un botón&lt;/button&gt;
+          </code>
+        </pre>
+
+        <button onclick="alert('Has presionado el botón!')">Este es un botón</button>
+      </article>
+
+      <hr>
+      <article id="details-tag">
+        <h2>Details</h2>
+
+        <p>Este elemeto se confirma por tres etiquetas: details, summary y el contenido que puede ser texto,
+          imágenes,etc. Ejemplo:</p>
+
+        <pre>
+          <code class="language-html">
+            &lt;details&gt;
+              &lt;summary&gt;Titulo del acordeón&lt;/summary&gt;
+              &lt;article&gt;
+                &lt;h3&gt;Contenido del acordeón&lt;/h3&gt;
+                &lt;p&gt;Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eveniet suscipit corporis a consequuntur
+                dolores ipsam reiciendis, perspiciatis corrupti perferendis sint porro eligendi. Reiciendis voluptas dicta
+                quibusdam. Ex molestias ut placeat?&lt;/p&gt;
+                &lt;img class="redu" src="/assets/images/imagen-png.png" alt="Imagen de pinguino"&gt;
+              &lt;/article&gt;
+            &lt;/details&gt;
+          </code>
+        </pre>
+
+        <details>
+          <summary>Titulo del acordeón</summary>
+          <article>
+            <h3>Contenido del acordeón</h3>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eveniet suscipit corporis a consequuntur
+              dolores ipsam reiciendis, perspiciatis corrupti perferendis sint porro eligendi. Reiciendis voluptas dicta
+              quibusdam. Ex molestias ut placeat?</p>
+            <img class="redu" src="/assets/images/imagen-png.png" alt="Imagen de pinguino">
+          </article>
+        </details>
+
+        <p>Si queremos que el elemento aparezca abierto podemos agregar el atributo boleano open.</p>
+      </article>
+
+      <hr>
+      <article id="dialog-tag">
+        <h2>Ventanas modales (experimental)</h2>
+
+        <p>El elemento HTML dialog representa un cuadro de diálogo, como una alerta o una subventana.
+          El atributo open indica que el cuadro de diálogo está activo y se puede interactuar con él. Cuando el atributo
+          open no está configurado, el cuadro de diálogo no debe mostrarse al usuario. Se recomienda utilizar el método
+          .show() o .showModal() para representar cuadros de diálogo, en lugar del atributo open.
+        </p>
+
+        <p>
+          El siguiente ejemplo generará un diálogo modal abierto. El botón "Aceptar" permite cerrar el cuadro de diálogo
+          cuando se activa. Es importante proporcionar un mecanismo para cerrar un diálogo dentro del elemento de
+          diálogo. Por ejemplo, la tecla Esc no cierra los cuadros de diálogo sin modo de forma predeterminada, ni se
+          puede suponer que un usuario tendrá acceso a un teclado físico (por ejemplo, alguien que usa un dispositivo de
+          pantalla táctil sin acceso a un teclado).
+        </p>
+
+        <dialog style="z-index: 10;" open>
+          <p>Greetings, one and all!</p>
+          <form method="dialog">
+            <button>OK</button>
+          </form>
+        </dialog>
+
+        <pre>
+          <code class="language-html">
+            &lt;dialog open&gt;
+              &lt;p&gt;Esto es una ventana modal en Html!&lt;/p&gt;
+              &lt;form method="dialog"&gt;
+                &lt;button&gt;OK&lt;/button&gt;
+              &lt;/form&gt;
+            &lt;/dialog&gt;
+          </code>
+        </pre>
+
+      </article>
+    </section>
+
+    <hr>
+  </main>
+
+  <section class="pagination">
+    <article class="pagination-item">
+      <a href="/pages/html/enlaces.html">
+        <i class="material-icons">arrow_back</i>Enlaces
+      </a>
+    </article>
+    <article class="pagination-item">
+      <a href="/pages/html/index.html#indice">Tabla de contenido HTML
+        <i class="material-icons">arrow_upward</i>
+      </a>
+    </article>
+    <article class="pagination-item">
+      <a href="/pages/html/audio-video.html">Audio y video
+        <i class="material-icons">arrow_forward</i>
+      </a>
+    </article>
+  </section>
+  <footer>
+  Copyright © 2022 TiDev. All rights reserved.
+</footer>
+  <script src="/js/prism.js"></script>
+</body>
+
+</html>

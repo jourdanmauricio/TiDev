@@ -1,0 +1,1597 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="application-name" content="TiDev">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@jourdanmau">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#fb6d43">
+<meta name="msapplication-TitleColor" content="#fb6d43">
+<meta name="msapplication-TitleImage" content="">
+<link rel="apple-touch-icon" href="">
+<!-- <link rel="icon" type="image/png" href=""> -->
+<link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<link rel="author" type="text/plain" href="humans.txt">
+<!-- <link rel="manifest" href="manifest.json"> -->
+<!-- CDN Material+Icons -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  <title>
+  Movimiento en CSS
+</title>
+<meta name="twitter:title" property="og:title" content="Movimiento en CSS">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/menu.css">
+  <link rel="stylesheet" href="/css/prism.css" />
+  <link rel="stylesheet" href="/css/html/html.css">
+  <link rel="stylesheet" href="/css/css/movimiento.css">
+</head>
+
+<body>
+  <header>
+  <nav class="menu-nav">
+    <a href="/index.html" class="enlace">
+      <label class="logo">Aprende</label>
+    </a>
+    <input type="checkbox" id="check">
+    <label for="check" class="checkbtn">
+      <i class="material-icons">menu</i>
+    </label>
+    <ul class="menu">
+      <li>
+        <a href="/index.html" class="active menu-link">Home</a>
+      </li>
+      <li>
+        <a href="/pages/cursos/index.html" class="menu-link">Guias</a>
+      </li>
+      <li>
+        <a href="/pages/html/index.html" class="menu-link">HTML</a>
+      </li>
+      <li>
+        <a href="/pages/css/index.html" class="active menu-link">CSS</a>
+      </li>
+      <li>
+        <a href="/pages/js/index.html" class="menu-link">JavaScript</a>
+      </li>
+
+    </ul>
+  </nav>
+</header>
+
+  <main class="container">
+    <h1>Movimiento en CSS</h1>
+    <section class="transitions">
+      <h2>Transiciones</h2>
+
+      <p>Propiedades utilizadas en las transiciones</p>
+
+      <p>Las transiciones en CSS nos permiten aplicar un cambio de estilo gradual a los elementos del documento
+        HTML.
+        Especificaremos el tiempo de duración para la transformación entre estilos, de esta forma podríamos
+        utilizarlas
+        para dar un efecto de animación.</p>
+
+      <p>La interpolación es el proceso de crear pasos "intermedios" que hacen una transición suave de un estado a
+        otro.
+      </p>
+
+      <ul>
+        <li>transition-property</li>
+        <li>transition-duration</li>
+        <li>transition-timing</li>
+        <li>transition-delay</li>
+        <li>transtion</li>
+      </ul>
+
+      <h3>transition-property</h3>
+      <p>Especifica qué estilos cambiar.</p>
+
+      <h3>transition-duration</h3>
+      <p>Define el tiempo que tardará en completarse una transición. Acepta unidades de tiempo, ya sea segundos (s)
+        o milisegundos (ms) y el valor predeterminado es 0s.</p>
+
+      <h3>transition-timing-function</h3>
+      <p>Permite variar la velocidad de una transición de CSS en el transcurso de la duración de la transición.</p>
+
+      <p>Por default, CSS hará la transición de sus elementos a una velocidad constante (transition-timing-function:
+        linear). Sin embargo, las transiciones lineales parecen artificiales: los objetos tienen peso y no pueden
+        detenerse y comenzar instantáneamente. Entrar o salir de una transición puede hacer que sus transiciones
+        sean más animadas y naturales.</p>
+
+      <ul>
+        <li>linear: la velocidad de la animación es uniforme en todo el recorrido</li>
+        <li>ease: la velocidad se acelera al inicio, luego se retarda un poco y se acelera al final de nuevo</li>
+        <li>ease-in: la animación empieza lentamente y va aumentando progresivamente</li>
+        <li>ease-out: la animación empieza muy rápida y va descendiendo progresivamente</li>
+        <li>ease-in-out: la animación empieza y acaba lentamente, y es en la parte central del recorrido donde la
+          velocidad es más rápida</li>
+        <li>steps()</li>
+        <li>cubic-bezier()</li>
+      </ul>
+
+      <h3>transition-delay</h3>
+      <p>Especifica la hora de comienzo de una transición. Si no se especifica la duración de la transición, la
+        transición comenzará inmediatamente ya que el valor predeterminado es 0s. Esta propiedad acepta unidades de
+        tiempo, por ejemplo segundos (s) o milisegundos (ms).</p>
+
+      <p>Esta propiedad es útil para escalonar las transiciones, lo que se logra al establecer un retraso de
+        transición más largo para cada elemento subsiguiente en un grupo.</p>
+
+      <h3>transition</h3>
+      <p>Es el shorthand de las propiedades anteriores.</p>
+
+      <p>Si deseamos utilizar más de un estilo podemos usar la palabra clave all. El problema es que todos los
+        efectos tendrán la misma duración y el mismo delay.</p>
+
+      <p><mark>El problema de utilizar la palabra clave all no es tanto por rendimiento sino que cada vez que
+          carguemos la página no solo ejecuta todos las transiciones definidas, sino también en las propias propiedades
+          del elemento. Entonces al momento de cargar la página veremos transiciones que no definimos, como renderizar
+          bordes, colores, etc.</mark></p>
+
+      <p>Existen propiedades que no son animables. Ejemplo: border-style. Las propiedades animables se encuentran
+        detalladas en: <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animated_properties" rel="nofollow"
+          target="_blank">listado de propiedades animables</a>.</p>
+
+      <pre>
+        <code class="language-html">
+          &lt;div class="box"&gt;&lt;/div&gt;
+        </code>
+      </pre>
+      <pre>
+        <code class="language-css">
+          .box {
+            width: 200px;
+            height: 200px;
+            border: thick solid black;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 3rem;
+          }
+          .transitions .box {
+            background-color: magenta;
+            /* transition-property: background-color;
+            transition-duration: 700ms;
+            transition-timing-function: ease;
+            transition-delay: 0.3s;
+            transition: border-color 2s linear 0.2s; */
+            transition: all 2s linear 250ms;
+          }
+          .transitions .box:hover {
+            background-color: cyan;
+            border-color: red;
+            border-radius: 2rem;
+          }
+        </code>
+      </pre>
+
+      <div class="box"></div>
+
+      <p>Para controlar diferentes animaciones con distintas aceleraciones y tiempos podemos separar las
+        transiciones con comas.</p>
+
+      <pre>
+        <code class="language-html">
+          &lt;article class="card"&gt;
+            &lt;img src="/assets/images/puesta-sol.jpg" alt="Puesta del sol"&gt;
+          &lt;/article&gt;
+        </code>
+      </pre>
+      <pre>
+        <code class="language-css">
+          .card {
+            position: relative;
+            border: thick solid #000;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 5rem;
+            width: 600px;
+            height: 400px;
+          }
+          .card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: 0 50%;
+          }
+          .transitions .card {
+            transition: opacity 1s ease-out, border-color 3s steps(3),
+              fliter 2s ease-in 1s, box-shadow 1.5s linear 2s;
+          }
+          .transitions .card:hover {
+            opacity: 0.75;
+            border-color: orchid;
+            filter: blur(0.05rem);
+            box-shadow: 1rem 1rem 2rem 0.5rem #000;
+          }
+          .transitions .card img {
+            transition: object-position 2s ease-in-out 3s;
+          }
+          .transitions .card img:hover {
+            object-position: 100% 50%;
+          }
+        </code>
+      </pre>
+
+      <article class="card">
+        <img src="/assets/images/puesta-sol.jpg" alt="Puesta del sol">
+      </article>
+    </section>
+
+    <hr>
+    <article class="transformations">
+      <h2>Transformaciones</h2>
+
+      <p>Las transformaciones incluyen rotar, torcer, escalar y desplazar en 2D o en un espacio 3D.</p>
+
+      <section class="transforms">
+        <h3>Transformaciones en 2D</h3>
+
+        <h4>traslación</h4>
+        <p>Las funciones de translación son aquellas que realizan una transformación en la que mueven un elemento de
+          un lugar a otro. Existen 3 funciones de traslación: translateX() y translateY() para cada eje, y la propiedad
+          de atajo translate(), que es una mezcla de las dos anteriores en una sola función de translación.</p>
+
+        <pre>
+          <code class="language-css">
+            /* .element {
+              transform: translateX(20px); 
+              transform: translateY(-30px);
+              transform: translateX(20px) translateY(-30px);
+            } */
+          </code>
+        </pre>
+        <pre>
+          <code class="language-html">
+            &lt;article class="card transform-2d-translate"&gt;
+              &lt;img src="/assets/images/puesta-sol.jpg" alt="Puesta del sol"&gt;
+            &lt;/article&gt;
+          </code>
+        </pre>
+        <pre>
+          <code class="language-css">
+            .transform-2d-translate img {
+              transition: transform 1s ease-in-out;
+            }
+            .transform-2d-translate img:hover {
+              /* transform: translateX(20px);
+              transform: translateY(-30px);
+              transform: translate(50%, 50%); */  
+              transform: translate(20px, -30px);
+            }
+          </code>
+        </pre>
+
+        <article class="card transform-2d-translate">
+          <img src="/assets/images/puesta-sol.jpg" alt="Puesta del sol">
+        </article>
+
+        <h4>Escala</h4>
+        <p>Aumentan o reducen el tamaño de un elemento. Las funciones de escalado son las siguientes:</p>
+
+        <ul>
+          <li>scaleX(fx); Reescala el elemento un número de fx veces (sólo en horizontal).</li>
+          <li>scaleY(fy); Reescala el elemento un número de fy veces (sólo en vertical).</li>
+          <li>scale(fx, fy); Propiedad de atajo de las dos anteriores (escalado simétrico).</li>
+          <li>scale(fx); Equivalente al anterior: scale(fx, fx).</li>
+        </ul>
+
+        <pre>
+          <code class="language-css">
+            .element {
+              /* Aumenta el tamaño 100% en x */
+              transform: scaleX(2); 
+              /* Aumenta el tamaño 50% en y */
+              transform: scaleY(.5);
+              /* Aumenta el tamaño 100% en x y 50% en y */
+              transform: scale(2, 1.5);
+              /* Aumenta tamaño en 50% */
+              transform: scale(1.5);
+              /* Invierte la imagen */
+              transform: scale(-1, -1);
+            }
+          </code>
+        </pre>
+        <pre>
+          <code class="language-css">
+            &lt;article class="card transform-2d-scale"&gt;
+              &lt;img src="/assets/images/puesta-sol.jpg" alt="Puesta del sol"&gt;
+            &lt;/article&gt;
+          </code>
+        </pre>
+        <pre>
+          <code class="language-css">
+            .transform-2d-scale img {
+              transition: transform 2s ease-in-out;
+            }
+            .transform-2d-scale img:hover {
+              /* transform: scaleX(2); 
+              transform: scaleY(1);
+              transform: scale(2, 1); */
+              transform: scale(1);
+            }
+          </code>
+        </pre>
+
+        <article class="card transform-2d-scale">
+          <img src="/assets/images/puesta-sol.jpg" alt="Puesta del sol">
+        </article>
+
+        <h4>Rotación</h4>
+
+        <p>Define una transformación que gira un elemento alrededor de un punto fijo (origen de transformación, se
+          puede
+          personalizar utilizando la propiedad transform-origin) en un plano 2D sin deformarlo.</p>
+
+        <pre>
+          <code class="language-css">
+            /* Genera rotación en eje x. */
+            transform: rotateX(60deg);
+            /* Genera rotación en eje Y. */
+            transform: rotateY(60deg);
+            /* Genera rotación en eje Z. */
+            transform: rotateZ(60deg);
+          </code>
+        </pre>
+        <pre>
+          <code class="language-html">
+            &gt;article class="card transform-2d-rotate"&gt;
+              &gt;img src="/assets/images/puesta-sol.jpg" alt="Puesta del sol"&gt;
+            &gt;/article&gt;
+          </code>
+        </pre>
+        <pre>
+          <code class="language-css">
+            .transform-2d-rotate img {
+              transition: transform 2s ease-in-out;
+            }
+            .transform-2d-rotate img:hover {
+              /* transform: rotateX(60deg); */
+              /* transform: rotateY(60deg); */
+              /* transform: rotateZ(60deg); */
+              transform: rotateZ(-60deg);
+            }
+          </code>
+        </pre>
+
+        <article class="card transform-2d-rotate">
+          <img src="/assets/images/puesta-sol.jpg" alt="Puesta del sol">
+        </article>
+
+        <h4>Torcer</h4>
+        <p>Establece un ángulo para torcer, tumbar o inclinar un elemento en 2D.</p>
+
+        <ul>
+          <li>skewX(xdeg): Establece un ángulo de xdeg para una deformación 2D respecto al eje X</li>
+          <li>skewY(ydeg): Establece un ángulo de ydeg para una deformación 2D respecto al eje Y</li>
+        </ul>
+
+        <pre>
+          <code class="language-css">
+            transform: skewX(20deg);
+            transform: skewY(20deg);
+            transform: skew(20deg, 20deg);
+          </code>
+        </pre>
+        <pre>
+          <code class="language-html">
+            &gt;article class="card transform-2d-skew"&gt;
+              &gt;img src="/assets/images/puesta-sol.jpg" alt="Puesta del sol"&gt;
+            &gt;/article&gt;
+          </code>
+        </pre>
+        <pre>
+          <code class="language-css">
+            .transform-2d-skew img {
+              transition: transform 2s ease-in-out;
+            }
+            .transform-2d-skew img:hover {
+              /* transform: skewX(20deg); */
+              /* transform: skewY(20deg); */
+              /* transform: skewY(-20deg); */
+              /* transform: skewX(-20deg); */
+              transform: skew(20deg, 20deg);
+            }
+          </code>
+        </pre>
+
+        <article class="card transform-2d-skew">
+          <img src="/assets/images/puesta-sol.jpg" alt="Puesta del sol">
+        </article>
+
+        <blockquote>
+          Aunque la función skew() existe, no debería ser utilizada, ya que está marcada como obsoleta y serán
+          retiradas de los navegadores en el futuro. En su lugar deberían utilizarse skewX() o skewY(), ya sea
+          individualmente por separado o combinadas separando por espacio.
+        </blockquote>
+
+        <h4>Matrix</h4>
+        <p>Crea una matriz de transformación 2D homogénea y acepta seis parámetros.</p>
+
+        <pre>
+          <code class="language-css">
+            matrix( scaleX(), skewY(), skewX(), scaleY(), translateX(), translateY())
+          </code>
+        </pre>
+        <pre>
+          <code class="language-html">
+            &lt;article class="card transform-2d-matrix"&gt;
+              &lt;img src="/assets/images/puesta-sol.jpg" alt="Puesta del sol"&gt;
+            &lt;/article&gt;  
+          </code>
+        </pre>
+        <pre>
+          <code class="language-css">
+            .transform-2d-matrix img {
+              transition: transform 2s ease-in-out;
+            }
+            .transform-2d-matrix img:hover {
+              transform: matrix(1, 2, 2, 1, 20, 10);
+            }
+          </code>
+        </pre>
+
+        <article class="card transform-2d-matrix">
+          <img src="/assets/images/puesta-sol.jpg" alt="Puesta del sol">
+        </article>
+
+        <h4>Transformaciones 2D Múltiples</h4>
+
+        <p>Para aplicar múltipes transformaciones se deben separar por espacios.</p>
+
+        <pre>
+          <code class="language-html">
+            &lt;article class="card transform-2d-multiple"&gt;
+              &lt;img src="/assets/images/puesta-sol.jpg" alt="Puesta del sol"&gt;
+            &lt;/article&gt;
+          </code>
+        </pre>
+        <pre>
+          <code class="language-css">
+            .transform-2d-multiple img {
+              transition: transform 2s ease-in-out;
+            }
+            .transform-2d-multiple img:hover {
+              transform: translate(25%, -50%) rotate(240deg);
+            }
+          </code>
+        </pre>
+
+        <article class="card transform-2d-multiple">
+          <img src="/assets/images/puesta-sol.jpg" alt="Puesta del sol">
+        </article>
+
+        <h3>Transformaciones en 3D</h3>
+
+        <p>Para aplicar transformaciones en 3D tenemos que activar la perspectiva (es la profundidad, eje z).
+          Mientras más grande sea el parámetro más lenta será la transformación.</p>
+
+        <pre>
+          <code class="language-css">
+            transform: perspective(10rem) translateZ(4rem);
+            /* También podemos indicar la perspectiva en el elemento padre
+            perspective: 10rem;
+          </code>
+        </pre>
+        <pre>
+          <code class="language-html">
+            &lt;article class="card transform-3d-translate"&gt;
+              &lt;img src="/assets/images/puesta-sol.jpg" alt="Puesta del sol"&gt;
+            &lt;/article&gt;
+          </code>
+        </pre>
+        <pre>
+          <code class="language-css">
+            .transform-3d-translate img {
+              transition: transform 2s ease-in-out;
+            }
+            .transform-3d-translate {
+              perspective: 10rem;
+            }
+            .transform-3d-translate img:hover {
+              /* transform: perspective(1000px) translateZ(4rem);
+              transform: perspective(100px) translateZ(4rem); */
+              /* transform: translateZ(-4rem);
+              transform: translate3d(2rem, 50%, -3rem);
+              transform: scaleZ(1.5); */
+              /* transform: scale3d(2, 0.5, 3);
+              transform: rotateZ(270deg);
+              transform: rotateY(-60deg); 
+              transform: rotate3d(1, 1, 1, 45deg); */
+              transform: rotateX(60deg);
+              transform: matrix3d(1, 0, 0, 0, 1, 6, 0, 0, 0, 1, 0, 50, 100, 0, 1.1);
+            }
+          </code>
+        </pre>
+
+        <article class="card transform-3d-translate">
+          <img src="/assets/images/puesta-sol.jpg" alt="Puesta del sol">
+        </article>
+
+        <h4>Transformaciones 3D múltiples</h4>
+
+        <pre>
+          <code class="language-html">
+            &lt;article class="card transform-3d-multiple"&gt;
+              &lt;img src="/assets/images/puesta-sol.jpg" alt="Puesta del sol"&gt;
+            &lt;/article&gt;
+          </code>
+        </pre>
+        <pre>
+          <code class="language-css">
+            .transform-3d-multiple {
+              perspective: 10rem;
+            }
+            .transform-3d-multiple img {
+              transition: transform 2s ease-in-out;
+            }
+            .transform-3d-multiple img:hover {
+              transform: rotate3d(-1, 2.5, -2, 60deg) translate3d(1rem, 50%, -1rem)
+                scale3d(2, -0.5, 3);
+            }
+          </code>
+        </pre>
+
+        <article class="card transform-3d-multiple">
+          <img src="/assets/images/puesta-sol.jpg" alt="Puesta del sol">
+        </article>
+
+        <h4>Origen de Transformación (transform-origin)</h4>
+
+        <p>Permite modificar el origen de las transformaciones de un elemento. Por ejemplo, el transform-origin de
+          la función rotate() es el centro de rotación.</p>
+
+        <p>De forma predeterminada, el origen de una transformación es "50% 50%", que está exactamente en el centro
+          de cualquier elemento.</p>
+
+        <p>Los valores pueden ser longitudes, porcentajes o las palabras clave superior, izquierda, derecha,
+          inferior y central.</p>
+
+        <p>El primer valor es la posición horizontal, el segundo valor es la vertical y el tercer valor representa
+          la posición en el eje Z. El tercer valor solo funcionará si está utilizando transformaciones 3D y no puede
+          ser un porcentaje.</p>
+
+        <pre>
+          <code class="language-html">
+            &lt;article class="card transform-3d-multiple"&gt;
+              &lt;img src="/assets/images/puesta-sol.jpg" alt="Puesta del sol"&gt;
+            &lt;/article&gt;
+          </code>
+        </pre>
+        <pre>
+          <code class="language-css"> 
+            .transform-3d-origin img {
+              transition: transform 2s ease-in-out;
+              transform-origin: 0 0;
+            }
+            .transform-3d-origin img:hover {
+              transform: rotate(360deg);
+            }
+          </code>
+        </pre>
+
+        <article class="card transform-3d-origin">
+          <img src="/assets/images/puesta-sol.jpg" alt="Puesta del sol">
+        </article>
+
+        <h4>Flip Cards con transiciones y transformaciones</h4>
+
+        <p>La propiedad backface-visibility determina si la cara posterior de un elemento es visible. La cara
+          posterior de un elemento siempre es un fondo transparente, cuando es visible se muestra una imagen de espejo
+          de la cara frontal.</p>
+
+        <p>Hay casos en los que no queremos que la cara frontal de un elemento sea visible a través de la cara
+          posterior, como cuando se hace el efecto de voltear una tarjeta.</p>
+
+        <p>Esta propiedad no tiene efecto en transformaciones 2D, pues estos no tienen perspectiva.</p>
+
+        <p>Esta propiedad puede tener dos valores:</p>
+
+        <ul>
+          <li>visible: la cara posterior es visible, permitiendo que la cara frontal se muestre invertida</li>
+          <li>hidden: la cara posterior no es visible, ocultando la cara frontal</li>
+        </ul>
+
+        <p>La propiedad transform-style establece si el elemento hijo esta posicionado en el espacio 3D
+          (preserve-3d) o esta integrado(flat) en el plano del elemento.</p>
+
+        <ul>
+          <li>flat: Indica que el elemento hijo yace en el plano del elemento mismo</li>
+          <li>preserve-3d: Indica que el elemento hijo debe ser posicionado en el espacio 3D</li>
+        </ul>
+
+        <pre>
+          <code class="language-html">
+            &lt;article class="flip-card-1"&gt;
+              &lt;div class="flip-face flip-front"&gt;
+                &lt;img src="/assets/images/puesta-sol.jpg" alt="Puesta del sol"&gt;
+              &lt;/div&gt;
+              &lt;div class="flip-face flip-back"&gt;
+                &lt;img src="/assets/images/BuenosDias.jpg" alt="Buenos días"&gt;
+              &lt;/div&gt;
+            &lt;/article&gt;
+
+            &lt;article class="flip-card-2"&gt;
+              &lt;div class="flip-face flip-front"&gt;
+                &lt;img src="/assets/images/puesta-sol.jpg" alt="Puesta del sol"&gt;
+              &lt;/div&gt;
+              &lt;div class="flip-face flip-back"&gt;
+                &lt;img src="/assets/images/BuenosDias.jpg" alt="Buenos días"&gt;
+              &lt;/div&gt;
+            &lt;/article&gt;
+          </code>
+        </pre>
+        <pre>
+          <code class="language-css">
+            .flip-card-1,
+            .flip-card-2 {
+              position: relative;
+              border: thick solid #000;
+              margin-left: auto;
+              margin-right: auto;
+              margin-bottom: 5rem;
+              width: 600px;
+              height: 400px;
+              cursor: pointer;
+              transition: transform 1s ease-in-out;
+              perspective: 10rem;
+              transform-style: preserve-3d;
+            }
+            .flip-card-1 img,
+            .flip-card-2 img {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+              object-position: 0 50%;
+            }
+            .flip-card-2 {
+              transform-origin: center right;
+            }
+            .flip-face {
+              position: absolute;
+              width: 100%;
+              height: 100%;
+              backface-visibility: hidden;
+            }
+            .flip-front {
+              transform: rotateY(0deg);
+            }
+            .flip-back {
+              transform: rotateY(180deg);
+            }
+            .flip-card-1:hover {
+              transform: rotateY(180deg);
+            }
+            .flip-card-2:hover {
+              transform: translateX(-100%) rotateY(-180deg);
+            }
+          </code>
+        </pre>
+
+        <article class="flip-card-1">
+          <div class="flip-face flip-front">
+            <img src="/assets/images/puesta-sol.jpg" alt="Puesta del sol">
+          </div>
+          <div class="flip-face flip-back">
+            <img src="/assets/images/BuenosDias.jpg" alt="Buenos días">
+          </div>
+        </article>
+
+        <article class="flip-card-2">
+          <div class="flip-face flip-front">
+            <img src="/assets/images/puesta-sol.jpg" alt="Puesta del sol">
+          </div>
+          <div class="flip-face flip-back">
+            <img src="/assets/images/BuenosDias.jpg" alt="Buenos días">
+          </div>
+        </article>
+
+      </section>
+    </article>
+
+    <hr>
+    <section class="animations">
+      <h2>Animaciones</h2>
+
+      <p>Las animaciones CSS3 permiten animar la transición entre un estilo CSS y otro. Las animaciones constan de
+        dos componentes: un estilo (que describe la animación CSS) y un conjunto de fotogramas (que indican su estado
+        inicial y final), así como posibles puntos intermedios en la misma.</p>
+
+      <p>Las animaciones CSS tienen tres ventajas principales sobre las técnicas tradicionales de animación basada
+        en scripts:</p>
+
+      <ul>
+        <li>Son muy fáciles de usar para animaciones sencillas, puedes hacerlo incluso sin tener conocimientos de
+          Javascript</li>
+        <li>La animación se muestra correctamente, incluso en equipos poco potentes. Animaciones simples realizadas
+          en Javascript pueden verse mal (a menos que estén muy bien hechas). El motor de renderizado puede usar
+          técnicas de optimización como el "frame-skipping" u otras técnicas para que la ejecución de la animación se
+          vea tan suave como sea posible</li>
+        <li>Al ser el navegador quien controle la secuencia de la animación, permitimos que optimice el rendimiento
+          y eficiencia de la misma, por ejemplo, reduciendo la frecuencia de actualización de la animación
+          ejecutándola en pestañas que no estén visibles</li>
+      </ul>
+
+      <p>Las subpropiedades de animation son:</p>
+
+      <ul>
+        <li>animation-delay: Tiempo de retardo entre el momento en que el elemento se carga y el comienzo de la
+          secuencia de la animación</li>
+        <li>animation-direction: Indica si la animación debe retroceder hasta el fotograma de inicio al finalizar la
+          secuencia o si debe comenzar desde el principio al llegar al final</li>
+        <li>animation-duration: Indica la cantidad de tiempo que la animación consume en completar su ciclo
+          (duración)
+        </li>
+        <li>animation-iteration-count: El número de veces que se repite. Podemos indicar infinite para repetir la
+          animación indefinidamente</li>
+        <li>animation-name: Especifica el nombre de la regla @keyframes que describe los fotogramas de la animación
+        </li>
+        <li>animation-play-state: Permite pausar y reanudar la secuencia de la animación</li>
+        <li>animation-timing-function: Indica el ritmo de la animación, es decir, como se muestran los fotogramas de
+          la animación, estableciendo curvas de aceleración</li>
+        <li>animation-fill-mode: Especifica qué valores tendrán las propiedades después de finalizar la animación
+          (los de antes de ejecutarla, los del último fotograma de la animación o ambos)</li>
+      </ul>
+
+      <p>Uno los valores para animation-timing-function es cubic-bezier. En la página <a
+          href="https://cubic-bezier.com/" rel="nofollow" target="_blank">cubic-bezier</a> podemos ver los distintos
+        efectos.</p>
+
+      <pre>
+        <code class="language-html">
+          &lt;article class="card my-animation"&gt;
+            &lt;img src="/assets/images/puesta-sol.jpg" alt="Puesta del sol"&gt;
+          &lt;/article&gt;
+        </code>
+      </pre>
+      <pre>
+        <code class="language-css">
+          @keyframes myAwesomeAnimation {
+            from {
+              opacity: 0;
+              transform: translateX(0);
+            }
+            to {
+              opacity: 1;
+              transform: translateX(100%);
+            }
+          }
+          .my-animation {
+            /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+            animation-name: myAwesomeAnimation;
+            animation-duration: 2s;
+            /* animation-timing-function: cubic-bezier(0, 0.97, 1, -0.02); */
+            animation-timing-function: ease-in-out;
+            animation-delay: 1s;
+            /* animation-iteration-count: infinite; */
+            animation-iteration-count: 2;
+            animation-direction: normal;
+            /* animation-direction: reverse; */
+            /* animation-direction: alternate; */
+            /* animation-direction: alternate-reverse; */
+            /* animation-fill-mode: none; */
+            /* animation-fill-mode: forwards; */
+            /* animation-fill-mode: backwards; */
+            animation-fill-mode: both;
+            /* animation-play-state: running; */
+            /* animation-play-state: paused; */
+            animation: myAwesomeAnimation 1.5s ease 250ms 6 alternate both running;
+          }
+        </code>
+      </pre>
+
+      <article class="card my-animation">
+        <img src="/assets/images/puesta-sol.jpg" alt="Puesta del sol">
+      </article>
+
+      <h4>Linea de tiempo y fotogramas claves</h4>
+
+      <pre>
+        <code class="language-html">
+          &lt;article class="card my-animation-2"&gt;
+            &lt;img src="/assets/images/puesta-sol.jpg" alt="Puesta del sol"&gt;
+          &lt;/article&gt;
+        </code>
+      </pre>
+      <pre>
+        <code class="language-css">
+          @keyframes myAwesomeAnimation2 {
+            0% {
+              opacity: 0;
+              transform: translateX(0);
+            }
+            50% {
+              opacity: 0.5;
+              transform: translateX(-50%);
+            }
+            75% {
+              transform: translateX(-75%);
+            }
+            100% {
+              opacity: 1;
+              transform: translateX(100%);
+            }
+          }
+          .my-animation-2 {
+            animation-name: myAwesomeAnimation2;
+            animation-duration: 2s;
+          }
+        </code>
+      </pre>
+
+      <article class="card my-animation-2">
+        <img src="/assets/images/puesta-sol.jpg" alt="Puesta del sol">
+      </article>
+
+      <h4>Animaciones Múltiples</h4>
+
+      <pre>
+        <code class="language-html">
+          &lt;article class="card my-animation-multiple"&gt;
+            &lt;img src="/assets/images/puesta-sol.jpg" alt="Puesta del sol"&gt;
+          &lt;/article&gt;
+        </code>
+      </pre>
+      <pre>
+        <code class="language-css">
+          @keyframes myAnimationMultiple1 {
+            0% {
+              opacity: 1;
+            }
+            50% {
+              opacity: 0;
+            }
+            100% {
+              opacity: 1;
+            }
+          }
+          @keyframes myAnimationMultiple2 {
+            0% {
+              transform: translateY(0);
+            }
+            50% {
+              transform: translateY(-100%);
+            }
+            100% {
+              transform: translateY(0);
+            }
+          }
+          .my-animation-multiple {
+            animation: myAnimationMultiple1 2s infinite, myAnimationMultiple2 2s infinite;
+          }
+        </code>
+      </pre>
+
+      <article class="card my-animation-multiple">
+        <img src="/assets/images/puesta-sol.jpg" alt="Puesta del sol">
+      </article>
+    </section>
+
+    <hr>
+    <section class="motion-examples">
+      <h2>Ejemplos de efectos de movimiento en CSS</h2>
+
+      <h3>FadeIn/FadeOut</h3>
+
+      <pre>
+        <code class="language-html">
+          &lt;div class="fade-in"&gt;🥷&lt;/div&gt;
+          &lt;div class="fade-out"&gt;🥷&lt;/div&gt;
+        </code>
+      </pre>
+      <pre>
+        <code class="language-css">
+          @keyframes fadeIn {
+            0% {
+              opacity: 0;
+            }
+            100% {
+              opacity: 1;
+            }
+          }
+          @keyframes fadeOut {
+            0% {
+              opacity: 1;
+            }
+            100% {
+              opacity: 0;
+            }
+          }
+          .fade-in {
+            font-size: 5vw;
+            animation: fadeIn 2s linear infinite alternate both;
+          }
+          .fade-out {
+            font-size: 5vw;
+            animation: fadeOut 2s linear infinite alternate both;
+          }
+        </code>
+      </pre>
+      <div class="fade-in">🥷</div>
+      <div class="fade-out">🥷</div>
+
+      <hr>
+      <h3>Sacudir</h3>
+
+      <pre>
+        <code class="language-html">
+          &lt;div class="shake"&gt;🍺&lt;/div&gt;
+        </code>
+      </pre>
+      <pre>
+        <code class="language-css">
+          @keyframes shake {
+            10%,
+            90% {
+              transform: translate(-1px, 0);
+            }
+            20%,
+            80% {
+              transform: translate(2px, 0);
+            }
+            30%,
+            50%,
+            70% {
+              transform: translate(-4px, 0);
+            }
+            40%,
+            60% {
+              transform: translate(4px, 0);
+            }
+          }
+          .shake {
+            font-size: 5vw;
+            cursor: pointer;
+            display: inline-block;
+          }
+          .shake:hover {
+            animation: shake 1s cubic-bezier(0.36, 0.37, 0.19, 0.97) both;
+            transform: translate(0, 0);
+          }
+        </code>
+      </pre>
+
+      <div class="shake">🍺</div>
+
+      <hr>
+      <h3>Pulsaciones</h3>
+
+      <pre>
+        <code class="language-html">
+          &lt;div class="pulse"&gt;❤️&lt;/div&gt;
+          &lt;div class="pulse"&gt;🐱 Hermito 🐱&lt;/div&gt;
+        </code>
+      </pre>
+      <pre>
+        <code class="language-css">
+          @keyframes pulse {
+            0% {
+              transform: scale(1.1);
+            }
+            50% {
+              transform: scale(0.8);
+            }
+            100% {
+              transform: scale(1);
+            }
+          }
+          .pulse {
+            font-size: 5vw;
+            animation: puls 2s linear infinite;
+          }
+        </code>
+      </pre>
+
+      <div class="pulse">❤️</div>
+      <div class="pulse">🐱 Hermito 🐱</div>
+      <hr>
+      <h3>Dibujando y animando con CSS</h3>
+
+      <hr>
+
+      <h4>Corazón</h4>
+      <pre>
+        <code class="language-html">
+          &lt;div class="pulse"&gt;Eres el CSS de mi HTML&lt;/div&gt;
+          &lt;div class="heart"&gt;&lt;/div&gt;
+        </code>
+      </pre>
+      <pre>
+        <code class="language-css">
+          @keyframes heart-color {
+            15% {
+              background-color: #d00;
+            }
+          }
+          .heart {
+            position: relative;
+            width: 10vw;
+            height: 10vw;
+            margin-left: auto;
+            margin-right: auto;
+            animation: pulse 2s linear infinite;
+          }
+          .heart::after,
+          .heart::before {
+            background-color: #a00;
+            position: absolute;
+            content: "";
+            left: 5vw;
+            top: 0;
+            width: 5vw;
+            height: 8vw;
+            transform: rotate(-45deg);
+            transform-origin: 0 100%;
+            border-radius: 5vw 5vw 0 0;
+            animation: heart-color 2s infinite;
+          }
+          .heart::after {
+            left: 0;
+            transform: rotate(45deg);
+            transform-origin: 100% 100%;
+          }
+        </code>
+      </pre>
+
+      <div class="pulse">Eres el CSS de mi HTML</div>
+
+      <div class="heart"></div>
+
+      <hr>
+
+      <h4>Loader - Spinner</h4>
+
+      <pre>
+        <code class="language-html">
+          &lt;div class="spinner"&gt;&lt;/div&gt;
+        </code>
+      </pre>
+      <pre>
+        <code class="language-css">
+          @keyframes spinner {
+            0% {
+              transform: rotate(0deg);
+            }
+            100% {
+              transform: rotate(360deg);
+            }
+          }
+          .spinner {
+            width: 5vw;
+            height: 5vw;
+            margin-left: auto;
+            margin-right: auto;
+            border: 0.5vw solid rgba(0, 0, 0, 0.1);
+            border-top-color: #09f;
+            border-radius: 50%;
+            animation: spinner 1s ease-out infinite;
+            /* animation: spinner 1s linear infinite; */
+          }
+        </code> 
+      </pre>
+
+      <div class="spinner"></div>
+
+      <hr>
+
+      <h3>Botones Animados</h3>
+
+      <pre>
+        <code class="language-html">
+          &lt;button class="btn anim-bottom to-left"&gt;Animación Izquierda&lt;/button&gt;
+          &lt;button class="btn anim-bottom to-center"&gt;Animación Centro&lt;/button&gt;
+          &lt;button class="btn anim-bottom to-right"&gt;Animación Derecha&lt;/button&gt;
+          &lt;button class="btn anim-bg-gradient"&gt;Fondo con gradiente&lt;/button&gt;
+        </code>
+      </pre>
+      <pre>
+        <code class="language-css">
+          .btn {
+            position: relative;
+            border: none;
+            border-radius: 0.25rem;
+            padding: 0.2rem;
+            width: 15rem;
+            height: 2.5rem;
+            font-size: 1.25rem;
+            font-weight: bold;
+            cursor: pointer;
+            overflow: hidden;
+            box-shadow: 0.25rem 0.25rem 0.5rem 0.25rem rgba(0, 0, 0, 0.15);
+            margin: 5px;
+          }
+          .anim-bottom::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            width: 0%;
+            height: 0.25rem;
+            background-color: #d00;
+            transition: width 0.5s ease, left 0.5s ease, right 0.5s ease;
+          }
+          .anim-bottom:hover::after {
+            width: 100%;
+          }
+          .to-left::after {
+            left: 0;
+          }
+          .to-center::after {
+            left: 50%;
+          }
+          .to-center:hover::after {
+            left: 0;
+          }
+          .to-right::after {
+            right: 0;
+          }
+          .anim-bg-gradient {
+            background-image: linear-gradient(to right, pink, violet, orange, orangered);
+            background-size: 300% 100%;
+            transition: background-position 0.5s ease-in-out;
+          }
+          .anim-bg-gradient:hover {
+            background-position: 100% 0;
+          }
+        </code>
+      </pre>
+
+      <button class="btn anim-bottom to-left">Animación Izquierda</button>
+      <button class="btn anim-bottom to-center">Animación Centro</button>
+      <button class="btn anim-bottom to-right">Animación Derecha</button>
+      <button class="btn anim-bg-gradient">Fondo con gradiente</button>
+
+      <h3>Menú de pestañas (Tabs)</h3>
+
+      <pre>
+        <code class="language-html">
+          &lt;nav class="tabs-menu"&gt;
+            &lt;input type="radio" id="tab-1" name="tabs"&gt;
+            &lt;label for="tab-1"&gt;Sección 1&lt;/label&gt;
+            &lt;input type="radio" id="tab-2" name="tabs"&gt;
+            &lt;label for="tab-2"&gt;Sección 2&lt;/label&gt;
+            &lt;input type="radio" id="tab-3" name="tabs"&gt;
+            &lt;label for="tab-3"&gt;Sección 3&lt;/label&gt;
+            &lt;input type="radio" id="tab-4" name="tabs"&gt;
+            &lt;label for="tab-4"&gt;Sección 4&lt;/label&gt;
+            &lt;div class="tab-bg-hover"&gt;&lt;/div&gt;
+          &lt;/nav&gt;
+        </code>
+      </pre>
+      <pre>
+        <code class="language-css">
+          .tabs-menu {
+            position: relative;
+            margin-left: auto;
+            margin-right: auto;
+            background-color: #ddd;
+            padding: 1rem;
+            width: 100%;
+            height: 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 1rem;
+          }
+          .tabs-menu input[type="radio"] {
+            display: none;
+          }
+          .tabs-menu label {
+            position: relative;
+            z-index: 1;
+            width: calc(100% / 4 - 0.5rem);
+            text-align: center;
+            cursor: pointer;
+          }
+          .tabs-menu label:hover {
+            color: #fff;
+          }
+          .tabs-menu input[type="radio"]:checked + label {
+            color: #fff;
+          }
+          .tab-bg-hover {
+            position: absolute;
+            width: calc(100% / 4 - 0.5rem);
+            height: 2rem;
+            border-radius: 0.5rem;
+            background-image: linear-gradient(90deg, #a00, #d00);
+            transition: transform 300ms ease-in-out;
+          }
+          #tab-1:checked ~ .tab-bg-hover {
+            transform: translateX(0);
+          }
+          #tab-2:checked ~ .tab-bg-hover {
+            transform: translateX(100%);
+          }
+          #tab-3:checked ~ .tab-bg-hover {
+            transform: translateX(200%);
+          }
+          #tab-4:checked ~ .tab-bg-hover {
+            transform: translateX(300%);
+          }
+        </code>
+      </pre>
+      <nav class="tabs-menu">
+        <input type="radio" id="tab-1" name="tabs">
+        <label for="tab-1">Sección 1</label>
+        <input type="radio" id="tab-2" name="tabs">
+        <label for="tab-2">Sección 2</label>
+        <input type="radio" id="tab-3" name="tabs">
+        <label for="tab-3">Sección 3</label>
+        <input type="radio" id="tab-4" name="tabs">
+        <label for="tab-4">Sección 4</label>
+        <div class="tab-bg-hover"></div>
+      </nav>
+
+      <h3>Menu Off Canvas</h3>
+
+      <pre>
+        <code class="language-html">
+          &lt;input type="checkbox" class="off-canvas-btn" id=""&gt;
+          &lt;label class="off-canvas-burger"&gt;&lt;/label&gt;
+          &lt;nav class="off-canvas-menu"&gt;
+            &lt;div class="off-canvas-menu-container"&gt;
+              &lt;a href="#" class="off-canvas-link"&gt;Sección 1&lt;/a&gt;
+              &lt;a href="#" class="off-canvas-link"&gt;Sección 2&lt;/a&gt;
+              &lt;a href="#" class="off-canvas-link"&gt;Sección 3&lt;/a&gt;
+              &lt;a href="#" class="off-canvas-link"&gt;Sección 4&lt;/a&gt;
+              &lt;a href="#" class="off-canvas-link"&gt;Sección 5&lt;/a&gt;
+            &lt;/div&gt;
+          &lt;/nav&gt;
+        </code>
+      </pre>
+      <pre>
+        <code class="language-css">
+          .off-canvas-btn {
+            position: fixed;
+            bottom: 1rem;
+            left: 1rem;
+            z-index: 999;
+            width: 3rem;
+            height: 3rem;
+            cursor: pointer;
+            /* opacity: 0.25; */
+            opacity: 0;
+          }
+          .off-canvas-burger {
+            position: fixed;
+            bottom: 1rem;
+            left: 1rem;
+            z-index: 998;
+            width: 3rem;
+            height: 0.6rem;
+            border-radius: 0.3rem;
+            background-color: #d00;
+            transform: rotate(0deg) translate(0, -1.2rem);
+            transform-origin: top left;
+            transition: transform 500ms ease, background-color 500ms ease;
+          }
+          .off-canvas-burger::before,
+          .off-canvas-burger::after {
+            content: "";
+            display: block;
+            width: 100%;
+            height: 0.6rem;
+            border-radius: 0.3rem;
+            background-color: #d00;
+            transition: transform 500ms ease;
+          }
+          .off-canvas-burger::before {
+            transform: rotate(0deg) translate(0, -0.9rem);
+            /* background-color: blue; */
+          }
+          .off-canvas-burger::after {
+            transform: rotate(0deg) translate(0, 0.3rem);
+            /* background-color: green; */
+          }
+          .off-canvas-btn:checked + .off-canvas-burger {
+            background-color: transparent;
+          }
+          .off-canvas-btn:checked + .off-canvas-burger::before {
+            transform: rotate(45deg) translate(0, 0);
+          }
+          .off-canvas-btn:checked + .off-canvas-burger::after {
+            transform: rotate(-45deg) translate(0.4rem, -0.5rem);
+          }
+          .off-canvas-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            z-index: 997;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #0008;
+            transition: transform 500ms ease-in-out;
+            /* transform: translate(0, -100%);
+            transform: translate(0, 100%);
+            transform: translate(100%, 0); */
+            transform: translate(-100%, 0);
+          }
+          .off-canvas-btn:checked ~ .off-canvas-menu {
+            transform: translate(0, 0);
+          }
+          .off-canvas-menu-container {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+          }
+          .off-canvas-link {
+            border-bottom: thin solid #d00;
+            padding: 2rem;
+            font-size: 1.5rem;
+            text-align: center;
+            text-decoration: none;
+            color: #fff;
+            transition: background-color 300ms ease;
+          }
+          .off-canvas-link:first-child {
+            border-top: thin solid #d00;
+          }
+          .off-canvas-link:hover {
+            background-color: #d005;
+          }
+        </code>
+      </pre>
+
+      <input type="checkbox" class="off-canvas-btn" id="">
+      <label class="off-canvas-burger"></label>
+      <nav class="off-canvas-menu">
+        <div class="off-canvas-menu-container">
+          <a href="#" class="off-canvas-link">Sección 1</a>
+          <a href="#" class="off-canvas-link">Sección 2</a>
+          <a href="#" class="off-canvas-link">Sección 3</a>
+          <a href="#" class="off-canvas-link">Sección 4</a>
+          <a href="#" class="off-canvas-link">Sección 5</a>
+        </div>
+      </nav>
+
+      <hr>
+
+      <h3>Ventana Modal</h3>
+
+      <pre>
+        <code class="language-html">
+          &lt;a href="#modal-1"&gt;Abrir Modal&lt;/a&gt;
+          &lt;article id="modal-1" class="modal"&gt;
+            &lt;div class="modal-container"&gt;
+              &lt;a href="#cerrar" class="modal-close"&gt;X&lt;/a&gt;
+              &lt;h2&gt;Esto es una ventana modal&lt;/h2&gt;
+              &lt;p&gt;
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Enim amet quibusdam necessitatibus quia magni nam
+                asperiores rem eum corrupti vero modi officia at, commodi, fugit facilis? Qui, sit iure. Blanditiis!
+              &lt;/p&gt;
+              &lt;ul&gt;
+                &lt;li&gt;&lt;a href=""&gt;Enlace&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href=""&gt;Enlace&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href=""&gt;Enlace&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href=""&gt;Enlace&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href=""&gt;Enlace&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href=""&gt;Enlace&lt;/a&gt;&lt;/li&gt;
+              &lt;/ul&gt;
+            &lt;/div&gt;
+          &lt;/article&gt;
+        </code>
+      </pre>
+      <pre>
+        <code class="language-css">
+          .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            z-index: 997;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #0008;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 500ms ease-in-out;
+          }
+          .modal:target {
+            opacity: 1;
+            pointer-events: auto;
+          }
+          .modal-container {
+            position: relative;
+            border: thick double #d00;
+            border-radius: 1rem;
+            padding: 2rem;
+            width: 70%;
+            height: 70vh;
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+            overflow: hidden;
+            background-color: #fff;
+          }
+          .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            width: 3rem;
+            height: 3rem;
+            border-radius: 50%;
+            font-size: 2rem;
+            font-weight: bold;
+            text-align: center;
+            text-decoration: none;
+            line-height: 3rem;
+            color: #fff;
+            background-color: #d00;
+            transition: background-color 300ms linear, transform 300ms ease-in-out;
+          }
+          .modal-close:hover {
+            background-color: #a00;
+            transform: scale(1.2);
+          }
+        </code>
+      </pre>
+
+      <a href="#modal-1">Abrir Modal</a>
+      <article id="modal-1" class="modal">
+        <div class="modal-container">
+          <a href="#cerrar" class="modal-close">X</a>
+          <h2>Esto es una ventana modal</h2>
+          <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Enim amet quibusdam necessitatibus quia magni
+            nam asperiores rem eum corrupti vero modi officia at, commodi, fugit facilis? Qui, sit iure. Blanditiis!
+          </p>
+          <ul>
+            <li><a href="">Enlace</a></li>
+            <li><a href="">Enlace</a></li>
+            <li><a href="">Enlace</a></li>
+            <li><a href="">Enlace</a></li>
+            <li><a href="">Enlace</a></li>
+            <li><a href="">Enlace</a></li>
+          </ul>
+        </div>
+      </article>
+
+      <hr>
+
+      <h3>Star Wars Intro</h3>
+
+      <pre>
+        <code class="language-html">
+          &lt;article class="star-wars"&gt;
+            &lt;div class="star-wars-container"&gt;
+              &lt;h2&gt;Episode III&lt;/h2&gt;
+              &lt;h3&gt;REVENGE OF THE SITH&lt;/h3&gt;
+              &lt;p&gt;
+                War! The Republic is crumbling
+                under attacks by the ruthless
+                Sith Lord, Count Dooku.
+                There are heroes on both sides.
+                Evil is everywhere.
+              &lt;/p&gt;
+              &lt;p&gt;
+                In a stunning move, the
+                fiendish droid leader, General
+                Grievous, has swept into the
+                Republic capital and kidnapped
+                Chancellor Palpatine, leader of
+                the Galactic Senate.
+              &lt;/p&gt;
+              &lt;p&gt;
+                As the Separatist Droid Army
+                attempts to flee the besieged
+                capital with their valuable
+                hostage, two Jedi Knights lead a
+                desperate mission to rescue the
+                captive Chancellor....
+              &lt;/p&gt;
+            &lt;/div&gt;
+          &lt;/article&gt;
+        </code>
+      </pre>
+      <pre>
+        <code class="language-css">
+          @keyframes introStarWars {
+            0% {
+              transform: perspective(100vh) rotateX(15deg) translateY(100%);
+            }
+            100% {
+              transform: perspective(100vh) rotateX(25deg) translateY(-200%);
+            }
+          }
+          .star-wars {
+            margin-left: auto;
+            margin-right: auto;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            color: #ffb13a;
+            background-image: url("/assets/images/stars.gif");
+          }
+          .star-wars-container {
+            margin-left: auto;
+            margin-right: auto;
+            width: 80%;
+            text-align: justify;
+            letter-spacing: 0.1rem;
+            animation: introStarWars 20s linear infinite;
+          }
+          .star-wars h2,
+          .star-wars h3 {
+            font-size: 5vw;
+            text-align: center;
+          }
+          .star-wars p {
+            font-size: 3vw;
+            line-height: 4rem;
+          }
+        </code>
+      </pre>
+      <article class="star-wars">
+        <div class="star-wars-container">
+          <h2>Episode III</h2>
+          <h3>REVENGE OF THE SITH</h3>
+          <p>
+            War! The Republic is crumbling
+            under attacks by the ruthless
+            Sith Lord, Count Dooku.
+            There are heroes on both sides.
+            Evil is everywhere.
+          </p>
+          <p>
+            In a stunning move, the
+            fiendish droid leader, General
+            Grievous, has swept into the
+            Republic capital and kidnapped
+            Chancellor Palpatine, leader of
+            the Galactic Senate.
+          </p>
+          <p>
+            As the Separatist Droid Army
+            attempts to flee the besieged
+            capital with their valuable
+            hostage, two Jedi Knights lead a
+            desperate mission to rescue the
+            captive Chancellor....
+          </p>
+        </div>
+      </article>
+    </section>
+
+    <button class="scroll-top-btn hidden">&#11014;</button>
+    <hr>
+  </main>
+
+  <section class="pagination">
+    <article class="pagination-item">
+      <a href="/pages/css/scroll-snap-slides.html">
+        <i class="material-icons">arrow_back</i>Ajustes de scroll
+      </a>
+    </article>
+    <article class="pagination-item">
+      <a href="/pages/css/index.html#indice">Tabla de contenido CSS
+        <i class="material-icons">arrow_upward</i>
+      </a>
+    </article>
+    <article class="pagination-item">
+      <a href="/pages/css/responsive-design.html">Responsive Design
+        <i class="material-icons">arrow_forward</i>
+      </a>
+    </article>
+  </section>
+
+  <footer>
+  Copyright © 2022 TiDev. All rights reserved.
+</footer>
+
+  <script src="/js/index_dom.js" type="module"></script>
+  <script src="/js/prism.js"></script>
+</body>
+
+</html>
