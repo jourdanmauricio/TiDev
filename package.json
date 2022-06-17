@@ -1,18 +1,19 @@
 {
-  "name": "sergey-dev-web",
+  "homepage": "https://jourdanmauricio.github.io/TiDev",
+  "name": "TiDev",
   "version": "1.0.0",
   "description": "",
   "main": "index.html",
   "dependencies": {
-    "gh-pages": "^4.0.0",
     "sergey": "0.0.13"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "gh-pages": "^4.0.0"
+  },
   "scripts": {
     "start": "sergey",
     "dev": "sergey --watch",
     "deploy": "gh-pages -d public"
-
   },
   "author": "Mauricio Jourdán",
   "license": "MIT"
