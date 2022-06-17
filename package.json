@@ -10,7 +10,9 @@
   "devDependencies": {},
   "scripts": {
     "start": "sergey",
-    "dev": "sergey --watch"
+    "dev": "sergey --watch",
+    "deploy": "gh-pages -d public"
+
   },
   "author": "Mauricio Jourdán",
   "license": "MIT"
