@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.html",
   "dependencies": {
+    "gh-pages": "^4.0.0",
     "sergey": "0.0.13"
   },
   "devDependencies": {},
