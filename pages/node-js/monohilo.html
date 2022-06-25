@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <sergey-import src="metas/statics" />
+  <sergey-import src="metas/titles">Monohilo: implicaciones en diseño y seguridad</sergey-import>
+  <meta name="description"
+    content="Esta página contiene los fundamentos básicos de CSS, utilízala como guía de referencia">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/menu.css">
+  <link rel="stylesheet" href="/css/prism.css" />
+  <!-- <link rel="stylesheet" href="/css/nodejs/node-js.css"> -->
+</head>
+
+<body>
+  <sergey-import src="header" />
+
+  <main class="container">
+    <section id="monohilo">
+      <h1>Monohilo: implicaciones en diseño y seguridad</h1>
+
+      <h2>La ejecución más simple</h2>
+
+      <p>Cuando ejecutamos un programa a través de node. Se levanta un proceso de node, que interpreta todo el archivo,
+        lo convierte a código máquina y prepara lo necesario para la ejecución. Una vez finalizada la ejecución del
+        código máquina el proceso se cierra.</p>
+      <pre>
+        <code class="language-javascript">
+          console.log(&#x27;Hola...&#x27;);
+        </code>
+      </pre>
+
+      <h2>Bucles infinitos</h2>
+
+      <p>Podemos ejecutar un programa que no finalice, un bucle infinito. El event loop queda abierto y escuchando
+        eventos.</p>
+
+      <pre>
+        <code class="language-javascript">
+          setInterval(() ⇒ { console.log(&#x27;Sigo activo&#x27;) }, 1000);
+        </code>
+      </pre>
+
+      <p>Una de las desventajas del proceso de un hilo es que si una de las tareas provoca un error el proceso se
+        detiene. Debemos gestionar los errores a través de excepciones para que el proceso no finalice. Tenemos que
+        sanitizar los parámetros, validar los datos de entrada, etc. Dependiendo de la complejidad de la tarea puede
+        generar problemas importantes. Supongamos que estamos migrando datos entre sistemas, y por un dato incorrecto, o
+        nulo nuestro proceso finaliza inesperadamente. ¿Cuáles son los datos que migraron y cuáles no? ¿Desde donde
+        debemos continuar la migración?.</p>
+
+      <h2>Ejecución asíncrona</h2>
+
+      <pre>
+        <code class="language-javascript">
+          console.log(&#x27;Primer sentencia&#x27;);
+          setInterval(() ⇒ { console.log(&#x27;Bucle&#x27;) }, 1000);
+          console.log(&#x27;Sentencia final&#x27;);
+        </code>
+      </pre>
+
+      <p>Utilizando procesamiento síncrono y de un solo hilo la sentencia final no será ejecutada nunca, porque el hilo
+        quedará bloqueado en el bucle.</p>
+      <p>En Node, se ejecutará la primer sentencia, se enviará al thread pool el bucle para que ejecute cuando le
+        corresponda (x cada segundo), y se ejecutará la sentencia final. </p>
+    </section>
+    <hr>
+  </main>
+
+  <section class="pagination">
+    <article class="pagination-item">
+      <a href="/pages/node-js/event-loop.html"><i class="material-icons">arrow_back</i>EventLoop</a>
+    </article>
+    <article class="pagination-item">
+      <a href="/pages/node-js/index.html">Tabla de contenido Node js
+        <i class="material-icons">arrow_upward</i>
+      </a>
+    </article>
+    <article class="pagination-item">
+      <a href="/pages/node-js/entorno.html">Variables de entorno
+        <i class="material-icons">arrow_forward</i>
+      </a>
+    </article>
+  </section>
+  <sergey-import src="footer" />
+  <script src="/js/prism.js"></script>
+</body>
+
+</html>

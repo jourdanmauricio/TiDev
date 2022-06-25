@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <sergey-import src="metas/statics" />
+  <sergey-import src="metas/titles">Introducción Fundamentos Node js</sergey-import>
+  <meta name="description"
+    content="Esta página contiene los fundamentos básicos de CSS, utilízala como guía de referencia">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/menu.css">
+  <!-- <link rel="stylesheet" href="/css/nodejs/node-js.css"> -->
+</head>
+
+<body>
+  <sergey-import src="header" />
+
+  <main class="container">
+    <section>
+      <h1 id="introduction">Introducción Fundamentos Node js</h1>
+      <p><strong>NodeJS es un entorno de ejecución de JavaScript fuera del navegador</strong>. Se crea en 2009,
+        orientado a servidores. Es muy importante que esté fuera del navegador debido a que ya no es necesario un
+        navegador web para ejecutar código JavaScript.</p>
+      <p>Características principales de JavaScript:</p>
+      <ul>
+        <li><strong>Concurrencia</strong>: Es monohilo, con entradas y salidas asíncronas. </li>
+        <li><strong>Motor V8</strong>: Creado por Google en 2008 para Chrome. Escrito en C++. Convierte JS en código
+          máquina en lugar de interpretarlo en tiempo real.</li>
+        <li>Todo funciona en base a <strong>Módulos</strong>, que son piezas de código muy pequeñas que modularizan
+          nuestros sistemas y ayudan a entender mejor el código.</li>
+        <li><strong>Orientación a Eventos</strong>, existe un bucle de eventos que se ejecuta constantemente. Lo que nos
+          permite programar de forma reactiva, lo que quiere decir que podemos programar con la lógica de “Cuando sucede
+          algo, se ejecuta esta parte de mi código y eso a su vez dispara otra parte”.</li>
+      </ul>
+    </section>
+    <hr>
+  </main>
+
+  <section class="pagination">
+    <!-- <article class="pagination-item">
+    <a href="#indice"><i class="material-icons">arrow_back</i>Tabla de contenido</a>
+  </article> -->
+    <article class="pagination-item">
+      <a href="/pages/node-js/index.html">Tabla de contenido Node js
+        <i class="material-icons">arrow_upward</i>
+      </a>
+    </article>
+    <article class="pagination-item">
+      <a href="/pages/node-js/event-loop.html">EventLoop: asíncrona por diseño
+        <i class="material-icons">arrow_forward</i>
+      </a>
+    </article>
+  </section>
+  <sergey-import src="footer" />
+  <!-- <script src="/js/prism.js"></script> -->
+</body>
+
+</html>

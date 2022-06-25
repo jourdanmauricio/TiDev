@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <sergey-import src="metas/statics" />
+  <sergey-import src="metas/titles">Herramientas: Nodemon y PM2</sergey-import>
+  <meta name="description"
+    content="Esta página contiene los fundamentos básicos de CSS, utilízala como guía de referencia">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/menu.css">
+  <link rel="stylesheet" href="/css/prism.css" />
+  <!-- <link rel="stylesheet" href="/css/nodejs/node-js.css"> -->
+</head>
+
+<body>
+  <sergey-import src="header" />
+
+  <main class="container">
+    <section id="herramientas">
+      <h1>Herramientas para ser más felices: Nodemon y PM2</h1>
+
+      <h2>Herramientas para ser más felices: Nodemon y PM2</h2>
+
+      <h3>nodemon</h3>
+
+      <p><a href="https://nodemon.io/">Nodemon</a> es una herramienta de código abierto que controla cualquier cambio en
+        el código fuente y reinicia el proceso automáticamente.Es un demonio (daemon) que se encuentra corriendo y cada
+        vez que detecte un cambio relanza la ejecución del proceso. </p>
+
+      <pre>
+        <code class="language-bash">
+          npm install -g nodemon
+        </code>
+      </pre>
+
+      <p>Cambie <strong>nodemon</strong> en lugar de <strong>nodo</strong> para ejecutar su código, y ahora su proceso
+        se reiniciará automáticamente cuando cambie su código. Para instalar, obtenga <a
+          href="https://nodejs.org/">Node.js</a>, luego desde su terminal ejecute: </p>
+
+      <pre>
+        <code class="language-bash">
+          /* Ejecutamos con */
+          nodemon variables_entorno.js
+        </code>
+      </pre>
+
+      <h3>PM2</h3>
+
+      <p><a href="https://pm2.keymetrics.io/">PM2</a> es similar a nodemon pero es más compleja y nos permite ejecución
+        de aplicación en cluster, monitoreo de aplicaciones, mantener logs separados, relanza procesos ante
+        cancelaciones, etc. No se utiliza en desarollo, es una herramienta para producción.</p>
+
+      <pre>
+        <code class="language-bash">
+          npm install pm2 -g
+        </code>
+      </pre>
+      <pre>
+        <code class="language-bash">
+          /* Ejecución */
+          pm2 start variables_entorno.js
+        </code>
+      </pre>
+    </section>
+    <hr>
+  </main>
+
+  <section class="pagination">
+    <article class="pagination-item">
+      <a href="/pages/node-js/monohilo.html"><i class="material-icons">arrow_back</i>Monohilo: diseño y seguridad</a>
+    </article>
+    <article class="pagination-item">
+      <a href="/pages/node-js/index.html">Tabla de contenido Node js
+        <i class="material-icons">arrow_upward</i>
+      </a>
+    </article>
+    <article class="pagination-item">
+      <a href="/pages/node-js/globales.html">Módulos Globales
+        <i class="material-icons">arrow_forward</i>
+      </a>
+    </article>
+  </section>
+  <sergey-import src="footer" />
+  <script src="/js/prism.js"></script>
+</body>
+
+</html>

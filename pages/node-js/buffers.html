@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <sergey-import src="metas/statics" />
+  <sergey-import src="metas/titles">Buffers</sergey-import>
+  <meta name="description"
+    content="Esta página contiene los fundamentos básicos de CSS, utilízala como guía de referencia">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/menu.css">
+  <link rel="stylesheet" href="/css/prism.css" />
+  <!-- <link rel="stylesheet" href="/css/nodejs/node-js.css"> -->
+</head>
+
+<body>
+  <sergey-import src="header" />
+
+  <main class="container">
+    <section id="herramientas">
+      <h1>Buffers</h1>
+
+      <h2>Que son los buffers?</h2>
+
+      <p>Son datos en binarios que van viniendo y se van moviendo de un dato para otro.</p>
+
+      <h3>¿Por qué Buffers?</h3>
+
+      <p>JavaScript puro, aunque es excelente con cadenas codificadas en Unicode, no maneja muy bien datos binarios
+        directos. Esto está bien en el navegador, donde la mayoría de los datos están en forma de cadenas. Sin embargo,
+        los servidores de Node.js también tienen que lidiar con flujos de TCP y leer y escribir en el sistema de
+        archivos, lo cual hace que sea necesario lidiar con flujos de datos puramente binarios.</p>
+      <p>Una forma de manejar este problema es simplemente usar
+        cadenas de <em>todos modos</em> , que es exactamente lo que hizo Node.js al principio. Sin embargo, trabajar con
+        este enfoque es extremadamente problemático; Es lento, te hace trabajar con una API diseñada para cadenas y no
+        para datos binarios, y tiene tendencia a romperse de formas extrañas y misteriosas.</p>
+      <p>No uses cadenas binarias. ¡Utilice <em>búferes en su</em>
+        lugar!</p>
+
+      <h3>¿Qué son los búferes?</h3>
+
+      <p>La <code>Buffer</code>clase en Node.js está diseñada para
+        manejar datos binarios sin procesar. Cada búfer corresponde a una parte de la memoria bruta asignada fuera de
+        V8. Los búferes actúan como matrices de números enteros, pero no se pueden cambiar de tamaño y tienen un montón
+        de métodos específicamente para datos binarios. Los enteros en un búfer representan cada uno un byte y, por lo
+        tanto, están limitados a valores de 0 a 255 inclusive. Cuando utilice <code>console.log()</code>para imprimir
+        la <code>Buffer</code>instancia, obtendrá una cadena de valores en valores hexadecimales.</p>
+
+      <h3>Dónde ves búferes:</h3>
+
+      <p>En la naturaleza, los búferes generalmente se ven en el
+        contexto de datos binarios provenientes de secuencias, como <code>fs.createReadStream</code>.</p>
+
+      <h2>Utilidad en la vida real</h2>
+
+      <p>Las variables tienen un límite de lo que pueden contener.
+        Además de un tipo asociado, y muchas funciones en su prototipo. El buffer es abstracto de todo eso, y
+        simplemente tiene el dato en crudo. Luego lo puedes transformar en lo que quieras.</p>
+      <p>Además, el buffer puede tener un dato parcial en lugar de
+        completo. En la próxima clase veremos cómo usarlo junto a un Stream.</p>
+
+      <pre>
+        <code class="language-javascript">
+          console.clear();
+
+          // Vamos a guardar un trocito de memoria (en este caso se denota como argumento de la función, ahí dentro)
+          // let buffer = Buffer.alloc(1)
+
+          // Con from, podemos pasar un arreglo y estos serán los datos del buffer
+          // let buffer = Buffer.from([1,2,3])
+
+          // Con from, también podemos pasar cadenas, y esta se guardará como su información binaria y será expresada en hexadecimal
+          let buffer = Buffer.from(&quot;Hola&quot;)
+
+          // console.log(buffer)
+
+          // Los Buffers nos permiten trabajar con datos en su version mas cruda, sin tipos ni nada mas. 
+          // --
+          let abc = Buffer.alloc(26)
+          console.log(abc);
+
+          for( let i = 0; i &lt; 26 ; i++ ) {
+              abc[i] = i + 97
+          }
+
+          console.log(abc.toString());
+        </code>
+      </pre>
+    </section>
+    <hr>
+  </main>
+
+  <section class="pagination">
+    <article class="pagination-item">
+      <a href="/pages/node-js/store-data.html">
+        <i class="material-icons">arrow_back</i>Datos almacenados vs en memoria</a>
+    </article>
+    <article class="pagination-item">
+      <a href="/pages/node-js/index.html">Tabla de contenido Node js
+        <i class="material-icons">arrow_upward</i>
+      </a>
+    </article>
+    <article class="pagination-item">
+      <a href="/pages/node-js/streams.html">Streams
+        <i class="material-icons">arrow_forward</i></a>
+    </article>
+  </section>
+  <sergey-import src="footer" />
+  <script src="/js/prism.js"></script>
+</body>
+
+</html>

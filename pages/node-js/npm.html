@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <sergey-import src="metas/statics" />
+  <sergey-import src="metas/titles">Gestión de paquetes: NPM y package.json</sergey-import>
+  <meta name="description"
+    content="Esta página contiene los fundamentos básicos de CSS, utilízala como guía de referencia">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/menu.css">
+  <link rel="stylesheet" href="/css/prism.css" />
+  <!-- <link rel="stylesheet" href="/css/nodejs/node-js.css"> -->
+</head>
+
+<body>
+  <sergey-import src="header" />
+
+  <main class="container">
+    <section id="herramientas">
+      <h1>Gestión de paquetes: NPM y package.json</h1>
+
+      <p><strong>npm</strong> (Node Package Manager) es un administrador de paquetes que permiten ejecutar funciones ya
+        realizadas y validadas y de esta manera acelerar y asegurar la calidad de nuestro proceso de desarrollo.</p>
+      <p>Podemos buscar módulos para casi todo en: <a href="https://www.npmjs.com/">npm</a></p>
+
+      <pre>
+        <code class="languaje-bash">
+// Para instalar un modulo de npm en nuestro proyecto
+$ npm install is-odd
+  
+// Para requerir el modulo
+const isOdd = require(&#x27;is-odd&#x27;);
+console.log(isOdd(3)); // true
+  
+// Para revisar que los paquetes no estan actualizados a nivel global dentro de nuestro proyecto
+npm outdated -g --depth=0
+/* 
+Va a imprimir algo así:
+Package         Current  Wanted  Latest  Location
+firebase-tools    8.0.1   8.0.2   8.0.2  global
+npm              6.13.7  6.14.4  6.14.4  global
+*/
+  
+// Para actualizar todos los paquetes a nivel global dentro del proyecto
+npm update -g
+        </code>
+      </pre>
+    </section>
+    <hr>
+  </main>
+
+  <section class="pagination">
+    <article class="pagination-item">
+      <a href="/pages/node-js/globales.html"><i class="material-icons">arrow_back</i>Módulos Globales</a>
+    </article>
+    <article class="pagination-item">
+      <a href="/pages/node-js/index.html">Tabla de contenido Node js
+        <i class="material-icons">arrow_upward</i>
+      </a>
+    </article>
+    <article class="pagination-item">
+      <a href="/pages/node-js/modulos.html">módulos: Require e Import
+        <i class="material-icons">arrow_forward</i></a>
+    </article>
+  </section>
+  <sergey-import src="footer" />
+  <script src="/js/prism.js"></script>
+</body>
+
+</html>

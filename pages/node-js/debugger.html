@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <sergey-import src="metas/statics" />
+  <sergey-import src="metas/titles">Debugger</sergey-import>
+  <meta name="description"
+    content="Esta página contiene los fundamentos básicos de CSS, utilízala como guía de referencia">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/menu.css">
+  <link rel="stylesheet" href="/css/prism.css" />
+  <!-- <link rel="stylesheet" href="/css/nodejs/node-js.css"> -->
+</head>
+
+<body>
+  <sergey-import src="header" />
+
+  <main class="container">
+    <section id="benchmarking">
+      <h1>Debugger</h1>
+
+      <p>Node.js viene integrado con un modo de debug para poder conectarnos desde cualquier herramienta de inspección
+        de código a nuestro código de node.js.</p>
+      <p>Podemos utilizar en la terminal el flag de <code>--inspect</code> con <strong>nodemon</strong></p>
+      <pre>
+        <code class="language-bash">
+npx nodemon --inspect http.js
+        </code>
+      </pre>
+
+      <p>Para poder acceder a debugger de chrome vamos a la url <em><strong>chrome://inspect/#devices</strong></em>
+        y le dan a <em>inspect</em> en el remote target que quieres inspeccionar.</p>
+
+      <figure>
+        <img src="/assets/images/node-js/fundamentos-nodejs_3.png" alt="debugger">
+        <figcaption>Debugger</figcaption>
+      </figure>
+
+      <hr>
+      <h2>Error First Callbacks</h2>
+
+      <p>Un patrón que se sigue siempre en cualquier lenguaje y programa de devs es <strong>Error First
+          Callbacks</strong>, esto quiere decir que siempre que tengamos un callback el primer parámetro debería ser el
+        error.</p>
+
+      <blockquote>😭 Esto se usa por la convención de que todo puede fallar.</blockquote>
+
+      <p>Otro patrón típico es tener el callback es tener en el callback como la última función que se pasa. Aunque
+        depende del caso.</p>
+
+      <pre>
+        <code class="language-javascript">
+          function asincrona(callback) {
+            setTimeout(() =&gt; {
+                try {
+                    let a = 3 + w
+                    callback(null, a)
+                } catch (error) {
+                    callback(error)
+                }
+            }, 1000)
+          }
+      
+          asincrona((err, dato) =&gt; {
+            if (err) {
+                console.error('Tenemos un error')
+                console.error(err)
+                return false
+            
+                // throw err
+            }
+      
+            console.log(`Todo ha ido bien, mi dato es ${dato}`)
+          })
+        </code>
+      </pre>
+
+      <hr>
+
+      <h2>Scraping</h2>
+
+      <p>Web scraping es una técnica utilizada mediante programas de software para extraer información de sitios web.
+        Usualmente, estos programas simulan la navegación de un humano en la World Wide Web ya sea utilizando el
+        protocolo HTTP manualmente, o incrustando un navegador en una aplicación.</p>
+
+      <pre>
+        <code class="language-javascript">
+          const puppeteer = require('puppeteer');
+      
+          (async () =&gt; {
+              console.log('Lanzando navegador');
+              //const browser = await puppeteer.launch();
+              const browser = await puppeteer.launch( {headless: false });
+
+              const page = await browser.newPage();
+              await page.goto('https://es.wikipedia.org/wiki/Node.js')
+
+              var titulo1 = await page.evaluate(() =&gt; {
+                  const h1 = document.querySelector('h1');
+                  console.log(h1.innerHTML);
+                  return h1.innerHTML;
+              });
+            
+              console.log(titulo1);
+            
+              console.log('Cerrando navegador');
+              browser.close();
+              console.log('Navegador cerrado');
+
+          })();
+        </code>
+      </pre>
+      <p>Con Puppeteer no solo podemos leer la información de la
+        pagina, también podemos lazar eventos de click para editar o ejecutar acciones en dicha pagina, una ves lo
+        utilice para cargar una pagina, buscar un boton y clickearlo, para despues agarrar un texto que aparecía en
+        pantalla la cual era una token y utilizar esta en mis request. Aparte con Puppeteer podemos crear PDFs a patir
+        de HTML, entre otras cosas!</p>
+      <p><a href="https://www.npmjs.com/package/puppeteer">Puppeteer</a> fue desarrollado por google, recuerdo haber
+        visto el directo cuando lo presentaron, dele un ojo a su npm, es muy útil el poder saber todas las posibilidades
+        de ese, así tienen mas maneras de solucionar sus problemas!</p>
+
+      <hr>
+
+      <h2>Automatización de procesos</h2>
+
+      <p><strong>Que es gulp.js?</strong> 📖🖥💥</p>
+      <p>Es una herramienta de construcción en JavaScript construida sobre flujos de nodos . Estos flujos facilitan la
+        conexión de operaciones de archivos a través de canalizaciones . Gulp lee el sistema de archivos y canaliza los
+        datos disponibles de un complemento de un solo propósito a otro a través del .pipe()operador, haciendo una tarea
+        a la vez. Los archivos originales no se ven afectados hasta que se procesan todos los complementos. Se puede
+        configurar para modificar los archivos originales o para crear nuevos. Esto otorga la capacidad de realizar
+        tareas complejas mediante la vinculación de sus numerosos complementos. Los usuarios también pueden escribir sus
+        propios complementos para definir sus propias tareas.</p>
+
+      <hr>
+
+      <h2>Automatización de procesos</h2>
+
+      <p>Pueden ser:</p>
+
+      <ul>
+        <li style="list-style-type:disc">Procesos de consola</li>
+        <li style="list-style-type:disc">Procesos con paquetes externos</li>
+      </ul>
+
+      <p>Existen distintos módulos externos que nos ayudan en la automatización de procesos, sin embargo,
+        <code>gulp</code> es una herramienta muy completa para este tipo de tareas.
+      </p>
+
+      <h3>Instalación</h3>
+
+      <pre>
+        <code class="language-bash">
+          npm i gulp gulp-server-livereload
+        </code>
+      </pre>
+
+      <h3>Utilización</h3>
+
+      <pre>
+        <code class="language-javascript">
+          // Importar el módulo en el archivo gulpfile.js .
+          const gulp = require('gulp');
+          // Crear la tarea que se va a automatizar.
+          gulp.task('build', (cb) =&gt; {
+            console.log('Building the site');
+            setTimeout(cb, 1200);
+          });
+          // Crear un script personalizado en el package.json.
+          &quot;scripts&quot;: {
+              &quot;test&quot;: &quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;,
+              &quot;build&quot;: &quot;gulp build&quot;
+            }
+          //Correr el script.
+          npm run build
+      
+          /* 
+          Output:
+            &gt; automatization@1.0.0 build
+            &gt; gulp build
+
+            [16:15:03] Using gulpfile ~/personalProjects/course-nodejs-basis/src/tools/automatization/gulpfile.js
+            [16:15:03] Starting 'build'...
+            Building the site
+            [16:15:04] Finished 'build' after 1.21 s
+          */
+        </code>
+      </pre>
+
+      <p><strong>Otros scripts</strong> </p>
+
+      <pre>
+        <code class="language-javascript">
+          jsx
+          gulp.task('serve', (cb) =&gt; {
+            gulp.src('www').pipe(
+              server({
+                livereload: false,
+                open: true,
+              })
+            );
+          });
+        </code>
+      </pre>
+
+      <p>Crea una tarea llamada <code>serve</code> y en la función utiliza métodos de <code>gulp</code> como el
+        <code>src</code> que permite dar el inicio de la ruta del lugar dónde se obtiene la información. En este caso es
+        un servidor y empieza por <code>www</code>.
+      </p>
+      <p>Luego se concatena con el método <code>pipe()</code> la información que crea el módulo
+        <code>gulp-server-livereload</code> que puede recibir algunas propiedades de configuración como
+        <code>livereload</code> o <code>open</code> .
+      </p>
+      <p>En caso de querer ejecutar 2 tareas seguidas se puede hacer
+        lo siguiente en el archivo <code>gulpfile.js</code>:</p>
+      <pre>
+        <code class="language-javascrpt">
+          gulp.task('default', gulp.series('build', 'serve'));
+        </code>
+      </pre>
+      <p>El nombre <code>default</code> en el primer argumento de la tarea permite que no se deba poner nombre a esta,
+        sino que sea la tarea a ejecutar por defecto.</p>
+      <p>Y luego en el <code>package.json</code> deberás poner lo siguiente:</p>
+      <pre>
+        <code class="language-javascript">
+          &quot;scripts&quot;: {
+            &quot;test&quot;: &quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;,
+            &quot;start&quot;: &quot;gulp&quot;,
+          },
+        </code>
+      </pre>
+
+    </section>
+    <hr>
+  </main>
+
+  <section class="pagination">
+    <article class="pagination-item">
+      <a href="/pages/node-js/benchmarking.html">
+        <i class="material-icons">arrow_back</i>Benchmarking (console time y timeEnd)</a>
+    </article>
+    <article class="pagination-item">
+      <a href="/pages/node-js/index.html">Tabla de contenido Node js
+        <i class="material-icons">arrow_upward</i>
+      </a>
+    </article>
+    <!-- <article class="pagination-item">
+      <a href="/pages/node-js/monohilo.html">Monohilo: diseño y seguridad <i
+          class="material-icons">arrow_forward</i></a>
+    </article> -->
+  </section>
+  <sergey-import src="footer" />
+  <script src="/js/prism.js"></script>
+</body>
+
+</html>

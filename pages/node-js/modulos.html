@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <sergey-import src="metas/statics" />
+  <sergey-import src="metas/titles">Construyendo módulos: Require e Import</sergey-import>
+  <meta name="description"
+    content="Esta página contiene los fundamentos básicos de CSS, utilízala como guía de referencia">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/menu.css">
+  <link rel="stylesheet" href="/css/prism.css" />
+  <!-- <link rel="stylesheet" href="/css/nodejs/node-js.css"> -->
+</head>
+
+<body>
+  <sergey-import src="header" />
+
+  <main class="container">
+    <section id="herramientas">
+      <h1>Construyendo módulos: Require e Import</h1>
+
+      <p>Para importar modulos propios o de terceros, debemos utilizar el <code>require</code> o <code>import</code>
+        (import se considera experimental en versiones antiguas de node)</p>
+
+      <p>// Modulo</p>
+
+      <pre>
+        <code class="language-javascript">
+          function suma(a, b) { return a + b};
+          function saludar(nombre) { return `Hola ${nombre}`}
+          const PI = 3.14159264
+        
+          module.exports = { suma, saludar, PI }
+        </code>
+      </pre>
+
+      <p>//Importación</p>
+
+      <pre>
+        <code class="language-javascript">
+          const { suma, saludar, PI } = require(...path_module)
+          suma(3,2)
+          saludar(&#x27;Jesuskinto&#x27;)
+          console.log(`Pi es un constante y su valor es: ${PI}`)
+        </code>
+      </pre>
+
+      <hr />
+
+      <p>En Node tenemos una forma de importar módulos la cual es con el método require, el cual es la forma por defecto
+        de importar módulos, ya sean nuestros propios módulos como los de otras personas en nuestros proyectos JS, pero
+        suele haber mucha confusión debido al import.Import es la forma de importar módulos en Ecmascript, el cual es un
+        estándar de JavaScript para la web, esta forma de importar en teoría Node no la acepta oficialmente, a no ser
+        que usemos su modo de .mjs.Pero gracias a compiladores como Babel, nosotros podremos utilizar estas normas de
+        Ecmascript en nuestro código para cuando se ejecute se transforme en código que sea aceptable por Node.Se
+        recomienda en la mayoría de veces la importación con require.</p>
+
+    </section>
+    <hr>
+  </main>
+
+  <section class="pagination">
+    <article class="pagination-item">
+      <a href="/pages/node-js/npm.html">
+        <i class="material-icons">arrow_back</i>Gestión de paquetes</a>
+    </article>
+    <article class="pagination-item">
+      <a href="/pages/node-js/index.html">Tabla de contenido Node js
+        <i class="material-icons">arrow_upward</i>
+      </a>
+    </article>
+    <article class="pagination-item">
+      <a href="/pages/node-js/utils.html">Módulos útiles
+        <i class="material-icons">arrow_forward</i></a>
+    </article>
+  </section>
+  <sergey-import src="footer" />
+  <script src="/js/prism.js"></script>
+</body>
+
+</html>

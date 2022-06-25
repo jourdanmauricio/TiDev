@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <sergey-import src="metas/statics" />
+  <sergey-import src="metas/titles">Streams</sergey-import>
+  <meta name="description"
+    content="Esta página contiene los fundamentos básicos de CSS, utilízala como guía de referencia">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/menu.css">
+  <link rel="stylesheet" href="/css/prism.css" />
+  <!-- <link rel="stylesheet" href="/css/nodejs/node-js.css"> -->
+</head>
+
+<body>
+  <sergey-import src="header" />
+
+  <main class="container">
+    <section id="streams">
+      <h1>Streams</h1>
+
+      <p>Las <strong>Streams</strong> son colecciones de datos, como matrices o cadenas. La diferencia es que las
+        transmisiones pueden no estar disponibles de una vez y no tienen que caber en la memoria. Esto hace que las
+        transmisiones sean realmente poderosas cuando se trabaja con grandes cantidades de datos, o datos que provienen
+        de una fuente externa o un fragmento a la vez.</p>
+
+      <pre>
+        <code class="language-javascript">
+          const fs = require(&#x27;fs&#x27;);
+          const server = require(&#x27;http&#x27;).createServer();
+      
+          server.on(&#x27;request&#x27;, (req, res) =&gt; {
+            const src = fs.createReadStream(&#x27;./big.file&#x27;);
+            src.pipe(res);
+          });
+      
+          server.listen(8000);
+        </code>
+      </pre>
+
+      <p id="52a9fba1-54ff-4041-a2b1-b31c84c9b866" class="">Cuando un cliente solicita ese archivo grande, lo
+        transmitimos un fragmento a la vez, lo que significa que no lo almacenamos en la memoria intermedia.</p>
+
+      <hr />
+
+      <p>Un <strong>stream</strong> es el proceso de ir consumiendo datos al tiempo que se están recibiendo. En palabras
+        del profesor, es el paso de datos entre un punto y otro. </p>
+
+      <pre>
+        <code class="language-javascript">
+          const fs = require(&#x27;fs&#x27;)
+
+          let data = &#x27;&#x27;
+          let readableStream = fs.createReadStream(__dirname + &#x27;/input.txt&#x27;)
+      
+          readableStream.setEncoding(&#x27;UTF8&#x27;)
+          readableStream.on(&#x27;data&#x27;, chunk =&gt; data += chunk)
+
+          readableStream.on(&#x27;end&#x27;, () =&gt; console.log(data))
+        </code>
+      </pre>
+
+      <p>En estos casos podemos escribir en buffer de la salida del sistema, <code>process.stdout</code> es un buffer de
+        escritura en que empieza a trabajar para generar todo esto. </p>
+
+      <pre>
+        <code class="language-javascript">
+          process.stdout.write(&#x27;hola&#x27;)
+          process.stdout.write(&#x27;que&#x27;)
+          process.stdout.write(&#x27;tal&#x27;)
+        </code>
+      </pre>
+
+      <p>Para usar los streams, podemos usarlos de la siguiente forma </p>
+
+      <pre>
+        <code class="language-javascript">
+          const Transform = stream.Transform
+      
+          function Upper() {
+              Transform.call(this)
+          }
+
+          util.inherits(Upper, Transform)
+
+          Upper.prototype._transform = function (chunk, codif, cb) {
+              chunkUpper = chunk.toString().toUpperCase()
+          
+              this.push(chunkUpper)
+              cb()
+          }
+
+          let upper = new Upper()
+
+          readableStream
+              .pipe(upper)
+              .pipe(process.stdout)
+        </code>
+      </pre>
+    </section>
+    <hr>
+  </main>
+
+  <section class="pagination">
+    <article class="pagination-item">
+      <a href="/pages/node-js/buffers.html">
+        <i class="material-icons">arrow_back</i>Buffers</a>
+    </article>
+    <article class="pagination-item">
+      <a href="/pages/node-js/index.html">Tabla de contenido Node js
+        <i class="material-icons">arrow_upward</i>
+      </a>
+    </article>
+    <article class="pagination-item">
+      <a href="/pages/node-js/benchmarking.html">Benchmarking
+        <i class="material-icons">arrow_forward</i></a>
+    </article>
+  </section>
+  <sergey-import src="footer" />
+  <script src="/js/prism.js"></script>
+</body>
+
+</html>

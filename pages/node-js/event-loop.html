@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <sergey-import src="metas/statics" />
+  <sergey-import src="metas/titles">EventLoop: asíncrona por diseño</sergey-import>
+  <meta name="description"
+    content="Esta página contiene los fundamentos básicos de CSS, utilízala como guía de referencia">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/menu.css">
+  <!-- <link rel="stylesheet" href="/css/nodejs/node-js.css"> -->
+</head>
+
+<body>
+  <sergey-import src="header" />
+
+  <main class="container">
+    <section id="event-loop">
+      <h1>EventLoop: asíncrona por diseño</h1>
+      <p>Evento loop es un bucle que gestiona de forma asíncrona y automática de todos los eventos de tu aplicación. El
+        blucle no se bloquea, recibe peticiones en todo momento, por esto es altamente concurrente. Todos las tareas que
+        reciba el bucle se ejecutarán aparte para que puede seguir recibiendo peticiones. Es altamente concurrente.</p>
+      <p>El bucle de eventos (event loop) es un bucle infinito que recibe eventos desde la cola de eventos (event
+        queue). La cola de eventos contiene todas las instrucciones de nuestro código, que se envían una a una al bucle
+        de eventos. El bucle de eventos procesará los eventos. Si puede, resuelve la tarea, si la tarea es asíncrona la
+        envía al Thread pool. </p>
+      <p>Las operaciones de bases de datos, que trabajan con archivos, las operaciones muy lentas no bloquean el hilo
+        principal, el event loop continúa funcionando y cada hilo se encarga de gestionar sus procesos lentos
+        (asíncronos).</p>
+      <p>Esta característica diferencia a Node js de otros lenguajes de servidor como PHP, Phyton, o Java. Algunos
+        lenguajes son síncronos y las operaciones se ejecutan una detrás de otra, y cuanto más complejas son las
+        operaciones más tiempo demorarán las demás. Node js permite ejecutar tareas en paralelo.</p>
+      <p>El thread pool levanta un hilo nuevo en el procesador por cada tarea que tenga que ejecutar. Cuando la tarea
+        finaliza el hilo dispara un evento al thread pool que será enviado al event loop. Y, el event loop evaluará si
+        devolverlo al event queue porque puede haber algún proceso escuchando para generar una nueva función. </p>
+      <figure>
+        <img src="/assets/images/node-js/fundamentos-nodejs_2.png" alt="EventLoop">
+        <figcaption>EventLoop</figcaption>
+      </figure>
+      <p>Es importante entender el concepto de asincronía. Puede ocurrir que finalice una instrucción antes que otra que
+        era anterior. Si una tarea es compleja se delega, y continúa la ejecución.</p>
+      <p>Las desventajas se encuentran relacionadas a seguridad, gestión de errores, etc.</p>
+    </section>
+    <hr>
+  </main>
+
+  <section class="pagination">
+    <article class="pagination-item">
+      <a href="/pages/node-js/introduccion.html"><i class="material-icons">arrow_back</i>Introducción</a>
+    </article>
+    <article class="pagination-item">
+      <a href="/pages/node-js/index.html">Tabla de contenido Node js
+        <i class="material-icons">arrow_upward</i>
+      </a>
+    </article>
+    <article class="pagination-item">
+      <a href="/pages/node-js/monohilo.html">Monohilo: diseño y seguridad
+        <i class="material-icons">arrow_forward</i>
+      </a>
+    </article>
+  </section>
+  <sergey-import src="footer" />
+  <script src="/js/prism.js"></script>
+</body>
+
+</html>

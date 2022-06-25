@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <sergey-import src="metas/statics" />
+  <sergey-import src="metas/titles">Módulos Globales</sergey-import>
+  <meta name="description"
+    content="Esta página contiene los fundamentos básicos de CSS, utilízala como guía de referencia">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/menu.css">
+  <link rel="stylesheet" href="/css/prism.css" />
+  <!-- <link rel="stylesheet" href="/css/nodejs/node-js.css"> -->
+</head>
+
+<body>
+  <sergey-import src="header" />
+
+  <main class="container">
+    <section id="herramientas">
+      <h1>Módulos Globales</h1>
+
+      <p>El core de Node incorpora módulos globales que podemos utilizar sin realizar importaciones.</p>
+
+      <h2 id="global">Global</h2>
+
+      <p>Global es el objeto donde se encuentran los módulos globales. </p>
+      <p>Node funciona a base de módulos, los módulos son el código que permite a Node tener ciertas funcionalidades.
+      </p>
+      <p>Para que Node funcione correctamente siempre ha de tener sus módulos globales, son aquellos módulos que nos
+        permiten usar la mayoría de funcionalidades básicas y complejas que conocemos de Node, como setTimeout,
+        setInerval, etc.</p>
+      <p>Estos módulos los podemos usar sin necesidad de importarlos explícitamente en nuestro código, pueden ser usados
+        en cualquier archivo de Node.</p>
+      <p>Algunos módulos globales:</p>
+
+      <ul class="bulleted-list">
+        <li>setInterval</li>
+        <li>setImmediate</li>
+        <li>require</li>
+        <li>__dirname</li>
+        <li>__filename</li>
+      </ul>
+
+      <h2 id="file-system">File system</h2>
+
+      <p>El <strong>file system</strong> provee una API para interactuar con el sistema de archivos cerca del estándar
+        POSIX. POSIX es el estándar para interfaces de comando y shell, las siglas las significan: “Interfaz de sistema
+        operativo portátil” la X de POSIX es por UNIX.</p>
+      <p>El file system nos permite acceder archivo del sistema, leer, modificar, escribirlos, es muy útil para
+        precompiladores, para lo que requiera hacer grabados de disco, o bases de datos en node requieren un uso
+        intensivo de Node. Todo lo que hagamos con módulos por buenas prácticas son asíncronos, pero tienen una versión
+        síncrona no recomendada pues pordría bloquear el event loop con más facilidad.</p>
+      <p>Para ver más sobre la documentación de <a
+          href="https://nodejs.org/dist/latest-v12.x/docs/api/fs.html#fs_file_system">FileSystem Docs</a></p>
+
+      <pre>
+        <code class="language-javascript">
+          const fs = require('fs');
+
+          function leer(ruta, cb) {
+              fs.readFile(ruta, (err, data) =&gt; {
+                  cb(data.toString());
+              })
+          }
+
+          function escribir(ruta, contenido, cb) {
+              fs.writeFile(ruta, contenido, function (err) {
+                  if (err) {
+                      console.error( 'No he podido escribirlo ', err);
+                  } else {
+                      console.log( 'Se ha escrito correctamente ');
+                  }
+                
+              });
+          }
+
+          function borrar(ruta, cb) {
+              fs.unlink(ruta, cb);
+          }
+
+          // escribir(__dirname +  '/archivo1.txt ',  'Soy un archivo nuevo ', console.log);
+          // leer(__dirname +  '/archivo1.txt ', console.log)
+          borrar(__dirname +  '/archivo1.txt ', console.log);
+        </code> 
+      </pre>
+
+      <h2 id="console">Console</h2>
+
+      <p>Con console podemos imprimir todo tipo de valores pornuestra terminal.</p>
+
+      <ul>
+        <li><strong>console.log</strong>: recibe cualquier tipo y lo muestra en el consola. </li>
+        <li><strong>console.info</strong>: es equivalente a log pero es usado para informar.</li>
+        <li><strong>console.error</strong>: es equivalente a log pero es usado para errores.</li>
+        <li><strong>console.warn</strong>: es equivalente a log pero es usado para warning. </li>
+        <li><strong>console.table</strong>: muestra una tabla a partir de un objeto.</li>
+        <li><strong>console.count</strong>: inicia un contador autoincremental.</li>
+        <li><strong>console.countReset</strong>: reinicia el contador a 0.</li>
+        <li><strong>console.time</strong>: inicia un cronometro en ms.</li>
+        <li><strong>console.timeEnd</strong>: Finaliza el cronometro.</li>
+        <li><strong>console.group</strong>: permite agrupar errores mediante identación. </li>
+        <li><strong>console.groupEnd</strong>: finaliza la agrupación.</li>
+        <li><strong>console.clear</strong>: Limpia la consola.</li>
+      </ul>
+
+      <pre>
+        <code class="language-javascript">
+          // console.log()
+          //imprime algo en consola
+          console.log('Hola!');
+        
+          // console.info()
+          // es un alias de console.log
+          console.log('Hola! (pero con .info)...');
+        
+          // console.warn()
+          // imprime una advertencia en consola;
+          console.warn('Este sitio utiliza cookies ' +  'Este es un console.warn');
+        
+          // console.error()
+          //imprime un error en consola
+          const code = 5;
+          console.error('Hubo otro error ', code);
+          console.error(new Error ('Así también se declara un error'));
+        
+          // console.table()
+          // Tabula un grupo de datos 
+          const usuario = [
+            {
+                nombre:  'Luis',
+                apellido:  'Lora',
+                edad: 22
+            },
+            {
+                nombre:  'Agustín',
+                apellido:  'Morán',
+                edad: 19
+            }
+          ]
+          console.table(usuario);
+        
+          // console.group() &amp; console.groupEnd()
+          // Agrupa una cantidad de datos en consola
+          const dias = ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'];
+              
+          console.group('diasSemana')
+          for (let i = 0; i &lt; dias.length; i++) {
+            console.log(dias[i]);
+          };
+          console.groupEnd('diasSemana')
+        
+          // console.clear()
+          // Límpia la consola
+          function limpiarConsola () {
+            setTimeout(() =&gt; {
+                console.clear('Limpiando cada 5 segs');
+            }, 10000)
+          }
+          limpiarConsola();
+        
+          // console.count() &amp; console.countReset()
+          // Cuenta la cantidad de veces que se ejecuta algo
+          console.count('Veces');
+          console.count('Veces');
+          console.countReset('Veces');
+          console.count('Veces');
+          console.count('Veces');
+        
+          // console.time() &amp; console.timeEnd()
+          // determina el tiempo que demora un proceso en ocurrir
+          console.time('100-elementos')
+          for (let i = 0; i &lt; 100; i++){
+          };
+
+          console.timeEnd('100-elementos')
+        </code>
+      </pre>
+
+      <h2 id="errors">Errores (try / catch)</h2>
+
+      <p>Cuando se genera un error, node propaga el error hacia arriba, hasta que esta es caputado. si el error no se
+        captura node se detiene.</p>
+
+      <blockquote>Siempre que sea posible debemos capturar todos los errores que se puedan generar en nuestros hilos.
+      </blockquote>
+
+      <p>Node permite caputar los errores:</p>
+
+      <pre>
+        <code class="language-javascript">
+          const badfunction = () =&gt; 5 + z;
+          try {
+              badfunction()
+          } catch (error) {
+              console.log( 'bad function ha fallado ')
+              console.error(error.message)
+          }
+          console.log( 'continuamos... ')
+        </code>
+      </pre>
+
+      <p>Si deseamos manejar errores asíncronos:</p>
+
+      <pre>
+        <code class="language-javascript">
+          function badfunction() {
+            setImmediate(() =&gt; {
+                try {
+                    return 5 + z
+                } catch (error) {
+                    console.log( 'bad function ha fallado ')
+                    console.error(error.message)
+                    console.log( 'continuamos... ')
+                }
+            });
+          }
+          badfunction()
+        </code>
+      </pre>
+
+      <h2 id="child-process">Procesos hijo</h2>
+
+      <p>El módulo de procesos secundarios de Node.js (<strong>child_process</strong>) tiene dos funciones
+        <strong>spawn</strong> y <strong>exec</strong>, mediante las cuales podemos iniciar un proceso secundario para
+        ejecutar otros programas en el sistema.
+      </p>
+      <p>La diferencia más significativa entre child_process.spawn y child_process.exec está en lo que spawn devuelve un
+        stream y exec devuelve un buffer.</p>
+
+      <ul>
+        <li>Usa <strong>spawn</strong> cuando quieras que el proceso hijo devuelva datos binarios enormes a Node.</li>
+        <li>Usa <strong>exec</strong> cuando quieras que el proceso hijo devuelva mensajes de estado simples.</li>
+        <li>Usa <strong>spawn</strong> cuando quieras recibir datos desde que el proceso arranca.</li>
+        <li>Usa <strong>exec</strong> cuando solo quieras recibir datos al final de la ejecución.</li>
+      </ul>
+
+      <p>Un buen blog para revisar mas del tema: <a
+          href="https://blog.michelletorres.mx/diferencia-entre-spawn-y-exec-de-child_process-de-nodejs/">Diferencia
+          entre spawn y exec de child_process de NodeJS - michelletorres</a></p>
+      <hr />
+      <p>En node podemos crear procesos hijos que ejecuten cualquier accion de nuestro sistema operativo, como si nos
+        encontraramos en la linea de comandos.</p>
+      <p>Podemos llamar a <code>exec</code> para ejecuciones sencillas:</p>
+
+      <pre>
+        <code class="language-javascript">
+          const { exec } = require( 'child_process ')
+          exec( 'ls ', (e, stdout) =&gt; {
+            (e) ?
+            console.log(e) :
+            console.log(stdout)
+          })
+        </code>
+      </pre>
+
+      <p>Podemos llamar a <code>spawn</code> para obtener el proceso: <em>La ventaja de este enfoque es que obtienes
+          mayor control del proceso, y del estado en el que se encuenta:</em></p>
+
+      <pre>
+        <code class="language-javascript">
+          const { spawn } = require('child_process')
+          const myprocess = spawn( 'ls')
+        
+          process.stdout.on( 'data', data =&gt; console.log(data.toString()));
+          process.on( 'exit', () =&gt; console.log( 'process end'));
+        </code>
+      </pre>
+
+      <h2 id="http">HTTP</h2>
+
+      <p>Node nos ofrece el modulo HTTP el cual nos permite principalmente crear un servidor en nuestro computador.</p>
+      <p>En este modulo encontraremos todo lo necesario que necesitamos para crear un sistema de rutas, que responderá
+        cada ruta, los header que podrá mandar, etc.</p>
+      <p>Uno de los métodos principales de este modulo es createServer, el cual nos permitirá abrir un puerto para crear
+        el servidor.</p>
+
+      <pre>
+        <code class="language-javascript">
+          cont htttp = require ('http') 
+          // importamos el modulo
+          // es recomenado no inicializar la funcion aqui por los callbacks
+          http.createServer( (req,res) =&gt; { // se le da 2 parametros request y response
+            console.log('nueva peticion') 
+            console.log(request.url) // immprimimos la url de la petición
+            
+            //escribir respuesta al usuario
+            res.write( 'hola ya se responer')
+            // escribir en la cabezara   
+            res.writeHead(201, { 'Content-Type ':  'text/plain '}); 
+            // codigo de autenricación y el tipo de contentido
+            res.end() 
+          }).listen(3000); // terminamos la petición y ponemos el puerto
+            
+          switch (req.url) {
+            case  '/hola ':
+                res.write( '\n\rHola desde la ruta '+ req.url);
+                res.end();
+                break;
+            default:
+                res.write( '\n\rError 404 ');
+                res.end();
+          }
+          console.info( 'escuchando 3000 ');
+        </code>
+      </pre>
+
+      <h2 id="os">OS</h2>
+
+      <p>El modulo de Node para OS me permite acceder a elementos de muy bajo nivel, y es útil en diferentes contextos.
+      </p>
+
+      <pre>
+        <code class="language-javascript">
+          const os = require( 'os ');
+        
+          console.log(os.hostname()); //  Voy a saber el hostname de la máquina
+          console.log(os.networkInterfaces()); // Puedo acceder a mi interfaz de red activas en mi máquina, puedo saber  IPVX
+          console.log(os.tmpdir()); //--&gt;Me muestra los directorios temporales, temproales una imagen que voy a procesar
+          console.log(os.homedir()); // Me permite saber cual es el directorio raíz
+          console.log(os.arch()); //--&gt; Me devuelve la arquitecura de mi OS
+          console.log(os.platform()); //--&gt; Me dice en qué plataforma estoy
+          console.log(os.cpus()); //--&gt;podemos acceder a la información de las cpus de mi pc.
+          console.log(os.constants); //--&gt;  Me muestran todos los errores de sistema.
+          
+          
+          //Acceder a espacios de memoria es muy útil para saber si tengo a memoria suficiente para realizar esta operación.
+          console.log(os.freemem()); // --&gt; Me dice en bytes la memoria libre que tenemos
+          // console.log(kb(os.freemem()));
+          // console.log(mb(os.freemem()));
+          // console.log(gb(os.freemem()));
+          console.log(gb(os.totalmem())); // --&gt; Me muestra la memoria disponible del pc.
+          
+          const SIZE = 1024;
+          function kb(bytes) { return bytes / SIZE }
+          function mb(bytes) { return kb(bytes) / SIZE }
+          function gb(bytes) { return mb(bytes) / SIZE }
+        </code>
+      </pre>
+
+      <h2 id="process">Process</h2>
+
+      <p>Podremos entender y ver qué pasa con el Process, podremos escuchar señales, escuchar lo que necesitemos y
+        después hacer cosas con ellos.</p>
+      <p>Podemos hacer <em>require</em> para obtener <strong>process</strong></p>
+
+      <pre>
+        <code class="language-javascript">
+          const process = require('process');
+        </code>
+      </pre>
+
+      <p>Pero lo anterior no es necesario, ya que <strong>process</strong> es una variable global.</p>
+
+      <ul>
+        <li><strong>beforeExit</strong> → Es para enviar algo antes que pare un proceso. </li>
+        <li><strong>exit</strong> → Es para matar un proceso.</li>
+        <li><strong>uncaughtException</strong> → Permite capturar cualquier error que no
+          fue caputurado previamente.</li>
+        <li><strong>uncaughtRejection</strong> → Permite capturar cualquier error de
+          promesas que se han rechazado.</li>
+      </ul>
+
+      <pre>
+        <code class="language-javascript">
+          /* - Process. Asi puedes acceder a los procesos de node señales, eventos, escucharlos */
+          /* const process = require('process'); */
+          /* process viene en nuestros modulos globales no hace falta hacer un require para llamarlo */
+          /* Esto ejecuta algo justo antes de terminar el proceso de node */
+        
+          process.on('beforeExit', () =&gt; {
+              console.log('Ale, el proceso va a terminar');
+          })
+        
+          process.on(' ');
+        
+          /* Asi enviamos codigo una vez finalice el proceso de node */
+          process.on('exit', () =&gt; {
+              console.log('Ale, el proceso acabo');
+              /* Por lo que el proceso a finalizado ya estamos desconectados del event loop esto nofuncionaria */
+              setTimeout(() =&gt; {
+                  console.log('Esto no se va a ver nunca');
+              },0);
+              console.log('Pero de forma sincrona si podemos seguir camellando')
+          });
+        
+          setTimeout(() =&gt; {
+              console.log('Esto si se va a ver');
+          },0);
+
+          /* Asi se escucha cuando no hay un tryatch o excepciones que no se an capturado */
+
+          process.on('uncaughtException', (err, origen) =&gt; {
+              console.error('Valla se nos ha olvidado capturar un error');
+              console.error(err);
+              setTimeout(() =&gt; {
+                  console.log('Esto viene desde las excepciones');
+              },0);
+          });
+        
+          /* Esto es una funcion no definida para que genere un error  y se ejecute el  uncaughtException */
+          funcionQueNoexiste();
+        
+          console.log('Esto si el error no se recoje, no sale');
+        </code>
+      </pre>
+
+    </section>
+    <hr>
+  </main>
+
+  <section class="pagination">
+    <article class="pagination-item">
+      <a href="/pages/node-js/herramientas.html"><i class="material-icons">arrow_back</i> Herramientas: Nodemon y PM2
+      </a>
+    </article>
+    <article class="pagination-item">
+      <a href="/pages/node-js/index.html">Tabla de contenido Node js
+        <i class="material-icons">arrow_upward</i>
+      </a>
+    </article>
+    <article class="pagination-item">
+      <a href="/pages/node-js/npm.html">Gestión de paquetes
+        <i class="material-icons">arrow_forward</i></a>
+    </article>
+  </section>
+  <sergey-import src="footer" />
+  <script src="/js/prism.js"></script>
+</body>
+
+</html>

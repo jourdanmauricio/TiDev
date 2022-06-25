@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <sergey-import src="metas/statics" />
+  <sergey-import src="metas/titles">Configurar las variables de entorno</sergey-import>
+  <meta name="description"
+    content="Esta página contiene los fundamentos básicos de CSS, utilízala como guía de referencia">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/menu.css">
+  <link rel="stylesheet" href="/css/prism.css" />
+  <!-- <link rel="stylesheet" href="/css/nodejs/node-js.css"> -->
+</head>
+
+<body>
+  <sergey-import src="header" />
+
+  <main class="container">
+    <section id="entorno">
+      <h1>Configurar las variables de entorno en Node.js</h1>
+
+      <p>Las variables de entorno son una forma de llevar información de afuera a nuestro software. Se utiliza para
+        definir parámetros sencillos de configuración de los programas. Ejemplo: podemos enviar el modo de ejecución del
+        ambiente sin necesidad de modificar el código fuente, la url de una API que consulte nuestra aplicación, o
+        información sensible como un token, o claves de acceso que no podemos hardcodear en nuestro código. El código no
+        debe guardar ningún tipo de credenciales o valores que vayan a cambiar. Para esto utilizamos las variables de
+        entorno.</p>
+      <pre>
+        <code class="language-javascript">
+          /* variables_entorno.js */
+          let name = process.env.NAME;
+          console.log('Hola ' + name + '!');
+        </code>
+      </pre>
+      <pre>
+        <code class="language-javascript">
+          /* Ejecutamos */
+          NOMBRE = 'Mauricio' 
+          node variables_entorno.js 
+        </code> 
+      </pre>
+
+      <p>JavaScript tiene la opción de utilizar valores por defecto: </p>
+
+      <pre>
+        <code class="language-javascript">
+          /* variables_entorno.js */
+          let name = process.env.NAME || 'invitado';
+          console.log('Hola ' + name + '!');
+        </code>
+      </pre>
+
+      <p>Si queremos pasar más de una variable:</p>
+
+      <pre>
+        <code class="language-javascript">
+          /* variables_entorno.js */
+          let name = process.env.NAME || 'invitado';
+          let web = process.env.WEB || 'sin web';
+
+          console.log('Hola ' + name + '!');
+          console.log('Mi página web es: ' + web);
+        </code>
+      </pre>
+
+      <pre>
+        <code class="language-javascript">
+          /* Ejecutamos */
+          NOMBRE = 'Mauricio' 
+          WEB='mi_web.com' 
+          node variables_entorno.js 
+        </code>
+      </pre>
+
+      <blockquote>Por convención las variables de entorno se escriben en mayúsculas y en caso de tener mas de una
+        palabra se separan con guión bajo '_'.</blockquote>
+
+    </section>
+    <hr>
+  </main>
+
+  <section class="pagination">
+    <article class="pagination-item">
+      <a href="/pages/node-js/monohilo.html"><i class="material-icons">arrow_back</i>Monohilo: diseño y seguridad</a>
+    </article>
+    <article class="pagination-item">
+      <a href="/pages/node-js/index.html">Tabla de contenido Node js
+        <i class="material-icons">arrow_upward</i>
+      </a>
+    </article>
+    <article class="pagination-item">
+      <a href="/pages/node-js/herramientas.html">Herramientas: Nodemon y PM2
+        <i class="material-icons">arrow_forward</i>
+      </a>
+    </article>
+  </section>
+  <sergey-import src="footer" />
+  <script src="/js/prism.js"></script>
+</body>
+
+</html>

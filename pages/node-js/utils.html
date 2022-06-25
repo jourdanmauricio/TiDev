@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <sergey-import src="metas/statics" />
+  <sergey-import src="metas/titles">Módulos útiles</sergey-import>
+  <meta name="description"
+    content="Esta página contiene los fundamentos básicos de CSS, utilízala como guía de referencia">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/menu.css">
+  <link rel="stylesheet" href="/css/prism.css" />
+  <!-- <link rel="stylesheet" href="/css/nodejs/node-js.css"> -->
+</head>
+
+<body>
+  <sergey-import src="header" />
+
+  <main class="container">
+    <section id="herramientas">
+      <h1>Módulos útiles</h1>
+
+      <p>Módulos que utilizaremos frecuentemente en nuestras aplicaciones como:</p>
+      <p><em><strong>bycript</strong></em>: Permite encriptar un string generando un hash.</p>
+      <p><em><strong>bycript.hash</strong></em>: Genera el hash del string, este método recibe por parámetros el string
+        a encriptar, las veces que debe ejecutarse el script para generar un hash aleatorio y por ultimo una función que
+        se encarga de capturar hash o el error que se presente. </p>
+      <p><em><strong>bycript.compare</strong></em>: Permite comprar el hash con el string a encriptado y nos devuelve
+        un true o false.<code>bycript.compare</code> recibe por parámetros el string a encriptado, luego el hash y por
+        ultimo una función que captura la información o el error que se presente.</p>
+
+      <pre>
+        <code class="language-javascript">
+          //importamos el modulo
+          const bcrypt = require(&#x27;bcrypt&#x27;);
+          //declaramos el pass o palabra a encriptar
+          const passworld = &#x27;1234Segura&#x27;;
+          //bcrypt.hash no permite generar un hash
+          bcrypt.hash(passworld, 10, function(error, hash) {
+            console.log(hash);
+          //bcrypt.compare nos devuelve un boleano si hash y contraseña son iguales
+            bcrypt.compare(passworld, hash, function(err, res) {
+              console.log(res)
+            });
+          });
+        </code>
+      </pre>
+
+      <p><em><strong>moment</strong></em>: Logramos manipular fechas de manera
+        eficiente.<em><strong>moment.format</strong></em>: Podemos darle un formato adecuado a nuestra fecha.
+      </p>
+
+      <pre>
+        <code class="language-javascript">
+          //importamos el modulo
+          const moment = require(&#x27;moment&#x27;);
+  
+          let ahora = moment();
+          //establecemos el formato a usar
+          let ahoraFormat = ahora.format(&#x27;HH:mm:ss&#x27;);
+    
+          console.log(ahoraFormat);
+        </code>
+      </pre>
+
+      <p><em><strong>sharp</strong></em>: Permite trabajar con imágenes</p>
+
+      <pre>
+        <code class="language-javascript">
+          //importamos el modulo
+          const sharp = require(&#x27;sharp&#x27;);
+          //ruta de la imagen a modificar
+          sharp(&#x27;fondo-carro.jpg&#x27;)
+          //scalamos la imagen a 500 de alto
+            .resize(500)
+          //otorgamos una escala de grises
+            .grayscale()
+          //generamos el archivo modificado
+            .toFile(&#x27;fondo-carro-small.jpg&#x27;);
+        </code>
+      </pre>
+    </section>
+    <hr>
+  </main>
+
+  <section class="pagination">
+    <article class="pagination-item">
+      <a href="/pages/node-js/modulos.html">
+        <i class="material-icons">arrow_back</i>Módulos: Require e Import</a>
+    </article>
+    <article class="pagination-item">
+      <a href="/pages/node-js/index.html">Tabla de contenido Node js
+        <i class="material-icons">arrow_upward</i>
+      </a>
+    </article>
+    <article class="pagination-item">
+      <a href="/pages/node-js/store-data.html">Datos almacenados vs en memoria
+        <i class="material-icons">arrow_forward</i></a>
+    </article>
+  </section>
+  <sergey-import src="footer" />
+  <script src="/js/prism.js"></script>
+</body>
+
+</html>

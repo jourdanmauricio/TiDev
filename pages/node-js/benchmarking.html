@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <sergey-import src="metas/statics" />
+  <sergey-import src="metas/titles">Benchmarking (console time y timeEnd)</sergey-import>
+  <meta name="description"
+    content="Esta página contiene los fundamentos básicos de CSS, utilízala como guía de referencia">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/menu.css">
+  <link rel="stylesheet" href="/css/prism.css" />
+  <!-- <link rel="stylesheet" href="/css/nodejs/node-js.css"> -->
+</head>
+
+<body>
+  <sergey-import src="header" />
+
+  <main class="container">
+    <section id="benchmarking">
+      <h1>Benchmarking (console time y timeEnd)</h1>
+
+      <p>La función <strong>console.time('nombre') </strong> inicia un temporizador que se puede usar para rastrear
+        cuánto tiempo dura una operación. El temporizador sera identificado por el <em>nombre</em> dado a la consola.
+        Ese mismo nombre se utilizara cuando se llame a
+        <strong> console.timeEnd(</strong><em><strong>'nombre'</strong></em><strong>)</strong> para detener el
+        temporizador y obtener el tiempo demorado durante el proceso.
+      </p>
+
+      <pre>
+        <code class="language-javascript">
+          console.time('Temporizador');
+          for (var i = 0; i &lt; 10000; i++) {
+            // Nuestro codigo entre los temporizadores puede ser cualquier cosa.
+          }
+          console.timeEnd('Temporizador');
+        </code>
+      </pre>
+
+      <hr />
+
+      <pre>
+        <code class="language-javascript">
+          console.time('todo');
+          let suma = 0;
+        
+          console.time('bucle1');
+          for (let i = 0; i &lt; 1000000000; i++) {
+              suma++;
+          }
+          console.timeEnd('bucle1');
+          
+          let suma2 = 0;
+          console.time('bucle2');
+          for (let i = 0; i &lt; 10000000000; i++) {
+              suma2++;
+          }
+          console.timeEnd('bucle2');
+          
+          console.time('asincrona');
+          console.log('inicia asincrono');
+          asincrona()
+              .then ( () =&gt; {
+                  console.timeEnd('asincrona');
+              })
+        
+          console.timeEnd('todo');
+        
+          //-------------------
+        
+          function asincrona() {
+              return new Promise ( (resolve) =&gt; {
+                  setTimeout(() =&gt; {
+                      console.log('Termina el proceso asincrono');
+                      resolve();
+                  }, 1000);
+              })
+          }
+        </code>
+      </pre>
+
+    </section>
+    <hr>
+  </main>
+
+  <section class="pagination">
+    <article class="pagination-item">
+      <a href="/pages/node-js/streams.html">
+        <i class="material-icons">arrow_back</i>Streams</a>
+    </article>
+    <article class="pagination-item">
+      <a href="/pages/node-js/index.html">Tabla de contenido Node js
+        <i class="material-icons">arrow_upward</i>
+      </a>
+    </article>
+    <article class="pagination-item">
+      <a href="/pages/node-js/debugger.html">Debugger <i class="material-icons">arrow_forward</i></a>
+    </article>
+  </section>
+  <sergey-import src="footer" />
+  <script src="/js/prism.js"></script>
+</body>
+
+</html>
